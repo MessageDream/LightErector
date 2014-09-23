@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
 		B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
 		B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88719D156DB00215E70 /* CoreGraphics.framework */; };
 		B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
@@ -28,7 +29,6 @@
 		B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA7519D16C5B00215E70 /* BaseHttpConnect.m */; };
 		B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA7819D16C5B00215E70 /* HttpConnectRespones.m */; };
 		B2FDCB5219D16C5B00215E70 /* HttpErrorCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA7B19D16C5B00215E70 /* HttpErrorCodeManager.m */; };
-		B2FDCB5319D16C5B00215E70 /* HttpHead.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA7D19D16C5B00215E70 /* HttpHead.m */; };
 		B2FDCB5419D16C5B00215E70 /* BaseBusinessHttpConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA8019D16C5B00215E70 /* BaseBusinessHttpConnect.m */; };
 		B2FDCB5519D16C5B00215E70 /* BusinessHttpConnectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCA8219D16C5B00215E70 /* BusinessHttpConnectFactory.m */; };
 		B2FDCB5719D16C5B00215E70 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDCA9119D16C5B00215E70 /* libAFNetworking.a */; };
@@ -112,6 +112,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectWithNtspHeader.h; sourceTree = "<group>"; };
+		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
 		B2FDC88219D156DB00215E70 /* LightErector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightErector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FDC88519D156DB00215E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2FDC88719D156DB00215E70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,8 +153,6 @@
 		B2FDCA7919D16C5B00215E70 /* HttpErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpErrorCode.h; sourceTree = "<group>"; };
 		B2FDCA7A19D16C5B00215E70 /* HttpErrorCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpErrorCodeManager.h; sourceTree = "<group>"; };
 		B2FDCA7B19D16C5B00215E70 /* HttpErrorCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpErrorCodeManager.m; sourceTree = "<group>"; };
-		B2FDCA7C19D16C5B00215E70 /* HttpHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHead.h; sourceTree = "<group>"; };
-		B2FDCA7D19D16C5B00215E70 /* HttpHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHead.m; sourceTree = "<group>"; };
 		B2FDCA7F19D16C5B00215E70 /* BaseBusinessHttpConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBusinessHttpConnect.h; sourceTree = "<group>"; };
 		B2FDCA8019D16C5B00215E70 /* BaseBusinessHttpConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseBusinessHttpConnect.m; sourceTree = "<group>"; };
 		B2FDCA8119D16C5B00215E70 /* BusinessHttpConnectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectFactory.h; sourceTree = "<group>"; };
@@ -454,8 +454,8 @@
 		B2FDCA6F19D16C5B00215E70 /* HttpConnect */ = {
 			isa = PBXGroup;
 			children = (
-				B2FDCA7019D16C5B00215E70 /* BaseFileHttpConnect */,
 				B2FDCA7319D16C5B00215E70 /* BaseHttpConnect */,
+				B2FDCA7019D16C5B00215E70 /* BaseFileHttpConnect */,
 				B2FDCA7E19D16C5B00215E70 /* BusinessHttpConnect */,
 			);
 			path = HttpConnect;
@@ -481,8 +481,6 @@
 				B2FDCA7919D16C5B00215E70 /* HttpErrorCode.h */,
 				B2FDCA7A19D16C5B00215E70 /* HttpErrorCodeManager.h */,
 				B2FDCA7B19D16C5B00215E70 /* HttpErrorCodeManager.m */,
-				B2FDCA7C19D16C5B00215E70 /* HttpHead.h */,
-				B2FDCA7D19D16C5B00215E70 /* HttpHead.m */,
 			);
 			path = BaseHttpConnect;
 			sourceTree = "<group>";
@@ -490,6 +488,8 @@
 		B2FDCA7E19D16C5B00215E70 /* BusinessHttpConnect */ = {
 			isa = PBXGroup;
 			children = (
+				B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */,
+				B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */,
 				B2FDCA7F19D16C5B00215E70 /* BaseBusinessHttpConnect.h */,
 				B2FDCA8019D16C5B00215E70 /* BaseBusinessHttpConnect.m */,
 				B2FDCA8119D16C5B00215E70 /* BusinessHttpConnectFactory.h */,
@@ -1081,7 +1081,6 @@
 				B2FDCB8819D16C5B00215E70 /* NSTimer+Addition.m in Sources */,
 				B2FDCB8219D16C5B00215E70 /* CustomTextView.m in Sources */,
 				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
-				B2FDCB5319D16C5B00215E70 /* HttpHead.m in Sources */,
 				B2FDCB9C19D16C5B00215E70 /* test3View.m in Sources */,
 				B2FDCB5219D16C5B00215E70 /* HttpErrorCodeManager.m in Sources */,
 				B2FDCB9819D16C5B00215E70 /* test1View.m in Sources */,
@@ -1126,6 +1125,7 @@
 				B2FDCB7E19D16C5B00215E70 /* CustomSingleChooseCell.m in Sources */,
 				B2FDCB7519D16C5B00215E70 /* CustomMarqueeView.m in Sources */,
 				B2FDCB7219D16C5B00215E70 /* CustomArticleAlertView.m in Sources */,
+				B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */,
 				B2FDCB8019D16C5B00215E70 /* CustomPlaceHolderTextField.m in Sources */,
 				B2FDCB7819D16C5B00215E70 /* CustomMessageBox.m in Sources */,
 				B2FDCB6D19D16C5B00215E70 /* AttributedLabel.m in Sources */,
@@ -1359,6 +1359,7 @@
 				B2FDC8B019D156DB00215E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2FDC8B119D156DB00215E70 /* Build configuration list for PBXNativeTarget "LightErectorTests" */ = {
 			isa = XCConfigurationList;
@@ -1367,6 +1368,7 @@
 				B2FDC8B319D156DB00215E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

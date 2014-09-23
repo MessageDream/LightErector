@@ -7,7 +7,6 @@
 //
 
 #import "BaseHttpConnect.h"
-#import "HttpHead.h"
 
 @interface BaseHttpConnect()
 {
@@ -15,7 +14,6 @@
 }
 @end
 
-static AFHTTPClient *instances = nil;
 @implementation BaseHttpConnect
 @synthesize timeOut=_timeOut;
 @synthesize respones = _respones;
@@ -28,26 +26,16 @@ static AFHTTPClient *instances = nil;
 @synthesize stauts = _stauts;
 @synthesize errorCode = _errorCode;
 
-+(AFHTTPClient *)shareAFHttpClient:(NSString *)baseUrlString{
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instances =  [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:baseUrlString]];
-        [[instances operationQueue] setMaxConcurrentOperationCount:1];
-    });
-    
-    return instances;
-}
 
 - (id)init
 {
     if (self = [super init]) {
-        _resquestHeads = [[NSMutableArray alloc] init];
+        _resquestHeads = [[NSMutableDictionary alloc] init];
         //_respones = [[HttpConnectRespones alloc] init];
         // _body = [[NSDictionary alloc] init];
         _stauts = HttpContentStauts_WillStart;
         _errorCode = HttpErrorCode_None;
-        
+       
         __block BaseHttpConnect *blockSelf = self;
         
         _success=^(AFHTTPRequestOperation *operation, id responseObject){
@@ -107,11 +95,14 @@ static AFHTTPClient *instances = nil;
         return;
     }
     
-    AFHTTPClient *client = [BaseHttpConnect shareAFHttpClient:_baseUrl];
     NSMutableURLRequest *request;
-    
+    _client=   [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:_baseUrl]];
+    [[_client operationQueue] setMaxConcurrentOperationCount:1];
     if ([_resquestType isEqualToString:HTTP_REQUEST_POST]) {
-        request = [client multipartFormRequestWithMethod:_resquestType path:_requestPath parameters:_body constructingBodyWithBlock: ^(id formData) {
+        if ([[_resquestHeads objectForKey:HEADER_CONTENT_TYPE_NAME] isEqualToString:HEADER_CONTENT_TYPE_JSON_VALUE]) {
+            request=[_client requestWithMethod:_resquestType path:_requestPath parameters:_body];
+        }else{
+        request = [_client multipartFormRequestWithMethod:_resquestType path:_requestPath parameters:_body constructingBodyWithBlock: ^(id formData) {
             id multipartParts =  [_body objectForKey:kFormMltipart];
             if (multipartParts) {
                 if ([multipartParts isKindOfClass:[NSArray class]]) {
@@ -123,18 +114,16 @@ static AFHTTPClient *instances = nil;
                 }
             }
         }];
+        }
     }else{
-        request = [client requestWithMethod:_resquestType path:_requestPath parameters:_body];
+        request = [_client requestWithMethod:_resquestType path:_requestPath parameters:_body];
     }
     
     if (_resquestHeads != nil) {
-        for (int index=0; index<_resquestHeads.count; index++)
+        int headCount=_resquestHeads.allValues.count;
+        for (int index=0; index<headCount; index++)
         {
-            NSString* headValue = ((HttpHead*)[_resquestHeads objectAtIndex:index]).headValue;
-            if (headValue!=nil && headValue.length>0)
-            {
-                [client setDefaultHeader:((HttpHead*)[_resquestHeads objectAtIndex:index]).headName value:headValue];
-            }
+                [_client setDefaultHeader:[_resquestHeads.allKeys objectAtIndex:index] value:[_resquestHeads.allValues objectAtIndex:index]];
         }
     }
     _stauts = HttpContentStauts_WillStart;
@@ -154,7 +143,7 @@ static AFHTTPClient *instances = nil;
         [_requestOperation setUploadProgressBlock:_uploadProcess];
     }
     
-    [client enqueueHTTPRequestOperation:_requestOperation];
+    [_client enqueueHTTPRequestOperation:_requestOperation];
     
 }
 
@@ -199,13 +188,12 @@ static AFHTTPClient *instances = nil;
 
 - (void)closeConnect
 {
-    AFHTTPClient *client = [BaseHttpConnect shareAFHttpClient:nil];
 #ifdef DEBUG_LOG
-    NSLog(@"[client operationQueue]  -count - ----->%lu",(unsigned long)[[[client operationQueue] operations] count]);
+    NSLog(@"[client operationQueue]  -count - ----->%lu",(unsigned long)[[[_client operationQueue] operations] count]);
     //[DebugManager LogDebug:@"[client operationQueue]  -count - ----->%i",[[[client operationQueue] operations] count]];
 #endif
     
-    [[client operationQueue] cancelAllOperations];
+    [[_client operationQueue] cancelAllOperations];
 }
 
 

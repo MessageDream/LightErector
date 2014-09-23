@@ -12,41 +12,54 @@
 
 - (void)createBaseBussinessHeads
 {
-    HttpHead * headerContentType = [[HttpHead alloc] init];
-    HttpHead * headerContentEncoding = [[HttpHead alloc] init];
-    
-    headerContentType.headName = HEADER_CONTENT_TYPE_NAME;
-    headerContentType.headValue = HEADER_CONTENT_TYPE_VALUE;
-    
-    headerContentEncoding.headName = HEADER_CONTENT_LENGTH_NAME;
-    headerContentEncoding.headValue = HEADER_CONTENT_LENGTH_VALUE;
-    
-    [self.resquestHeads addObject:headerContentType];
-    [self.resquestHeads addObject:headerContentEncoding];
+    [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
+    [_resquestHeads setObject:HEADER_CONTENT_LENGTH_VALUE forKey:HEADER_CONTENT_LENGTH_NAME];
 }
 
-////创建消息体
-//- (void)createBaseBussinessHttpBody:(NSDictionary *)theParam
-//{
-//    NSError *theError;
-//    NSMutableDictionary * BaseBusinessHttpBodyDic;
-//    if(theParam!=nil)
-//        BaseBusinessHttpBodyDic = [[NSMutableDictionary alloc] initWithDictionary:theParam];
-//    else
-//        BaseBusinessHttpBodyDic = [[NSMutableDictionary alloc] init];
-//    
-//    if ([self.resquestType isEqualToString:HTTP_REQUEST_POST]) {
-//        if ([body isKindOfClass:[NSMutableData class]]) {
-//            [(NSMutableData *)body appendData:[NSJSONSerialization dataWithJSONObject:BaseBusinessHttpBodyDic options:NSJSONWritingPrettyPrinted error:&theError]];
+//创建消息体
+- (void)createBaseBussinessHttpBody:(NSDictionary *)theParam
+{
+    self.body=theParam;
+//    if (theParam!=nil) {
+//        if ([self.resquestType isEqualToString:HTTP_REQUEST_POST]) {
+//           self.body=theParam;
+//        }else if([self.resquestType isEqualToString:HTTP_REQUEST_GET]){
+//            [self setUrlParam:theParam];
 //        }
 //    }
-//}
+}
+
+-(void)setUrlParam:(NSDictionary *)theParam
+{
+    NSArray *pathcomp=[self.requestPath componentsSeparatedByString:@"?"];
+    int count=theParam.allValues.count;
+    NSString *path= self.requestPath;
+    if (pathcomp.count>1) {
+        for (int i=0; i<count; ++i) {
+            if (i==0) {
+                path=[path stringByAppendingString:@"&"];
+            }
+            path=  [path stringByAppendingFormat:@"%@=%@",[theParam.allKeys objectAtIndex:i],[theParam.allValues objectAtIndex:i]];
+            if (i<count-1) {
+                path=[path stringByAppendingString:@"&"];
+            }
+        }
+    }else{
+       path= [path stringByAppendingString:@"?"];
+        for (int i=0; i<count; ++i) {
+          path=  [path stringByAppendingFormat:@"%@=%@",[theParam.allKeys objectAtIndex:i],[theParam.allValues objectAtIndex:i]];
+            if (i<count-1) {
+                path=[path stringByAppendingString:@"&"];
+            }
+        }
+        self.requestPath=path;
+    }
+}
 
 - (void)sendWithParam:(NSDictionary *)theParam
 {
     [self createBaseBussinessHeads];
-    self.body=theParam;
-   // [self createBaseBussinessHttpBody:theParam];
+    [self createBaseBussinessHttpBody:theParam];
     //test
 #ifdef DEBUG_LOG
     //NSString *str = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];

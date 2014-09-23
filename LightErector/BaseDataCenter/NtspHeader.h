@@ -18,6 +18,7 @@
 @property(strong , nonatomic) NSString * sessionid;
 @property(nonatomic) int errcode;
 @property(strong , nonatomic) NSString * errmsg;
++ (NtspHeader *) shareHeader;
 // from object to json style
 - (NSDictionary *)toDicValue;
 - (void)initWithJson:(NSDictionary*)jsonDic;

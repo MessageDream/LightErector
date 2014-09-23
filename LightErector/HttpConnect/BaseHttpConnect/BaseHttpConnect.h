@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-#import "HttpHead.h"
 #import "HttpConnectRespones.h"
 #import "HttpConnectDelegate.h"
 #import "HttpErrorCode.h"
+
+#define HEADER_CONTENT_TYPE_NAME           @"Content-Type"
+#define HEADER_CONTENT_TYPE_JSON_VALUE     @"application/json;charset=utf-8"
+
+#define HEADER_CONTENT_LENGTH_NAME      @"Content-Length"
+#define HEADER_CONTENT_LENGTH_VALUE     @"0"
 
 #define HTTP_REQUEST_GET  @"GET"
 #define HTTP_REQUEST_POST @"POST"
@@ -52,9 +57,10 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
     int _timeOut;
     NSString *_baseUrl;
     NSString *_requestPath;
-    NSMutableArray *_resquestHeads;
+    NSMutableDictionary *_resquestHeads;
     NSDictionary *_body;
     NSString *_resquestType;
+    AFHTTPClient *_client;
     HttpConnectRespones *_respones;
     AFHTTPRequestOperation *_requestOperation;
     NSURLConnection *_connection;
@@ -70,9 +76,10 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
 @property (nonatomic,readonly) HttpContentStauts stauts;
 @property(nonatomic,copy)NSString *baseUrl;
 @property(nonatomic,copy)NSString *requestPath;
-@property(nonatomic,readonly)NSMutableArray *resquestHeads;//HttpHead Type
+@property(nonatomic,readonly)NSDictionary *resquestHeads;//HttpHead Type
 @property(nonatomic,strong)NSDictionary * body;
 @property(nonatomic,copy)NSString *resquestType;
+@property(nonatomic,readonly)AFHTTPClient *client;
 @property(nonatomic,readonly)HttpConnectRespones *respones;
 @property(nonatomic,readonly)AFHTTPRequestOperation *requestOperation;
 @property(nonatomic,assign)id<HttpConnectDelegate> observer;

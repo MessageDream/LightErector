@@ -8,6 +8,7 @@
 
 #import "NtspHeader.h"
 
+static NtspHeader *ntspHeader;
 @implementation NtspHeader
 
 - (id)init
@@ -46,6 +47,22 @@
     self.apikey = [jsonDic objectForKey:@"apikey"];
     self.version = [jsonDic objectForKey:@"verson"];
     self.sessionid = [jsonDic objectForKey:@"sessionid"];
+}
+
++ (void)setWithJson:(NSDictionary*)jsonDic
+{
+    if(!ntspHeader)
+        ntspHeader=[[NtspHeader alloc] init];
+    ntspHeader.apikey = [jsonDic objectForKey:@"apikey"];
+    ntspHeader.version = [jsonDic objectForKey:@"version"];
+    ntspHeader.sessionid = [jsonDic objectForKey:@"sessionid"];
+}
+
++ (NtspHeader *) shareHeader
+{
+    if(!ntspHeader)
+        ntspHeader=[[NtspHeader alloc] init];
+    return ntspHeader;
 }
 
 @end
