@@ -11,6 +11,23 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+//用于打印网络交互信息
+#define DEBUG_LOG   0
+
+
+#define ENVTEST    1
+
+//测试
+#ifdef ENVTEST
+
+#define  API_ADDRESS          @"http://203.100.81.110:3000/"
+
+#else   //正式
+
+#define  API_ADDRESS          @"http://10.1.11.101:8792/"
+
 #endif

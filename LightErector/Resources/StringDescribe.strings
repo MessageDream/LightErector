@@ -1,0 +1,12 @@
+/* 
+  StringDescribe.strings
+  LightErector
+
+  Created by Jayden Zhao on 13-5-14.
+  Copyright (c) 2013年 LightErector. All rights reserved.
+*/
+//登录
+"HttpError1"="网络连接失败，请稍后再试";
+"HttpError2"="请求超时，请稍后再试";
+"HttpError3"="写入本地文件失败";
+"HttpError4"="当前无网络连接，请稍后再试";
