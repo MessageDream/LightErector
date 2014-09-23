@@ -98,6 +98,7 @@
 		B2FDCBBF19D1822100215E70 /* SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCBBC19D1822100215E70 /* SHA1.m */; };
 		B2FDCBC019D1822100215E70 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCBBE19D1822100215E70 /* StringUtils.m */; };
 		B2FDCBC219D1835E00215E70 /* base_messagebox_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FDCBC119D1835E00215E70 /* base_messagebox_background@2x.png */; };
+		B2FDCBC719D1871900215E70 /* NtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCBC519D1871900215E70 /* NtspHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +304,8 @@
 		B2FDCBBD19D1822100215E70 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		B2FDCBBE19D1822100215E70 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		B2FDCBC119D1835E00215E70 /* base_messagebox_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_messagebox_background@2x.png"; sourceTree = "<group>"; };
+		B2FDCBC419D1871900215E70 /* NtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NtspHeader.h; sourceTree = "<group>"; };
+		B2FDCBC519D1871900215E70 /* NtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NtspHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,7 @@
 				B2FDCA8619D16C5B00215E70 /* Libraries */,
 				B2FDCAA319D16C5B00215E70 /* Resources */,
 				B2FDCBBA19D1822100215E70 /* Utils */,
+				B2FDCBC319D1871900215E70 /* BaseDataCenter */,
 				B2FDCAB519D16C5B00215E70 /* UICustomView */,
 				B2FDCA6F19D16C5B00215E70 /* HttpConnect */,
 				B2FDCA5F19D16C5B00215E70 /* Business */,
@@ -960,6 +964,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B2FDCBC319D1871900215E70 /* BaseDataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDCBC419D1871900215E70 /* NtspHeader.h */,
+				B2FDCBC519D1871900215E70 /* NtspHeader.m */,
+			);
+			path = BaseDataCenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1119,6 +1132,7 @@
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,
 				B2FDCB9719D16C5B00215E70 /* TitleBarView.m in Sources */,
 				B2FDCBB619D17FB600215E70 /* BaseModule.m in Sources */,
+				B2FDCBC719D1871900215E70 /* NtspHeader.m in Sources */,
 				B2FDCB4A19D16C5B00215E70 /* BaseBusiness.m in Sources */,
 				B2FDCB7F19D16C5B00215E70 /* CustomTextFieldCell.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,

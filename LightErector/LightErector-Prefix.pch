@@ -24,10 +24,18 @@
 //测试
 #ifdef ENVTEST
 
-#define  API_ADDRESS          @"http://203.100.81.110:3000/"
-
+#define  API_ADDRESS          @"http://www.zhuangdeng.cn"
+#define  API_VERSION          @"1.0"
+#define  CLIENT_VERSION       @"210"
+#define  SHOW_CLIENT_VERSION  @"2.1.0"
+#define  API_KEY              @"feed24f665d1c2b66624e21064d20d98"
+//yangjingwei 198688
 #else   //正式
 
-#define  API_ADDRESS          @"http://10.1.11.101:8792/"
+#define  API_ADDRESS          @"http://www.zhuangdeng.cn"
+#define  API_VERSION          @"1.0"
+#define  CLIENT_VERSION       @"210"
+#define  SHOW_CLIENT_VERSION  @"2.1.0"
+#define  API_KEY              @"feed24f665d1c2b66624e21064d20d98"
 
 #endif
