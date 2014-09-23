@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
+		B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88719D156DB00215E70 /* CoreGraphics.framework */; };
+		B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
+		B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2FDC88E19D156DB00215E70 /* InfoPlist.strings */; };
+		B2FDC89219D156DB00215E70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDC89119D156DB00215E70 /* main.m */; };
+		B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDC89519D156DB00215E70 /* AppDelegate.m */; };
+		B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FDC89719D156DB00215E70 /* Images.xcassets */; };
+		B2FDC89F19D156DB00215E70 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC89E19D156DB00215E70 /* XCTest.framework */; };
+		B2FDC8A019D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
+		B2FDC8A119D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
+		B2FDC8A919D156DB00215E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2FDC8A719D156DB00215E70 /* InfoPlist.strings */; };
+		B2FDC8AB19D156DB00215E70 /* LightErectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDC8AA19D156DB00215E70 /* LightErectorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2FDC8A219D156DB00215E70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2FDC87A19D156DA00215E70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2FDC88119D156DB00215E70;
+			remoteInfo = LightErector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B2FDC88219D156DB00215E70 /* LightErector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightErector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FDC88519D156DB00215E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2FDC88719D156DB00215E70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B2FDC88919D156DB00215E70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2FDC88D19D156DB00215E70 /* LightErector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LightErector-Info.plist"; sourceTree = "<group>"; };
+		B2FDC88F19D156DB00215E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2FDC89119D156DB00215E70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2FDC89319D156DB00215E70 /* LightErector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightErector-Prefix.pch"; sourceTree = "<group>"; };
+		B2FDC89419D156DB00215E70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B2FDC89519D156DB00215E70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B2FDC89719D156DB00215E70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B2FDC89D19D156DB00215E70 /* LightErectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightErectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FDC89E19D156DB00215E70 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B2FDC8A619D156DB00215E70 /* LightErectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LightErectorTests-Info.plist"; sourceTree = "<group>"; };
+		B2FDC8A819D156DB00215E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2FDC8AA19D156DB00215E70 /* LightErectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightErectorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2FDC87F19D156DB00215E70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */,
+				B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */,
+				B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2FDC89A19D156DB00215E70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC89F19D156DB00215E70 /* XCTest.framework in Frameworks */,
+				B2FDC8A119D156DB00215E70 /* UIKit.framework in Frameworks */,
+				B2FDC8A019D156DB00215E70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2FDC87919D156DA00215E70 = {
+			isa = PBXGroup;
+			children = (
+				B2FDC88B19D156DB00215E70 /* LightErector */,
+				B2FDC8A419D156DB00215E70 /* LightErectorTests */,
+				B2FDC88419D156DB00215E70 /* Frameworks */,
+				B2FDC88319D156DB00215E70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2FDC88319D156DB00215E70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC88219D156DB00215E70 /* LightErector.app */,
+				B2FDC89D19D156DB00215E70 /* LightErectorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2FDC88419D156DB00215E70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC88519D156DB00215E70 /* Foundation.framework */,
+				B2FDC88719D156DB00215E70 /* CoreGraphics.framework */,
+				B2FDC88919D156DB00215E70 /* UIKit.framework */,
+				B2FDC89E19D156DB00215E70 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2FDC88B19D156DB00215E70 /* LightErector */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC89419D156DB00215E70 /* AppDelegate.h */,
+				B2FDC89519D156DB00215E70 /* AppDelegate.m */,
+				B2FDC89719D156DB00215E70 /* Images.xcassets */,
+				B2FDC88C19D156DB00215E70 /* Supporting Files */,
+			);
+			path = LightErector;
+			sourceTree = "<group>";
+		};
+		B2FDC88C19D156DB00215E70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC88D19D156DB00215E70 /* LightErector-Info.plist */,
+				B2FDC88E19D156DB00215E70 /* InfoPlist.strings */,
+				B2FDC89119D156DB00215E70 /* main.m */,
+				B2FDC89319D156DB00215E70 /* LightErector-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2FDC8A419D156DB00215E70 /* LightErectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC8AA19D156DB00215E70 /* LightErectorTests.m */,
+				B2FDC8A519D156DB00215E70 /* Supporting Files */,
+			);
+			path = LightErectorTests;
+			sourceTree = "<group>";
+		};
+		B2FDC8A519D156DB00215E70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2FDC8A619D156DB00215E70 /* LightErectorTests-Info.plist */,
+				B2FDC8A719D156DB00215E70 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2FDC88119D156DB00215E70 /* LightErector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2FDC8AE19D156DB00215E70 /* Build configuration list for PBXNativeTarget "LightErector" */;
+			buildPhases = (
+				B2FDC87E19D156DB00215E70 /* Sources */,
+				B2FDC87F19D156DB00215E70 /* Frameworks */,
+				B2FDC88019D156DB00215E70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightErector;
+			productName = LightErector;
+			productReference = B2FDC88219D156DB00215E70 /* LightErector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B2FDC89C19D156DB00215E70 /* LightErectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2FDC8B119D156DB00215E70 /* Build configuration list for PBXNativeTarget "LightErectorTests" */;
+			buildPhases = (
+				B2FDC89919D156DB00215E70 /* Sources */,
+				B2FDC89A19D156DB00215E70 /* Frameworks */,
+				B2FDC89B19D156DB00215E70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2FDC8A319D156DB00215E70 /* PBXTargetDependency */,
+			);
+			name = LightErectorTests;
+			productName = LightErectorTests;
+			productReference = B2FDC89D19D156DB00215E70 /* LightErectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2FDC87A19D156DA00215E70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = jayden;
+				TargetAttributes = {
+					B2FDC89C19D156DB00215E70 = {
+						TestTargetID = B2FDC88119D156DB00215E70;
+					};
+				};
+			};
+			buildConfigurationList = B2FDC87D19D156DA00215E70 /* Build configuration list for PBXProject "LightErector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B2FDC87919D156DA00215E70;
+			productRefGroup = B2FDC88319D156DB00215E70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2FDC88119D156DB00215E70 /* LightErector */,
+				B2FDC89C19D156DB00215E70 /* LightErectorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2FDC88019D156DB00215E70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */,
+				B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2FDC89B19D156DB00215E70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC8A919D156DB00215E70 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2FDC87E19D156DB00215E70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
+				B2FDC89219D156DB00215E70 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2FDC89919D156DB00215E70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FDC8AB19D156DB00215E70 /* LightErectorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2FDC8A319D156DB00215E70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2FDC88119D156DB00215E70 /* LightErector */;
+			targetProxy = B2FDC8A219D156DB00215E70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B2FDC88E19D156DB00215E70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2FDC88F19D156DB00215E70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B2FDC8A719D156DB00215E70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2FDC8A819D156DB00215E70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B2FDC8AC19D156DB00215E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2FDC8AD19D156DB00215E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2FDC8AF19D156DB00215E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
+				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B2FDC8B019D156DB00215E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
+				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B2FDC8B219D156DB00215E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LightErector.app/LightErector";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LightErectorTests/LightErectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B2FDC8B319D156DB00215E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LightErector.app/LightErector";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
+				INFOPLIST_FILE = "LightErectorTests/LightErectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2FDC87D19D156DA00215E70 /* Build configuration list for PBXProject "LightErector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2FDC8AC19D156DB00215E70 /* Debug */,
+				B2FDC8AD19D156DB00215E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2FDC8AE19D156DB00215E70 /* Build configuration list for PBXNativeTarget "LightErector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2FDC8AF19D156DB00215E70 /* Debug */,
+				B2FDC8B019D156DB00215E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B2FDC8B119D156DB00215E70 /* Build configuration list for PBXNativeTarget "LightErectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2FDC8B219D156DB00215E70 /* Debug */,
+				B2FDC8B319D156DB00215E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2FDC87A19D156DA00215E70 /* Project object */;
+}
