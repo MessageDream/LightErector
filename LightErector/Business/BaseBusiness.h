@@ -60,6 +60,7 @@ typedef NS_ENUM(NSInteger, BusinessErrorType)
 @property(nonatomic,readonly)NSString *errmsg;
 @property(nonatomic,readonly)NSInteger errCode;
 
+- (id)initWithNtspHeader;
 //执行网络请求
 - (void)execute:(NSDictionary *)param;
 

@@ -8,6 +8,7 @@
 
 #import "BaseBusiness.h"
 #import "BaseBusinessHttpConnect.h"
+#import "BusinessHttpConnectWithNtspHeader.h"
 #import "HttpErrorCodeManager.h"
 
 @implementation BaseBusiness
@@ -25,7 +26,13 @@
     return self;
 }
 
-
+- (id)initWithNtspHeader
+{
+    if (self = [super init]) {
+        self.baseBusinessHttpConnect = [[BusinessHttpConnectWithNtspHeader alloc] init];
+    }
+    return self;
+}
 
 - (void)execute:(NSDictionary *)theParm
 {
@@ -133,13 +140,12 @@
 #endif
     if (responseBodyDic) {
         [self errorCodeFromResponse:responseBodyDic];
-        if(_errCode == REQUEST_NOERROR)
-            
-            
-        {
-            //不需要"errcode"和"errmsg"的数据，数据通过getNtspHeaderFromBaseBusinessHttpConnectResponseData取得
+        if(_errCode == REQUEST_NOERROR){
+            //不需要"errcode"和"errmsg"的数据，header数据通过getNtspHeaderFromBaseBusinessHttpConnectResponseData取得
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error_code"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error"];
+            [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"ntspheader"];
+            
         }
         else if(_errCode >= TIME_ERROR || _errCode <= REQUEST_PARAM_ERROR)
         {
