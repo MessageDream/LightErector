@@ -10,3 +10,13 @@
 "HttpError2"="请求超时，请稍后再试";
 "HttpError3"="写入本地文件失败";
 "HttpError4"="当前无网络连接，请稍后再试";
+
+"UserNameLogin"="请输入账号";
+"UserPasswordLogin"="请输入密码";
+"RememberMe"="记住账号";
+"AutoLogin"="自动登陆";
+"Login"="登陆";
+"ForgetPassword"="忘记了您的密码";
+"FindPassword"="找回密码";
+"AccountNumberIsNull"="账号为空";
+"PasswordIsNull"="密码为空";

@@ -8,6 +8,7 @@
 
 #import "FileHttpConnect.h"
 
+
 @interface BaseBusinessHttpConnect : FileHttpConnect
 
 @property(nonatomic) int baseBussinessHttpConnectId;

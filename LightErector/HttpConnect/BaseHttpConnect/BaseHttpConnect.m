@@ -7,11 +7,12 @@
 //
 
 #import "BaseHttpConnect.h"
-
+static NSOperationQueue *operationQueue = nil;
 @interface BaseHttpConnect()
 {
     
 }
++(void)processFormMltipart:(id<AFMultipartFormData>)formData obj:(FormMltipart *)obj;
 @end
 
 @implementation BaseHttpConnect
@@ -26,16 +27,27 @@
 @synthesize stauts = _stauts;
 @synthesize errorCode = _errorCode;
 
++(NSOperationQueue *)shareQueue{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        operationQueue =  [[NSOperationQueue alloc] init];
+        [operationQueue setMaxConcurrentOperationCount:5];
+    });
+    
+    return operationQueue;
+}
 
 - (id)init
 {
     if (self = [super init]) {
         _resquestHeads = [[NSMutableDictionary alloc] init];
-        //_respones = [[HttpConnectRespones alloc] init];
-        // _body = [[NSDictionary alloc] init];
         _stauts = HttpContentStauts_WillStart;
         _errorCode = HttpErrorCode_None;
-       
+        _respones=[[HttpConnectRespones alloc] init];
+        
+        _operationQueue=[BaseHttpConnect shareQueue];
+        
         __block BaseHttpConnect *blockSelf = self;
         
         _success=^(AFHTTPRequestOperation *operation, id responseObject){
@@ -96,36 +108,38 @@
     }
     
     NSMutableURLRequest *request;
-    _client=   [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:_baseUrl]];
-    [[_client operationQueue] setMaxConcurrentOperationCount:1];
     if ([_resquestType isEqualToString:HTTP_REQUEST_POST]) {
         if ([[_resquestHeads objectForKey:HEADER_CONTENT_TYPE_NAME] isEqualToString:HEADER_CONTENT_TYPE_JSON_VALUE]) {
-            request=[_client requestWithMethod:_resquestType path:_requestPath parameters:_body];
+            request=[[AFJSONRequestSerializer serializer] requestWithMethod: _resquestType URLString:[_baseUrl stringByAppendingString:_requestPath] parameters:_body error:nil];
         }else{
-        request = [_client multipartFormRequestWithMethod:_resquestType path:_requestPath parameters:_body constructingBodyWithBlock: ^(id formData) {
-            id multipartParts =  [_body objectForKey:kFormMltipart];
-            if (multipartParts) {
-                if ([multipartParts isKindOfClass:[NSArray class]]) {
-                    for (FormMltipart *multipartPart in multipartParts) {
-                        [BaseHttpConnect processFormMltipart:formData obj:multipartPart];
+            request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:_resquestType URLString:[_baseUrl stringByAppendingString:_requestPath] parameters:_body constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                id multipartParts =  [_body objectForKey:kFormMltipart];
+                if (multipartParts) {
+                    if ([multipartParts isKindOfClass:[NSArray class]]) {
+                        for (FormMltipart *multipartPart in multipartParts) {
+                            [BaseHttpConnect processFormMltipart:formData obj:multipartPart];
+                        }
+                    }else if ([multipartParts isKindOfClass:[FormMltipart class]]){
+                        [BaseHttpConnect processFormMltipart:formData obj:multipartParts];
                     }
-                }else if ([multipartParts isKindOfClass:[FormMltipart class]]){
-                    [BaseHttpConnect processFormMltipart:formData obj:multipartParts];
                 }
-            }
-        }];
+            } error:nil];
         }
-    }else{
-        request = [_client requestWithMethod:_resquestType path:_requestPath parameters:_body];
+        }else{
+       request=[[AFJSONRequestSerializer serializer] requestWithMethod: _resquestType URLString:[_baseUrl stringByAppendingString:_requestPath] parameters:_body error:nil];
     }
     
     if (_resquestHeads != nil) {
+        NSMutableDictionary *headdic=[NSMutableDictionary dictionaryWithDictionary:request.allHTTPHeaderFields ];
         int headCount=_resquestHeads.allValues.count;
-        for (int index=0; index<headCount; index++)
-        {
-                [_client setDefaultHeader:[_resquestHeads.allKeys objectAtIndex:index] value:[_resquestHeads.allValues objectAtIndex:index]];
-        }
+            for (int index=0; index<headCount; index++)
+                {
+                    [headdic setValue:_resquestHeads.allValues[index] forKey:[_resquestHeads.allValues objectAtIndex:index]];
+                    
+                }
+        [request setAllHTTPHeaderFields:headdic];
     }
+
     _stauts = HttpContentStauts_WillStart;
     if (self.observer != nil) {
         [self.observer willHttpConnectResquest:self];
@@ -133,7 +147,9 @@
     
     [request setCachePolicy:kNetCachePolicy];
     [request setTimeoutInterval:_timeOut];
+    
     _requestOperation=[[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
     [_requestOperation setCompletionBlockWithSuccess:_success failure:_failure];
     
     if (_downloadProcess!=nil) {
@@ -143,11 +159,11 @@
         [_requestOperation setUploadProgressBlock:_uploadProcess];
     }
     
-    [_client enqueueHTTPRequestOperation:_requestOperation];
+    [_operationQueue addOperation:_requestOperation];
     
 }
 
-+(void)processFormMltipart:(id)formData obj:(FormMltipart *)obj{
++(void)processFormMltipart:(id<AFMultipartFormData>)formData obj:(FormMltipart *)obj{
     switch (obj.type) {
             
         case FormMltipartTypeFilePath:
@@ -189,11 +205,13 @@
 - (void)closeConnect
 {
 #ifdef DEBUG_LOG
-    NSLog(@"[client operationQueue]  -count - ----->%lu",(unsigned long)[[[_client operationQueue] operations] count]);
+    NSLog(@"[client operationQueue]  -count - ----->%lu",(unsigned long)[[_operationQueue operations] count]);
     //[DebugManager LogDebug:@"[client operationQueue]  -count - ----->%i",[[[client operationQueue] operations] count]];
 #endif
-    
-    [[_client operationQueue] cancelAllOperations];
+    if ([_requestOperation isCancelled]) {
+        return;
+    }
+    [_requestOperation cancel];
 }
 
 

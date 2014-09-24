@@ -10,6 +10,7 @@
 #import "BaseBusinessHttpConnect.h"
 #import "BusinessHttpConnectWithNtspHeader.h"
 #import "HttpErrorCodeManager.h"
+#import "NtspHeader.h"
 
 @implementation BaseBusiness
 @synthesize businessId = _businessId;
@@ -55,6 +56,7 @@
     }
 }
 
+
 //简单解析为dic
 - (NSDictionary *)parseBaseBusinessHttpConnectResponseData
 {
@@ -72,7 +74,7 @@
 {
     if (theResponseBody) {
         if ([theResponseBody isKindOfClass:[NSDictionary class]]) {
-            _errCode = [[theResponseBody objectForKey:@"error_code"] integerValue];
+            _errCode = [[theResponseBody objectForKey:@"status"] integerValue];
             _errmsg = [theResponseBody objectForKey:@"error"];
         }
     }
@@ -130,11 +132,13 @@
 
 -(void) didHttpConnectFinish:(BaseHttpConnect *)httpContent
 {
- 
-    
     NSDictionary * responseBodyDic = [self parseBaseBusinessHttpConnectResponseData];
     
-    
+    NSDictionary *ntspHeaderDic = [responseBodyDic objectForKey:@"ntspheader"];
+    if (ntspHeaderDic) {
+         [NtspHeader setWithJson:ntspHeaderDic];
+    }
+   
 #ifdef DEBUG_LOG
     NSLog(@"rece:%@",responseBodyDic);
 #endif
@@ -142,7 +146,7 @@
         [self errorCodeFromResponse:responseBodyDic];
         if(_errCode == REQUEST_NOERROR){
             //不需要"errcode"和"errmsg"的数据，header数据通过getNtspHeaderFromBaseBusinessHttpConnectResponseData取得
-            [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error_code"];
+            [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"status"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"ntspheader"];
             

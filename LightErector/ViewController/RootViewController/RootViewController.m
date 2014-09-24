@@ -25,6 +25,8 @@
     RootView *tabBarView;
     
     NSUInteger tabBarHeight;
+    
+    BOOL tabBarStatus;
 }
 
 #pragma mark - Initialization
@@ -65,20 +67,21 @@
     tabBarView = [[RootView alloc] initWithFrame:[self createViewFrame]];
     self.view = tabBarView;
     
-    CGRect tabBarRect = CGRectMake(0.0, CGRectGetHeight(self.view.bounds) - tabBarHeight, CGRectGetWidth(self.view.frame), tabBarHeight);
+    CGRect tabBarRect = CGRectMake(0.0, CGRectGetHeight(self.view.bounds), CGRectGetWidth(self.view.frame), tabBarHeight);
     tabBar = [[CustomTabBar alloc] initWithFrame:tabBarRect];
     tabBar.delegate = self;
     
     tabBarView.tabBar = tabBar;
+    tabBar.hidden=YES;
     [self loadTabs];
 }
 
 -(void)viewDidLoad
 {
-    Message *message = [[Message alloc] init];
-    message.receiveObjectID = VIEWCONTROLLER_MAIN;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
-    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
-    [self sendMessage:message];
+//    Message *message = [[Message alloc] init];
+//    message.receiveObjectID = VIEWCONTROLLER_MAIN;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
+//    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+//    [self sendMessage:message];
 }
 
 - (void)loadTabs
@@ -154,12 +157,49 @@
 
 - (void)showTabBarWithAnimated:(BOOL)animated
 {
+    if (!tabBarStatus) {
+        if (animated) {
+            [UIView beginAnimations:@"Animation" context:nil];
+            [UIView setAnimationDuration:PushAnimationDuration];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            [UIView setAnimationDelegate:self];
+            
+            tabBar.hidden=NO;
+//            CGRect frame = tabBar.frame ;
+//            frame.origin.y=CGRectGetHeight(self.view.bounds) - tabBarHeight;
+//            tabBar.frame  = frame;
+            [UIView commitAnimations];
 
+        }else{
+            CGRect frame = tabBar.frame ;
+            frame.origin.y=CGRectGetHeight(self.view.bounds) - tabBarHeight;
+            tabBar.frame  = frame;
+        }
+        tabBarStatus=YES;
+     }
 }
 
 - (void)hideTabBarWithAnimated:(BOOL)animated
 {
-
+    if (tabBarStatus) {
+        if (animated) {
+            [UIView beginAnimations:@"Animation" context:nil];
+            [UIView setAnimationDuration:PushAnimationDuration];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            [UIView setAnimationDelegate:self];
+            
+             tabBar.hidden=YES;
+//            CGRect frame = tabBar.frame ;
+//            frame.origin.y=CGRectGetHeight(self.view.bounds);
+//            tabBar.frame  = frame;
+            [UIView commitAnimations];
+        }else{
+            CGRect frame = tabBar.frame ;
+            frame.origin.y=CGRectGetHeight(self.view.bounds);
+            tabBar.frame  = frame;
+        }
+        tabBarStatus=NO;
+    }
 }
 
 

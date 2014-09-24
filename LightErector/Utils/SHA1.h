@@ -10,6 +10,7 @@
 
 @interface SHA1 : NSObject
 {
+    
 }
 +(NSString*)stringConvertSHA1:(NSString*)str;
 @end

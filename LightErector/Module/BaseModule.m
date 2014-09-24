@@ -28,7 +28,7 @@ static enum commandID currentcommandID;
 
 @implementation BaseModule
 @synthesize childModule = _childModule;
-@synthesize ModuleId = _ModuleId;
+@synthesize moduleId = _moduleId;
 @synthesize workRange = _workRange;
 
 -(id)init
@@ -72,7 +72,7 @@ static enum commandID currentcommandID;
 
 -(BOOL)checkWorkRange:(enum ModuleAndControllerID)ID
 {
-    if(ID != self.ModuleId)
+    if(ID != self.moduleId)
     {
         if(ID<self.workRange.location || ID>self.workRange.location+self.workRange.length)
         {
@@ -124,11 +124,7 @@ static enum commandID currentcommandID;
         showViewController.view.userInteractionEnabled = NO;
     
     [self.rootViewController addChildViewController:viewcontroller];
-    if (!rootView) {
-        rootView=[self.rootViewController.view viewWithTag:LightErectorViewTag];
-    }
-    rootView.layer.masksToBounds=YES;
-    // UIView *rootView=self.rootViewController.view;
+    rootView=self.rootViewController.view;
     if(message.commandID == MC_CREATE_NORML_VIEWCONTROLLER)
     {
         [rootView addSubview:viewcontroller.view];
@@ -370,7 +366,6 @@ static enum commandID currentcommandID;
 
 -(void)animationDidStop
 {
-     rootView.layer.masksToBounds=NO;
     if(previousViewController!=nil)
     {
         if(currentcommandID != MC_CREATE_OPENFROMRIGHT_VIEWCONTROLLER&&currentcommandID!=MC_CREATE_POPFROMBOTTOM_VIEWCONTROLLER)

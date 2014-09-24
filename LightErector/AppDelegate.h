@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RootModule;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) RootModule *rootModule;
 @end

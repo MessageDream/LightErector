@@ -13,7 +13,7 @@
 - (void)createBaseBussinessHeads
 {
     [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
-    [_resquestHeads setObject:HEADER_CONTENT_LENGTH_VALUE forKey:HEADER_CONTENT_LENGTH_NAME];
+    //[_resquestHeads setObject:HEADER_CONTENT_LENGTH_VALUE forKey:HEADER_CONTENT_LENGTH_NAME];
 }
 
 //创建消息体
@@ -32,7 +32,7 @@
 -(void)setUrlParam:(NSDictionary *)theParam
 {
     NSArray *pathcomp=[self.requestPath componentsSeparatedByString:@"?"];
-    int count=theParam.allValues.count;
+    NSInteger count=theParam.allValues.count;
     NSString *path= self.requestPath;
     if (pathcomp.count>1) {
         for (int i=0; i<count; ++i) {

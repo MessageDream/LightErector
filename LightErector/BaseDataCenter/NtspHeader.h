@@ -21,5 +21,6 @@
 + (NtspHeader *) shareHeader;
 // from object to json style
 - (NSDictionary *)toDicValue;
++ (void)setWithJson:(NSDictionary*)jsonDic;
 - (void)initWithJson:(NSDictionary*)jsonDic;
 @end

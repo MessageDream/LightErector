@@ -1,0 +1,40 @@
+//
+//  SystemModule.m
+//  LightErector
+//
+//  Created by Jayden Zhao on 9/24/14.
+//  Copyright (c) 2014 jayden. All rights reserved.
+//
+
+#import "SystemModule.h"
+#import "LoginViewController.h"
+
+@implementation SystemModule
+-(id)init
+{
+    if(self = [super init]){
+        _moduleId = Module_SYSTEM;
+        _workRange.location = Module_SYSTEM;
+    }
+    return self;
+}
+
+
+-(BOOL)receiveMessage:(Message*)message
+{
+    if(![super receiveMessage:message])
+        return NO;
+    
+    BaseViewController *viewcontroller;
+    if(message.receiveObjectID == VIEWCONTROLLER_LOGIN)
+    {
+        viewcontroller = [[LoginViewController alloc] init];
+    }
+    
+    
+    if(viewcontroller != nil)
+        [self addViewControllToRootViewController:viewcontroller forMessage:message];
+    
+    return YES;
+}
+@end

@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
     NSMutableDictionary *_resquestHeads;
     NSDictionary *_body;
     NSString *_resquestType;
-    AFHTTPClient *_client;
+    NSOperationQueue *_operationQueue;
     HttpConnectRespones *_respones;
     AFHTTPRequestOperation *_requestOperation;
     NSURLConnection *_connection;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
 @property(nonatomic,readonly)NSDictionary *resquestHeads;//HttpHead Type
 @property(nonatomic,strong)NSDictionary * body;
 @property(nonatomic,copy)NSString *resquestType;
-@property(nonatomic,readonly)AFHTTPClient *client;
+@property(nonatomic,readonly) NSOperationQueue *operationQueue;
 @property(nonatomic,readonly)HttpConnectRespones *respones;
 @property(nonatomic,readonly)AFHTTPRequestOperation *requestOperation;
 @property(nonatomic,assign)id<HttpConnectDelegate> observer;

@@ -10,7 +10,7 @@
 #import "ModuleAndControllerID.h"
 #import "BaseViewController.h"
 #import "TestModule.h"
-
+#import "SystemModule.h"
 
 @interface RootModule()
 {
@@ -24,7 +24,7 @@
 -(id)init
 {
     self = [super init];
-    _ModuleId = Module_ROOT;
+    _moduleId = Module_ROOT;
     _workRange.location = Module_ROOT;
     return self;
 }
@@ -36,7 +36,12 @@
     [testModule createChildModule];
     
     
-    _childModule=[NSDictionary dictionaryWithObjects:@[testModule] forKeys:@[[NSString stringWithFormat:@"%d",testModule.ModuleId]]];
+    SystemModule *systemModule = [[SystemModule alloc] init];
+    systemModule.rootViewController = self.rootViewController;
+    systemModule.parentModule = self;
+    [systemModule createChildModule];
+    
+    _childModule=[NSDictionary dictionaryWithObjects:@[testModule,systemModule] forKeys:@[[NSString stringWithFormat:@"%d",testModule.moduleId],[NSString stringWithFormat:@"%d",systemModule.moduleId]]];
     
     return YES;
 }
@@ -58,11 +63,11 @@
         [self allModuleClearValue];
     else if(message.commandID == MC_SHOW_ROOT_TABBAR)
     {
-        //[self.rootViewController hideTabBar:ShowHideFromLeft animated:YES];
+        [self.rootViewController showTabBarWithAnimated:YES];
     }
     else if(message.commandID == MC_HIDE_ROOT_TABBAR)
     {
-        
+        [self.rootViewController hideTabBarWithAnimated:YES];
     }
 //    BaseModule *Module = [self checkChildModuleWorkRange:message.receiveObjectID];
 //    

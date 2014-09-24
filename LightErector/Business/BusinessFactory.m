@@ -7,17 +7,18 @@
 //
 
 #import "BusinessFactory.h"
+#import "UserLoginBusiness.h"
 
 @implementation BusinessFactory
 
 +(id)createBusiness:(enum BusinessType)type
 {
-//    if(type == BUSINESS_NONE)
-//        return nil;
-//    else if (type==BUSINESS_LOGIN)
-//    {
-//        return [[UserLoginBusiness alloc] init];
-//    }
+    if(type == BUSINESS_NONE)
+        return nil;
+    else if (type==BUSINESS_LOGIN)
+    {
+        return [[UserLoginBusiness alloc] init];
+    }
 
     return nil;
     

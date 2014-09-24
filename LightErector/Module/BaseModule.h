@@ -18,13 +18,13 @@
 {
 @protected
     NSDictionary *_childModule;
-    enum ModuleAndControllerID _ModuleId;
+    enum ModuleAndControllerID _moduleId;
     NSRange _workRange;
     NSMutableDictionary *saveData;
     
 }
 @property(nonatomic,readonly)NSDictionary *childModule;
-@property(nonatomic,readonly)enum ModuleAndControllerID ModuleId;
+@property(nonatomic,readonly)enum ModuleAndControllerID moduleId;
 @property(nonatomic,readonly)NSRange workRange;
 @property(nonatomic,assign)BaseModule *parentModule;
 @property(nonatomic,assign)RootViewController *rootViewController;

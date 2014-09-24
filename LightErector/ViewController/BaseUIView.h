@@ -11,6 +11,7 @@
 
 @interface BaseUIView : UIView
 {
+    
 }
 @property(nonatomic,assign)UIView *activeKeyboardControl;//同activeKeyboardControlOfScrollView配对使用，针对于被键盘遮挡的情况进行的处理。
 @property(nonatomic,assign)UIScrollView *activeKeyboardControlOfScrollView;

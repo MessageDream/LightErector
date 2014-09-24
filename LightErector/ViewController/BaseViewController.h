@@ -12,14 +12,15 @@
 #import "ResDefine.h"
 #import "CustomActivityIndicatorView.h"
 #import "TextFiledReturnEditingDelegate.h"
-#import "DataModuleDelegate.h"
+#import "DataModelDelegate.h"
+#import "User.h"
 
 @class BaseModule;
-@interface BaseViewController : UIViewController<DataModuleDelegate,TextFiledReturnEditingDelegate>
+@interface BaseViewController : UIViewController<DataModelDelegate,TextFiledReturnEditingDelegate>
 {
 @protected
     enum ModuleAndControllerID _viewControllerId;
-    
+    User *user;
     CustomActivityIndicatorView *customActivityIndicatorView;
     int _lockViewCount;
 @private
@@ -40,4 +41,6 @@
 -(BOOL)unlockViewSubtractCount;
 -(void)settingViewControllerId;
 -(CGRect)createViewFrame;
+-(void)sendShowTabBarMessage;
+-(void)sendHideTabBarMessage;
 @end

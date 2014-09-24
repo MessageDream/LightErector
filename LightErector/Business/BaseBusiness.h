@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, BusinessErrorType)
     //    204	参数错误。
     //    8001	令牌失效
     
-    REQUEST_NOERROR,
+    REQUEST_NOERROR=1,
     REQUEST_TIME_ERROR=201,
     REQUEST_PARAMNULL_ERROR=202,
     REQUEST_SYSTEM_ERROR=203,

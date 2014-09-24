@@ -22,7 +22,7 @@
 -(id)init
 {
     self = [super init];
-    _ModuleId = Module_TEST;
+    _moduleId = Module_TEST;
     _workRange.location = Module_TEST;
     return self;
 }

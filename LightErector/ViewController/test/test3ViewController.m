@@ -33,7 +33,9 @@
 -(void)loadView
 {
     [super loadView];
-    test3View *test=[[test3View alloc] initWithFrame:[self createViewFrame]];
+    CGRect frame=[self createViewFrame];
+    frame.size.height=  frame.size.height-50;
+    test3View *test=[[test3View alloc] initWithFrame:frame];
     self.view=test;
 }
 

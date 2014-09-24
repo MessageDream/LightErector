@@ -13,7 +13,6 @@
 //按模块划分，每个模块分配100个ID(ID不可为Module类型),作为本Module的工作范围，以Module为当前根节点
 enum ModuleAndControllerID
 {
-    //VIEWCONTROLLER_RETURNCAHCE = -4,
     VIEWCONTROLLER_NONE = -3,
     Module_NONE = -2,
     VIEWCONTROLLER_RETURN = -1,
@@ -23,6 +22,7 @@ enum ModuleAndControllerID
     VIEWCONTROLLER_FRAME,
     
     Module_SYSTEM = 2000,
+    VIEWCONTROLLER_LOGIN,
     VIEWCONTROLLER_MAIN,
 
     Module_TEST = 3000,

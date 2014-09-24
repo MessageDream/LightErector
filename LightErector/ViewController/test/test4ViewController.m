@@ -33,7 +33,9 @@
 -(void)loadView
 {
     [super loadView];
-    test4View *test=[[test4View alloc] initWithFrame:[self createViewFrame]];
+    CGRect frame=[self createViewFrame];
+    frame.size.height=  frame.size.height-50;
+    test4View *test=[[test4View alloc] initWithFrame:frame];
     self.view=test;
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

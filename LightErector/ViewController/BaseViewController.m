@@ -80,7 +80,7 @@
     }
 }
 
--(void)didDataModuleNoticeSucess:(BaseDataModule*)baseDataModule forBusinessType:( BusinessType)businessID
+-(void)didDataModelNoticeSucess:(BaseDataModel*)baseDataModel forBusinessType:( BusinessType)businessID
 {
     [self unlockViewSubtractCount];
 #ifdef DEBUG_LOG
@@ -88,7 +88,7 @@
     NSLog(@"sucess");
 #endif
 }
--(void)didDataModuleNoticeFail:(BaseDataModule*)baseDataModule forBusinessType:( BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString*)errorMsg
+-(void)didDataModelNoticeFail:(BaseDataModel*)baseDataModel forBusinessType:( BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString*)errorMsg
 {
     [self unlockViewSubtractCount];
 #ifdef DEBUG_LOG
@@ -99,11 +99,11 @@
         return;
     error = [error stringByAppendingString:errorMsg];
     
-        BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:[UIImage imageNamed:NSLocalizedStringFromTable(@"base_Messagebox_background",Res_Image,@"")]];
-        baseCustomMessageBox.animation = YES;
-        baseCustomMessageBox.autoCloseTimer = 1;
+    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:[UIImage imageNamed:NSLocalizedStringFromTable(@"base_Messagebox_background",Res_Image,@"")]];
+    baseCustomMessageBox.animation = YES;
+    baseCustomMessageBox.autoCloseTimer = 1;
     
-        [self.view addSubview:baseCustomMessageBox];
+    [self.view addSubview:baseCustomMessageBox];
 #ifdef DEBUG_LOG
     NSLog(@"%@",error);
 #endif
@@ -163,17 +163,11 @@
     CGRect frame;
     frame.origin.x = 0;
     frame.origin.y = 0;
+    frame.size.width = [UIScreen mainScreen].applicationFrame.size.width;
+    frame.size.height = [UIScreen mainScreen].applicationFrame.size.height;
     
-    if (_orientation==UIDeviceOrientationPortrait||_orientation==UIDeviceOrientationPortraitUpsideDown)  {
-        frame.size.width = [UIScreen mainScreen].applicationFrame.size.width-40;
-        frame.size.height = [UIScreen mainScreen].applicationFrame.size.height-90;
-    }else{
-        frame.size.width = [UIScreen mainScreen].applicationFrame.size.height-90;
-        frame.size.height = [UIScreen mainScreen].applicationFrame.size.width-40;
-    }
-    
-    //    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
-    //        frame.origin.y = [UIScreen mainScreen].applicationFrame.origin.y;
+    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
+        frame.origin.y = [UIScreen mainScreen].applicationFrame.origin.y;
     return frame;
 }
 
@@ -181,6 +175,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    user=[User shareUser];
     [self settingViewControllerId];
     //    [ViewControllerPathManager addViewControllerID:[NSNumber numberWithInt:_viewControllerId]];
     _lockViewCount = 0;
@@ -194,6 +189,21 @@
 -(void)destroyDataBeforeDealloc
 {
     
+}
+
+-(void)sendShowTabBarMessage
+{
+    Message *message = [[Message alloc] init];
+    message.commandID = MC_SHOW_ROOT_TABBAR;
+    message.receiveObjectID=Module_ROOT;
+    [self sendMessage:message];
+}
+-(void)sendHideTabBarMessage
+{
+    Message *message = [[Message alloc] init];
+    message.receiveObjectID=Module_ROOT;
+    message.commandID = MC_HIDE_ROOT_TABBAR;
+    [self sendMessage:message];
 }
 
 -(void)dealloc
