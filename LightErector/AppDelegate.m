@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    RootViewController *rootViewController=  [[RootViewController alloc] initWithControllerIDs:@[@(VIEWCONTROLLER_TEST1),@(VIEWCONTROLLER_TEST2),@(VIEWCONTROLLER_TEST3),@(VIEWCONTROLLER_TEST4)]];
+    RootViewController *rootViewController=  [[RootViewController alloc] init];
 
     self.window.rootViewController =rootViewController;
     [self.window makeKeyAndVisible];
@@ -37,6 +37,7 @@
     self.rootModule = [[RootModule alloc] init];
     self.rootModule.window = self.window;
     self.rootModule.rootViewController = rootViewController;
+    rootViewController.parentModule=self.rootModule;
     [self.rootModule createChildModule];
     
     

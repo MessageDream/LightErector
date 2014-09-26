@@ -7,6 +7,7 @@
 //
 
 #import "TitleBarView.h"
+#import "ImageUtils.h"
 
 @implementation TitleBarView
 @synthesize customTitleBar = _customTitleBar;
@@ -16,7 +17,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _customTitleBar = [[CustomTitleBar alloc] initWithBackgroundImage:[UIImage imageNamed:NSLocalizedStringFromTable(@"nav_bar_back",Res_Image,@"")]];
+        CGSize imgSize=CGSizeMake(self.frame.size.width, 44.0f);
+        _customTitleBar = [[CustomTitleBar alloc] initWithBackgroundImage:[ImageUtils createImageWithColor:[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:1] andSize:imgSize]];
         _customTitleBar.titleFontSize = 18;
         _customTitleBar.style = CustomTitleBar_Style_None;
         _customTitleBar.backgroundColor = [UIColor clearColor];

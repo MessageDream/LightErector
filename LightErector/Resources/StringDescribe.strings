@@ -20,3 +20,8 @@
 "FindPassword"="找回密码";
 "AccountNumberIsNull"="账号为空";
 "PasswordIsNull"="密码为空";
+"TodayTask"="今日任务";
+"OrderList"="订单列表";
+"about"="关于";
+"WaitingClearing"="待结算";
+"AccountManager"="账户管理";

@@ -16,7 +16,26 @@
 		B26CB14019D2D2A500023CEB /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB13519D2D2A500023CEB /* AFURLRequestSerialization.m */; };
 		B26CB14119D2D2A500023CEB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB13719D2D2A500023CEB /* AFURLResponseSerialization.m */; };
 		B26CB14219D2D2A500023CEB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB13919D2D2A500023CEB /* AFURLSessionManager.m */; };
+		B26CB15E19D5184D00023CEB /* abacus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15519D5184D00023CEB /* abacus@2x.png */; };
+		B26CB15F19D5184D00023CEB /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15619D5184D00023CEB /* info@2x.png */; };
+		B26CB16019D5184D00023CEB /* light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15719D5184D00023CEB /* light@2x.png */; };
+		B26CB16119D5184D00023CEB /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15819D5184D00023CEB /* location@2x.png */; };
+		B26CB16219D5184D00023CEB /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15919D5184D00023CEB /* mail@2x.png */; };
+		B26CB16319D5184D00023CEB /* money_bag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15A19D5184D00023CEB /* money_bag@2x.png */; };
+		B26CB16419D5184D00023CEB /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15B19D5184D00023CEB /* phone@2x.png */; };
+		B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */; };
+		B26CB16619D5184D00023CEB /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15D19D5184D00023CEB /* user@2x.png */; };
+		B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */; };
+		B26CB16D19D53CA400023CEB /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16C19D53CA400023CEB /* TodayTaskView.m */; };
+		B26CB17019D53E3800023CEB /* TodayTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */; };
+		B26CB17719D5409700023CEB /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB17619D5409700023CEB /* ImageUtils.m */; };
 		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
+		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
+		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
+		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
+		B2CADA0219D561B800768239 /* change@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FE19D561B800768239 /* change@2x.png */; };
+		B2CADA0319D561B800768239 /* fix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FF19D561B800768239 /* fix@2x.png */; };
+		B2CADA0419D561B800768239 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CADA0019D561B800768239 /* setting@2x.png */; };
 		B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
 		B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88719D156DB00215E70 /* CoreGraphics.framework */; };
 		B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
@@ -200,8 +219,33 @@
 		B26CB13719D2D2A500023CEB /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		B26CB13819D2D2A500023CEB /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		B26CB13919D2D2A500023CEB /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		B26CB15519D5184D00023CEB /* abacus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abacus@2x.png"; sourceTree = "<group>"; };
+		B26CB15619D5184D00023CEB /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		B26CB15719D5184D00023CEB /* light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light@2x.png"; sourceTree = "<group>"; };
+		B26CB15819D5184D00023CEB /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		B26CB15919D5184D00023CEB /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail@2x.png"; sourceTree = "<group>"; };
+		B26CB15A19D5184D00023CEB /* money_bag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money_bag@2x.png"; sourceTree = "<group>"; };
+		B26CB15B19D5184D00023CEB /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping_basket@2x.png"; sourceTree = "<group>"; };
+		B26CB15D19D5184D00023CEB /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		B26CB16819D53AFC00023CEB /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskViewController.h; path = TodayTaskViewController/TodayTaskViewController.h; sourceTree = "<group>"; };
+		B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskViewController.m; path = TodayTaskViewController/TodayTaskViewController.m; sourceTree = "<group>"; };
+		B26CB16B19D53CA400023CEB /* TodayTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskView.h; path = TodayTaskViewController/TodayTaskView.h; sourceTree = "<group>"; };
+		B26CB16C19D53CA400023CEB /* TodayTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskView.m; path = TodayTaskViewController/TodayTaskView.m; sourceTree = "<group>"; };
+		B26CB16E19D53E3800023CEB /* TodayTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskTableViewCell.h; path = TodayTaskViewController/TodayTaskTableViewCell.h; sourceTree = "<group>"; };
+		B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskTableViewCell.m; path = TodayTaskViewController/TodayTaskTableViewCell.m; sourceTree = "<group>"; };
+		B26CB17519D5409700023CEB /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
+		B26CB17619D5409700023CEB /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
 		B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectWithNtspHeader.h; sourceTree = "<group>"; };
 		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
+		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
+		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
+		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
+		B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeTableCell.m; sourceTree = "<group>"; };
+		B2CAD9FD19D561B800768239 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		B2CAD9FE19D561B800768239 /* change@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "change@2x.png"; sourceTree = "<group>"; };
+		B2CAD9FF19D561B800768239 /* fix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fix@2x.png"; sourceTree = "<group>"; };
+		B2CADA0019D561B800768239 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
 		B2FDC88219D156DB00215E70 /* LightErector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightErector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FDC88519D156DB00215E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2FDC88719D156DB00215E70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -514,6 +558,30 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		B26CB16719D53AC900023CEB /* TodayTaskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B26CB16819D53AFC00023CEB /* TodayTaskViewController.h */,
+				B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */,
+				B26CB16B19D53CA400023CEB /* TodayTaskView.h */,
+				B26CB16C19D53CA400023CEB /* TodayTaskView.m */,
+				B26CB16E19D53E3800023CEB /* TodayTaskTableViewCell.h */,
+				B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */,
+			);
+			name = TodayTaskViewController;
+			sourceTree = "<group>";
+		};
+		B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */,
+				B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */,
+				B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */,
+				B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */,
+			);
+			path = CustomSwipeTableCell;
+			sourceTree = "<group>";
+		};
 		B2FDC87919D156DA00215E70 = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +761,19 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B2CAD9FD19D561B800768239 /* add@2x.png */,
+				B2CAD9FE19D561B800768239 /* change@2x.png */,
+				B2CAD9FF19D561B800768239 /* fix@2x.png */,
+				B2CADA0019D561B800768239 /* setting@2x.png */,
+				B26CB15519D5184D00023CEB /* abacus@2x.png */,
+				B26CB15619D5184D00023CEB /* info@2x.png */,
+				B26CB15719D5184D00023CEB /* light@2x.png */,
+				B26CB15819D5184D00023CEB /* location@2x.png */,
+				B26CB15919D5184D00023CEB /* mail@2x.png */,
+				B26CB15A19D5184D00023CEB /* money_bag@2x.png */,
+				B26CB15B19D5184D00023CEB /* phone@2x.png */,
+				B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */,
+				B26CB15D19D5184D00023CEB /* user@2x.png */,
 				B2FDCC1B19D292B400215E70 /* bottom_bar_back@2x.png */,
 				B2FDCC1C19D292B400215E70 /* btn_condition_refresh@2x.png */,
 				B2FDCC1D19D292B400215E70 /* btn_login_back@2x.png */,
@@ -881,6 +962,7 @@
 		B2FDCADF19D16C5B00215E70 /* CustomTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */,
 				B2FDCAE019D16C5B00215E70 /* CustomHelpCell */,
 				B2FDCAE319D16C5B00215E70 /* CustomOrderMangerCell */,
 				B2FDCAE619D16C5B00215E70 /* CustomSingleChooseCell */,
@@ -1052,6 +1134,7 @@
 		B2FDCB1719D16C5B00215E70 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B26CB16719D53AC900023CEB /* TodayTaskViewController */,
 				B2FDCC1419D289DD00215E70 /* LoginViewController */,
 				B2FDCBA519D16DE500215E70 /* RootViewController */,
 				B2FDCB2119D16C5B00215E70 /* TemplateView */,
@@ -1161,6 +1244,8 @@
 				B2FDCC1219D278FF00215E70 /* MD5.m */,
 				B2FDCBBD19D1822100215E70 /* StringUtils.h */,
 				B2FDCBBE19D1822100215E70 /* StringUtils.m */,
+				B26CB17519D5409700023CEB /* ImageUtils.h */,
+				B26CB17619D5409700023CEB /* ImageUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1333,6 +1418,7 @@
 				B2FDCC5D19D292B400215E70 /* nav_btn_right_history@2x.png in Resources */,
 				B2FDCC5019D292B400215E70 /* custom_uidatepicker_confirm@2x.png in Resources */,
 				B2FDCC5219D292B400215E70 /* hall_nav_right_number@2x.png in Resources */,
+				B2CADA0219D561B800768239 /* change@2x.png in Resources */,
 				B2FDCC6719D292B400215E70 /* user_about_logo@2x.png in Resources */,
 				B2FDCC5B19D292B400215E70 /* login_logo@2x.png in Resources */,
 				B2FDCC6F19D292B400215E70 /* user_help_label_img@2x.png in Resources */,
@@ -1341,17 +1427,22 @@
 				B2FDCC7219D292B400215E70 /* user_switch_on@2x.png in Resources */,
 				B2FDCC4F19D292B400215E70 /* custom_uidatepicker_cancel@2x.png in Resources */,
 				B2FDCC6919D292B400215E70 /* user_btn_confirm@2x.png in Resources */,
+				B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */,
 				B2FDCC5819D292B400215E70 /* history_status_error_back@2x.png in Resources */,
 				B2FDCC6119D292B400215E70 /* notification_bottom_img@2x.png in Resources */,
+				B26CB16319D5184D00023CEB /* money_bag@2x.png in Resources */,
 				B2FDCC4819D292B400215E70 /* btn_condition_refresh@2x.png in Resources */,
 				B2FDCC6B19D292B400215E70 /* user_cell_background@2x.png in Resources */,
 				B2FDCC5C19D292B400215E70 /* nav_bar_back@2x.png in Resources */,
+				B26CB16019D5184D00023CEB /* light@2x.png in Resources */,
 				B2FDCC5419D292B400215E70 /* hall_tabbar@2x.png in Resources */,
 				B2FDCC4D19D292B400215E70 /* conditon_status_back@2x.png in Resources */,
 				B2FDCC6519D292B400215E70 /* txt_username_back@2x.png in Resources */,
+				B26CB16119D5184D00023CEB /* location@2x.png in Resources */,
 				B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */,
 				B2FDCC6819D292B400215E70 /* user_btn_cancel@2x.png in Resources */,
 				B2FDCC4E19D292B400215E70 /* custom_uidatepicker_background@2x.png in Resources */,
+				B26CB16419D5184D00023CEB /* phone@2x.png in Resources */,
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
 				B2FDCC5919D292B400215E70 /* history_status_ok_back@2x.png in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
@@ -1361,24 +1452,31 @@
 				B2FDCBC219D1835E00215E70 /* base_messagebox_background@2x.png in Resources */,
 				B2FDCC5619D292B400215E70 /* history_cell_separator@2x.png in Resources */,
 				B2FDCC5719D292B400215E70 /* history_detail_back@2x.png in Resources */,
+				B26CB15F19D5184D00023CEB /* info@2x.png in Resources */,
 				B2FDCC6E19D292B400215E70 /* user_help_label_img.png in Resources */,
 				B2FDCC6619D292B400215E70 /* user_about_img@2x.png in Resources */,
 				B2FDCC6D19D292B400215E70 /* user_feedback_text_view_img@2x.png in Resources */,
 				B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */,
 				B2FDCC7F19D2990E00215E70 /* PushConfig.plist in Resources */,
+				B2CADA0419D561B800768239 /* setting@2x.png in Resources */,
 				B2FDCC5E19D292B400215E70 /* nav_btn_right_home@2x.png in Resources */,
 				B2FDCC6C19D292B400215E70 /* user_cell_separated@2x.png in Resources */,
 				B2FDCC4B19D292B400215E70 /* check_box_frame_checked@2x.png in Resources */,
 				B2FDCC6019D292B400215E70 /* noticebar_back@2x.png in Resources */,
+				B2CADA0319D561B800768239 /* fix@2x.png in Resources */,
 				B2FDCB6C19D16C5B00215E70 /* StringDescribe.strings in Resources */,
 				B2FDCC7019D292B400215E70 /* user_phone_modification@2x.png in Resources */,
 				B2FDCC4719D292B400215E70 /* bottom_bar_back@2x.png in Resources */,
 				B2FDCC4C19D292B400215E70 /* check_box_frame@2x.png in Resources */,
+				B26CB15E19D5184D00023CEB /* abacus@2x.png in Resources */,
 				B2FDCC6419D292B400215E70 /* txt_password_back@2x.png in Resources */,
 				B2FDCC5519D292B400215E70 /* history_back@2x.png in Resources */,
 				B2FDCC6319D292B400215E70 /* txt_login_line@2x.png in Resources */,
 				B2FDCC5F19D292B400215E70 /* nav_btn_right_return@2x.png in Resources */,
+				B2CADA0119D561B800768239 /* add@2x.png in Resources */,
+				B26CB16219D5184D00023CEB /* mail@2x.png in Resources */,
 				B2FDCC5A19D292B400215E70 /* login_back@2x.png in Resources */,
+				B26CB16619D5184D00023CEB /* user@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,6 +1520,7 @@
 				B2FDCB7619D16C5B00215E70 /* BaseCustomMessageBox.m in Sources */,
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
 				B2FDCB8F19D16C5B00215E70 /* BaseViewController.m in Sources */,
+				B26CB16D19D53CA400023CEB /* TodayTaskView.m in Sources */,
 				B2FDCB8619D16C5B00215E70 /* CustomUISwitch.m in Sources */,
 				B2FDCB8519D16C5B00215E70 /* CustomUIRadioButton.m in Sources */,
 				B2FDCC1A19D28A5200215E70 /* LoginView.m in Sources */,
@@ -1448,12 +1547,16 @@
 				B2FDCBD519D26C0A00215E70 /* BaseDataModel.m in Sources */,
 				B26CB13E19D2D2A500023CEB /* AFSecurityPolicy.m in Sources */,
 				B2FDCB9319D16C5B00215E70 /* TitleBarAndBeforeIos7StyleOfTableView.m in Sources */,
+				B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */,
 				B2FDCB7019D16C5B00215E70 /* ButtonListAlertView.m in Sources */,
 				B2FDCBCF19D266D900215E70 /* UserLoginBusiness.m in Sources */,
 				B2FDCB7719D16C5B00215E70 /* ColorContentMessageBox.m in Sources */,
+				B26CB17719D5409700023CEB /* ImageUtils.m in Sources */,
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
 				B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */,
+				B26CB17019D53E3800023CEB /* TodayTaskTableViewCell.m in Sources */,
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
+				B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */,
 				B2FDCB8C19D16C5B00215E70 /* PullRefreshTableView.m in Sources */,
 				B2FDCBA219D16C5B00215E70 /* test6View.m in Sources */,
 				B2FDCB9A19D16C5B00215E70 /* test2View.m in Sources */,
@@ -1478,6 +1581,7 @@
 				B2FDCB4A19D16C5B00215E70 /* BaseBusiness.m in Sources */,
 				B2FDCB7F19D16C5B00215E70 /* CustomTextFieldCell.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
+				B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,

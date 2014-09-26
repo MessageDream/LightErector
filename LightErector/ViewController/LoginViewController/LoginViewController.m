@@ -122,7 +122,7 @@
 //        [((JPushNotification*)[PushNotification sharePushNotification]) registerUserTags:nil andAlias:user.userName callbackSelector:nil target:nil];
         
         Message *msg=[[Message alloc] init];
-        msg.receiveObjectID=VIEWCONTROLLER_TEST1;
+        msg.receiveObjectID=VIEWCONTROLLER_TODAYTASK;
         msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
         [self sendMessage:msg];
         [self sendShowTabBarMessage];

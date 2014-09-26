@@ -18,12 +18,9 @@ enum ModuleAndControllerID
     VIEWCONTROLLER_RETURN = -1,
     Module_ROOT = 0,
     
-    Module_FRAME = 1000,
-    VIEWCONTROLLER_FRAME,
-    
-    Module_SYSTEM = 2000,
+    Module_SYSTEM = 1000,
     VIEWCONTROLLER_LOGIN,
-    VIEWCONTROLLER_MAIN,
+    VIEWCONTROLLER_TODAYTASK,
 
     Module_TEST = 3000,
     VIEWCONTROLLER_TEST1,

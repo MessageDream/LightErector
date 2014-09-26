@@ -59,6 +59,8 @@
                 return;
             }
             message.receiveObjectID = [ID intValue];
+        }else{
+            return;
         }
     }else {
         if (message.doCache) {

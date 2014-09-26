@@ -8,21 +8,40 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTabBarItem : UIButton
+typedef enum {
+    TabStateEnabled,
+    TabStateDisabled
+} TabState;
 
-@property (nonatomic, strong) NSString *tabImageWithName;
-@property (nonatomic, strong) NSString *backgroundImageName;
-@property (nonatomic, strong) NSString *selectedBackgroundImageName;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, strong) UIColor *selectedTextColor;
-@property (nonatomic, strong) NSString *tabTitle;
-@property (nonatomic, strong) NSArray *tabIconColors;
-@property (nonatomic, strong) NSArray *tabIconColorsSelected;
-@property (nonatomic, strong) NSArray *tabSelectedColors;
-@property (nonatomic, assign) BOOL glossyIsHidden;
-@property (nonatomic, strong) UIColor *strokeColor;
-@property (nonatomic, strong) UIColor *edgeColor;
-@property (nonatomic, assign) CGFloat tabBarHeight;
-@property (nonatomic, assign) CGFloat minimumHeightToDisplayTitle;
-@property (nonatomic, assign) BOOL titleIsHidden;
+typedef enum {
+    TabTypeUsual,
+    TabTypeButton,
+    TabTypeUnexcludable
+} TabType;
+
+@interface CustomTabBarItem : NSObject
+
+@property (readwrite) TabState tabState;
+@property (readonly) TabType tabType;
+@property (nonatomic, assign, readonly) id target;
+@property (readonly) SEL selector;
+@property (nonatomic, strong) UIColor *enabledBackgroundColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) NSString *titleString;
+@property (nonatomic, strong) UIFont *titleFont;
+@property (nonatomic, strong) UIColor *titleFontColor;
+@property (nonatomic, strong, readonly) UIImage *imageForCurrentState;
+
++ (CustomTabBarItem *)createUsualItemWithImageEnabled:(UIImage *)imageEnabled
+                                 imageDisabled:(UIImage *)imageDisabled;
+
++ (CustomTabBarItem *)createUnexcludableItemWithImageEnabled:(UIImage *)imageEnabled
+                                        imageDisabled:(UIImage *)imageDisabled;
+
++ (CustomTabBarItem *)createButtonItemWithImage:(UIImage *)image
+                                  target:(id)target
+                                selector:(SEL)selector;
+
+- (void)switchState;
+
 @end

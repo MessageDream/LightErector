@@ -8,6 +8,7 @@
 
 #import "SystemModule.h"
 #import "LoginViewController.h"
+#import "TodayTaskViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -26,11 +27,11 @@
         return NO;
     
     BaseViewController *viewcontroller;
-    if(message.receiveObjectID == VIEWCONTROLLER_LOGIN)
-    {
+    if(message.receiveObjectID == VIEWCONTROLLER_LOGIN){
         viewcontroller = [[LoginViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_TODAYTASK){
+        viewcontroller=[[TodayTaskViewController alloc] init];
     }
-    
     
     if(viewcontroller != nil)
         [self addViewControllToRootViewController:viewcontroller forMessage:message];
