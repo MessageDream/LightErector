@@ -15,13 +15,11 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if (self=[super initWithFrame:frame]) {
-        CustomTabBarItem *todayTaskItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage
-                                                                                                               imageNamed:@"light"]];
+        CustomTabBarItem *todayTaskItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"light"]];
         todayTaskItem.titleString = NSLocalizedStringFromTable(@"TodayTask",Res_String,@"");
         
         CustomTabBarItem *orderInfoItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"shopping_basket"]];
         orderInfoItem.titleString = NSLocalizedStringFromTable(@"OrderList",Res_String,@"");
-        
         
         CustomTabBarItem *aboutItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"info"]];
         aboutItem.titleString = NSLocalizedStringFromTable(@"about",Res_String,@"");

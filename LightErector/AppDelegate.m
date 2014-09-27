@@ -32,7 +32,6 @@
 //    jpush=[JPushNotification sharePushNotification];
 //    [jpush applyForPushNotification:launchOptions];
     
-    
     //建立根Node，然后建立第一个显示的UIViewController
     self.rootModule = [[RootModule alloc] init];
     self.rootModule.window = self.window;

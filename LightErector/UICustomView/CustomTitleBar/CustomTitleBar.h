@@ -22,6 +22,12 @@ enum CustomTitleBar_Style
     CustomTitleBar_Style_DecorateLine,
 };
 
+enum CustomTitleBar_Title_VerticleAlignment
+{
+    CustomTitleBar_Title_VerticleAlignment_Center,
+    CustomTitleBar_Title_VerticleAlignment_Bottom,
+};
+
 @interface CustomTitleBar : UIView
 {
 @protected
@@ -46,7 +52,7 @@ enum CustomTitleBar_Style
 @property(nonatomic,readonly)UIButton *rightButton;
 @property(nonatomic)enum CustomTitleBar_Style style;
 @property(nonatomic,strong)UIColor *textColor;
-
+@property(nonatomic,assign)enum CustomTitleBar_Title_VerticleAlignment titleVerticleAlignment;
 -(id)initWithBackgroundImage:(UIImage*)image;
 -(void)displayBackgroundImage:(BOOL)isDisplay;
 -(void)displayCustomTitleView:(BOOL)flag;

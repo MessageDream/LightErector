@@ -85,10 +85,10 @@
         cell = [[TodayTaskTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIden];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.titleCell.rightSwipeSettings.transition = CustomSwipeTransitionDrag;
-    cell.titleCell.rightExpansion.buttonIndex = 2;
+    cell.titleCell.rightSwipeSettings.transition = CustomSwipeTransitionBorder;
+    cell.titleCell.rightExpansion.buttonIndex = 1;
     cell.titleCell.rightExpansion.fillOnTrigger = YES;
-    cell.titleCell.rightButtons = [self createRightButtons:2];
+    cell.titleCell.rightButtons = [self createRightButtons:1];
     cell.titleCell.textLabel.text=@"TEST";
     
     cell.nameLable.text=@"司马无情";
@@ -118,7 +118,7 @@
     if (str!=nil) {
         CGSize expectedLabelSizeDetail = [str sizeWithFont:cell.nameLable.font
                                          constrainedToSize:maximumLabelSize
-                                             lineBreakMode:NSLineBreakByCharWrapping];
+                                             lineBreakMode:NSLineBreakByWordWrapping];
         
         frame=cell.detailLable.frame;
         frame.origin.y=cell.sDetailLable.frame.origin.y;
@@ -163,8 +163,8 @@
 -(NSArray *) createRightButtons: (int) number
 {
     NSMutableArray * result = [NSMutableArray array];
-    NSString* titles[2] = {@"Delete", @"More"};
-    UIColor * colors[2] = {[UIColor redColor], [UIColor lightGrayColor]};
+    NSString* titles[1] = {@"去安装"};
+    UIColor * colors[1] = {[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:1]};
     for (int i = 0; i < number; ++i)
     {
         CustomSwipeButton * button = [CustomSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] callback:^BOOL(CustomSwipeTableCell * sender){
