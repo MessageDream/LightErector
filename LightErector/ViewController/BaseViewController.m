@@ -168,8 +168,8 @@
     frame.size.width = [UIScreen mainScreen].applicationFrame.size.width;
     frame.size.height = [UIScreen mainScreen].applicationFrame.size.height;
     
-//    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
-//        frame.origin.y = [UIScreen mainScreen].applicationFrame.origin.y;
+    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
+        frame.origin.y = [UIScreen mainScreen].applicationFrame.origin.y;
     return frame;
 }
 

@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        CGSize imgSize=CGSizeMake(self.frame.size.width, 64.0f);
+        CGSize imgSize=CGSizeMake(self.frame.size.width, 44.0f);
         _customTitleBar = [[CustomTitleBar alloc] initWithBackgroundImage:[ImageUtils createImageWithColor:[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:1] andSize:imgSize]];
         _customTitleBar.titleFontSize = 18;
         _customTitleBar.style = CustomTitleBar_Style_None;
@@ -29,7 +29,7 @@
         _customTitleBar.rightButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_home",Res_Image,@"")];
         _customTitleBar.titleText = NSLocalizedStringFromTable(@"SubProductName9",Res_String,@"");
         
-        _customTitleBar.titleVerticleAlignment=CustomTitleBar_Title_VerticleAlignment_Bottom;
+        //_customTitleBar.titleVerticleAlignment=CustomTitleBar_Title_VerticleAlignment_Bottom;
     }
     return self;
 }
