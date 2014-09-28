@@ -30,6 +30,11 @@
 		B26CB17019D53E3800023CEB /* TodayTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */; };
 		B26CB17719D5409700023CEB /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB17619D5409700023CEB /* ImageUtils.m */; };
 		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
+		B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */; };
+		B272CDCA19D7FBE60084C594 /* TodayTaskBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */; };
+		B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */; };
+		B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD119D8105A0084C594 /* TradeInfo.m */; };
+		B272CDD519D810AC0084C594 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD419D810AC0084C594 /* Order.m */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -238,6 +243,16 @@
 		B26CB17619D5409700023CEB /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
 		B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectWithNtspHeader.h; sourceTree = "<group>"; };
 		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
+		B272CDC419D7B4530084C594 /* TodayTaskTableViewTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskTableViewTitleCell.h; path = TodayTaskViewController/TodayTaskTableViewTitleCell.h; sourceTree = "<group>"; };
+		B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskTableViewTitleCell.m; path = TodayTaskViewController/TodayTaskTableViewTitleCell.m; sourceTree = "<group>"; };
+		B272CDC819D7FBE60084C594 /* TodayTaskBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskBusiness.h; path = TodayTaskBusiness/TodayTaskBusiness.h; sourceTree = "<group>"; };
+		B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskBusiness.m; path = TodayTaskBusiness/TodayTaskBusiness.m; sourceTree = "<group>"; };
+		B272CDCC19D7FCDA0084C594 /* TodayTaskRemind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskRemind.h; path = TodayTaskModel/TodayTaskRemind.h; sourceTree = "<group>"; };
+		B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskRemind.m; path = TodayTaskModel/TodayTaskRemind.m; sourceTree = "<group>"; };
+		B272CDD019D8105A0084C594 /* TradeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeInfo.h; path = TradeInfoModel/TradeInfo.h; sourceTree = "<group>"; };
+		B272CDD119D8105A0084C594 /* TradeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeInfo.m; path = TradeInfoModel/TradeInfo.m; sourceTree = "<group>"; };
+		B272CDD319D810AC0084C594 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = TradeInfoModel/Order.h; sourceTree = "<group>"; };
+		B272CDD419D810AC0084C594 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = TradeInfoModel/Order.m; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -567,8 +582,39 @@
 				B26CB16C19D53CA400023CEB /* TodayTaskView.m */,
 				B26CB16E19D53E3800023CEB /* TodayTaskTableViewCell.h */,
 				B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */,
+				B272CDC419D7B4530084C594 /* TodayTaskTableViewTitleCell.h */,
+				B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */,
 			);
 			name = TodayTaskViewController;
+			sourceTree = "<group>";
+		};
+		B272CDC719D7FBC30084C594 /* TodayTaskBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				B272CDC819D7FBE60084C594 /* TodayTaskBusiness.h */,
+				B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */,
+			);
+			name = TodayTaskBusiness;
+			sourceTree = "<group>";
+		};
+		B272CDCB19D7FCA40084C594 /* TodayTaskModel */ = {
+			isa = PBXGroup;
+			children = (
+				B272CDCC19D7FCDA0084C594 /* TodayTaskRemind.h */,
+				B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */,
+			);
+			name = TodayTaskModel;
+			sourceTree = "<group>";
+		};
+		B272CDCF19D80FDA0084C594 /* TradeInfoModel */ = {
+			isa = PBXGroup;
+			children = (
+				B272CDD019D8105A0084C594 /* TradeInfo.h */,
+				B272CDD119D8105A0084C594 /* TradeInfo.m */,
+				B272CDD319D810AC0084C594 /* Order.h */,
+				B272CDD419D810AC0084C594 /* Order.m */,
+			);
+			name = TradeInfoModel;
 			sourceTree = "<group>";
 		};
 		B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */ = {
@@ -678,6 +724,7 @@
 		B2FDCA5F19D16C5B00215E70 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				B272CDC719D7FBC30084C594 /* TodayTaskBusiness */,
 				B2FDCBC919D2667800215E70 /* VersionBusiness */,
 				B2FDCA6919D16C5B00215E70 /* UserBusiness */,
 				B2FDCA6019D16C5B00215E70 /* BaseBusiness.h */,
@@ -1271,6 +1318,8 @@
 		B2FDCBD119D26C0A00215E70 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				B272CDCF19D80FDA0084C594 /* TradeInfoModel */,
+				B272CDCB19D7FCA40084C594 /* TodayTaskModel */,
 				B2FDCC0719D2755F00215E70 /* UserModel */,
 				B2FDCBD219D26C0A00215E70 /* BaseDataModel.h */,
 				B2FDCBD319D26C0A00215E70 /* BaseDataModel.m */,
@@ -1543,6 +1592,7 @@
 				B26CB14019D2D2A500023CEB /* AFURLRequestSerialization.m in Sources */,
 				B2FDCC7D19D2974700215E70 /* PushNotification.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
+				B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
 				B2FDCBD519D26C0A00215E70 /* BaseDataModel.m in Sources */,
 				B26CB13E19D2D2A500023CEB /* AFSecurityPolicy.m in Sources */,
@@ -1558,6 +1608,7 @@
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
 				B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */,
 				B2FDCB8C19D16C5B00215E70 /* PullRefreshTableView.m in Sources */,
+				B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */,
 				B2FDCBA219D16C5B00215E70 /* test6View.m in Sources */,
 				B2FDCB9A19D16C5B00215E70 /* test2View.m in Sources */,
 				B2FDCB6E19D16C5B00215E70 /* BeforeIos7StyleOfTableView.m in Sources */,
@@ -1565,6 +1616,7 @@
 				B2FDCBA319D16C5B00215E70 /* test6ViewController.m in Sources */,
 				B2FDCB7E19D16C5B00215E70 /* CustomSingleChooseCell.m in Sources */,
 				B2FDCB7519D16C5B00215E70 /* CustomMarqueeView.m in Sources */,
+				B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */,
 				B2FDCB7219D16C5B00215E70 /* CustomArticleAlertView.m in Sources */,
 				B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */,
 				B2FDCB8019D16C5B00215E70 /* CustomPlaceHolderTextField.m in Sources */,
@@ -1573,6 +1625,7 @@
 				B2FDCC1019D2766B00215E70 /* UserInfo.m in Sources */,
 				B2FDCB6D19D16C5B00215E70 /* AttributedLabel.m in Sources */,
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,
+				B272CDD519D810AC0084C594 /* Order.m in Sources */,
 				B2FDCB9719D16C5B00215E70 /* TitleBarView.m in Sources */,
 				B2FDCBB619D17FB600215E70 /* BaseModule.m in Sources */,
 				B2FDCBC719D1871900215E70 /* NtspHeader.m in Sources */,
@@ -1584,6 +1637,7 @@
 				B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
+				B272CDCA19D7FBE60084C594 /* TodayTaskBusiness.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,
 				B2FDCB8319D16C5B00215E70 /* CustomTitleBar.m in Sources */,
 				B2FDCBA419D16C5B00215E70 /* ViewControllerPathManager.m in Sources */,

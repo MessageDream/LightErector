@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _tableView = [[PullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-_customTitleBar.bounds.size.height-30)];
+        _tableView = [[PullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, self.bounds.size.width, self.bounds.size.height-_customTitleBar.bounds.size.height-30)];
         _tableView.backgroundColor = [UIColor clearColor];
         [self addSubview:_tableView];
         

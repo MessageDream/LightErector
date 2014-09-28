@@ -53,8 +53,8 @@ static NtspHeader *ntspHeader;
 {
     if(!ntspHeader)
         ntspHeader=[[NtspHeader alloc] init];
-    ntspHeader.apikey = [jsonDic objectForKey:@"apikey"];
-    ntspHeader.version = [jsonDic objectForKey:@"version"];
+//    ntspHeader.apikey = [jsonDic objectForKey:@"apikey"];
+//    ntspHeader.version = [jsonDic objectForKey:@"version"];
     ntspHeader.sessionid = [jsonDic objectForKey:@"sessionid"];
 }
 

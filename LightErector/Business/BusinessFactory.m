@@ -8,6 +8,7 @@
 
 #import "BusinessFactory.h"
 #import "UserLoginBusiness.h"
+#import "TodayTaskBusiness.h"
 
 @implementation BusinessFactory
 
@@ -18,9 +19,10 @@
     else if (type==BUSINESS_LOGIN)
     {
         return [[UserLoginBusiness alloc] init];
+    }else if (type==BUSINESS_GETTODAYTASK){
+        return [[TodayTaskBusiness alloc] init];
     }
 
     return nil;
-    
 }
 @end

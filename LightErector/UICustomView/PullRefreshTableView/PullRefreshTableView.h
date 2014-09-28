@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PullRefreshTableViewDelegate.h"
-@class PullRefreshCustomUITableView;
+#import "PullRefreshCustomUITableView.h"
 
 @interface PullRefreshTableView : UIView<UITableViewDelegate,UIScrollViewDelegate,UITableViewDataSource>
 {
@@ -24,6 +24,7 @@
 @property(nonatomic)UITableViewCellSeparatorStyle separatorStyle;
 @property(nonatomic,readonly)UIView *belowRefreshView;
 @property(nonatomic,assign)id<UITableViewDataSource> dataSource;
+@property(nonatomic,strong)PullRefreshCustomUITableView *tableView;
 @property(nonatomic,assign)id<PullRefreshTableViewDelegate> observer;
 -(id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 -(void)stopRefresh;

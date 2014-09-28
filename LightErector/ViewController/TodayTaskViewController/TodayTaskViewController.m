@@ -10,9 +10,23 @@
 #import "TodayTaskView.h"
 #import "TodayTaskTableViewCell.h"
 #import "CustomSwipeButton.h"
+#import "TodayTaskTableViewTitleCell.h"
 
-@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource>
+@implementation UITableViewCellModel
+-(id)initWithCellType:(NSString *)cellType isAttached:(BOOL) isAttached andContentModel:(id)model
+{
+    if (self=[super init]) {
+        _cellType=cellType;
+        _isAttached=isAttached;
+        _contentModel=model;
+    }
+    return self;
+}
+@end
 
+@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,PullRefreshTableViewDelegate>
+{
+}
 @end
 
 @implementation TodayTaskViewController
@@ -26,6 +40,14 @@
     return self;
 }
 
+-(id)init
+{
+    if (self=[super init]) {
+        
+    }
+    return self;
+}
+
 -(void)settingViewControllerId
 {
     _viewControllerId=VIEWCONTROLLER_TODAYTASK;
@@ -33,11 +55,12 @@
 
 -(void)loadView
 {
+    
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     TodayTaskView *taskView=[[TodayTaskView alloc]initWithFrame:frame];
     taskView.tableView.dataSource=self;
-    taskView.tableView.delegate=self;
+    taskView.tableView.observer=self;
     
     self.view=taskView;
 }
@@ -45,7 +68,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
+    NSArray * array = @[model,model,model,model,model,model];
+    
+    self.dataArray = [[NSMutableArray alloc]init];
+    self.dataArray = [NSMutableArray arrayWithArray:array];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,113 +95,233 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return cell.frame.size.height;
+    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *cellIden = @"taskCell";
-    TodayTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
-    if (!cell) {
-        cell = [[TodayTaskTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIden];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UITableViewCellModel *model=self.dataArray[indexPath.row];
+    if ([model.cellType isEqualToString:MAINCELL])
+    {
+        
+        static NSString *CellIdentifier = MAINCELL;
+        
+        TodayTaskTableViewTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        
+        if (cell == nil) {
+            cell = [[TodayTaskTableViewTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.optionButton.hidden=YES;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        [cell createOptionButtonWithTitle:@"去安装" andIcon:nil andBackgroundColor:[UIColor redColor]];
+        cell.textLabel.text=[NSString stringWithFormat:@"TEST%d",indexPath.row];
+        if (model.isAttached) {
+            cell.optionButton.hidden=NO;
+            cell.accessoryType=UITableViewCellAccessoryNone;
+        }else{
+             cell.optionButton.hidden=YES;
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        }
+        return cell;
+        
+        
+    }else if([model.cellType isEqualToString:ATTACHEDCELL]){
+        
+        static NSString *CellIdentifier = ATTACHEDCELL;
+        
+        TodayTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        
+        if (cell == nil) {
+            cell = [[TodayTaskTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        cell.nameLable.text=@"司马无情";
+        cell.phoneLable.text=@"18610901435";
+        cell.subscribeTimeLable.text=@"2014-12-20 18:00:00";
+        
+        CGSize maximumLabelSize = CGSizeMake(cell.subscribeTimeLable.frame.size.width,MAXFLOAT);
+        
+        NSString *str=@"如果您没有提交密码重置的请求或不是 酷鱼桌面美化社区 的注册用户，请立即忽略 并删除这封邮件。只有在您确认需要重置密码的情况下，才需要继续阅读下面的 内容";
+        CGRect frame;
+        if (str!=nil) {
+            CGSize expectedLabelSizeAddr = [str sizeWithFont:cell.nameLable.font
+                                           constrainedToSize:maximumLabelSize
+                                               lineBreakMode:NSLineBreakByWordWrapping];
+            
+            frame=cell.addressLable.frame;
+            frame.size=expectedLabelSizeAddr;
+            cell.addressLable.frame=frame;
+            cell.addressLable.numberOfLines=0;
+            cell.addressLable.text=str;
+            
+            frame=cell.sDetailLable.frame;
+            frame.origin.y=cell.addressLable.frame.origin.y+expectedLabelSizeAddr.height+cell.nameLable.font.lineHeight/2;
+            cell.sDetailLable.frame=frame;
+        }
+        
+        if (str!=nil) {
+            CGSize expectedLabelSizeDetail = [str sizeWithFont:cell.nameLable.font
+                                             constrainedToSize:maximumLabelSize
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+            
+            frame=cell.detailLable.frame;
+            frame.origin.y=cell.sDetailLable.frame.origin.y;
+            frame.size=expectedLabelSizeDetail;
+            cell.detailLable.frame=frame;
+            cell.detailLable.numberOfLines=0;
+            cell.detailLable.text=str;
+            
+            frame=cell.sRemarkLable.frame;
+            frame.origin.y=cell.detailLable.frame.origin.y+expectedLabelSizeDetail.height+cell.nameLable.font.lineHeight/2;
+            cell.sRemarkLable.frame=frame;
+            
+            
+        }
+        
+        if (str!=nil) {
+            
+            CGSize expectedLabelSizeRemark = [str sizeWithFont:cell.nameLable.font
+                                             constrainedToSize:maximumLabelSize
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+            
+            frame=cell.remarkLable.frame;
+            frame.origin.y=cell.sRemarkLable.frame.origin.y;
+            frame.size=expectedLabelSizeRemark;
+            cell.remarkLable.frame=frame;
+            cell.remarkLable.numberOfLines=0;
+            cell.remarkLable.text=str;
+        }
+        
+        frame=cell.frame;
+        frame.size.height=cell.remarkLable.frame.origin.y+cell.remarkLable.frame.size.height+cell.nameLable.font.lineHeight/2;
+        cell.frame=frame;
+        return cell;
+        
     }
-    cell.titleCell.rightSwipeSettings.transition = CustomSwipeTransitionBorder;
-    cell.titleCell.rightExpansion.buttonIndex = 1;
-    cell.titleCell.rightExpansion.fillOnTrigger = YES;
-    cell.titleCell.rightButtons = [self createRightButtons:1];
-    cell.titleCell.textLabel.text=@"TEST";
     
-    cell.nameLable.text=@"司马无情";
-    cell.phoneLable.text=@"18610901435";
-    cell.subscribeTimeLable.text=@"2014-12-20 18:00:00";
-    
-    CGSize maximumLabelSize = CGSizeMake(cell.subscribeTimeLable.frame.size.width,MAXFLOAT);
-    
-    NSString *str=@"如果您没有提交密码重置的请求或不是 酷鱼桌面美化社区 的注册用户，请立即忽略 并删除这封邮件。只有在您确认需要重置密码的情况下，才需要继续阅读下面的 内容";
-    CGRect frame;
-    if (str!=nil) {
-        CGSize expectedLabelSizeAddr = [str sizeWithFont:cell.nameLable.font
-                                       constrainedToSize:maximumLabelSize
-                                           lineBreakMode:NSLineBreakByWordWrapping];
-        
-        frame=cell.addressLable.frame;
-        frame.size=expectedLabelSizeAddr;
-        cell.addressLable.frame=frame;
-        cell.addressLable.numberOfLines=0;
-        cell.addressLable.text=str;
-        
-        frame=cell.sDetailLable.frame;
-        frame.origin.y=cell.addressLable.frame.origin.y+expectedLabelSizeAddr.height+cell.nameLable.font.lineHeight/2;
-        cell.sDetailLable.frame=frame;
-    }
-    
-    if (str!=nil) {
-        CGSize expectedLabelSizeDetail = [str sizeWithFont:cell.nameLable.font
-                                         constrainedToSize:maximumLabelSize
-                                             lineBreakMode:NSLineBreakByWordWrapping];
-        
-        frame=cell.detailLable.frame;
-        frame.origin.y=cell.sDetailLable.frame.origin.y;
-        frame.size=expectedLabelSizeDetail;
-        cell.detailLable.frame=frame;
-        cell.detailLable.numberOfLines=0;
-        cell.detailLable.text=str;
-        
-        frame=cell.sRemarkLable.frame;
-        frame.origin.y=cell.detailLable.frame.origin.y+expectedLabelSizeDetail.height+cell.nameLable.font.lineHeight/2;
-        cell.sRemarkLable.frame=frame;
-        
-        
-    }
-    
-    if (str!=nil) {
-        
-        CGSize expectedLabelSizeRemark = [str sizeWithFont:cell.nameLable.font
-                                         constrainedToSize:maximumLabelSize
-                                             lineBreakMode:NSLineBreakByWordWrapping];
-        
-        frame=cell.remarkLable.frame;
-        frame.origin.y=cell.sRemarkLable.frame.origin.y;
-        frame.size=expectedLabelSizeRemark;
-        cell.remarkLable.frame=frame;
-        cell.remarkLable.numberOfLines=0;
-        cell.remarkLable.text=str;
-    }
-    
-    frame=cell.frame;
-    frame.size.height=cell.remarkLable.frame.origin.y+cell.remarkLable.frame.size.height+cell.nameLable.font.lineHeight/2;
-    cell.frame=frame;
-    return cell;
+    return nil;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%d",indexPath.row);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSIndexPath *path = nil;
+    
+    UITableViewCellModel *model= self.dataArray[indexPath.row];
+    if ([model.cellType isEqualToString:MAINCELL]) {
+        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
+    }else{
+        path = indexPath;
+    }
+    
+    NSIndexPath *pathlast = [NSIndexPath indexPathForItem:(path.row-1) inSection:indexPath.section];
+    
+    if (model.isAttached) {
+        // 关闭附加cell
+        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
+        self.dataArray[(path.row-1)] = model;
+        [self.dataArray removeObjectAtIndex:path.row];
+        
+        
+        [tableView beginUpdates];
+        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
+        [tableView deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
+        [tableView endUpdates];
+        
+    }else{
+        // 打开附加cell
+        UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:nil];
+        [self.dataArray insertObject:addModel atIndex:path.row];
+        
+        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:YES andContentModel:nil];
+        self.dataArray[(path.row-1)] = model;
+        
+        
+        [tableView beginUpdates];
+        
+        [tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationBottom];
+        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
+        [tableView endUpdates];
+    }
+    
 }
 
--(NSArray *) createRightButtons: (int) number
+-(void)pullRefreshTableViewRefresh:(PullRefreshTableView*)pullRefreshTableView
 {
-    NSMutableArray * result = [NSMutableArray array];
-    NSString* titles[1] = {@"去安装"};
-    UIColor * colors[1] = {[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:1]};
-    for (int i = 0; i < number; ++i)
-    {
-        CustomSwipeButton * button = [CustomSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] callback:^BOOL(CustomSwipeTableCell * sender){
-            NSLog(@"Convenience callback received (right).");
-            return YES;
-        }];
-        [result addObject:button];
+
+}
+
+- (CGFloat)pullRefreshTableView:(PullRefreshTableView *)pullRefreshTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell=[self tableView:pullRefreshTableView.tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+- (void)pullRefreshTableView:(PullRefreshTableView *)pullRefreshTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%d",indexPath.row);
+    [pullRefreshTableView.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSIndexPath *path = nil;
+    
+    UITableViewCellModel *model= self.dataArray[indexPath.row];
+    if ([model.cellType isEqualToString:MAINCELL]) {
+        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
+    }else{
+        path = indexPath;
     }
-    return result;
+    
+    NSIndexPath *pathlast = [NSIndexPath indexPathForItem:(path.row-1) inSection:indexPath.section];
+    
+    if (model.isAttached) {
+        // 关闭附加cell
+        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
+        self.dataArray[(path.row-1)] = model;
+        [self.dataArray removeObjectAtIndex:path.row];
+        
+        
+        [pullRefreshTableView.tableView beginUpdates];
+        [pullRefreshTableView.tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
+        [pullRefreshTableView.tableView deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
+        [pullRefreshTableView.tableView endUpdates];
+        
+    }else{
+        // 打开附加cell
+        UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:nil];
+        [self.dataArray insertObject:addModel atIndex:path.row];
+        
+        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:YES andContentModel:nil];
+        self.dataArray[(path.row-1)] = model;
+        
+        
+        [pullRefreshTableView.tableView beginUpdates];
+        
+        [pullRefreshTableView.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationBottom];
+        [pullRefreshTableView.tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
+        [pullRefreshTableView.tableView endUpdates];
+    }
+    
+
+}
+
+-(void)dealloc
+{
+    
 }
 @end

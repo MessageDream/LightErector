@@ -17,11 +17,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         CGFloat width=[UIScreen mainScreen].applicationFrame.size.width;
-        self.titleCell=[[CustomSwipeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        self.titleCell.frame=CGRectMake(0, 0, width, 44);
-        self.titleCell.imageView.image=[UIImage imageNamed:@"light"];
-        self.titleCell.backgroundColor=[UIColor redColor];
-        [self addSubview:self.titleCell];
         
         UIFont *font=[UIFont systemFontOfSize:14];
         CGFloat phoneWidth=90;
@@ -29,7 +24,7 @@
         CGFloat snameWidth=60;
         CGFloat space=15;
         
-        self.phoneLable=[[UILabel alloc] initWithFrame:CGRectMake(width-phoneWidth-space, self.titleCell.frame.size.height+font.lineHeight/2, phoneWidth, font.lineHeight)];
+        self.phoneLable=[[UILabel alloc] initWithFrame:CGRectMake(width-phoneWidth-space, font.lineHeight/2, phoneWidth, font.lineHeight)];
         self.phoneLable.font=font;
         self.phoneLable.textAlignment=NSTextAlignmentRight;
         [self addSubview:self.phoneLable];

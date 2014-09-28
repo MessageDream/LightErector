@@ -26,6 +26,7 @@ static NSOperationQueue *operationQueue = nil;
 @synthesize body=_body;
 @synthesize stauts = _stauts;
 @synthesize errorCode = _errorCode;
+@synthesize observer=_observer;
 
 +(NSOperationQueue *)shareQueue{
     
@@ -211,7 +212,7 @@ static NSOperationQueue *operationQueue = nil;
     if ([_requestOperation isCancelled]) {
         return;
     }
-    [_requestOperation cancel];
+   // [_requestOperation cancel];
 }
 
 
@@ -233,6 +234,7 @@ static NSOperationQueue *operationQueue = nil;
     _resquestHeads = nil;
     _connection = nil;
     _success=nil;
+    _observer=nil;
     _failure=nil;
     _downloadProcess=nil;
 }

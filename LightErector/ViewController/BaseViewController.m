@@ -101,7 +101,7 @@
         return;
     error = [error stringByAppendingString:errorMsg];
     
-    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:[UIImage imageNamed:NSLocalizedStringFromTable(@"base_Messagebox_background",Res_Image,@"")]];
+    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:[UIImage imageNamed:@"base_Messagebox_background"]];
     baseCustomMessageBox.animation = YES;
     baseCustomMessageBox.autoCloseTimer = 1;
     

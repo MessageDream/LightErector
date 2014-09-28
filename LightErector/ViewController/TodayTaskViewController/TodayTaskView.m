@@ -16,8 +16,7 @@
     if (self) {
         // Initialization code
         self.customTitleBar.titleText= NSLocalizedStringFromTable(@"TodayTask",Res_String,@"");
-
-        self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, self.customTitleBar.frame.size.height, self.frame.size.width, self.frame.size.height-self.customTitleBar.frame.size.height)];
+        self.tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
         [self addSubview:self.tableView];
     }
     return self;

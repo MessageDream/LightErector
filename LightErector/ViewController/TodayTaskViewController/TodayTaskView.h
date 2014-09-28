@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 jayden. All rights reserved.
 //
 
-#import "TitleBarAndScrollerView.h"
+#import "TitleBarAndPullRefreshTableView.h"
 
-@interface TodayTaskView : TitleBarAndScrollerView
-@property(nonatomic,strong)UITableView *tableView;
+@interface TodayTaskView : TitleBarAndPullRefreshTableView
 @end

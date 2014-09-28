@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomSwipeTableCell.h"
+
 
 @interface TodayTaskTableViewCell : UITableViewCell
-@property(nonatomic,strong)CustomSwipeTableCell *titleCell;
 @property(nonatomic,strong)UILabel *nameLable;
 @property(nonatomic,strong)UILabel *phoneLable;
 @property(nonatomic,strong)UILabel *subscribeTimeLable;
