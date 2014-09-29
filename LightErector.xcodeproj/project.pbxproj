@@ -35,6 +35,10 @@
 		B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */; };
 		B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD119D8105A0084C594 /* TradeInfo.m */; };
 		B272CDD519D810AC0084C594 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD419D810AC0084C594 /* Order.m */; };
+		B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */; };
+		B272CDE019D90CB60084C594 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDE19D90CB60084C594 /* centerIcon@2x.png */; };
+		B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDF19D90CB60084C594 /* launchpad@2x.png */; };
+		B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -253,6 +257,12 @@
 		B272CDD119D8105A0084C594 /* TradeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeInfo.m; path = TradeInfoModel/TradeInfo.m; sourceTree = "<group>"; };
 		B272CDD319D810AC0084C594 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = TradeInfoModel/Order.h; sourceTree = "<group>"; };
 		B272CDD419D810AC0084C594 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = TradeInfoModel/Order.m; sourceTree = "<group>"; };
+		B272CDDB19D90AA00084C594 /* CustomPullRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullRefreshView.h; path = CustomPullRefreshTableView/CustomPullRefreshView.h; sourceTree = "<group>"; };
+		B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullRefreshView.m; path = CustomPullRefreshTableView/CustomPullRefreshView.m; sourceTree = "<group>"; };
+		B272CDDE19D90CB60084C594 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
+		B272CDDF19D90CB60084C594 /* launchpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchpad@2x.png"; sourceTree = "<group>"; };
+		B272CDE219D90CFC0084C594 /* CustomPullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullRefreshTableView.h; path = CustomPullRefreshTableView/CustomPullRefreshTableView.h; sourceTree = "<group>"; };
+		B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullRefreshTableView.m; path = CustomPullRefreshTableView/CustomPullRefreshTableView.m; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -617,6 +627,17 @@
 			name = TradeInfoModel;
 			sourceTree = "<group>";
 		};
+		B272CDDA19D90A2B0084C594 /* CustomPullRefreshTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B272CDDB19D90AA00084C594 /* CustomPullRefreshView.h */,
+				B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */,
+				B272CDE219D90CFC0084C594 /* CustomPullRefreshTableView.h */,
+				B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */,
+			);
+			name = CustomPullRefreshTableView;
+			sourceTree = "<group>";
+		};
 		B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -808,6 +829,8 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B272CDDE19D90CB60084C594 /* centerIcon@2x.png */,
+				B272CDDF19D90CB60084C594 /* launchpad@2x.png */,
 				B2CAD9FD19D561B800768239 /* add@2x.png */,
 				B2CAD9FE19D561B800768239 /* change@2x.png */,
 				B2CAD9FF19D561B800768239 /* fix@2x.png */,
@@ -873,6 +896,7 @@
 		B2FDCAB519D16C5B00215E70 /* UICustomView */ = {
 			isa = PBXGroup;
 			children = (
+				B272CDDA19D90A2B0084C594 /* CustomPullRefreshTableView */,
 				B2FDCAB619D16C5B00215E70 /* AttributedLabel */,
 				B2FDCAB919D16C5B00215E70 /* BeforeIos7StyleOfTableView */,
 				B2FDCABC19D16C5B00215E70 /* CustomActivityIndicatorView */,
@@ -1490,6 +1514,7 @@
 				B26CB16119D5184D00023CEB /* location@2x.png in Resources */,
 				B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */,
 				B2FDCC6819D292B400215E70 /* user_btn_cancel@2x.png in Resources */,
+				B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */,
 				B2FDCC4E19D292B400215E70 /* custom_uidatepicker_background@2x.png in Resources */,
 				B26CB16419D5184D00023CEB /* phone@2x.png in Resources */,
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
@@ -1519,6 +1544,7 @@
 				B2FDCC4C19D292B400215E70 /* check_box_frame@2x.png in Resources */,
 				B26CB15E19D5184D00023CEB /* abacus@2x.png in Resources */,
 				B2FDCC6419D292B400215E70 /* txt_password_back@2x.png in Resources */,
+				B272CDE019D90CB60084C594 /* centerIcon@2x.png in Resources */,
 				B2FDCC5519D292B400215E70 /* history_back@2x.png in Resources */,
 				B2FDCC6319D292B400215E70 /* txt_login_line@2x.png in Resources */,
 				B2FDCC5F19D292B400215E70 /* nav_btn_right_return@2x.png in Resources */,
@@ -1591,6 +1617,7 @@
 				B2FDCB9919D16C5B00215E70 /* test1ViewController.m in Sources */,
 				B26CB14019D2D2A500023CEB /* AFURLRequestSerialization.m in Sources */,
 				B2FDCC7D19D2974700215E70 /* PushNotification.m in Sources */,
+				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
 				B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
@@ -1608,6 +1635,7 @@
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
 				B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */,
 				B2FDCB8C19D16C5B00215E70 /* PullRefreshTableView.m in Sources */,
+				B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */,
 				B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */,
 				B2FDCBA219D16C5B00215E70 /* test6View.m in Sources */,
 				B2FDCB9A19D16C5B00215E70 /* test2View.m in Sources */,

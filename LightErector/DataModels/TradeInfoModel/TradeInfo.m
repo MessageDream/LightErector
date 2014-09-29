@@ -7,11 +7,17 @@
 //
 
 #import "TradeInfo.h"
+#import "Order.h"
 
 @implementation TradeInfo
 -(void)getOrdersById:(int)menId withPageIndex:(int)pageindex forpagesize:(int)pagesize
 {
 
+}
+
+-(void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary *)businessData
+{
+    
 }
 
 @end

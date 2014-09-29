@@ -8,16 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TitleBarView.h"
-#import "PullRefreshTableView.h"
-#import "PullRefreshShowView.h"
+#import "CustomPullRefreshTableView.h"
 
 @interface TitleBarAndPullRefreshTableView : TitleBarView
 {
 @protected
-    PullRefreshTableView *_tableView;
-    PullRefreshShowView *_pullRefreshShowView;
+    CustomPullRefreshTableView *_tableView;
 }
-@property(nonatomic,readonly)PullRefreshTableView *tableView;
-@property(nonatomic,readonly)PullRefreshShowView *pullRefreshShowView;
+@property(nonatomic,readonly)CustomPullRefreshTableView *tableView;
 -(id)initWithFrame:(CGRect)frame tableViewStyle:(UITableViewStyle)style;
 @end

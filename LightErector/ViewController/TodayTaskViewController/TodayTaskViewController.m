@@ -24,7 +24,7 @@
 }
 @end
 
-@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,PullRefreshTableViewDelegate>
+@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
 {
 }
 @end
@@ -59,8 +59,9 @@
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     TodayTaskView *taskView=[[TodayTaskView alloc]initWithFrame:frame];
+    taskView.tableView.delegate=self;
     taskView.tableView.dataSource=self;
-    taskView.tableView.observer=self;
+    taskView.tableView.pullRefreshDelegate=self;
     
     self.view=taskView;
 }
@@ -262,64 +263,11 @@
     
 }
 
--(void)pullRefreshTableViewRefresh:(PullRefreshTableView*)pullRefreshTableView
+-(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
-
+    NSLog(@"refresh....");
+    [tableView stopRefresh];
 }
-
-- (CGFloat)pullRefreshTableView:(PullRefreshTableView *)pullRefreshTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell=[self tableView:pullRefreshTableView.tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
-}
-
-- (void)pullRefreshTableView:(PullRefreshTableView *)pullRefreshTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%d",indexPath.row);
-    [pullRefreshTableView.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSIndexPath *path = nil;
-    
-    UITableViewCellModel *model= self.dataArray[indexPath.row];
-    if ([model.cellType isEqualToString:MAINCELL]) {
-        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
-    }else{
-        path = indexPath;
-    }
-    
-    NSIndexPath *pathlast = [NSIndexPath indexPathForItem:(path.row-1) inSection:indexPath.section];
-    
-    if (model.isAttached) {
-        // 关闭附加cell
-        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
-        self.dataArray[(path.row-1)] = model;
-        [self.dataArray removeObjectAtIndex:path.row];
-        
-        
-        [pullRefreshTableView.tableView beginUpdates];
-        [pullRefreshTableView.tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
-        [pullRefreshTableView.tableView deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
-        [pullRefreshTableView.tableView endUpdates];
-        
-    }else{
-        // 打开附加cell
-        UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:nil];
-        [self.dataArray insertObject:addModel atIndex:path.row];
-        
-        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:YES andContentModel:nil];
-        self.dataArray[(path.row-1)] = model;
-        
-        
-        [pullRefreshTableView.tableView beginUpdates];
-        
-        [pullRefreshTableView.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationBottom];
-        [pullRefreshTableView.tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
-        [pullRefreshTableView.tableView endUpdates];
-    }
-    
-
-}
-
 -(void)dealloc
 {
     

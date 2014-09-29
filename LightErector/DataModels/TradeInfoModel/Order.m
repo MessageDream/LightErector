@@ -9,5 +9,11 @@
 #import "Order.h"
 
 @implementation Order
-
+-(id)initWithDic:(NSDictionary *)dic
+{
+    if (self=[super init]) {
+        
+    }
+    return self;
+}
 @end
