@@ -328,7 +328,6 @@
 
 - (void)scrollViewDidScroll:(CGPoint)contentOffset
 {
-    NSLog(@"%f",self.scrollView.contentSize.height);
     CGFloat yOffset = contentOffset.y;
     CGFloat xOffset = contentOffset.x;
     CGFloat overBottomOffsetY = yOffset - (self.scrollView.contentSize.height<self.scrollView.frame.size.height?self.scrollView.frame.size.height:self.scrollView.contentSize.height) + self.scrollView.frame.size.height;

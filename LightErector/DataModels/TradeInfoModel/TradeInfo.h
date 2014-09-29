@@ -11,10 +11,29 @@
 @interface TradeInfo : BaseDataModel
 {
 @protected
-    NSMutableArray *_orders;
+     NSMutableArray *_todayTaskOrders;
+     NSMutableArray *_waitForReceiveOrders;
+     NSMutableArray *_waitSubOrders;
+     NSMutableArray *_unTimedOrders;
+     NSMutableArray *_waitForInstallOrders;
+     NSMutableArray *_waitForFeedBackOrders;
+     NSMutableArray *_waitForSettleOrders;
 }
-@property(nonatomic,readonly)NSArray *orders;
+@property(nonatomic,readonly)NSArray *todayTaskOrders;
+@property(nonatomic,readonly)NSArray *waitForReceiveOrders;
+@property(nonatomic,readonly)NSArray *waitSubOrders;
+@property(nonatomic,readonly)NSArray *unTimedOrders;
+@property(nonatomic,readonly)NSArray *waitForInstallOrders;
+@property(nonatomic,readonly)NSArray *waitForFeedBackOrders;
+@property(nonatomic,readonly)NSArray *waitForSettleOrders;
 @property(nonatomic,readonly,assign)int pagecount;
 @property(nonatomic,readonly,assign)int recordcount;
--(void)getOrdersById:(int)menId withPageIndex:(int)pageindex forpagesize:(int)pagesize;
++(TradeInfo*)shareTrade;
+-(void)getTodayTaskOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getWaitForReceiveOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getWaitSubOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getUnTimedOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getWaitForInstallOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getWaitForFeedBackOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getWaitForSettleOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
 @end

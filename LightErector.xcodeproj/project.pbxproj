@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2275D6419D9317B00D5EE51 /* TaskRemindBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6319D9317B00D5EE51 /* TaskRemindBusiness.m */; };
+		B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6719D9318400D5EE51 /* TaskRemind.m */; };
+		B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */; };
+		B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */; };
 		B26CB13A19D2D2A500023CEB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12819D2D2A500023CEB /* AFHTTPRequestOperation.m */; };
 		B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12A19D2D2A500023CEB /* AFHTTPRequestOperationManager.m */; };
 		B26CB13C19D2D2A500023CEB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12C19D2D2A500023CEB /* AFHTTPSessionManager.m */; };
@@ -31,8 +35,6 @@
 		B26CB17719D5409700023CEB /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB17619D5409700023CEB /* ImageUtils.m */; };
 		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
 		B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */; };
-		B272CDCA19D7FBE60084C594 /* TodayTaskBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */; };
-		B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */; };
 		B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD119D8105A0084C594 /* TradeInfo.m */; };
 		B272CDD519D810AC0084C594 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD419D810AC0084C594 /* Order.m */; };
 		B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */; };
@@ -209,6 +211,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2275D6219D9317B00D5EE51 /* TaskRemindBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRemindBusiness.h; sourceTree = "<group>"; };
+		B2275D6319D9317B00D5EE51 /* TaskRemindBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRemindBusiness.m; sourceTree = "<group>"; };
+		B2275D6619D9318400D5EE51 /* TaskRemind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRemind.h; sourceTree = "<group>"; };
+		B2275D6719D9318400D5EE51 /* TaskRemind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRemind.m; sourceTree = "<group>"; };
+		B2275D6A19D93F0800D5EE51 /* GetOrderBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetOrderBusiness.h; path = OrderBusiness/GetOrderBusiness.h; sourceTree = "<group>"; };
+		B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetOrderBusiness.m; path = OrderBusiness/GetOrderBusiness.m; sourceTree = "<group>"; };
+		B2275D6D19D93F3300D5EE51 /* UpdateOrderStateBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateOrderStateBusiness.h; path = OrderBusiness/UpdateOrderStateBusiness.h; sourceTree = "<group>"; };
+		B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateOrderStateBusiness.m; path = OrderBusiness/UpdateOrderStateBusiness.m; sourceTree = "<group>"; };
 		B26CB12719D2D2A500023CEB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		B26CB12819D2D2A500023CEB /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		B26CB12919D2D2A500023CEB /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -249,10 +259,6 @@
 		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
 		B272CDC419D7B4530084C594 /* TodayTaskTableViewTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskTableViewTitleCell.h; path = TodayTaskViewController/TodayTaskTableViewTitleCell.h; sourceTree = "<group>"; };
 		B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskTableViewTitleCell.m; path = TodayTaskViewController/TodayTaskTableViewTitleCell.m; sourceTree = "<group>"; };
-		B272CDC819D7FBE60084C594 /* TodayTaskBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskBusiness.h; path = TodayTaskBusiness/TodayTaskBusiness.h; sourceTree = "<group>"; };
-		B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskBusiness.m; path = TodayTaskBusiness/TodayTaskBusiness.m; sourceTree = "<group>"; };
-		B272CDCC19D7FCDA0084C594 /* TodayTaskRemind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskRemind.h; path = TodayTaskModel/TodayTaskRemind.h; sourceTree = "<group>"; };
-		B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskRemind.m; path = TodayTaskModel/TodayTaskRemind.m; sourceTree = "<group>"; };
 		B272CDD019D8105A0084C594 /* TradeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeInfo.h; path = TradeInfoModel/TradeInfo.h; sourceTree = "<group>"; };
 		B272CDD119D8105A0084C594 /* TradeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeInfo.m; path = TradeInfoModel/TradeInfo.m; sourceTree = "<group>"; };
 		B272CDD319D810AC0084C594 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = TradeInfoModel/Order.h; sourceTree = "<group>"; };
@@ -557,6 +563,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2275D6119D9317B00D5EE51 /* TaskRemindBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				B2275D6219D9317B00D5EE51 /* TaskRemindBusiness.h */,
+				B2275D6319D9317B00D5EE51 /* TaskRemindBusiness.m */,
+			);
+			path = TaskRemindBusiness;
+			sourceTree = "<group>";
+		};
+		B2275D6519D9318400D5EE51 /* TaskRemindModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2275D6619D9318400D5EE51 /* TaskRemind.h */,
+				B2275D6719D9318400D5EE51 /* TaskRemind.m */,
+			);
+			path = TaskRemindModel;
+			sourceTree = "<group>";
+		};
+		B2275D6919D93ED400D5EE51 /* OrderBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				B2275D6A19D93F0800D5EE51 /* GetOrderBusiness.h */,
+				B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */,
+				B2275D6D19D93F3300D5EE51 /* UpdateOrderStateBusiness.h */,
+				B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */,
+			);
+			name = OrderBusiness;
+			sourceTree = "<group>";
+		};
 		B26CB12619D2D2A500023CEB /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,24 +631,6 @@
 				B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */,
 			);
 			name = TodayTaskViewController;
-			sourceTree = "<group>";
-		};
-		B272CDC719D7FBC30084C594 /* TodayTaskBusiness */ = {
-			isa = PBXGroup;
-			children = (
-				B272CDC819D7FBE60084C594 /* TodayTaskBusiness.h */,
-				B272CDC919D7FBE60084C594 /* TodayTaskBusiness.m */,
-			);
-			name = TodayTaskBusiness;
-			sourceTree = "<group>";
-		};
-		B272CDCB19D7FCA40084C594 /* TodayTaskModel */ = {
-			isa = PBXGroup;
-			children = (
-				B272CDCC19D7FCDA0084C594 /* TodayTaskRemind.h */,
-				B272CDCD19D7FCDA0084C594 /* TodayTaskRemind.m */,
-			);
-			name = TodayTaskModel;
 			sourceTree = "<group>";
 		};
 		B272CDCF19D80FDA0084C594 /* TradeInfoModel */ = {
@@ -745,7 +762,8 @@
 		B2FDCA5F19D16C5B00215E70 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				B272CDC719D7FBC30084C594 /* TodayTaskBusiness */,
+				B2275D6919D93ED400D5EE51 /* OrderBusiness */,
+				B2275D6119D9317B00D5EE51 /* TaskRemindBusiness */,
 				B2FDCBC919D2667800215E70 /* VersionBusiness */,
 				B2FDCA6919D16C5B00215E70 /* UserBusiness */,
 				B2FDCA6019D16C5B00215E70 /* BaseBusiness.h */,
@@ -1342,8 +1360,8 @@
 		B2FDCBD119D26C0A00215E70 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				B2275D6519D9318400D5EE51 /* TaskRemindModel */,
 				B272CDCF19D80FDA0084C594 /* TradeInfoModel */,
-				B272CDCB19D7FCA40084C594 /* TodayTaskModel */,
 				B2FDCC0719D2755F00215E70 /* UserModel */,
 				B2FDCBD219D26C0A00215E70 /* BaseDataModel.h */,
 				B2FDCBD319D26C0A00215E70 /* BaseDataModel.m */,
@@ -1578,6 +1596,7 @@
 				B2FDCB4B19D16C5B00215E70 /* BusinessFactory.m in Sources */,
 				B2FDCB8819D16C5B00215E70 /* NSTimer+Addition.m in Sources */,
 				B2FDCB8219D16C5B00215E70 /* CustomTextView.m in Sources */,
+				B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */,
 				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
 				B2FDCB9C19D16C5B00215E70 /* test3View.m in Sources */,
 				B2FDCB5219D16C5B00215E70 /* HttpErrorCodeManager.m in Sources */,
@@ -1605,6 +1624,7 @@
 				B2FDCB5919D16C5B00215E70 /* Message.m in Sources */,
 				B2FDCB7C19D16C5B00215E70 /* CustomHelpCell.m in Sources */,
 				B2FDCB7919D16C5B00215E70 /* StripCustomMessageBox.m in Sources */,
+				B2275D6419D9317B00D5EE51 /* TaskRemindBusiness.m in Sources */,
 				B2FDCB8919D16C5B00215E70 /* PagedScrollView.m in Sources */,
 				B2FDCC7C19D2974700215E70 /* JPushNotification.m in Sources */,
 				B2FDCC1719D28A0400215E70 /* LoginViewController.m in Sources */,
@@ -1619,7 +1639,6 @@
 				B2FDCC7D19D2974700215E70 /* PushNotification.m in Sources */,
 				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
-				B272CDCE19D7FCDA0084C594 /* TodayTaskRemind.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
 				B2FDCBD519D26C0A00215E70 /* BaseDataModel.m in Sources */,
 				B26CB13E19D2D2A500023CEB /* AFSecurityPolicy.m in Sources */,
@@ -1627,6 +1646,7 @@
 				B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */,
 				B2FDCB7019D16C5B00215E70 /* ButtonListAlertView.m in Sources */,
 				B2FDCBCF19D266D900215E70 /* UserLoginBusiness.m in Sources */,
+				B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */,
 				B2FDCB7719D16C5B00215E70 /* ColorContentMessageBox.m in Sources */,
 				B26CB17719D5409700023CEB /* ImageUtils.m in Sources */,
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
@@ -1665,7 +1685,6 @@
 				B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
-				B272CDCA19D7FBE60084C594 /* TodayTaskBusiness.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,
 				B2FDCB8319D16C5B00215E70 /* CustomTitleBar.m in Sources */,
 				B2FDCBA419D16C5B00215E70 /* ViewControllerPathManager.m in Sources */,
@@ -1675,6 +1694,7 @@
 				B2FDCBB819D17FB600215E70 /* TestModule.m in Sources */,
 				B2FDCB5419D16C5B00215E70 /* BaseBusinessHttpConnect.m in Sources */,
 				B2FDC89219D156DB00215E70 /* main.m in Sources */,
+				B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */,
 				B2FDCB7A19D16C5B00215E70 /* CustomTabBar.m in Sources */,
 				B2FDCB9519D16C5B00215E70 /* TitleBarAndScrollerView.m in Sources */,
 			);

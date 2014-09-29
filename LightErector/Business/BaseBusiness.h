@@ -13,12 +13,22 @@ typedef NS_ENUM(NSInteger, BusinessErrorType)
     //    203	系统错误。
     //    204	参数错误。
     //    8001	令牌失效
+
+ 
     
+    REQUEST_USER_ERROR=0,
     REQUEST_NOERROR=1,
+    REQUEST_VERYCODE_ERROR= 2, //验证码不正确
+    REQUEST_VERYCODE_NULL =3, //验证码为空
+    REQUEST_VERYCODE_SEND_ERROR= 4, //发送验证码失败
+    REQUEST_UPDATE_ERROR =10, //更新失败
+    
     REQUEST_TIME_ERROR=201,
     REQUEST_PARAMNULL_ERROR=202,
     REQUEST_SYSTEM_ERROR=203,
-    REQUEST_PARAM_ERROR=204,
+    
+    REQUEST_PARAM_ERROR =403, //请求参数或秘钥错误
+    
     REQUEST_AUTH_ERROR=8001,
     
 };

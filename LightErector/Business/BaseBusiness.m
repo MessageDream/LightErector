@@ -74,13 +74,48 @@
 {
     if (theResponseBody) {
         if ([theResponseBody isKindOfClass:[NSDictionary class]]) {
-            _errCode = [[theResponseBody objectForKey:@"status"] integerValue];
-            _errmsg = [theResponseBody objectForKey:@"error"];
+            //附加部分，具体根据接口判断
+            if (![theResponseBody objectForKey:@"status"]) {
+                _errCode=NO_ERROR;
+            }else{
+                _errCode = [[theResponseBody objectForKey:@"status"] integerValue];
+                if (_errCode==10) {
+                    _errCode=NO_ERROR;
+                }
+                _errmsg = [theResponseBody objectForKey:@"error"];
+            }
+            if ([theResponseBody objectForKey:@"result"]&&[[theResponseBody objectForKey:@"result"] intValue]==0) {
+                _errCode=REQUEST_UPDATE_ERROR;
+            }
         }
     }
     switch (_errCode) {
-        case NO_ERROR:
+        case USER_ERROR:
+            self.businessErrorType = REQUEST_USER_ERROR;
+            _errmsg=@"用户名不存在或密码错误";
+            break;
+        case NO_ERROR :
             self.businessErrorType = REQUEST_NOERROR;
+            break;
+        case  VERYCODE_ERROR :
+            self.businessErrorType = REQUEST_VERYCODE_ERROR;
+            _errmsg=@"验证码不正确";
+            break;
+        case  VERYCODE_NULL :
+            self.businessErrorType = REQUEST_VERYCODE_NULL;
+            _errmsg=@"验证码为空";
+            break;
+        case  VERYCODE_SEND_ERROR :
+            self.businessErrorType = REQUEST_VERYCODE_SEND_ERROR;
+            _errmsg=@"发送验证码失败";
+            break;
+        case  UPDATE_ERROR :
+            self.businessErrorType = REQUEST_UPDATE_ERROR;
+            _errmsg=@"更新失败";
+            break;
+        case  PARAM_ERROR :
+            self.businessErrorType = REQUEST_PARAM_ERROR;
+            _errmsg=@"请求参数或秘钥错误";
             break;
         case TIME_ERROR:
             self.businessErrorType = REQUEST_TIME_ERROR;
@@ -90,9 +125,6 @@
             break;
         case AUTH_ERROR:
             self.businessErrorType = REQUEST_AUTH_ERROR;
-            break;
-        case PARAM_ERROR:
-            self.businessErrorType = REQUEST_PARAM_ERROR;
             break;
         default:
             break;
@@ -118,7 +150,7 @@
 
 -(void)httpConnectResponse:(BaseHttpConnect *)httpContent uploadByteCount:(NSInteger)byteCount
 {
-
+    
 }
 
 -(void) didHttpConnectError:(enum HttpErrorCode)errorCode
@@ -136,9 +168,9 @@
     
     NSDictionary *ntspHeaderDic = [responseBodyDic objectForKey:@"ntspheader"];
     if (ntspHeaderDic) {
-         [NtspHeader setWithJson:ntspHeaderDic];
+        [NtspHeader setWithJson:ntspHeaderDic];
     }
-   
+    
 #ifdef DEBUG_LOG
     NSLog(@"rece:%@",responseBodyDic);
 #endif
@@ -150,12 +182,15 @@
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"ntspheader"];
             
-        }
-        else if(_errCode >= TIME_ERROR || _errCode <= REQUEST_PARAM_ERROR)
-        {
+        }else{
             [self.businessObserver didBusinessError:self];
             return;
         }
+        //        else if(_errCode >= TIME_ERROR || _errCode <= REQUEST_PARAM_ERROR)
+        //        {
+        //            [self.businessObserver didBusinessError:self];
+        //            return;
+        //        }
     }
     [self.businessObserver didBusinessSucess:self withData:responseBodyDic];
 }

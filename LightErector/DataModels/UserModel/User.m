@@ -13,8 +13,6 @@
 
 #define SAVE_FILE_NAME @"userSeting.json"
 
-static User *user;
-
 @interface User()
 {
     NSString *saveNewPassword;
@@ -29,8 +27,12 @@ static User *user;
 
 +(User*)shareUser
 {
-    if(user == nil)
-        user = [[User alloc] init];
+    static User *user;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        user =  [[User alloc] init];
+    });
+    
     return user;
 }
 

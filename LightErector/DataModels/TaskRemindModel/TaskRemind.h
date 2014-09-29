@@ -8,6 +8,6 @@
 
 #import "BaseDataModel.h"
 
-@interface TodayTaskRemind : BaseDataModel
+@interface TaskRemind : BaseDataModel
 -(void)fetchTodayTask:(int)memId;
 @end

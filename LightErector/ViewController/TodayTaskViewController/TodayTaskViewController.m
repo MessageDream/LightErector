@@ -11,6 +11,9 @@
 #import "TodayTaskTableViewCell.h"
 #import "CustomSwipeButton.h"
 #import "TodayTaskTableViewTitleCell.h"
+#import "TradeInfo.h"
+#import "Order.h"
+#define PAGESIZE 1
 
 @implementation UITableViewCellModel
 -(id)initWithCellType:(NSString *)cellType isAttached:(BOOL) isAttached andContentModel:(id)model
@@ -26,6 +29,9 @@
 
 @interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
 {
+    NSInteger currentPageIndex;
+    TradeInfo *trade;
+    CustomPullRefreshTableView *mainTableView;
 }
 @end
 
@@ -40,13 +46,6 @@
     return self;
 }
 
--(id)init
-{
-    if (self=[super init]) {
-        
-    }
-    return self;
-}
 
 -(void)settingViewControllerId
 {
@@ -62,26 +61,58 @@
     taskView.tableView.delegate=self;
     taskView.tableView.dataSource=self;
     taskView.tableView.pullRefreshDelegate=self;
-    
+    mainTableView=taskView.tableView;
     self.view=taskView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view.
-    UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
-    NSArray * array = @[model,model,model,model,model,model];
-    
+    trade=[TradeInfo shareTrade];
+    trade.observer=self;
+    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+ 
     self.dataArray = [[NSMutableArray alloc]init];
-    self.dataArray = [NSMutableArray arrayWithArray:array];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
+{
+    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+    switch (businessID) {
+        case BUSINESS_GETTODAYTASKORDER:{
+            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
+            NSInteger count=trade.todayTaskOrders.count;
+            NSInteger nowCount=self.dataArray.count;
+            
+            for (int i=0;i<count;i++) {
+                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
+                [self.dataArray addObject:model];
+              NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                [pathArray addObject:path];
+            }
+            [mainTableView beginUpdates];
+            [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+            [mainTableView endUpdates];
+            currentPageIndex++;
+        }
+            break;
+        default:
+            break;
+    }
+    [mainTableView stopRefresh];
+}
+
+-(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg
+{
+    [mainTableView stopRefresh];
+    [super didDataModelNoticeFail:baseDataModel forBusinessType:businessID forErrorCode:errorCode forErrorMsg:errorMsg];
 }
 
 /*
@@ -109,6 +140,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCellModel *model=self.dataArray[indexPath.row];
+    Order *order=model.contentModel;
     if ([model.cellType isEqualToString:MAINCELL])
     {
         
@@ -124,8 +156,8 @@
         }
         cell.optionButton.hidden=YES;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        [cell createOptionButtonWithTitle:@"去安装" andIcon:nil andBackgroundColor:[UIColor redColor]];
-        cell.textLabel.text=[NSString stringWithFormat:@"TEST%d",indexPath.row];
+        [cell createOptionButtonWithTitle:NSLocalizedStringFromTable(@"GoInstall",Res_String,@"") andIcon:nil andBackgroundColor:[UIColor lightGrayColor]];
+        cell.textLabel.text=[NSString stringWithFormat:NSLocalizedStringFromTable(@"CellTitle",Res_String,@""),order.typeProductname,order.tradeAprices];
         if (model.isAttached) {
             cell.optionButton.hidden=NO;
             cell.accessoryType=UITableViewCellAccessoryNone;
@@ -149,16 +181,16 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        cell.nameLable.text=@"司马无情";
-        cell.phoneLable.text=@"18610901435";
-        cell.subscribeTimeLable.text=@"2014-12-20 18:00:00";
+        cell.nameLable.text=order.tradeLinkman;
+        cell.phoneLable.text=order.tradeMobile;
+        cell.subscribeTimeLable.text=order.tradeAcreated;
         
         CGSize maximumLabelSize = CGSizeMake(cell.subscribeTimeLable.frame.size.width,MAXFLOAT);
         
-        NSString *str=@"如果您没有提交密码重置的请求或不是 酷鱼桌面美化社区 的注册用户，请立即忽略 并删除这封邮件。只有在您确认需要重置密码的情况下，才需要继续阅读下面的 内容";
+        
         CGRect frame;
-        if (str!=nil) {
-            CGSize expectedLabelSizeAddr = [str sizeWithFont:cell.nameLable.font
+        if (order.tradeAddress!=nil) {
+            CGSize expectedLabelSizeAddr = [order.tradeAddress sizeWithFont:cell.nameLable.font
                                            constrainedToSize:maximumLabelSize
                                                lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -166,15 +198,15 @@
             frame.size=expectedLabelSizeAddr;
             cell.addressLable.frame=frame;
             cell.addressLable.numberOfLines=0;
-            cell.addressLable.text=str;
+            cell.addressLable.text=order.tradeAddress;
             
             frame=cell.sDetailLable.frame;
             frame.origin.y=cell.addressLable.frame.origin.y+expectedLabelSizeAddr.height+cell.nameLable.font.lineHeight/2;
             cell.sDetailLable.frame=frame;
         }
         
-        if (str!=nil) {
-            CGSize expectedLabelSizeDetail = [str sizeWithFont:cell.nameLable.font
+        if (order.tradeContent!=nil) {
+            CGSize expectedLabelSizeDetail = [order.tradeContent sizeWithFont:cell.nameLable.font
                                              constrainedToSize:maximumLabelSize
                                                  lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -183,7 +215,7 @@
             frame.size=expectedLabelSizeDetail;
             cell.detailLable.frame=frame;
             cell.detailLable.numberOfLines=0;
-            cell.detailLable.text=str;
+            cell.detailLable.text=order.tradeContent;
             
             frame=cell.sRemarkLable.frame;
             frame.origin.y=cell.detailLable.frame.origin.y+expectedLabelSizeDetail.height+cell.nameLable.font.lineHeight/2;
@@ -192,9 +224,9 @@
             
         }
         
-        if (str!=nil) {
+        if (order.tradeContent2!=nil) {
             
-            CGSize expectedLabelSizeRemark = [str sizeWithFont:cell.nameLable.font
+            CGSize expectedLabelSizeRemark = [order.tradeContent2 sizeWithFont:cell.nameLable.font
                                              constrainedToSize:maximumLabelSize
                                                  lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -203,7 +235,7 @@
             frame.size=expectedLabelSizeRemark;
             cell.remarkLable.frame=frame;
             cell.remarkLable.numberOfLines=0;
-            cell.remarkLable.text=str;
+            cell.remarkLable.text=order.tradeContent2;
         }
         
         frame=cell.frame;
@@ -219,13 +251,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d",indexPath.row);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSIndexPath *path = nil;
     
-    UITableViewCellModel *model= self.dataArray[indexPath.row];
-    if ([model.cellType isEqualToString:MAINCELL]) {
+    UITableViewCellModel *cmodel= self.dataArray[indexPath.row];
+    if ([cmodel.cellType isEqualToString:MAINCELL]) {
         path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
     }else{
         path = indexPath;
@@ -233,12 +264,12 @@
     
     NSIndexPath *pathlast = [NSIndexPath indexPathForItem:(path.row-1) inSection:indexPath.section];
     
-    if (model.isAttached) {
+    UITableViewCellModel *model= self.dataArray[(path.row-1)];
+    if (cmodel.isAttached) {
         // 关闭附加cell
-        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:nil];
-        self.dataArray[(path.row-1)] = model;
+        model.cellType=MAINCELL;
+        model.isAttached=NO;
         [self.dataArray removeObjectAtIndex:path.row];
-        
         
         [tableView beginUpdates];
         [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
@@ -247,15 +278,15 @@
         
     }else{
         // 打开附加cell
-        UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:nil];
+        UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:model.contentModel];
         [self.dataArray insertObject:addModel atIndex:path.row];
         
-        UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:YES andContentModel:nil];
-        self.dataArray[(path.row-1)] = model;
+        model= self.dataArray[(path.row-1)];
         
+        model.cellType=MAINCELL;
+        model.isAttached=YES;
         
         [tableView beginUpdates];
-        
         [tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationBottom];
         [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
         [tableView endUpdates];
@@ -265,11 +296,11 @@
 
 -(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
-    NSLog(@"refresh....");
-    [tableView stopRefresh];
+     [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
 }
 -(void)dealloc
 {
-    
+    trade=nil;
+    mainTableView=nil;
 }
 @end

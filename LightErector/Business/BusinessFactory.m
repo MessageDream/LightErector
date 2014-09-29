@@ -8,7 +8,8 @@
 
 #import "BusinessFactory.h"
 #import "UserLoginBusiness.h"
-#import "TodayTaskBusiness.h"
+#import "TaskRemindBusiness.h"
+#import "GetOrderBusiness.h"
 
 @implementation BusinessFactory
 
@@ -19,10 +20,19 @@
     else if (type==BUSINESS_LOGIN)
     {
         return [[UserLoginBusiness alloc] init];
-    }else if (type==BUSINESS_GETTODAYTASK){
-        return [[TodayTaskBusiness alloc] init];
+    }else if (type==BUSINESS_GETTASKREMIND){
+        return [[TaskRemindBusiness alloc] init];
+    }else if (type==BUSINESS_GETTODAYTASKORDER
+              ||type== BUSINESS_GETWAITFORRECEIVEORDER
+              ||type== BUSINESS_GETWAITSUBORDER
+              ||type== BUSINESS_GETUNTIMEDORDER
+              ||type== BUSINESS_GETWAITFORINSTALLORDER
+              ||type== BUSINESS_GETWAITFORFEEDBACKORDER
+              ||type== BUSINESS_GETWAITFORSETTLEORDER){
+        
+         return [[GetOrderBusiness alloc] initWithBusinessId:type];
     }
-
+    
     return nil;
 }
 @end

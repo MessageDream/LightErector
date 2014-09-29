@@ -8,6 +8,6 @@
 
 #import "BaseBusiness.h"
 
-@interface TodayTaskBusiness : BaseBusiness
+@interface TaskRemindBusiness : BaseBusiness
 
 @end
