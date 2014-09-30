@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 jayden. All rights reserved.
 //
 
-#import "CustomSwipeTableCell.h"
-
-@interface TodayTaskTableViewTitleCell : CustomSwipeTableCell
-@property(nonatomic,strong)UIButton *optionButton;
--(void)createOptionButtonWithTitle:(NSString *)title andIcon:(UIImage *)icon andBackgroundColor:(UIColor *)backColor;
+#import <UIKit/UIKit.h>
+@interface TodayTaskTableViewTitleCell : UITableViewCell
+-(void)createOptionButtonsWithTitles:(NSArray *)titles andIcons:(NSArray *)icons andBackgroundColors:(NSArray *)backColors andAction:(void (^)(NSInteger buttonIndex))action;
+-(void)showButtons;
+-(void)hideButtons;
 @end

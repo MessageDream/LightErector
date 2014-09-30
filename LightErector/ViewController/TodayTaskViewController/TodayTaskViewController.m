@@ -13,7 +13,7 @@
 #import "TodayTaskTableViewTitleCell.h"
 #import "TradeInfo.h"
 #import "Order.h"
-#define PAGESIZE 1
+#define PAGESIZE 5
 
 @implementation UITableViewCellModel
 -(id)initWithCellType:(NSString *)cellType isAttached:(BOOL) isAttached andContentModel:(id)model
@@ -146,7 +146,7 @@
         
         static NSString *CellIdentifier = MAINCELL;
         
-        TodayTaskTableViewTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        TodayTaskTableViewTitleCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         
         if (cell == nil) {
@@ -154,15 +154,18 @@
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.optionButton.hidden=YES;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        [cell createOptionButtonWithTitle:NSLocalizedStringFromTable(@"GoInstall",Res_String,@"") andIcon:nil andBackgroundColor:[UIColor lightGrayColor]];
+        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[UIColor orangeColor]] andAction:^(NSInteger buttonIndex) {
+            if (buttonIndex==0) {
+                NSLog(@"clicked...");
+            }
+        }];
         cell.textLabel.text=[NSString stringWithFormat:NSLocalizedStringFromTable(@"CellTitle",Res_String,@""),order.typeProductname,order.tradeAprices];
         if (model.isAttached) {
-            cell.optionButton.hidden=NO;
+            [cell showButtons];
             cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
-             cell.optionButton.hidden=YES;
+            [cell hideButtons];
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
@@ -272,7 +275,7 @@
         [self.dataArray removeObjectAtIndex:path.row];
         
         [tableView beginUpdates];
-        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
+        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
         [tableView deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
         [tableView endUpdates];
         
@@ -288,7 +291,7 @@
         
         [tableView beginUpdates];
         [tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationBottom];
-        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
+        [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationLeft];
         [tableView endUpdates];
     }
     

@@ -29,7 +29,7 @@
     return trade;
 }
 
--(void)getOrdersById:(int)memId andType:(OrderType)type withPageIndex:(int)pageindex forPagesize:(int)pagesize;
+-(void)getOrdersById:(NSInteger)memId andType:(OrderType)type withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize;
 {
     NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),@(type),@(pageindex),@(pagesize)] forKeys:@[@"memberid",@"typeid",@"page",@"pagenum"]];
     BusinessType bsinessType;
@@ -62,37 +62,37 @@
     [self creatBusinessWithId:bsinessType andExecuteWithData:dic];
 }
 
--(void)getTodayTaskOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getTodayTaskOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:TodayTaskOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getWaitForReceiveOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getWaitForReceiveOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:WaitForReceiveOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getWaitSubOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getWaitSubOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:WaitSubOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getUnTimedOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getUnTimedOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:UnTimedOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getWaitForInstallOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getWaitForInstallOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:WaitForInstallOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getWaitForFeedBackOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getWaitForFeedBackOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:WaitForFeedBackOrder withPageIndex:pageindex forPagesize:pagesize];
 }
 
--(void)getWaitForSettleOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize
+-(void)getWaitForSettleOrdersById:(NSInteger)memId withPageIndex:(NSInteger)pageindex forPagesize:(NSInteger)pagesize
 {
     [self getOrdersById:memId andType:WaitForSettleOrder withPageIndex:pageindex forPagesize:pagesize];
 }
