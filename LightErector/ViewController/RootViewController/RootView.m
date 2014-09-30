@@ -35,7 +35,7 @@
         
         self.tabBar.darkensBackgroundForEnabledTabs = YES;
         self.tabBar.horizontalInsets = HorizontalEdgeInsetsMake(10, 10);
-        self.tabBar.backgroundColor=[UIColor colorWithRed:91.0f/255.0f green:91.0f/255.0f blue:91.0f/255.0f alpha:1];
+        self.tabBar.backgroundColor=[MainStyle mainTitleColor];
         self.tabBar.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
         [self.tabBar swtichTab:todayTaskItem];
         [self addSubview:self.tabBar];

@@ -7,6 +7,7 @@
 //
 
 #import "OrderTitleTableViewCell.h"
+#import "MainStyle.h"
 typedef NS_ENUM(NSInteger, ButtonStatus) {
 ButtonStatus_Normal,
   ButtonStatus_Show,
@@ -29,9 +30,30 @@ ButtonStatus_Normal,
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.backgroundColor=[UIColor clearColor];
         self.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         
         self.imageView.image=[UIImage imageNamed:@"light"];
+        self.textLabel.textColor=[MainStyle mainTitleColor];
+        self.textLabel.font=[UIFont systemFontOfSize:16];
+        
+        UIFont *font=[UIFont italicSystemFontOfSize:14];
+        self.nameLable=[[UILabel alloc] init];
+        self.nameLable.backgroundColor=[UIColor clearColor];
+        self.nameLable.textColor=[MainStyle mainDarkColor];
+        self.nameLable.font=font;
+        [self.contentView addSubview:self.nameLable];
+        self.mobileLable=[[UILabel alloc] init];
+        self.mobileLable.backgroundColor=[UIColor clearColor];
+        self.mobileLable.textColor=[MainStyle mainDarkColor];
+        self.mobileLable.font=font;
+        [self.contentView addSubview:self.mobileLable];
+        self.priceLable=[[UILabel alloc] init];
+        self.priceLable.backgroundColor=[UIColor clearColor];
+        self.priceLable.textColor=[MainStyle mainDarkColor];
+        self.priceLable.textAlignment=NSTextAlignmentRight;
+        self.priceLable.font=font;
+        [self.contentView addSubview:self.priceLable];
         //        CGFloat lspace=71.0f;
         //        UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(lspace, self.frame.size.height-0.5, self.frame.size.width-lspace, 0.5)];
         //        lineView.backgroundColor=[UIColor lightGrayColor];
@@ -108,8 +130,11 @@ ButtonStatus_Normal,
 
 -(void)layoutSubviews
 {
+    CGRect rect=self.textLabel.frame;;
     if (buttonStatus==ButtonStatus_Show) {
         [super layoutSubviews];
+        rect.origin.y= self.contentView.frame.size.height/2-rect.size.height/2;
+        self.textLabel.frame=rect;
         if (self.contentView.frame.origin.x==0) {
             CGRect newFrame = self.contentView.frame;
             newFrame.origin.x =newFrame.origin.x-buttopnViewWidth;
@@ -122,6 +147,7 @@ ButtonStatus_Normal,
         }
     }else if(buttonStatus==ButtonStatus_Hide&&buttopnViewWidth>0.0f){
         [super layoutSubviews];
+        rect.origin.y= self.textLabel.font.lineHeight/6;
          if (self.contentView.frame.origin.x==-buttopnViewWidth) {
         CGRect newFrame = self.contentView.frame;
         newFrame.origin.x =newFrame.origin.x +buttopnViewWidth;
@@ -130,7 +156,16 @@ ButtonStatus_Normal,
         buttopnViewWidth=0.0f;
     }else{
         [super layoutSubviews];
+        rect.origin.y= self.textLabel.font.lineHeight/6;
+        rect.size.width= rect.size.width*4/5;
+        rect.size.height=self.textLabel.font.lineHeight;
     }
+    self.textLabel.frame=rect;
+    self.nameLable.frame=CGRectMake(rect.origin.x, rect.origin.y+rect.size.height*1.2, rect.size.width/2.8, 12);
+    
+    self.mobileLable.frame=CGRectMake(self.nameLable.frame.origin.x+self.nameLable.frame.size.width, self.nameLable.frame.origin.y, rect.size.width/1.5, 12);
+    
+    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+4, rect.size.width/5, 12);
     buttonStatus=ButtonStatus_Normal;
 }
 -(void)hideButtons

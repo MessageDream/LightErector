@@ -143,12 +143,8 @@
     Order *order=model.contentModel;
     if ([model.cellType isEqualToString:MAINCELL])
     {
-        
         static NSString *CellIdentifier = MAINCELL;
-        
         OrderTitleTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        
         if (cell == nil) {
             cell = [[OrderTitleTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
@@ -160,12 +156,20 @@
                 NSLog(@"clicked...");
             }
         }];
-        cell.textLabel.text=[NSString stringWithFormat:NSLocalizedStringFromTable(@"CellTitle",Res_String,@""),order.typeProductname,order.tradeAprices];
+        cell.textLabel.text=order.typeProductname;
+        
+        if (order.tradeAprices!=nil) {
+            cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
+        }
+       
         if (model.isAttached) {
             [cell showButtons];
             cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
             [cell hideButtons];
+            cell.nameLable.text=order.tradeLinkman;
+            cell.mobileLable.text=order.tradeMobile;
+            cell.priceLable.text=order.tradeAprices;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;

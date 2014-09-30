@@ -16,6 +16,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor=[UIColor clearColor];
         CGFloat width=[UIScreen mainScreen].applicationFrame.size.width;
         
         UIFont *font=[UIFont systemFontOfSize:14];

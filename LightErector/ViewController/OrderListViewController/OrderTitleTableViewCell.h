@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @interface OrderTitleTableViewCell : UITableViewCell
+@property(nonatomic,strong)UILabel *nameLable;
+@property(nonatomic,strong)UILabel *mobileLable;
+@property(nonatomic,strong)UILabel *priceLable;
 -(void)createOptionButtonsWithTitles:(NSArray *)titles andIcons:(NSArray *)icons andBackgroundColors:(NSArray *)backColors andAction:(void (^)(NSInteger buttonIndex))action;
 -(void)showButtons;
 -(void)hideButtons;

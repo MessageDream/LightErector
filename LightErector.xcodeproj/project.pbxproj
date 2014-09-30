@@ -37,10 +37,11 @@
 		B272CDE019D90CB60084C594 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDE19D90CB60084C594 /* centerIcon@2x.png */; };
 		B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDF19D90CB60084C594 /* launchpad@2x.png */; };
 		B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */; };
-		B2BC894619DAAB18002AC064 /* OrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */; };
-		B2BC894719DAAB18002AC064 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */; };
-		B2BC894819DAAB18002AC064 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894319DAAB18002AC064 /* TodayTaskView.m */; };
-		B2BC894919DAAB18002AC064 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */; };
+		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
+		B27FDB1619DAF59E003C0FE1 /* OrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0E19DAF59E003C0FE1 /* OrderDetailTableViewCell.m */; };
+		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
+		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
+		B27FDB1919DAF59E003C0FE1 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1519DAF59E003C0FE1 /* TodayTaskViewController.m */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -261,14 +262,16 @@
 		B272CDDF19D90CB60084C594 /* launchpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchpad@2x.png"; sourceTree = "<group>"; };
 		B272CDE219D90CFC0084C594 /* CustomPullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullRefreshTableView.h; path = CustomPullRefreshTableView/CustomPullRefreshTableView.h; sourceTree = "<group>"; };
 		B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullRefreshTableView.m; path = CustomPullRefreshTableView/CustomPullRefreshTableView.m; sourceTree = "<group>"; };
-		B2BC893D19DAAB18002AC064 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
-		B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewCell.m; sourceTree = "<group>"; };
-		B2BC893F19DAAB18002AC064 /* OrderTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTitleTableViewCell.h; sourceTree = "<group>"; };
-		B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTitleTableViewCell.m; sourceTree = "<group>"; };
-		B2BC894219DAAB18002AC064 /* TodayTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskView.h; sourceTree = "<group>"; };
-		B2BC894319DAAB18002AC064 /* TodayTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskView.m; sourceTree = "<group>"; };
-		B2BC894419DAAB18002AC064 /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskViewController.h; sourceTree = "<group>"; };
-		B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
+		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
+		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
+		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
+		B27FDB0E19DAF59E003C0FE1 /* OrderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewCell.m; sourceTree = "<group>"; };
+		B27FDB0F19DAF59E003C0FE1 /* OrderTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTitleTableViewCell.h; sourceTree = "<group>"; };
+		B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTitleTableViewCell.m; sourceTree = "<group>"; };
+		B27FDB1219DAF59E003C0FE1 /* TodayTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskView.h; sourceTree = "<group>"; };
+		B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskView.m; sourceTree = "<group>"; };
+		B27FDB1419DAF59E003C0FE1 /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskViewController.h; sourceTree = "<group>"; };
+		B27FDB1519DAF59E003C0FE1 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -640,33 +643,25 @@
 			name = CustomPullRefreshTableView;
 			sourceTree = "<group>";
 		};
-		B2BC892E19DAAAA5002AC064 /* OrderListViewController */ = {
+		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B2BC893C19DAAB18002AC064 /* OrderListViewController */,
-			);
-			name = OrderListViewController;
-			sourceTree = "<group>";
-		};
-		B2BC893C19DAAB18002AC064 /* OrderListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B2BC894119DAAB18002AC064 /* TodayTaskViewController */,
-				B2BC893D19DAAB18002AC064 /* OrderDetailTableViewCell.h */,
-				B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */,
-				B2BC893F19DAAB18002AC064 /* OrderTitleTableViewCell.h */,
-				B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */,
+				B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */,
+				B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */,
+				B27FDB0E19DAF59E003C0FE1 /* OrderDetailTableViewCell.m */,
+				B27FDB0F19DAF59E003C0FE1 /* OrderTitleTableViewCell.h */,
+				B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */,
 			);
 			path = OrderListViewController;
 			sourceTree = "<group>";
 		};
-		B2BC894119DAAB18002AC064 /* TodayTaskViewController */ = {
+		B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B2BC894219DAAB18002AC064 /* TodayTaskView.h */,
-				B2BC894319DAAB18002AC064 /* TodayTaskView.m */,
-				B2BC894419DAAB18002AC064 /* TodayTaskViewController.h */,
-				B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */,
+				B27FDB1219DAF59E003C0FE1 /* TodayTaskView.h */,
+				B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */,
+				B27FDB1419DAF59E003C0FE1 /* TodayTaskViewController.h */,
+				B27FDB1519DAF59E003C0FE1 /* TodayTaskViewController.m */,
 			);
 			path = TodayTaskViewController;
 			sourceTree = "<group>";
@@ -1239,11 +1234,13 @@
 		B2FDCB1719D16C5B00215E70 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B2BC892E19DAAAA5002AC064 /* OrderListViewController */,
+				B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */,
 				B2FDCC1419D289DD00215E70 /* LoginViewController */,
 				B2FDCBA519D16DE500215E70 /* RootViewController */,
 				B2FDCB2119D16C5B00215E70 /* TemplateView */,
 				B2FDCB2E19D16C5B00215E70 /* test */,
+				B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */,
+				B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */,
 				B2FDCB1819D16C5B00215E70 /* BaseUIView.h */,
 				B2FDCB1919D16C5B00215E70 /* BaseUIView.m */,
 				B2FDCB1A19D16C5B00215E70 /* BaseViewController.h */,
@@ -1615,7 +1612,6 @@
 				B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */,
 				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
 				B2FDCB9C19D16C5B00215E70 /* test3View.m in Sources */,
-				B2BC894919DAAB18002AC064 /* TodayTaskViewController.m in Sources */,
 				B2FDCB5219D16C5B00215E70 /* HttpErrorCodeManager.m in Sources */,
 				B2FDCB9819D16C5B00215E70 /* test1View.m in Sources */,
 				B2FDCBA019D16C5B00215E70 /* test5View.m in Sources */,
@@ -1632,6 +1628,7 @@
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
 				B2FDCB8F19D16C5B00215E70 /* BaseViewController.m in Sources */,
 				B2FDCB8619D16C5B00215E70 /* CustomUISwitch.m in Sources */,
+				B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */,
 				B2FDCB8519D16C5B00215E70 /* CustomUIRadioButton.m in Sources */,
 				B2FDCC1A19D28A5200215E70 /* LoginView.m in Sources */,
 				B26CB13D19D2D2A500023CEB /* AFNetworkReachabilityManager.m in Sources */,
@@ -1645,9 +1642,11 @@
 				B2FDCC7C19D2974700215E70 /* JPushNotification.m in Sources */,
 				B2FDCC1719D28A0400215E70 /* LoginViewController.m in Sources */,
 				B2FDCC9319D29C3700215E70 /* SystemModule.m in Sources */,
+				B27FDB1919DAF59E003C0FE1 /* TodayTaskViewController.m in Sources */,
 				B2FDCB8419D16C5B00215E70 /* CustomUIDatePicker.m in Sources */,
 				B26CB14219D2D2A500023CEB /* AFURLSessionManager.m in Sources */,
 				B2FDCBA119D16C5B00215E70 /* test5ViewController.m in Sources */,
+				B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */,
 				B2FDCB9E19D16C5B00215E70 /* test4View.m in Sources */,
 				B2FDCB9419D16C5B00215E70 /* TitleBarAndPullRefreshTableView.m in Sources */,
 				B2FDCB9919D16C5B00215E70 /* test1ViewController.m in Sources */,
@@ -1665,8 +1664,6 @@
 				B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */,
 				B2FDCB7719D16C5B00215E70 /* ColorContentMessageBox.m in Sources */,
 				B26CB17719D5409700023CEB /* ImageUtils.m in Sources */,
-				B2BC894719DAAB18002AC064 /* OrderTitleTableViewCell.m in Sources */,
-				B2BC894819DAAB18002AC064 /* TodayTaskView.m in Sources */,
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
 				B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */,
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
@@ -1687,17 +1684,18 @@
 				B26CB13A19D2D2A500023CEB /* AFHTTPRequestOperation.m in Sources */,
 				B2FDCB7819D16C5B00215E70 /* CustomMessageBox.m in Sources */,
 				B2FDCC1019D2766B00215E70 /* UserInfo.m in Sources */,
+				B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */,
 				B2FDCB6D19D16C5B00215E70 /* AttributedLabel.m in Sources */,
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,
 				B272CDD519D810AC0084C594 /* Order.m in Sources */,
 				B2FDCB9719D16C5B00215E70 /* TitleBarView.m in Sources */,
-				B2BC894619DAAB18002AC064 /* OrderDetailTableViewCell.m in Sources */,
 				B2FDCBB619D17FB600215E70 /* BaseModule.m in Sources */,
 				B2FDCBC719D1871900215E70 /* NtspHeader.m in Sources */,
 				B26CB13C19D2D2A500023CEB /* AFHTTPSessionManager.m in Sources */,
 				B26CB14119D2D2A500023CEB /* AFURLResponseSerialization.m in Sources */,
 				B2FDCB4A19D16C5B00215E70 /* BaseBusiness.m in Sources */,
 				B2FDCB7F19D16C5B00215E70 /* CustomTextFieldCell.m in Sources */,
+				B27FDB1619DAF59E003C0FE1 /* OrderDetailTableViewCell.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,

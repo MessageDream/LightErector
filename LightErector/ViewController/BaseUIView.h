@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainStyle.h"
 #import "../Resources/ResDefine.h"
 #define DefaultTabBarHeight  50
 @interface BaseUIView : UIView
