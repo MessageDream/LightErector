@@ -35,6 +35,8 @@
         frame.origin.y = 0;
         _backgroundImageView = [[UIImageView alloc] initWithFrame:frame];
         _backgroundImageView.contentMode    = UIViewContentModeScaleToFill;
+        _backgroundImageView.layer.masksToBounds=YES;
+        _backgroundImageView.layer.cornerRadius=8.0f;
         _backgroundImageView.image = [_backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(20,20,_backgroundImage.size.height-10,_backgroundImage.size.width-10)];
         [self addSubview:_backgroundImageView];
         

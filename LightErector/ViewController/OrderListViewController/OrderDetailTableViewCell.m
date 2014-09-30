@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 jayden. All rights reserved.
 //
 
-#import "TodayTaskTableViewCell.h"
+#import "OrderDetailTableViewCell.h"
 #import "CustomSwipeButton.h"
 #import "ResDefine.h"
 
-@implementation TodayTaskTableViewCell
+@implementation OrderDetailTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

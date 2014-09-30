@@ -11,6 +11,7 @@
 #import "ViewControllerPathManager.h"
 #import "BaseModule.h"
 #import "BaseCustomMessageBox.h"
+#import "ImageUtils.h"
 
 @interface BaseViewController ()
 {
@@ -100,8 +101,8 @@
     if(errorMsg==nil)
         return;
     error = [error stringByAppendingString:errorMsg];
-    
-    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:[UIImage imageNamed:@"base_Messagebox_background"]];
+    UIImage *image=[ImageUtils createImageWithColor:[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:0.8] andSize:CGSizeMake(230.0f, 50.0f)];
+    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:image];
     baseCustomMessageBox.animation = YES;
     baseCustomMessageBox.autoCloseTimer = 1;
     
@@ -115,6 +116,7 @@
 {
     customActivityIndicatorView = [[CustomActivityIndicatorView alloc]initWithFrame:self.view.bounds];
     customActivityIndicatorView.alpha = 0.9;
+    customActivityIndicatorView.color=[UIColor colorWithRed:57.0f/255.0f green:166.0f/255.0f blue:215.0f/255.0f alpha:1];
     [self.view addSubview:customActivityIndicatorView];
 }
 -(void)settingViewControllerId

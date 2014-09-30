@@ -29,18 +29,18 @@
 		B26CB16419D5184D00023CEB /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15B19D5184D00023CEB /* phone@2x.png */; };
 		B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */; };
 		B26CB16619D5184D00023CEB /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15D19D5184D00023CEB /* user@2x.png */; };
-		B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */; };
-		B26CB16D19D53CA400023CEB /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16C19D53CA400023CEB /* TodayTaskView.m */; };
-		B26CB17019D53E3800023CEB /* TodayTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */; };
 		B26CB17719D5409700023CEB /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB17619D5409700023CEB /* ImageUtils.m */; };
 		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
-		B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */; };
 		B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD119D8105A0084C594 /* TradeInfo.m */; };
 		B272CDD519D810AC0084C594 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD419D810AC0084C594 /* Order.m */; };
 		B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */; };
 		B272CDE019D90CB60084C594 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDE19D90CB60084C594 /* centerIcon@2x.png */; };
 		B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDF19D90CB60084C594 /* launchpad@2x.png */; };
 		B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */; };
+		B2BC894619DAAB18002AC064 /* OrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */; };
+		B2BC894719DAAB18002AC064 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */; };
+		B2BC894819DAAB18002AC064 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894319DAAB18002AC064 /* TodayTaskView.m */; };
+		B2BC894919DAAB18002AC064 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -247,18 +247,10 @@
 		B26CB15B19D5184D00023CEB /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
 		B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping_basket@2x.png"; sourceTree = "<group>"; };
 		B26CB15D19D5184D00023CEB /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
-		B26CB16819D53AFC00023CEB /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskViewController.h; path = TodayTaskViewController/TodayTaskViewController.h; sourceTree = "<group>"; };
-		B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskViewController.m; path = TodayTaskViewController/TodayTaskViewController.m; sourceTree = "<group>"; };
-		B26CB16B19D53CA400023CEB /* TodayTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskView.h; path = TodayTaskViewController/TodayTaskView.h; sourceTree = "<group>"; };
-		B26CB16C19D53CA400023CEB /* TodayTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskView.m; path = TodayTaskViewController/TodayTaskView.m; sourceTree = "<group>"; };
-		B26CB16E19D53E3800023CEB /* TodayTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskTableViewCell.h; path = TodayTaskViewController/TodayTaskTableViewCell.h; sourceTree = "<group>"; };
-		B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskTableViewCell.m; path = TodayTaskViewController/TodayTaskTableViewCell.m; sourceTree = "<group>"; };
 		B26CB17519D5409700023CEB /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
 		B26CB17619D5409700023CEB /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
 		B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectWithNtspHeader.h; sourceTree = "<group>"; };
 		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
-		B272CDC419D7B4530084C594 /* TodayTaskTableViewTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTaskTableViewTitleCell.h; path = TodayTaskViewController/TodayTaskTableViewTitleCell.h; sourceTree = "<group>"; };
-		B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTaskTableViewTitleCell.m; path = TodayTaskViewController/TodayTaskTableViewTitleCell.m; sourceTree = "<group>"; };
 		B272CDD019D8105A0084C594 /* TradeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeInfo.h; path = TradeInfoModel/TradeInfo.h; sourceTree = "<group>"; };
 		B272CDD119D8105A0084C594 /* TradeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeInfo.m; path = TradeInfoModel/TradeInfo.m; sourceTree = "<group>"; };
 		B272CDD319D810AC0084C594 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = TradeInfoModel/Order.h; sourceTree = "<group>"; };
@@ -269,6 +261,14 @@
 		B272CDDF19D90CB60084C594 /* launchpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchpad@2x.png"; sourceTree = "<group>"; };
 		B272CDE219D90CFC0084C594 /* CustomPullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullRefreshTableView.h; path = CustomPullRefreshTableView/CustomPullRefreshTableView.h; sourceTree = "<group>"; };
 		B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullRefreshTableView.m; path = CustomPullRefreshTableView/CustomPullRefreshTableView.m; sourceTree = "<group>"; };
+		B2BC893D19DAAB18002AC064 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
+		B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewCell.m; sourceTree = "<group>"; };
+		B2BC893F19DAAB18002AC064 /* OrderTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTitleTableViewCell.h; sourceTree = "<group>"; };
+		B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTitleTableViewCell.m; sourceTree = "<group>"; };
+		B2BC894219DAAB18002AC064 /* TodayTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskView.h; sourceTree = "<group>"; };
+		B2BC894319DAAB18002AC064 /* TodayTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskView.m; sourceTree = "<group>"; };
+		B2BC894419DAAB18002AC064 /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskViewController.h; sourceTree = "<group>"; };
+		B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -618,21 +618,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		B26CB16719D53AC900023CEB /* TodayTaskViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B26CB16819D53AFC00023CEB /* TodayTaskViewController.h */,
-				B26CB16919D53AFC00023CEB /* TodayTaskViewController.m */,
-				B26CB16B19D53CA400023CEB /* TodayTaskView.h */,
-				B26CB16C19D53CA400023CEB /* TodayTaskView.m */,
-				B26CB16E19D53E3800023CEB /* TodayTaskTableViewCell.h */,
-				B26CB16F19D53E3800023CEB /* TodayTaskTableViewCell.m */,
-				B272CDC419D7B4530084C594 /* TodayTaskTableViewTitleCell.h */,
-				B272CDC519D7B4530084C594 /* TodayTaskTableViewTitleCell.m */,
-			);
-			name = TodayTaskViewController;
-			sourceTree = "<group>";
-		};
 		B272CDCF19D80FDA0084C594 /* TradeInfoModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +638,37 @@
 				B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */,
 			);
 			name = CustomPullRefreshTableView;
+			sourceTree = "<group>";
+		};
+		B2BC892E19DAAAA5002AC064 /* OrderListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2BC893C19DAAB18002AC064 /* OrderListViewController */,
+			);
+			name = OrderListViewController;
+			sourceTree = "<group>";
+		};
+		B2BC893C19DAAB18002AC064 /* OrderListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2BC894119DAAB18002AC064 /* TodayTaskViewController */,
+				B2BC893D19DAAB18002AC064 /* OrderDetailTableViewCell.h */,
+				B2BC893E19DAAB18002AC064 /* OrderDetailTableViewCell.m */,
+				B2BC893F19DAAB18002AC064 /* OrderTitleTableViewCell.h */,
+				B2BC894019DAAB18002AC064 /* OrderTitleTableViewCell.m */,
+			);
+			path = OrderListViewController;
+			sourceTree = "<group>";
+		};
+		B2BC894119DAAB18002AC064 /* TodayTaskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2BC894219DAAB18002AC064 /* TodayTaskView.h */,
+				B2BC894319DAAB18002AC064 /* TodayTaskView.m */,
+				B2BC894419DAAB18002AC064 /* TodayTaskViewController.h */,
+				B2BC894519DAAB18002AC064 /* TodayTaskViewController.m */,
+			);
+			path = TodayTaskViewController;
 			sourceTree = "<group>";
 		};
 		B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */ = {
@@ -1223,7 +1239,7 @@
 		B2FDCB1719D16C5B00215E70 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B26CB16719D53AC900023CEB /* TodayTaskViewController */,
+				B2BC892E19DAAAA5002AC064 /* OrderListViewController */,
 				B2FDCC1419D289DD00215E70 /* LoginViewController */,
 				B2FDCBA519D16DE500215E70 /* RootViewController */,
 				B2FDCB2119D16C5B00215E70 /* TemplateView */,
@@ -1599,6 +1615,7 @@
 				B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */,
 				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
 				B2FDCB9C19D16C5B00215E70 /* test3View.m in Sources */,
+				B2BC894919DAAB18002AC064 /* TodayTaskViewController.m in Sources */,
 				B2FDCB5219D16C5B00215E70 /* HttpErrorCodeManager.m in Sources */,
 				B2FDCB9819D16C5B00215E70 /* test1View.m in Sources */,
 				B2FDCBA019D16C5B00215E70 /* test5View.m in Sources */,
@@ -1614,7 +1631,6 @@
 				B2FDCB7619D16C5B00215E70 /* BaseCustomMessageBox.m in Sources */,
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
 				B2FDCB8F19D16C5B00215E70 /* BaseViewController.m in Sources */,
-				B26CB16D19D53CA400023CEB /* TodayTaskView.m in Sources */,
 				B2FDCB8619D16C5B00215E70 /* CustomUISwitch.m in Sources */,
 				B2FDCB8519D16C5B00215E70 /* CustomUIRadioButton.m in Sources */,
 				B2FDCC1A19D28A5200215E70 /* LoginView.m in Sources */,
@@ -1649,14 +1665,14 @@
 				B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */,
 				B2FDCB7719D16C5B00215E70 /* ColorContentMessageBox.m in Sources */,
 				B26CB17719D5409700023CEB /* ImageUtils.m in Sources */,
+				B2BC894719DAAB18002AC064 /* OrderTitleTableViewCell.m in Sources */,
+				B2BC894819DAAB18002AC064 /* TodayTaskView.m in Sources */,
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
 				B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */,
-				B26CB17019D53E3800023CEB /* TodayTaskTableViewCell.m in Sources */,
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
 				B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */,
 				B2FDCB8C19D16C5B00215E70 /* PullRefreshTableView.m in Sources */,
 				B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */,
-				B272CDC619D7B4530084C594 /* TodayTaskTableViewTitleCell.m in Sources */,
 				B2FDCBA219D16C5B00215E70 /* test6View.m in Sources */,
 				B2FDCB9A19D16C5B00215E70 /* test2View.m in Sources */,
 				B2FDCB6E19D16C5B00215E70 /* BeforeIos7StyleOfTableView.m in Sources */,
@@ -1675,6 +1691,7 @@
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,
 				B272CDD519D810AC0084C594 /* Order.m in Sources */,
 				B2FDCB9719D16C5B00215E70 /* TitleBarView.m in Sources */,
+				B2BC894619DAAB18002AC064 /* OrderDetailTableViewCell.m in Sources */,
 				B2FDCBB619D17FB600215E70 /* BaseModule.m in Sources */,
 				B2FDCBC719D1871900215E70 /* NtspHeader.m in Sources */,
 				B26CB13C19D2D2A500023CEB /* AFHTTPSessionManager.m in Sources */,
@@ -1682,7 +1699,6 @@
 				B2FDCB4A19D16C5B00215E70 /* BaseBusiness.m in Sources */,
 				B2FDCB7F19D16C5B00215E70 /* CustomTextFieldCell.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
-				B26CB16A19D53AFC00023CEB /* TodayTaskViewController.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,

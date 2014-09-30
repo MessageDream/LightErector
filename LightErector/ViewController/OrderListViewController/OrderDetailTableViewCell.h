@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TodayTaskTableViewCell : UITableViewCell
+@interface OrderDetailTableViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *nameLable;
 @property(nonatomic,strong)UILabel *phoneLable;
 @property(nonatomic,strong)UILabel *subscribeTimeLable;

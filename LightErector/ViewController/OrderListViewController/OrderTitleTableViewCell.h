@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface TodayTaskTableViewTitleCell : UITableViewCell
+@interface OrderTitleTableViewCell : UITableViewCell
 -(void)createOptionButtonsWithTitles:(NSArray *)titles andIcons:(NSArray *)icons andBackgroundColors:(NSArray *)backColors andAction:(void (^)(NSInteger buttonIndex))action;
 -(void)showButtons;
 -(void)hideButtons;

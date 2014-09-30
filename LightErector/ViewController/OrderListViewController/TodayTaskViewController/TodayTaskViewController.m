@@ -8,9 +8,9 @@
 
 #import "TodayTaskViewController.h"
 #import "TodayTaskView.h"
-#import "TodayTaskTableViewCell.h"
+#import "OrderDetailTableViewCell.h"
 #import "CustomSwipeButton.h"
-#import "TodayTaskTableViewTitleCell.h"
+#import "OrderTitleTableViewCell.h"
 #import "TradeInfo.h"
 #import "Order.h"
 #define PAGESIZE 5
@@ -71,7 +71,7 @@
     trade=[TradeInfo shareTrade];
     trade.observer=self;
     [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
- 
+    [self lockView];
     self.dataArray = [[NSMutableArray alloc]init];
 }
 
@@ -146,11 +146,11 @@
         
         static NSString *CellIdentifier = MAINCELL;
         
-        TodayTaskTableViewTitleCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        OrderTitleTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         
         if (cell == nil) {
-            cell = [[TodayTaskTableViewTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[OrderTitleTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
@@ -175,11 +175,11 @@
         
         static NSString *CellIdentifier = ATTACHEDCELL;
         
-        TodayTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        OrderDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         
         if (cell == nil) {
-            cell = [[TodayTaskTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[OrderDetailTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }

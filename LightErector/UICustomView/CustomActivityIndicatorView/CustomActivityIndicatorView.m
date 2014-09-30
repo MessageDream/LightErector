@@ -22,7 +22,7 @@
         _backgroundView = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-ActivityIndicatorViewWidth/2,[UIScreen mainScreen].bounds.size.height/2-ActivityIndicatorViewHeight/2,ActivityIndicatorViewWidth,ActivityIndicatorViewHeight)];
         _backgroundView.layer.masksToBounds = YES;
         _backgroundView.layer.cornerRadius = 6.0;
-        _backgroundView.layer.borderWidth = 0.7;
+        _backgroundView.layer.borderWidth = 0.0;
         _backgroundView.backgroundColor = [UIColor blackColor];
         [self addSubview:_backgroundView];
         

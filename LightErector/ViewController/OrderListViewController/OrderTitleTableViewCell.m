@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 jayden. All rights reserved.
 //
 
-#import "TodayTaskTableViewTitleCell.h"
+#import "OrderTitleTableViewCell.h"
 typedef NS_ENUM(NSInteger, ButtonStatus) {
 ButtonStatus_Normal,
   ButtonStatus_Show,
     ButtonStatus_Hide,
 };
 
-@interface TodayTaskTableViewTitleCell()
+@interface OrderTitleTableViewCell()
 {
     UIView *buttonsView;
     NSMutableArray *buttons;
@@ -22,7 +22,7 @@ ButtonStatus_Normal,
     void (^callBack)(NSInteger index);
 }
 @end
-@implementation TodayTaskTableViewTitleCell
+@implementation OrderTitleTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
