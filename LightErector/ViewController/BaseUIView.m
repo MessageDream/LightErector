@@ -28,7 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [MainStyle mainBackColor];
+        self.backgroundColor = [MainStyle mainLightColor];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillShown:)
                                                      name:UIKeyboardWillShowNotification object:nil];

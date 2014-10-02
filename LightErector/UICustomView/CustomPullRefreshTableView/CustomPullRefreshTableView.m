@@ -46,6 +46,9 @@
 {
     _pullRefreshViewPositionTopEnable=pullRefreshViewPositionTopEnable;
     if (_pullRefreshViewPositionTopEnable) {
+        if (topView) {
+            [topView removeFromSuperview];
+        }
         __block CustomPullRefreshTableView *blockSelf=self;
          topView=[self addPullToRefreshPosition:CustomPullRefreshViewPositionTop actionHandler:^(CustomPullRefreshView *v) {
              if (blockSelf.pullRefreshDelegate!=nil) {
@@ -65,6 +68,9 @@
 {
     _pullRefreshViewPositionBottomEnable=pullRefreshViewPositionBottomEnable;
     if (_pullRefreshViewPositionBottomEnable) {
+        if (bottomView) {
+            [bottomView removeFromSuperview];
+        }
         __block CustomPullRefreshTableView *blockSelf=self;
         bottomView=[self addPullToRefreshPosition:CustomPullRefreshViewPositionBottom actionHandler:^(CustomPullRefreshView *v) {
             if (blockSelf.pullRefreshDelegate!=nil) {
@@ -83,6 +89,9 @@
 {
     _pullRefreshViewPositionLeftEnable=pullRefreshViewPositionLeftEnable;
     if (_pullRefreshViewPositionLeftEnable) {
+        if (leftView) {
+            [leftView removeFromSuperview];
+        }
         __block CustomPullRefreshTableView *blockSelf=self;
         leftView=[self addPullToRefreshPosition:CustomPullRefreshViewPositionLeft actionHandler:^(CustomPullRefreshView *v) {
             if (blockSelf.pullRefreshDelegate!=nil) {
@@ -101,6 +110,9 @@
 {
     _pullRefreshViewPositionRightEnable=pullRefreshViewPositionRightEnable;
     if (_pullRefreshViewPositionRightEnable) {
+        if (rightView) {
+            [rightView removeFromSuperview];
+        }
         __block CustomPullRefreshTableView *blockSelf=self;
         rightView=[self addPullToRefreshPosition:CustomPullRefreshViewPositionRight actionHandler:^(CustomPullRefreshView *v) {
             if (blockSelf.pullRefreshDelegate!=nil) {

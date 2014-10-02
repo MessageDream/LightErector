@@ -15,7 +15,7 @@
 }
 +(UIColor *)mainBackColor
 {
-    return [UIColor colorWithWhite:0.9f alpha:1];
+    return  [UIColor whiteColor];
 }
 +(UIColor *)mainDarkColor
 {

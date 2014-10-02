@@ -7,7 +7,7 @@
 //
 
 #import "TitleBarAndScrollerView.h"
-#import "CustomPullRefreshTableView.h"
+#import "CustomPullRefreshView.h"
 #import "CustomSegmentedControl.h"
 
 #define UNACCEPTTABLETAG 101
@@ -15,12 +15,19 @@
 #define UNINSTALLTABLETAG 103
 #define SUBAGAINTABLETAG 104
 #define UNFEEDBACKTABLETAG 105
+@protocol OrderCategoryViewDelegate<NSObject>
+-(void)PullRefreshTableViewBottomRefresh:(UITableView *)tableView;
+@end
 
 @interface OrderCategoryView : TitleBarAndScrollerView
 @property(nonatomic,strong)CustomSegmentedControl *segmentedControl;
-@property(nonatomic,strong)CustomPullRefreshTableView *unAcceptTable;
-@property(nonatomic,strong)CustomPullRefreshTableView *unSubTable;
-@property(nonatomic,strong)CustomPullRefreshTableView *unInstallTable;
-@property(nonatomic,strong)CustomPullRefreshTableView *subAgainTable;
-@property(nonatomic,strong)CustomPullRefreshTableView *unFeedBackTable;
+@property(nonatomic,strong)CustomPullRefreshView *pullRefreshView;
+@property(nonatomic,strong)UITableView *unAcceptTable;
+@property(nonatomic,strong)UITableView *unSubTable;
+@property(nonatomic,strong)UITableView *unInstallTable;
+@property(nonatomic,strong)UITableView *subAgainTable;
+@property(nonatomic,strong)UITableView *unFeedBackTable;
+@property(nonatomic,weak)id<OrderCategoryViewDelegate> observer;
+
+-(void)stopRefresh;
 @end

@@ -54,6 +54,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    currentPageIndex++;
+    
     trade=[TradeInfo shareTrade];
     trade.observer=self;
     [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
@@ -83,10 +85,12 @@
               NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
                 [pathArray addObject:path];
             }
-            [mainTableView beginUpdates];
-            [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-            [mainTableView endUpdates];
-            currentPageIndex++;
+            if (pathArray.count>0) {
+                [mainTableView beginUpdates];
+                [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [mainTableView endUpdates];
+                currentPageIndex++;
+            }
         }
             break;
         default:
@@ -130,7 +134,7 @@
     if ([model.cellType isEqualToString:MAINCELL])
     {
         static NSString *CellIdentifier = MAINCELL;
-        OrderTitleTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        OrderTitleTableViewCell *cell;//= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[OrderTitleTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
@@ -143,16 +147,16 @@
             }
         }];
         cell.textLabel.text=order.typeProductname;
+        if (order.tradeAprices!=nil) {
+            cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
+        }
+        cell.nameLable.text=order.tradeLinkman;
+        cell.mobileLable.text=order.tradeMobile;
         if (model.isAttached) {
             [cell showButtons];
             cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
             [cell hideButtons];
-            if (order.tradeAprices!=nil) {
-                cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
-            }
-            cell.nameLable.text=order.tradeLinkman;
-            cell.mobileLable.text=order.tradeMobile;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;

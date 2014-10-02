@@ -13,7 +13,7 @@
 #import "TradeInfo.h"
 #import "Order.h"
 
-@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
+@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCategoryViewDelegate>
 {
     OrderCategoryView *orderCategoryView;
     TradeInfo *trade;
@@ -23,7 +23,11 @@
     NSInteger currentSubAgainPageIndex;
     NSInteger currentUnFeedBackPageIndex;
 }
-@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *unAcceptDataArray;
+@property(nonatomic,strong)NSMutableArray *unSubDataArray;
+@property(nonatomic,strong)NSMutableArray *unInstallDataArray;
+@property(nonatomic,strong)NSMutableArray *subAgainDataArray;
+@property(nonatomic,strong)NSMutableArray *unFeedBackDataArray;
 @end
 
 @implementation OrderCategoryViewController
@@ -46,7 +50,10 @@
 {
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
+    
     orderCategoryView=[[OrderCategoryView alloc] initWithFrame:frame];
+    orderCategoryView.observer=self;
+    
     orderCategoryView.unAcceptTable.delegate=self;
     orderCategoryView.unSubTable.delegate=self;
     orderCategoryView.unInstallTable.delegate=self;
@@ -59,20 +66,27 @@
     orderCategoryView.unInstallTable.dataSource=self;
     orderCategoryView.unFeedBackTable.dataSource=self;
     
-    orderCategoryView.unAcceptTable.pullRefreshDelegate=self;
-    orderCategoryView.subAgainTable.pullRefreshDelegate=self;
-    orderCategoryView.unSubTable.pullRefreshDelegate=self;
-    orderCategoryView.unInstallTable.pullRefreshDelegate=self;
-    orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
-    
     self.view=orderCategoryView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     currentUnAcceptPageIndex++;
+     currentUnSubPageIndex++;
+     currentUnInstallPageIndex++;
+     currentSubAgainPageIndex++;
+     currentUnFeedBackPageIndex++;
+    
     trade=[TradeInfo shareTrade];
     trade.observer=self;
+    
+    self.unAcceptDataArray = [[NSMutableArray alloc]init];
+    self.unSubDataArray=[[NSMutableArray alloc]init];
+    self.unInstallDataArray=[[NSMutableArray alloc]init];
+    self.subAgainDataArray=[[NSMutableArray alloc]init];
+    self.unFeedBackDataArray=[[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
 }
 
@@ -88,30 +102,108 @@
     switch (businessID) {
         case BUSINESS_GETWAITFORRECEIVEORDER:{
             NSMutableArray *pathArray=[[NSMutableArray alloc] init];
-            NSInteger count=trade.todayTaskOrders.count;
-            NSInteger nowCount=self.dataArray.count;
+            NSInteger count=trade.waitForReceiveOrders.count;
+            NSInteger nowCount=self.unAcceptDataArray.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
-                [self.dataArray addObject:model];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForReceiveOrders[i]];
+                [self.unAcceptDataArray addObject:model];
                 NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
                 [pathArray addObject:path];
             }
-            [orderCategoryView.unAcceptTable beginUpdates];
-            [orderCategoryView.unAcceptTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-            [orderCategoryView.unAcceptTable endUpdates];
-            currentUnAcceptPageIndex++;
+            if (pathArray.count>0) {
+                [orderCategoryView.unAcceptTable beginUpdates];
+                [orderCategoryView.unAcceptTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [orderCategoryView.unAcceptTable endUpdates];
+                currentUnAcceptPageIndex++;
+            }
+        }
+            break;
+        case BUSINESS_GETWAITSUBORDER:{
+            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
+            NSInteger count=trade.waitSubOrders.count;
+            NSInteger nowCount=self.unSubDataArray.count;
+            
+            for (int i=0;i<count;i++) {
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitSubOrders[i]];
+                [self.unSubDataArray addObject:model];
+                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                [pathArray addObject:path];
+            }
+            if (pathArray.count>0) {
+                [orderCategoryView.unSubTable beginUpdates];
+                [orderCategoryView.unSubTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [orderCategoryView.unSubTable endUpdates];
+                currentUnSubPageIndex++;
+            }
+        }
+            break;
+        case BUSINESS_GETWAITFORINSTALLORDER:{
+            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
+            NSInteger count=trade.waitForInstallOrders.count;
+            NSInteger nowCount=self.unInstallDataArray.count;
+            
+            for (int i=0;i<count;i++) {
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForInstallOrders[i]];
+                [self.unInstallDataArray addObject:model];
+                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                [pathArray addObject:path];
+            }
+            if (pathArray.count>0) {
+                [orderCategoryView.unInstallTable beginUpdates];
+                [orderCategoryView.unInstallTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [orderCategoryView.unInstallTable endUpdates];
+                currentUnInstallPageIndex++;
+            }
+        }
+            break;
+        case BUSINESS_GETUNTIMEDORDER:{
+            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
+            NSInteger count=trade.unTimedOrders.count;
+            NSInteger nowCount=self.subAgainDataArray.count;
+            
+            for (int i=0;i<count;i++) {
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.unTimedOrders[i]];
+                [self.subAgainDataArray addObject:model];
+                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                [pathArray addObject:path];
+            }
+            if (pathArray.count>0) {
+                [orderCategoryView.subAgainTable beginUpdates];
+                [orderCategoryView.subAgainTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [orderCategoryView.subAgainTable endUpdates];
+                currentSubAgainPageIndex++;
+            }
+        }
+            break;
+        case BUSINESS_GETWAITFORFEEDBACKORDER:{
+            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
+            NSInteger count=trade.waitForFeedBackOrders.count;
+            NSInteger nowCount=self.unFeedBackDataArray.count;
+            
+            for (int i=0;i<count;i++) {
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForFeedBackOrders[i]];
+                [self.unFeedBackDataArray addObject:model];
+                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                [pathArray addObject:path];
+            }
+            if (pathArray.count>0) {
+                [orderCategoryView.unFeedBackTable beginUpdates];
+                [orderCategoryView.unFeedBackTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+                [orderCategoryView.unFeedBackTable endUpdates];
+                currentUnFeedBackPageIndex++;
+            }
         }
             break;
         default:
             break;
     }
-    [orderCategoryView.unAcceptTable stopRefresh];
+    [orderCategoryView stopRefresh];
 }
 
 -(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg
 {
-    [orderCategoryView.unAcceptTable stopRefresh];
+    [orderCategoryView stopRefresh];
     [super didDataModelNoticeFail:baseDataModel forBusinessType:businessID forErrorCode:errorCode forErrorMsg:errorMsg];
 }
 
@@ -133,18 +225,53 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+    switch (tableView.tag) {
+        case UNACCEPTTABLETAG:
+            return self.unAcceptDataArray.count;
+        case UNSUBTABLETAG:
+            return self.unSubDataArray.count;
+        case UNINSTALLTABLETAG:
+           return self.unInstallDataArray.count;
+        case SUBAGAINTABLETAG:
+            return self.subAgainDataArray.count;
+        case UNFEEDBACKTABLETAG:
+           return self.unFeedBackDataArray.count;
+        default:
+           return 0;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCellModel *model=self.dataArray[indexPath.row];
+    UITableViewCellModel *model;
+    switch (tableView.tag) {
+        case UNACCEPTTABLETAG:
+            model= self.unAcceptDataArray[indexPath.row];
+            break;
+        case UNSUBTABLETAG:
+            model=  self.unSubDataArray[indexPath.row];
+            break;
+        case UNINSTALLTABLETAG:
+            model=  self.unInstallDataArray[indexPath.row];
+            break;
+        case SUBAGAINTABLETAG:
+            model=  self.subAgainDataArray[indexPath.row];
+            break;
+        case UNFEEDBACKTABLETAG:
+            model=  self.unFeedBackDataArray[indexPath.row];
+            break;
+        default:
+            break;
+    }
+    if (!model) {
+        return nil;
+    }
     Order *order=model.contentModel;
     if ([model.cellType isEqualToString:MAINCELL])
     {
         static NSString *CellIdentifier = MAINCELL;
-        OrderTitleTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        OrderTitleTableViewCell *cell;//= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[OrderTitleTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
@@ -157,23 +284,19 @@
             }
         }];
         cell.textLabel.text=order.typeProductname;
-        
         if (order.tradeAprices!=nil) {
             cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
         }
-        
+        cell.nameLable.text=order.tradeLinkman;
+        cell.mobileLable.text=order.tradeMobile;
         if (model.isAttached) {
             [cell showButtons];
             cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
             [cell hideButtons];
-            cell.nameLable.text=order.tradeLinkman;
-            cell.mobileLable.text=order.tradeMobile;
-            cell.priceLable.text=order.tradeAprices;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
-        
         
     }else if([model.cellType isEqualToString:ATTACHEDCELL]){
         
@@ -259,10 +382,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    NSMutableArray *array;
+    switch (tableView.tag) {
+        case UNACCEPTTABLETAG:
+            array= self.unAcceptDataArray;
+            break;
+        case UNSUBTABLETAG:
+              array=  self.unSubDataArray;
+             break;
+        case UNINSTALLTABLETAG:
+              array=  self.unInstallDataArray;
+             break;
+        case SUBAGAINTABLETAG:
+              array=  self.subAgainDataArray;
+             break;
+        case UNFEEDBACKTABLETAG:
+              array=  self.unFeedBackDataArray;
+             break;
+        default:
+            break;
+    }
+    if (!array) {
+        return;
+    }
+
     NSIndexPath *path = nil;
     
-    UITableViewCellModel *cmodel= self.dataArray[indexPath.row];
+    UITableViewCellModel *cmodel= array[indexPath.row];
     if ([cmodel.cellType isEqualToString:MAINCELL]) {
         path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
     }else{
@@ -271,12 +417,12 @@
     
     NSIndexPath *pathlast = [NSIndexPath indexPathForItem:(path.row-1) inSection:indexPath.section];
     
-    UITableViewCellModel *model= self.dataArray[(path.row-1)];
+    UITableViewCellModel *model= array[(path.row-1)];
     if (cmodel.isAttached) {
         // 关闭附加cell
         model.cellType=MAINCELL;
         model.isAttached=NO;
-        [self.dataArray removeObjectAtIndex:path.row];
+        [array removeObjectAtIndex:path.row];
         
         [tableView beginUpdates];
         [tableView reloadRowsAtIndexPaths:@[pathlast] withRowAnimation:UITableViewRowAnimationRight];
@@ -286,9 +432,9 @@
     }else{
         // 打开附加cell
         UITableViewCellModel *addModel=[[UITableViewCellModel alloc] initWithCellType:ATTACHEDCELL isAttached:YES andContentModel:model.contentModel];
-        [self.dataArray insertObject:addModel atIndex:path.row];
+        [array insertObject:addModel atIndex:path.row];
         
-        model= self.dataArray[(path.row-1)];
+        model= array[(path.row-1)];
         
         model.cellType=MAINCELL;
         model.isAttached=YES;
@@ -301,20 +447,20 @@
     
 }
 
--(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
+-(void)PullRefreshTableViewBottomRefresh:(UITableView *)tableView
 {
     switch (tableView.tag) {
         case UNACCEPTTABLETAG:
             [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
             break;
         case UNSUBTABLETAG:
-            [trade getWaitSubOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
+            [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
             break;
         case UNINSTALLTABLETAG:
             [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
             break;
         case SUBAGAINTABLETAG:
-            [trade getUnTimedOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+            [trade getUnTimedOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
             break;
         case UNFEEDBACKTABLETAG:
             [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];

@@ -612,7 +612,7 @@
             }
         }
         
-        NSUInteger sectionsCount;
+        NSUInteger sectionsCount = 0;
         
         if (self.type == CustomSegmentedControlTypeImages) {
             sectionsCount = [self.sectionImages count];

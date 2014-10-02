@@ -29,6 +29,9 @@
         _customTitleBar.rightButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_home",Res_Image,@"")];
         _customTitleBar.titleText = NSLocalizedStringFromTable(@"SubProductName9",Res_String,@"");
         
+        UIView *backView=[[UIView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, self.frame.size.width, self.frame.size.height-_customTitleBar.frame.size.height)];
+        backView.backgroundColor=[MainStyle mainBackColor];
+        [self addSubview:backView];
         //_customTitleBar.titleVerticleAlignment=CustomTitleBar_Title_VerticleAlignment_Bottom;
     }
     return self;

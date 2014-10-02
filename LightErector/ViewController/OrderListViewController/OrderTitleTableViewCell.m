@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
     return self;
 }
 @end
-
 @interface OrderTitleTableViewCell()
 {
     UIView *buttonsView;
@@ -66,10 +65,11 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
         self.priceLable.textAlignment=NSTextAlignmentRight;
         self.priceLable.font=font;
         [self.contentView addSubview:self.priceLable];
-        //        CGFloat lspace=71.0f;
-        //        UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(lspace, self.frame.size.height-0.5, self.frame.size.width-lspace, 0.5)];
-        //        lineView.backgroundColor=[UIColor lightGrayColor];
-        //        [self addSubview:lineView];
+        
+//                CGFloat lspace=71.0f;
+//                UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(lspace, self.frame.size.height-0.5, self.frame.size.width-lspace, 0.5)];
+//                lineView.backgroundColor=[UIColor lightGrayColor];
+//                [self addSubview:lineView];
     }
     return self;
 }
@@ -142,59 +142,40 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
 
 -(void)layoutSubviews
 {
-    CGRect rect;
-    CGRect imageRect;
-    if (buttonStatus==ButtonStatus_Show) {
+  
+    if (buttonStatus==ButtonStatus_Show&&self.contentView.frame.origin.x==0) {
         [super layoutSubviews];
-        rect=self.textLabel.frame;
-        rect.origin.y= self.contentView.frame.size.height/2-rect.size.height/2;
-        //rect.origin.x= rect.origin.x+buttopnViewWidth;
-        self.textLabel.textAlignment=NSTextAlignmentCenter;
-        imageRect=self.imageView.frame;
-        imageRect.origin.x=imageRect.origin.x+buttopnViewWidth;
-        if (self.contentView.frame.origin.x==0) {
-            CGRect newFrame = self.contentView.frame;
-            newFrame.origin.x =newFrame.origin.x-buttopnViewWidth;
-            self.contentView.frame = newFrame;
-            
-            //有时候会导致x偏移，故加入下代码
-            CGRect rect= buttonsView.frame;
-            rect.origin.x=self.frame.size.width;
-            buttonsView.frame=rect;
-        }
+        CGRect newFrame = self.contentView.frame;
+        newFrame.origin.x =newFrame.origin.x-buttopnViewWidth;
+        self.contentView.frame = newFrame;
+        
+        //有时候会导致x偏移，故加入下代码
+        CGRect newrect= buttonsView.frame;
+        newrect.origin.x=self.frame.size.width;
+        buttonsView.frame=newrect;
     }else if(buttonStatus==ButtonStatus_Hide&&buttopnViewWidth>0.0f){
         [super layoutSubviews];
-        rect=self.textLabel.frame;
-        rect.origin.y= self.textLabel.font.lineHeight/6;
-        rect.size.width= rect.size.width*4/5;
-        rect.size.height=self.textLabel.font.lineHeight;
-        
-        imageRect=self.imageView.frame;
-        imageRect.origin.x=imageRect.origin.x-buttopnViewWidth;
-
         if (self.contentView.frame.origin.x==-buttopnViewWidth) {
             CGRect newFrame = self.contentView.frame;
             newFrame.origin.x =newFrame.origin.x +buttopnViewWidth;
             self.contentView.frame = newFrame;
         }
+        
         buttopnViewWidth=0.0f;
     }else{
         [super layoutSubviews];
-        rect=self.textLabel.frame;
-        rect.origin.y= self.textLabel.font.lineHeight/6;
-        rect.size.width= rect.size.width*4/5;
-        rect.size.height=self.textLabel.font.lineHeight;
         
-        imageRect=self.imageView.frame;
-        imageRect.origin.x=imageRect.origin.x-buttopnViewWidth;
     }
+    CGRect rect=self.textLabel.frame;
+    rect.origin.y= self.textLabel.font.lineHeight/6;
+    rect.size.width= rect.size.width*0.7;
+    rect.size.height=self.textLabel.font.lineHeight;
+    
     self.textLabel.frame=rect;
-    self.imageView.frame=imageRect;
-    self.nameLable.frame=CGRectMake(rect.origin.x, rect.origin.y+rect.size.height*1.2, rect.size.width/2.8, 12);
+    self.nameLable.frame=CGRectMake(rect.origin.x, rect.origin.y+rect.size.height*1.2, rect.size.width/2.8, 14);
+    self.mobileLable.frame=CGRectMake(self.nameLable.frame.origin.x+self.nameLable.frame.size.width, self.nameLable.frame.origin.y, rect.size.width/1.5, 14);
+    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+2, rect.size.width/3, 14);
     
-    self.mobileLable.frame=CGRectMake(self.nameLable.frame.origin.x+self.nameLable.frame.size.width, self.nameLable.frame.origin.y, rect.size.width/1.5, 12);
-    
-    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+4, rect.size.width/4, 12);
     buttonStatus=ButtonStatus_Normal;
 }
 -(void)hideButtons
