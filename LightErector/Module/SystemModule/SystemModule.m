@@ -9,6 +9,7 @@
 #import "SystemModule.h"
 #import "LoginViewController.h"
 #import "TodayTaskViewController.h"
+#import "OrderCategoryViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -31,6 +32,8 @@
         viewcontroller = [[LoginViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_TODAYTASK){
         viewcontroller=[[TodayTaskViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_ORDERCATEGORYLIST){
+        viewcontroller=[[OrderCategoryViewController alloc] init];
     }
     
     if(viewcontroller != nil)

@@ -14,4 +14,5 @@
 @protected
     UIScrollView *_scrollerView;
 }
+@property(nonatomic,strong)UIScrollView *scrollerView;
 @end

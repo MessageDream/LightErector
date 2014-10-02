@@ -1,27 +1,32 @@
 //
-//  TodayTaskViewController.m
+//  OrderCategoryViewController.m
 //  LightErector
 //
-//  Created by Jayden Zhao on 9/26/14.
-//  Copyright (c) 2014 jayden. All rights reserved.
+//  Created by Jayden on 14-10-2.
+//  Copyright (c) 2014年 jayden. All rights reserved.
 //
 
-#import "TodayTaskViewController.h"
-#import "TodayTaskView.h"
+#import "OrderCategoryViewController.h"
+#import "OrderCategoryView.h"
 #import "OrderDetailTableViewCell.h"
 #import "OrderTitleTableViewCell.h"
 #import "TradeInfo.h"
 #import "Order.h"
 
-@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
+@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
 {
-    NSInteger currentPageIndex;
+    OrderCategoryView *orderCategoryView;
     TradeInfo *trade;
-    CustomPullRefreshTableView *mainTableView;
+    NSInteger currentUnAcceptPageIndex;
+    NSInteger currentUnSubPageIndex;
+    NSInteger currentUnInstallPageIndex;
+    NSInteger currentSubAgainPageIndex;
+    NSInteger currentUnFeedBackPageIndex;
 }
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @end
 
-@implementation TodayTaskViewController
+@implementation OrderCategoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,23 +37,35 @@
     return self;
 }
 
-
 -(void)settingViewControllerId
 {
-    _viewControllerId=VIEWCONTROLLER_TODAYTASK;
+    _viewControllerId=VIEWCONTROLLER_ORDERCATEGORYLIST;
 }
 
 -(void)loadView
 {
-    
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
-    TodayTaskView *taskView=[[TodayTaskView alloc]initWithFrame:frame];
-    taskView.tableView.delegate=self;
-    taskView.tableView.dataSource=self;
-    taskView.tableView.pullRefreshDelegate=self;
-    mainTableView=taskView.tableView;
-    self.view=taskView;
+    orderCategoryView=[[OrderCategoryView alloc] initWithFrame:frame];
+    orderCategoryView.unAcceptTable.delegate=self;
+    orderCategoryView.unSubTable.delegate=self;
+    orderCategoryView.unInstallTable.delegate=self;
+    orderCategoryView.subAgainTable.delegate=self;
+    orderCategoryView.unFeedBackTable.delegate=self;
+    
+    orderCategoryView.unAcceptTable.dataSource=self;
+    orderCategoryView.subAgainTable.dataSource=self;
+    orderCategoryView.unSubTable.dataSource=self;
+    orderCategoryView.unInstallTable.dataSource=self;
+    orderCategoryView.unFeedBackTable.dataSource=self;
+    
+    orderCategoryView.unAcceptTable.pullRefreshDelegate=self;
+    orderCategoryView.subAgainTable.pullRefreshDelegate=self;
+    orderCategoryView.unSubTable.pullRefreshDelegate=self;
+    orderCategoryView.unInstallTable.pullRefreshDelegate=self;
+    orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
+    
+    self.view=orderCategoryView;
 }
 
 - (void)viewDidLoad
@@ -56,9 +73,7 @@
     [super viewDidLoad];
     trade=[TradeInfo shareTrade];
     trade.observer=self;
-    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
-    [self lockView];
-    self.dataArray = [[NSMutableArray alloc]init];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,37 +82,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
-        case BUSINESS_GETTODAYTASKORDER:{
+        case BUSINESS_GETWAITFORRECEIVEORDER:{
             NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.todayTaskOrders.count;
             NSInteger nowCount=self.dataArray.count;
             
             for (int i=0;i<count;i++) {
-                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
                 [self.dataArray addObject:model];
-              NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
+                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
                 [pathArray addObject:path];
             }
-            [mainTableView beginUpdates];
-            [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-            [mainTableView endUpdates];
-            currentPageIndex++;
+            [orderCategoryView.unAcceptTable beginUpdates];
+            [orderCategoryView.unAcceptTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
+            [orderCategoryView.unAcceptTable endUpdates];
+            currentUnAcceptPageIndex++;
         }
             break;
         default:
             break;
     }
-    [mainTableView stopRefresh];
+    [orderCategoryView.unAcceptTable stopRefresh];
 }
 
 -(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg
 {
-    [mainTableView stopRefresh];
+    [orderCategoryView.unAcceptTable stopRefresh];
     [super didDataModelNoticeFail:baseDataModel forBusinessType:businessID forErrorCode:errorCode forErrorMsg:errorMsg];
 }
 
@@ -143,16 +157,19 @@
             }
         }];
         cell.textLabel.text=order.typeProductname;
+        
+        if (order.tradeAprices!=nil) {
+            cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
+        }
+        
         if (model.isAttached) {
             [cell showButtons];
             cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
             [cell hideButtons];
-            if (order.tradeAprices!=nil) {
-                cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
-            }
             cell.nameLable.text=order.tradeLinkman;
             cell.mobileLable.text=order.tradeMobile;
+            cell.priceLable.text=order.tradeAprices;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
@@ -181,8 +198,8 @@
         CGRect frame;
         if (order.tradeAddress!=nil) {
             CGSize expectedLabelSizeAddr = [order.tradeAddress sizeWithFont:cell.nameLable.font
-                                           constrainedToSize:maximumLabelSize
-                                               lineBreakMode:NSLineBreakByWordWrapping];
+                                                          constrainedToSize:maximumLabelSize
+                                                              lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.addressLable.frame;
             frame.size=expectedLabelSizeAddr;
@@ -197,8 +214,8 @@
         
         if (order.tradeContent!=nil) {
             CGSize expectedLabelSizeDetail = [order.tradeContent sizeWithFont:cell.nameLable.font
-                                             constrainedToSize:maximumLabelSize
-                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                                                            constrainedToSize:maximumLabelSize
+                                                                lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.detailLable.frame;
             frame.origin.y=cell.sDetailLable.frame.origin.y;
@@ -217,8 +234,8 @@
         if (order.tradeContent2!=nil) {
             
             CGSize expectedLabelSizeRemark = [order.tradeContent2 sizeWithFont:cell.nameLable.font
-                                             constrainedToSize:maximumLabelSize
-                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                                                             constrainedToSize:maximumLabelSize
+                                                                 lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.remarkLable.frame;
             frame.origin.y=cell.sRemarkLable.frame.origin.y;
@@ -286,11 +303,28 @@
 
 -(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
-     [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+    switch (tableView.tag) {
+        case UNACCEPTTABLETAG:
+            [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+            break;
+        case UNSUBTABLETAG:
+            [trade getWaitSubOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
+            break;
+        case UNINSTALLTABLETAG:
+            [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
+            break;
+        case SUBAGAINTABLETAG:
+            [trade getUnTimedOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+            break;
+        case UNFEEDBACKTABLETAG:
+            [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
+            break;
+    }
 }
+
 -(void)dealloc
 {
     trade=nil;
-    mainTableView=nil;
+    orderCategoryView=nil;
 }
 @end

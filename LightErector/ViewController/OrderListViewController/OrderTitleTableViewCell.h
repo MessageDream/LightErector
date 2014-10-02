@@ -7,6 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#define PAGESIZE 5
+#define CELL @"Cell"
+#define MAINCELL @"MainCell"
+#define ATTACHEDCELL @"AttachedCell"
+#define ISATTACHED @"isAttached"
+
+@interface UITableViewCellModel:NSObject
+@property(nonatomic,strong)NSString *cellType;
+@property(nonatomic,assign)BOOL isAttached;
+@property(nonatomic,strong)id contentModel;
+-(id)initWithCellType:(NSString *)cellType isAttached:(BOOL) isAttached andContentModel:(id)model;
+@end
+
 @interface OrderTitleTableViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *nameLable;
 @property(nonatomic,strong)UILabel *mobileLable;

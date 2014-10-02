@@ -9,10 +9,22 @@
 #import "OrderTitleTableViewCell.h"
 #import "MainStyle.h"
 typedef NS_ENUM(NSInteger, ButtonStatus) {
-ButtonStatus_Normal,
-  ButtonStatus_Show,
+    ButtonStatus_Normal,
+    ButtonStatus_Show,
     ButtonStatus_Hide,
 };
+
+@implementation UITableViewCellModel
+-(id)initWithCellType:(NSString *)cellType isAttached:(BOOL) isAttached andContentModel:(id)model
+{
+    if (self=[super init]) {
+        _cellType=cellType;
+        _isAttached=isAttached;
+        _contentModel=model;
+    }
+    return self;
+}
+@end
 
 @interface OrderTitleTableViewCell()
 {
@@ -119,7 +131,7 @@ ButtonStatus_Normal,
 
 -(void)willRemoveSubview:(UIView *)subview
 {
-     buttonStatus=ButtonStatus_Normal;
+    buttonStatus=ButtonStatus_Normal;
 }
 
 
@@ -130,11 +142,16 @@ ButtonStatus_Normal,
 
 -(void)layoutSubviews
 {
-    CGRect rect=self.textLabel.frame;;
+    CGRect rect;
+    CGRect imageRect;
     if (buttonStatus==ButtonStatus_Show) {
         [super layoutSubviews];
+        rect=self.textLabel.frame;
         rect.origin.y= self.contentView.frame.size.height/2-rect.size.height/2;
-        self.textLabel.frame=rect;
+        //rect.origin.x= rect.origin.x+buttopnViewWidth;
+        self.textLabel.textAlignment=NSTextAlignmentCenter;
+        imageRect=self.imageView.frame;
+        imageRect.origin.x=imageRect.origin.x+buttopnViewWidth;
         if (self.contentView.frame.origin.x==0) {
             CGRect newFrame = self.contentView.frame;
             newFrame.origin.x =newFrame.origin.x-buttopnViewWidth;
@@ -147,25 +164,37 @@ ButtonStatus_Normal,
         }
     }else if(buttonStatus==ButtonStatus_Hide&&buttopnViewWidth>0.0f){
         [super layoutSubviews];
-        rect.origin.y= self.textLabel.font.lineHeight/6;
-         if (self.contentView.frame.origin.x==-buttopnViewWidth) {
-        CGRect newFrame = self.contentView.frame;
-        newFrame.origin.x =newFrame.origin.x +buttopnViewWidth;
-        self.contentView.frame = newFrame;
-         }
-        buttopnViewWidth=0.0f;
-    }else{
-        [super layoutSubviews];
+        rect=self.textLabel.frame;
         rect.origin.y= self.textLabel.font.lineHeight/6;
         rect.size.width= rect.size.width*4/5;
         rect.size.height=self.textLabel.font.lineHeight;
+        
+        imageRect=self.imageView.frame;
+        imageRect.origin.x=imageRect.origin.x-buttopnViewWidth;
+
+        if (self.contentView.frame.origin.x==-buttopnViewWidth) {
+            CGRect newFrame = self.contentView.frame;
+            newFrame.origin.x =newFrame.origin.x +buttopnViewWidth;
+            self.contentView.frame = newFrame;
+        }
+        buttopnViewWidth=0.0f;
+    }else{
+        [super layoutSubviews];
+        rect=self.textLabel.frame;
+        rect.origin.y= self.textLabel.font.lineHeight/6;
+        rect.size.width= rect.size.width*4/5;
+        rect.size.height=self.textLabel.font.lineHeight;
+        
+        imageRect=self.imageView.frame;
+        imageRect.origin.x=imageRect.origin.x-buttopnViewWidth;
     }
     self.textLabel.frame=rect;
+    self.imageView.frame=imageRect;
     self.nameLable.frame=CGRectMake(rect.origin.x, rect.origin.y+rect.size.height*1.2, rect.size.width/2.8, 12);
     
     self.mobileLable.frame=CGRectMake(self.nameLable.frame.origin.x+self.nameLable.frame.size.width, self.nameLable.frame.origin.y, rect.size.width/1.5, 12);
     
-    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+4, rect.size.width/5, 12);
+    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+4, rect.size.width/4, 12);
     buttonStatus=ButtonStatus_Normal;
 }
 -(void)hideButtons

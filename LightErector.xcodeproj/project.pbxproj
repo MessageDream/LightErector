@@ -11,6 +11,9 @@
 		B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6719D9318400D5EE51 /* TaskRemind.m */; };
 		B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */; };
 		B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */; };
+		B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */; };
+		B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */; };
+		B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */; };
 		B26CB13A19D2D2A500023CEB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12819D2D2A500023CEB /* AFHTTPRequestOperation.m */; };
 		B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12A19D2D2A500023CEB /* AFHTTPRequestOperationManager.m */; };
 		B26CB13C19D2D2A500023CEB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB12C19D2D2A500023CEB /* AFHTTPSessionManager.m */; };
@@ -220,6 +223,12 @@
 		B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetOrderBusiness.m; path = OrderBusiness/GetOrderBusiness.m; sourceTree = "<group>"; };
 		B2275D6D19D93F3300D5EE51 /* UpdateOrderStateBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateOrderStateBusiness.h; path = OrderBusiness/UpdateOrderStateBusiness.h; sourceTree = "<group>"; };
 		B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateOrderStateBusiness.m; path = OrderBusiness/UpdateOrderStateBusiness.m; sourceTree = "<group>"; };
+		B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSegmentedControl.h; path = CustomSegmentedControl/CustomSegmentedControl.h; sourceTree = "<group>"; };
+		B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSegmentedControl.m; path = CustomSegmentedControl/CustomSegmentedControl.m; sourceTree = "<group>"; };
+		B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryViewController.h; path = OrderCategoryViewController/OrderCategoryViewController.h; sourceTree = "<group>"; };
+		B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderCategoryViewController.m; path = OrderCategoryViewController/OrderCategoryViewController.m; sourceTree = "<group>"; };
+		B2683DE119DCEB95000FB9A1 /* OrderCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryView.h; path = OrderCategoryViewController/OrderCategoryView.h; sourceTree = "<group>"; };
+		B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderCategoryView.m; path = OrderCategoryViewController/OrderCategoryView.m; sourceTree = "<group>"; };
 		B26CB12719D2D2A500023CEB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		B26CB12819D2D2A500023CEB /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		B26CB12919D2D2A500023CEB /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -595,6 +604,26 @@
 			name = OrderBusiness;
 			sourceTree = "<group>";
 		};
+		B2683DD919DCE989000FB9A1 /* CustomSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */,
+				B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */,
+			);
+			name = CustomSegmentedControl;
+			sourceTree = "<group>";
+		};
+		B2683DDD19DCEA6B000FB9A1 /* OrderCategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */,
+				B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */,
+				B2683DE119DCEB95000FB9A1 /* OrderCategoryView.h */,
+				B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */,
+			);
+			name = OrderCategoryViewController;
+			sourceTree = "<group>";
+		};
 		B26CB12619D2D2A500023CEB /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +675,7 @@
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B2683DDD19DCEA6B000FB9A1 /* OrderCategoryViewController */,
 				B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */,
 				B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */,
 				B27FDB0E19DAF59E003C0FE1 /* OrderDetailTableViewCell.m */,
@@ -925,6 +955,7 @@
 		B2FDCAB519D16C5B00215E70 /* UICustomView */ = {
 			isa = PBXGroup;
 			children = (
+				B2683DD919DCE989000FB9A1 /* CustomSegmentedControl */,
 				B272CDDA19D90A2B0084C594 /* CustomPullRefreshTableView */,
 				B2FDCAB619D16C5B00215E70 /* AttributedLabel */,
 				B2FDCAB919D16C5B00215E70 /* BeforeIos7StyleOfTableView */,
@@ -1453,6 +1484,7 @@
 				B2FDC87E19D156DB00215E70 /* Sources */,
 				B2FDC87F19D156DB00215E70 /* Frameworks */,
 				B2FDC88019D156DB00215E70 /* Resources */,
+				B2683DD819DCE477000FB9A1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1596,6 +1628,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B2683DD819DCE477000FB9A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B2FDC87E19D156DB00215E70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1618,6 +1666,7 @@
 				B2FDCBB719D17FB600215E70 /* RootModule.m in Sources */,
 				B2FDCB7D19D16C5B00215E70 /* CustomOrderMangerCell.m in Sources */,
 				B2FDCBAB19D16DE500215E70 /* RootViewController.m in Sources */,
+				B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */,
 				B2FDCB8719D16C5B00215E70 /* ImagePlayerView.m in Sources */,
 				B2FDCB8119D16C5B00215E70 /* CustomTextField.m in Sources */,
 				B2FDCB9D19D16C5B00215E70 /* test3ViewController.m in Sources */,
@@ -1655,6 +1704,7 @@
 				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
+				B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */,
 				B2FDCBD519D26C0A00215E70 /* BaseDataModel.m in Sources */,
 				B26CB13E19D2D2A500023CEB /* AFSecurityPolicy.m in Sources */,
 				B2FDCB9319D16C5B00215E70 /* TitleBarAndBeforeIos7StyleOfTableView.m in Sources */,
@@ -1686,6 +1736,7 @@
 				B2FDCC1019D2766B00215E70 /* UserInfo.m in Sources */,
 				B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */,
 				B2FDCB6D19D16C5B00215E70 /* AttributedLabel.m in Sources */,
+				B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */,
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,
 				B272CDD519D810AC0084C594 /* Order.m in Sources */,
 				B2FDCB9719D16C5B00215E70 /* TitleBarView.m in Sources */,
@@ -1829,6 +1880,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
 				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";
@@ -1849,6 +1902,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
 				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";

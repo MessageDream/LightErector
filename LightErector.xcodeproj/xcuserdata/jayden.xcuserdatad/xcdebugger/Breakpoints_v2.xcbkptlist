@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LightErector/ViewController/OrderListViewController/TodayTaskViewController/TodayTaskViewController.m"
-            timestampString = "433786031.859229"
+            filePath = "LightErector/HttpConnect/BaseHttpConnect/BaseHttpConnect.m"
+            timestampString = "433924898.897405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

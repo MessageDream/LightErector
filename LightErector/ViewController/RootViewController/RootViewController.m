@@ -76,13 +76,13 @@
             message.receiveObjectID = VIEWCONTROLLER_TODAYTASK;
             break;
         case 1:
-            message.receiveObjectID = VIEWCONTROLLER_TEST2;
+            message.receiveObjectID = VIEWCONTROLLER_ORDERCATEGORYLIST;
             break;
         case 3:
-            message.receiveObjectID = VIEWCONTROLLER_TEST3;
+            message.receiveObjectID = VIEWCONTROLLER_UNSETTLED;
             break;
         case 4:
-            message.receiveObjectID = VIEWCONTROLLER_TEST4;
+            message.receiveObjectID = VIEWCONTROLLER_USERCENTER;
             break;
         default:
             return;

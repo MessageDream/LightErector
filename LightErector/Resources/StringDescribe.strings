@@ -32,3 +32,10 @@
 "Detail"="详情：";
 "Remark"="备注：";
 "GoInstall"="去安装";
+
+"OrderList"="订单列表";
+"UnAccept"="待接单";
+"UnSub"="待预约";
+"UnInstall"="待安装";
+"SubAgain"="再预约";
+"UnFeedBack"="待反馈";
