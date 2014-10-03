@@ -21,6 +21,7 @@
         rect.size.height=rect.size.height-DefaultTabBarHeight;
         self.tableView.frame=rect;
         [self addSubview:self.tableView];
+        self.tableView.contentSize=CGSizeMake(rect.size.width, rect.size.height);
     }
     return self;
 }

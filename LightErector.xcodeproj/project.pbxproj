@@ -11,6 +11,8 @@
 		B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6719D9318400D5EE51 /* TaskRemind.m */; };
 		B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */; };
 		B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */; };
+		B2554F6219DE276B0004FE42 /* InstallFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F6119DE276B0004FE42 /* InstallFlowViewController.m */; };
+		B2554F6519DE27A50004FE42 /* InstallFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F6419DE27A50004FE42 /* InstallFlowView.m */; };
 		B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */; };
 		B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */; };
 		B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */; };
@@ -223,6 +225,10 @@
 		B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetOrderBusiness.m; path = OrderBusiness/GetOrderBusiness.m; sourceTree = "<group>"; };
 		B2275D6D19D93F3300D5EE51 /* UpdateOrderStateBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateOrderStateBusiness.h; path = OrderBusiness/UpdateOrderStateBusiness.h; sourceTree = "<group>"; };
 		B2275D6E19D93F3300D5EE51 /* UpdateOrderStateBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateOrderStateBusiness.m; path = OrderBusiness/UpdateOrderStateBusiness.m; sourceTree = "<group>"; };
+		B2554F6019DE276B0004FE42 /* InstallFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstallFlowViewController.h; path = InstallFlowViewController/InstallFlowViewController.h; sourceTree = "<group>"; };
+		B2554F6119DE276B0004FE42 /* InstallFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstallFlowViewController.m; path = InstallFlowViewController/InstallFlowViewController.m; sourceTree = "<group>"; };
+		B2554F6319DE27A50004FE42 /* InstallFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstallFlowView.h; path = InstallFlowViewController/InstallFlowView.h; sourceTree = "<group>"; };
+		B2554F6419DE27A50004FE42 /* InstallFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstallFlowView.m; path = InstallFlowViewController/InstallFlowView.m; sourceTree = "<group>"; };
 		B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSegmentedControl.h; path = CustomSegmentedControl/CustomSegmentedControl.h; sourceTree = "<group>"; };
 		B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSegmentedControl.m; path = CustomSegmentedControl/CustomSegmentedControl.m; sourceTree = "<group>"; };
 		B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryViewController.h; path = OrderCategoryViewController/OrderCategoryViewController.h; sourceTree = "<group>"; };
@@ -604,6 +610,17 @@
 			name = OrderBusiness;
 			sourceTree = "<group>";
 		};
+		B2554F5F19DE270B0004FE42 /* InstallFlowViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2554F6019DE276B0004FE42 /* InstallFlowViewController.h */,
+				B2554F6119DE276B0004FE42 /* InstallFlowViewController.m */,
+				B2554F6319DE27A50004FE42 /* InstallFlowView.h */,
+				B2554F6419DE27A50004FE42 /* InstallFlowView.m */,
+			);
+			name = InstallFlowViewController;
+			sourceTree = "<group>";
+		};
 		B2683DD919DCE989000FB9A1 /* CustomSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +692,7 @@
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B2554F5F19DE270B0004FE42 /* InstallFlowViewController */,
 				B2683DDD19DCEA6B000FB9A1 /* OrderCategoryViewController */,
 				B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */,
 				B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */,
@@ -1684,6 +1702,7 @@
 				B2FDCB9919D16C5B00215E70 /* test1ViewController.m in Sources */,
 				B26CB14019D2D2A500023CEB /* AFURLRequestSerialization.m in Sources */,
 				B2FDCC7D19D2974700215E70 /* PushNotification.m in Sources */,
+				B2554F6519DE27A50004FE42 /* InstallFlowView.m in Sources */,
 				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
@@ -1732,6 +1751,7 @@
 				B27FDB1619DAF59E003C0FE1 /* OrderDetailTableViewCell.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
+				B2554F6219DE276B0004FE42 /* InstallFlowViewController.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,
 				B2FDCB8319D16C5B00215E70 /* CustomTitleBar.m in Sources */,

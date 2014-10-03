@@ -17,6 +17,7 @@
 {
     OrderCategoryView *orderCategoryView;
     TradeInfo *trade;
+    NSInteger setupRequestCount;
     NSInteger currentUnAcceptPageIndex;
     NSInteger currentUnSubPageIndex;
     NSInteger currentUnInstallPageIndex;
@@ -67,20 +68,20 @@
     orderCategoryView.unFeedBackTable.dataSource=self;
     
     self.view=orderCategoryView;
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-     currentUnAcceptPageIndex++;
-     currentUnSubPageIndex++;
-     currentUnInstallPageIndex++;
-     currentSubAgainPageIndex++;
-     currentUnFeedBackPageIndex++;
+    currentUnAcceptPageIndex++;
+    currentUnSubPageIndex++;
+    currentUnInstallPageIndex++;
+    currentSubAgainPageIndex++;
+    currentUnFeedBackPageIndex++;
     
-    trade=[TradeInfo shareTrade];
-    trade.observer=self;
+    
     
     self.unAcceptDataArray = [[NSMutableArray alloc]init];
     self.unSubDataArray=[[NSMutableArray alloc]init];
@@ -88,6 +89,12 @@
     self.subAgainDataArray=[[NSMutableArray alloc]init];
     self.unFeedBackDataArray=[[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
+    
+    trade=[TradeInfo shareTrade];
+    trade.observer=self;
+    setupRequestCount=1;
+    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+    [self lockView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,7 +105,6 @@
 
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
 {
-    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
         case BUSINESS_GETWAITFORRECEIVEORDER:{
             NSMutableArray *pathArray=[[NSMutableArray alloc] init];
@@ -116,6 +122,11 @@
                 [orderCategoryView.unAcceptTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
                 [orderCategoryView.unAcceptTable endUpdates];
                 currentUnAcceptPageIndex++;
+            }
+            if (setupRequestCount==1) {
+                setupRequestCount++;
+                [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                return;
             }
         }
             break;
@@ -136,6 +147,11 @@
                 [orderCategoryView.unSubTable endUpdates];
                 currentUnSubPageIndex++;
             }
+            if (setupRequestCount==2) {
+                setupRequestCount++;
+                [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                return;
+            }
         }
             break;
         case BUSINESS_GETWAITFORINSTALLORDER:{
@@ -154,6 +170,12 @@
                 [orderCategoryView.unInstallTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
                 [orderCategoryView.unInstallTable endUpdates];
                 currentUnInstallPageIndex++;
+            }
+            
+            if (setupRequestCount==3) {
+                setupRequestCount++;
+                [trade getUnTimedOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                return;
             }
         }
             break;
@@ -174,6 +196,13 @@
                 [orderCategoryView.subAgainTable endUpdates];
                 currentSubAgainPageIndex++;
             }
+            
+            if (setupRequestCount==4) {
+                setupRequestCount++;
+                [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                return;
+            }
+
         }
             break;
         case BUSINESS_GETWAITFORFEEDBACKORDER:{
@@ -198,6 +227,7 @@
         default:
             break;
     }
+    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     [orderCategoryView stopRefresh];
 }
 
@@ -231,13 +261,13 @@
         case UNSUBTABLETAG:
             return self.unSubDataArray.count;
         case UNINSTALLTABLETAG:
-           return self.unInstallDataArray.count;
+            return self.unInstallDataArray.count;
         case SUBAGAINTABLETAG:
             return self.subAgainDataArray.count;
         case UNFEEDBACKTABLETAG:
-           return self.unFeedBackDataArray.count;
+            return self.unFeedBackDataArray.count;
         default:
-           return 0;
+            return 0;
     }
 }
 
@@ -388,24 +418,24 @@
             array= self.unAcceptDataArray;
             break;
         case UNSUBTABLETAG:
-              array=  self.unSubDataArray;
-             break;
+            array=  self.unSubDataArray;
+            break;
         case UNINSTALLTABLETAG:
-              array=  self.unInstallDataArray;
-             break;
+            array=  self.unInstallDataArray;
+            break;
         case SUBAGAINTABLETAG:
-              array=  self.subAgainDataArray;
-             break;
+            array=  self.subAgainDataArray;
+            break;
         case UNFEEDBACKTABLETAG:
-              array=  self.unFeedBackDataArray;
-             break;
+            array=  self.unFeedBackDataArray;
+            break;
         default:
             break;
     }
     if (!array) {
         return;
     }
-
+    
     NSIndexPath *path = nil;
     
     UITableViewCellModel *cmodel= array[indexPath.row];
