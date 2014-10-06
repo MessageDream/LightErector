@@ -7,14 +7,16 @@
 //
 
 #import "OrderCategoryView.h"
+
 #define SEGMENTEDCONTROLHEIGHT 30
-#define TABLEVIEWCOUNT 5
+
 @interface OrderCategoryView ()<UIScrollViewDelegate>
 {
-    UITableView *currentTableView;
+    CustomPullRefreshTableView *currentTableView;
 }
 @end
 @implementation OrderCategoryView
+@synthesize currentTableView=currentTableView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,29 +28,29 @@
         self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         self.segmentedControl.backgroundColor = [UIColor clearColor];
         self.segmentedControl.textColor = [MainStyle mainTitleColor];
-        self.segmentedControl.selectedTextColor = [MainStyle mainLightColor];
-        self.segmentedControl.selectionIndicatorColor = [MainStyle mainLightColor];
+        self.segmentedControl.selectedTextColor = [MainStyle mainGreenColor];
+        self.segmentedControl.selectionIndicatorColor = [MainStyle mainGreenColor];
         self.segmentedControl.selectionStyle = CustomSegmentedControlSelectionStyleFullWidthStripe;
         self.segmentedControl.selectionIndicatorLocation = CustomSegmentedControlSelectionIndicatorLocationDown;
         
         __block OrderCategoryView *blockSelf=self;
         [ self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
-            NSLog(@"Selected index %ld (via block)", (long)index);
             [blockSelf.scrollerView scrollRectToVisible:CGRectMake(index*frame.size.width, 0, frame.size.width, blockSelf.scrollerView.frame.size.height) animated:NO];
         }];
         
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, self.segmentedControl.frame.size.height, frame.size.width, 0.5)];
-        lineView.backgroundColor=[MainStyle mainTitleColor];
+        lineView.backgroundColor=[MainStyle mainDarkColor];
         [self.segmentedControl addSubview:lineView];
         
         [self addSubview:self.segmentedControl];
+       // self.segmentedControl.layer.zPosition=self.customTitleBar.layer.zPosition-1;
         
         self.scrollerView.frame=CGRectMake(0,  self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT+0.5, frame.size.width, frame.size.height-(self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT));
         self.scrollerView.backgroundColor = [UIColor clearColor];
-        self.scrollerView.pagingEnabled = YES;
+        //self.scrollerView.pagingEnabled = YES;
         self.scrollerView.showsHorizontalScrollIndicator = NO;
-        
-        self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height);
+        self.scrollerView.scrollEnabled=NO;
+        self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height+10);
         self.scrollerView.delegate = self;
         
         self.scrollerView.alwaysBounceVertical = YES;
@@ -75,16 +77,9 @@
         self.unFeedBackTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*4, 0, frame.size.width, self.scrollerView.frame.size.height)];
         self.unFeedBackTable.tag=UNFEEDBACKTABLETAG;
         [self.scrollerView addSubview:self.unFeedBackTable];
-        
-        self.pullRefreshView=[self.scrollerView addPullToRefreshPosition:CustomPullRefreshViewPositionBottom actionHandler:^(CustomPullRefreshView *v) {
-                        if (blockSelf.observer) {
-                           [blockSelf.observer PullRefreshTableViewBottomRefresh:blockSelf->currentTableView];
-                        }
-                    }];
-        self.pullRefreshView.imageIcon = [UIImage imageNamed:@"launchpad"];
-        self.pullRefreshView.borderColor = [UIColor whiteColor];
 
         currentTableView=self.unAcceptTable;
+       
     }
     return self;
 }
@@ -115,18 +110,32 @@
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
 }
 
--(UITableView *)createTableViewWithFrame:(CGRect )frame
+-(CustomPullRefreshTableView *)createTableViewWithFrame:(CGRect )frame
 {
-    UITableView *tableView=[[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    CustomPullRefreshTableView *tableView=[[CustomPullRefreshTableView alloc] initWithFrame:frame style:UITableViewStylePlain];
   //  tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     tableView.backgroundColor=[UIColor clearColor];
+    tableView.showsVerticalScrollIndicator=NO;
+    tableView.pullRefreshViewPositionBottomEnable=YES;
     return tableView;
+}
+
+-(UIView *)creatContentView:(CustomPullRefreshTableView *)tableView
+{
+    UIView *view=[[UIView alloc] initWithFrame:tableView.frame];
+    view.backgroundColor=[UIColor clearColor];
+    CGRect rect= tableView.frame;
+    rect.origin=CGPointMake(0, 0);
+    tableView.frame=rect;
+    [view addSubview:tableView];
+    return view;
 }
 
 -(void)stopRefresh
 {
-    [self.pullRefreshView stopIndicatorAnimation];
+    
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

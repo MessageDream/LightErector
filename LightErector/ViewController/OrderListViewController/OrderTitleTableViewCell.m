@@ -140,6 +140,21 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
     
 }
 
+-(UIView *) hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    UIView * targets[] = {buttonsView};
+    for (int i = 0; i< 1; ++i) {
+        UIView * target = targets[i];
+        if (!target) continue;
+        
+        CGPoint p = [self convertPoint:point toView:target];
+        if (CGRectContainsPoint(target.bounds, p)) {
+            return [target hitTest:p withEvent:event];
+        }
+    }
+    return [super hitTest:point withEvent:event];
+}
+
 -(void)layoutSubviews
 {
   

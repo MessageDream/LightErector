@@ -14,7 +14,7 @@
     self = [super initWithNtspHeader];
     self.businessId = BUSINESS_GETTASKREMIND;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
-    self.baseBusinessHttpConnect.requestPath = @"/mobile/service_test.php?action=getAllAlarmTask";
+    self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=getAllAlarmTask",ACTION_PATH];
     self.baseBusinessHttpConnect.resquestType = HTTP_REQUEST_POST;
     return self;
 }

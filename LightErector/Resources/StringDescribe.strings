@@ -25,12 +25,12 @@
 "about"="关于";
 "WaitingClearing"="待结算";
 "AccountManager"="账户管理";
-"MobilePhone"="手机：";
-"ContactPeople"="联系人：";
-"SubTime"="预约时间：";
-"Address"="地址：";
-"Detail"="详情：";
-"Remark"="备注：";
+"MobilePhone"="手机:";
+"ContactPeople"="联系人:";
+"SubTime"="预约时间:";
+"Address"="地址:";
+"Detail"="详情:";
+"Remark"="备注:";
 "GoInstall"="去安装";
 
 "OrderList"="订单列表";

@@ -31,4 +31,76 @@
     }
     return self;
 }
+
+-(void)getOrderInstallStatus
+{
+     NSDictionary *dic=[NSDictionary dictionaryWithObject:self.tradeId forKey:@"tradeid"];
+     [self creatBusinessWithId:BUSINESS_GETORDERSTATUS andExecuteWithData:dic];
+}
+
+-(void)updateOrderStatusWithMemberId:(NSInteger)memId flowStatus:(InstallFlowStatus)installStatus;
+{
+ NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),@(installStatus),self.tradeId,self.tradeMobile] forKeys:@[@"memberid",@"typeid",@"tradeid",@"cusmobile"]];
+    [self creatBusinessWithId:BUSINESS_UPDATEORDERSTATUS andExecuteWithData:dic];
+}
+
+
+-(void)installErrorFeedback:(NSString *)errinfo
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[self.tradeId,errinfo] forKeys:@[@"errorinfo",@"tradeid"]];
+    [self creatBusinessWithId:BUSINESS_INSTALLERRORFEEDBACK andExecuteWithData:dic];
+}
+
+-(void)acceptOrderWithMemberId:(NSInteger)memId
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId] forKeys:@[@"memberid",@"tradeid"]];
+    [self creatBusinessWithId:BUSINESS_ACCEPTORDER andExecuteWithData:dic];
+}
+
+-(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL)speek acreated:(NSDate*)acreated
+{
+    NSMutableDictionary *dic=[NSMutableDictionary dictionaryWithObjects:@[@(memId),self.tradeId] forKeys:@[@"memberid",@"tradeid"]];
+    
+    if (!speek) {
+         [dic setObject:@(1) forKey:@"nospeak"];
+    }if (acreated) {
+        [dic setObject:acreated forKey:@"acreated"];
+    }
+    [self creatBusinessWithId:BUSINESS_ACCEPTORDER andExecuteWithData:dic];
+}
+
+-(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,time,reason] forKeys:@[@"memberid",@"tradeid",@"acreated",@"upcontent"]];
+    [self creatBusinessWithId:BUSINESS_UPDATESUBTIME andExecuteWithData:dic];
+}
+
+
+//BUSINESS_UPLOADIMAGE,
+-(void)uploadCode:(NSString *)code
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[self.tradeId,@([code intValue])] forKeys:@[@"tradeid",@"verify"]];
+    [self creatBusinessWithId:BUSINESS_UPLOADCODE andExecuteWithData:dic];
+
+}
+
+-(void)uploadImage:(NSData *)file withType:(NSInteger)type withMemberId:(NSInteger)memId
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,[NSDate date],@(type),file] forKeys:@[@"memberid",@"tradeid",@"created",@"typeid",@"file"]];
+    [self creatBusinessWithId:BUSINESS_UPDATESUBTIME andExecuteWithData:dic];
+}
+
+-(void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary *)businessData
+{
+     switch (business.businessId) {
+        case BUSINESS_GETORDERSTATUS:
+             _installStatus=[[businessData objectForKey:@"result"] intValue];
+            break;
+        case BUSINESS_UPDATEORDERSTATUS:
+            break;
+        default:
+            break;
+    }
+    [super didBusinessSucess:business withData:businessData];
+}
 @end

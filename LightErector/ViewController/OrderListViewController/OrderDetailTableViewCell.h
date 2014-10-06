@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderInfoView.h"
 
 @interface OrderDetailTableViewCell : UITableViewCell
+@property(nonatomic,strong)OrderInfoView *infoView;
 @property(nonatomic,strong)UILabel *nameLable;
 @property(nonatomic,strong)UILabel *phoneLable;
 @property(nonatomic,strong)UILabel *subscribeTimeLable;

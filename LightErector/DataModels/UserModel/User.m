@@ -48,6 +48,13 @@
     return self;
 }
 
+-(void)updateInfo
+{
+    NSMutableDictionary *dic=[NSMutableDictionary dictionaryWithDictionary:[_userInfo convertToJson]];
+    [dic setObject:@(self.userid) forKey:@"memberid "];
+    [self creatBusinessWithId:BUSINESS_UPDATEUSERINFO andExecuteWithData:dic];
+}
+
 -(void)login:(NSString  *)userName withPassword:(NSString  *)password
 {
     _userName=userName;

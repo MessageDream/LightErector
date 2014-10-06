@@ -29,6 +29,11 @@
     self.window.rootViewController =rootViewController;
     [self.window makeKeyAndVisible];
     
+    //百度地图
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    [_mapManager start:@"pO83Gx1SwHwrVht30ZqyPTAj"  generalDelegate:self];
+    
 //    //注册极光推送
 //    jpush=[JPushNotification sharePushNotification];
 //    [jpush applyForPushNotification:launchOptions];
@@ -73,6 +78,33 @@
     [self.rootModule receiveMessage:message];
     
     return YES;
+}
+
+-(void)onGetNetworkState:(int)iError
+{
+#ifdef DEBUG_LOG
+    if (iError == 0)
+    {
+        NSLog(@"网络连接正常");
+    }
+    else
+    {
+        NSLog(@"网络错误:%d",iError);
+    }
+#endif
+}
+-(void)onGetPermissionState:(int)iError
+{
+    #ifdef DEBUG_LOG
+    if (iError == 0)
+    {
+        NSLog(@"授权成功");
+    }
+    else
+    {
+        NSLog(@"授权失败:%d",iError);
+    }
+    #endif
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

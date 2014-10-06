@@ -13,4 +13,6 @@
 +(UIColor *)mainBackColor;
 +(UIColor *)mainDarkColor;
 +(UIColor *)mainTitleColor;
++(UIColor *)mainLightTwoColor;
++(UIColor *)mainGreenColor;
 @end

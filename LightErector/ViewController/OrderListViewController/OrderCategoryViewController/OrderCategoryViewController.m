@@ -13,9 +13,10 @@
 #import "TradeInfo.h"
 #import "Order.h"
 
-@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCategoryViewDelegate>
+@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
 {
     OrderCategoryView *orderCategoryView;
+    
     TradeInfo *trade;
     NSInteger setupRequestCount;
     NSInteger currentUnAcceptPageIndex;
@@ -53,7 +54,7 @@
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     
     orderCategoryView=[[OrderCategoryView alloc] initWithFrame:frame];
-    orderCategoryView.observer=self;
+    
     
     orderCategoryView.unAcceptTable.delegate=self;
     orderCategoryView.unSubTable.delegate=self;
@@ -66,6 +67,12 @@
     orderCategoryView.unSubTable.dataSource=self;
     orderCategoryView.unInstallTable.dataSource=self;
     orderCategoryView.unFeedBackTable.dataSource=self;
+    
+    orderCategoryView.unAcceptTable.pullRefreshDelegate=self;
+    orderCategoryView.unSubTable.pullRefreshDelegate=self;
+    orderCategoryView.unInstallTable.pullRefreshDelegate=self;
+    orderCategoryView.subAgainTable.pullRefreshDelegate=self;
+    orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
     
     self.view=orderCategoryView;
     
@@ -80,8 +87,6 @@
     currentUnInstallPageIndex++;
     currentSubAgainPageIndex++;
     currentUnFeedBackPageIndex++;
-    
-    
     
     self.unAcceptDataArray = [[NSMutableArray alloc]init];
     self.unSubDataArray=[[NSMutableArray alloc]init];
@@ -128,6 +133,7 @@
                 [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
                 return;
             }
+            [orderCategoryView.unAcceptTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITSUBORDER:{
@@ -149,9 +155,10 @@
             }
             if (setupRequestCount==2) {
                 setupRequestCount++;
-                [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
                 return;
             }
+            [orderCategoryView.unSubTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORINSTALLORDER:{
@@ -174,9 +181,10 @@
             
             if (setupRequestCount==3) {
                 setupRequestCount++;
-                [trade getUnTimedOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                [trade getUnTimedOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
                 return;
             }
+            [orderCategoryView.unInstallTable stopRefresh];
         }
             break;
         case BUSINESS_GETUNTIMEDORDER:{
@@ -199,10 +207,10 @@
             
             if (setupRequestCount==4) {
                 setupRequestCount++;
-                [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+                [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
                 return;
             }
-
+            [orderCategoryView.subAgainTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORFEEDBACKORDER:{
@@ -222,13 +230,13 @@
                 [orderCategoryView.unFeedBackTable endUpdates];
                 currentUnFeedBackPageIndex++;
             }
+            [orderCategoryView.unFeedBackTable stopRefresh];
         }
             break;
         default:
             break;
     }
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
-    [orderCategoryView stopRefresh];
 }
 
 -(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg
@@ -308,9 +316,27 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[UIColor orangeColor]] andAction:^(NSInteger buttonIndex) {
+        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[MainStyle mainLightTwoColor]] andAction:^(NSInteger buttonIndex) {
             if (buttonIndex==0) {
-                NSLog(@"clicked...");
+                switch (tableView.tag) {
+                    case UNACCEPTTABLETAG:
+                        
+                        break;
+                    case UNSUBTABLETAG:
+                        
+                        break;
+                    case UNINSTALLTABLETAG:
+                        
+                        break;
+                    case SUBAGAINTABLETAG:
+                        
+                        break;
+                    case UNFEEDBACKTABLETAG:
+                        
+                        break;
+                    default:
+                        break;
+                }
             }
         }];
         cell.textLabel.text=order.typeProductname;
@@ -477,7 +503,7 @@
     
 }
 
--(void)PullRefreshTableViewBottomRefresh:(UITableView *)tableView
+-(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView;
 {
     switch (tableView.tag) {
         case UNACCEPTTABLETAG:

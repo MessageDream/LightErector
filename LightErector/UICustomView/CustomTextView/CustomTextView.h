@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CustomTextViewDelegate<NSObject>
+- (void)textViewDidChange:(UITextView *)textView;
+@end
+
 @interface CustomTextView : UIView<UITextViewDelegate>
 {
 @protected
@@ -21,4 +25,5 @@
 @property(nonatomic,strong)NSString *text;
 @property(nonatomic,strong)NSString *placeholder;
 @property(nonatomic,strong)UIImage *backgroundImage;
+@property(nonatomic,assign)id<CustomTextViewDelegate> observer;
 @end

@@ -17,6 +17,14 @@ typedef NS_ENUM(NSInteger, OrderType) {
     WaitForSettleOrder,      //7待结算订单列表
 };
 
+typedef NS_ENUM(NSInteger, InstallFlowStatus) {
+    InitialStatus=1,        //1 初始状态
+    UnValidateStatus,           // 2待验证
+    UnFeedBackStatus,       // 3待反馈传图
+    UnSettleStatus,       // 4待结算
+    InstallFailStatus   //安装失败
+};
+
 @interface Order : BaseDataModel
 @property (nonatomic,readonly)NSString  *tradeId;
 @property (nonatomic,readonly)NSString  *tradeMemberid;
@@ -33,5 +41,15 @@ typedef NS_ENUM(NSInteger, OrderType) {
 @property (nonatomic,readonly)NSString  *tradeKcreated;
 @property (nonatomic,readonly)NSInteger tradeCompanyid;
 @property (nonatomic,readonly)OrderType orderType;
+@property (nonatomic,readonly)InstallFlowStatus installStatus;
 -(id)initWithDic:(NSDictionary *)dic;
+-(void)getOrderInstallStatus;
+-(void)updateOrderStatusWithMemberId:(NSInteger)memId flowStatus:(InstallFlowStatus)installStatus;
+
+-(void)installErrorFeedback:(NSString *)errinfo;
+
+-(void)acceptOrderWithMemberId:(NSInteger)memId;
+-(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL) speek  acreated:(NSDate*)acreated;
+-(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId;
+-(void)uploadCode:(NSString *)code;
 @end

@@ -66,6 +66,10 @@
         _lbl_placeholder.hidden = YES;
     else if(textView.text.length == 0)
         _lbl_placeholder.hidden = NO;
+    
+    if (self.observer&&[self.observer respondsToSelector:@selector(textViewDidChange:)]) {
+        [self.observer textViewDidChange:textView];
+    }
 }
 -(void)setText:(NSString *)text
 {

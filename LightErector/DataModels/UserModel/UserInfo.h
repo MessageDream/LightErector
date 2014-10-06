@@ -15,4 +15,5 @@
 @property (nonatomic,readonly)NSString  *telephone;
 @property (nonatomic,readonly)NSString  *mobilephone;
 -(id)initWithDic:(NSDictionary *)dic;
+-(NSDictionary *)convertToJson;
 @end

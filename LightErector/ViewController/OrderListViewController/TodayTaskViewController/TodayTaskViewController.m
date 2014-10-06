@@ -12,8 +12,9 @@
 #import "OrderTitleTableViewCell.h"
 #import "TradeInfo.h"
 #import "Order.h"
+#import "InstallFlowModalController.h"
 
-@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
+@interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,CustomPullRefreshTableViewDelegate>
 {
     NSInteger currentPageIndex;
     TradeInfo *trade;
@@ -93,6 +94,14 @@
             }
         }
             break;
+            case BUSINESS_GETORDERSTATUS:
+        {
+            InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
+               
+            }];
+            [self presentViewController:install animated:YES completion:nil];
+        }
+            break;
         default:
             break;
     }
@@ -141,9 +150,15 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[UIColor orangeColor]] andAction:^(NSInteger buttonIndex) {
+        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[MainStyle mainLightTwoColor]] andAction:^(NSInteger buttonIndex) {
             if (buttonIndex==0) {
-                NSLog(@"clicked...");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:@"确定去安装吗？"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"取消"
+                                                      otherButtonTitles:@"确定",nil];
+                alert.tag=indexPath.row;
+                [alert show];
             }
         }];
         cell.textLabel.text=order.typeProductname;
@@ -291,6 +306,17 @@
 -(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
      [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        UITableViewCellModel *model=self.dataArray[alertView.tag];
+        Order *order=model.contentModel;
+        order.observer=self;
+        [order getOrderInstallStatus];
+        [self lockView];
+    }
 }
 -(void)dealloc
 {

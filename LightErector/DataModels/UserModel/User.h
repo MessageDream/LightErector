@@ -28,6 +28,7 @@ enum UserLoginStatus
 +(User*)shareUser;
 -(void)login:(NSString  *)userName withPassword:(NSString  *)password;
 -(void)logout;
+-(void)updateInfo;
 -(void)setAutoLoginFlag:(BOOL)autoLogin;
 -(void)setRememberFlag:(BOOL)remember;
 @end

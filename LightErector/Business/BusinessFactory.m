@@ -10,6 +10,14 @@
 #import "UserLoginBusiness.h"
 #import "TaskRemindBusiness.h"
 #import "GetOrderBusiness.h"
+#import "GetOrderStatusBusiness.h"
+#import "UpdateOrderStateBusiness.h"
+#import "InstallErrorFeedbackBusiness.h"
+#import "AcceptOrderBusiness.h"
+#import "UploadCodeBusiness.h"
+#import "UpdateSubTimeBusiness.h"
+#import "UploadImageBusiness.h"
+#import "UpdateUserInfoBusiness.h"
 
 @implementation BusinessFactory
 
@@ -31,6 +39,22 @@
               ||type== BUSINESS_GETWAITFORSETTLEORDER){
         
          return [[GetOrderBusiness alloc] initWithBusinessId:type];
+    }else if (type==BUSINESS_GETORDERSTATUS){
+        return [[GetOrderStatusBusiness alloc] init];
+    }else if (type==BUSINESS_UPDATEORDERSTATUS){
+        return [[UpdateOrderStateBusiness alloc] init];
+    }else if (type==BUSINESS_INSTALLERRORFEEDBACK){
+        return [[InstallErrorFeedbackBusiness alloc] init];
+    }else if (type==BUSINESS_ACCEPTORDER){
+        return [[AcceptOrderBusiness alloc] init];
+    }else if (type==BUSINESS_UPDATESUBTIME){
+        return [[UpdateSubTimeBusiness alloc] init];
+    }else if (type==BUSINESS_UPLOADCODE){
+        return [[UploadCodeBusiness alloc] init];
+    }else if (type==BUSINESS_UPLOADIMAGE){
+        return [[UploadImageBusiness alloc] init];
+    }else if(type==BUSINESS_UPDATEUSERINFO){
+        return [[UpdateUserInfoBusiness alloc] init];
     }
     
     return nil;

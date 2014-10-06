@@ -14,7 +14,7 @@
     if(self = [super initWithNtspHeader]){
     self.businessId = businessid;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
-    self.baseBusinessHttpConnect.requestPath = @"/mobile/service_test.php?action=list";
+    self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=list",ACTION_PATH];
     self.baseBusinessHttpConnect.resquestType = HTTP_REQUEST_POST;
     }
     return self;

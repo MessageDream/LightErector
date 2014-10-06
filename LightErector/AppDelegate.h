@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMapKit.h"
 @class RootModule;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+     BMKMapManager* _mapManager;
+}
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) RootModule *rootModule;
 @end

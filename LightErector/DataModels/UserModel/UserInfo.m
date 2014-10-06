@@ -20,4 +20,11 @@
     }
     return self;
 }
+
+-(NSDictionary *)convertToJson
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[_mobilephone,_telephone,_email,_address,_qq] forKeys:@[@"mobile",@"telphone",@"eamil",@"addredss",@"qq"]];
+    return dic;
+}
+
 @end

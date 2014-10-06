@@ -178,7 +178,7 @@
         [self errorCodeFromResponse:responseBodyDic];
         if(_errCode == REQUEST_NOERROR){
             //不需要"errcode"和"errmsg"的数据，header数据通过getNtspHeaderFromBaseBusinessHttpConnectResponseData取得
-            [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"status"];
+           // [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"status"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"error"];
             [((NSMutableDictionary*)responseBodyDic) removeObjectForKey:@"ntspheader"];
             

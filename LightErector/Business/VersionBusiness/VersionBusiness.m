@@ -14,7 +14,7 @@
     self = [super initWithNtspHeader];
     self.businessId = BUSINESS_LOGIN;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
-    self.baseBusinessHttpConnect.requestPath = @"/mobile/service.php?action=checkversion";
+    self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=checkversion",ACTION_PATH];
     self.baseBusinessHttpConnect.resquestType = HTTP_REQUEST_POST;
     return self;
 }
