@@ -171,7 +171,9 @@
  */
 - (void)mapView:(BMKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
 {
+    #ifdef DEBUG_LOG
     NSLog(@"err:%@",error);
+    #endif
 }
 
 -(void)reach_terminal_click:(id)sender

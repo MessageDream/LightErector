@@ -9,7 +9,7 @@
 #import "UploadImageValidationViewController.h"
 #import "UploadImageValidationView.h"
 
-@interface UploadImageValidationViewController ()
+@interface UploadImageValidationViewController ()<MessagePhotoViewDelegate>
 
 @end
 
@@ -30,6 +30,7 @@
     rect.size.height=rect.size.height-64+20;
     UploadImageValidationView *view=[[UploadImageValidationView alloc] initWithFrame:rect];
     //view.observer=self;
+    view.photoViewOne.delegate=self;
     self.view=view;
 }
 
@@ -56,4 +57,13 @@
 }
 */
 
+-(void)addPicker:(UIImagePickerController *)picker{
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+-(void)addUIImagePicker:(UIImagePickerController *)picker
+{
+    [self presentViewController:picker animated:YES completion:nil];
+}
 @end
