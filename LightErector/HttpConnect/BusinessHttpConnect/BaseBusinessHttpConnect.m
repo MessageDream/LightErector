@@ -12,7 +12,9 @@
 
 - (void)createBaseBussinessHeads
 {
-    [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
+    if (![_resquestHeads objectForKey:HEADER_CONTENT_TYPE_NAME]) {
+         [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
+    }
     //[_resquestHeads setObject:HEADER_CONTENT_LENGTH_VALUE forKey:HEADER_CONTENT_LENGTH_NAME];
 }
 

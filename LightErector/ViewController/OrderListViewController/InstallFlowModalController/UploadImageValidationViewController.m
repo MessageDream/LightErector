@@ -58,22 +58,36 @@
     
     NSArray *li=[imagesDic objectForKey:@"1"];
      NSArray *ca=[imagesDic objectForKey:@"2"];
-    for (UIImage *item in li) {
+    for (id item in li) {
 
         FormMltipart *muform=[[FormMltipart alloc] init];
         muform.formName=@"lightpic";
         muform.formMimeType=@"image/jpeg";
         muform.formFileName=[NSString stringWithFormat:@"file%d",[li indexOfObject:item]];
         muform.type=FormMltipartTypeData;
+        if ([item isKindOfClass:[UIImage class]]) {
+            muform.data=UIImageJPEGRepresentation(item,1.0);
+        }else{
+            ALAsset *set=item;
+            muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
+        }
+        
         [pics addObject: muform];
     }
     
-    for (UIImage *item in ca) {
+    for (id item in ca) {
         FormMltipart *muform=[[FormMltipart alloc] init];
         muform.formName=@"cardpic";
         muform.formMimeType=@"image/jpeg";
         muform.formFileName=[NSString stringWithFormat:@"file%d",[ca indexOfObject:item]];
         muform.type=FormMltipartTypeData;
+        if ([item isKindOfClass:[UIImage class]]) {
+            muform.data=UIImageJPEGRepresentation(item,1.0);
+        }else{
+            ALAsset *set=item;
+            muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
+        }
+
         [pics addObject: muform];
     }
     
