@@ -52,4 +52,5 @@ typedef NS_ENUM(NSInteger, InstallFlowStatus) {
 -(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL) speek  acreated:(NSDate*)acreated;
 -(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId;
 -(void)uploadCode:(NSString *)code;
+-(void)uploadImage:(NSDictionary *)pics withMemberId:(NSInteger)memId;
 @end

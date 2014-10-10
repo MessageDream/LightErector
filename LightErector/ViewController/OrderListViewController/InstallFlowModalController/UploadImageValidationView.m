@@ -54,7 +54,7 @@
         uploadButton.backgroundColor=[MainStyle mainLightColor];
         [uploadButton setTitle:@"上传图片" forState:UIControlStateNormal];
         uploadButton.titleLabel.textColor=[MainStyle mainBackColor];
-        [uploadButton addTarget:self action:@selector(uploadCode_click:) forControlEvents:UIControlEventTouchUpInside];
+        [uploadButton addTarget:self action:@selector(uploadImage_click:) forControlEvents:UIControlEventTouchUpInside];
         
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(3, (uploadButton.frame.size.height-image.size.height)/2, image.size.width, image.size.height)];
         imageView.image=image;
@@ -91,10 +91,10 @@
             break;
     }
 }
--(void)uploadCode_click:(id)sender
+-(void)uploadImage_click:(id)sender
 {
-    if (self.observer&&[self.observer respondsToSelector:@selector(uploadCode_click:)]) {
-        [self.observer uploadCode_click:@{@"1":self.photoViewOne.photoMenuItems,@"2":self.photoViewTwo.photoMenuItems}];
+    if (self.observer&&[self.observer respondsToSelector:@selector(uploadImage_click:)]) {
+        [self.observer uploadImage_click:@{@"1":self.photoViewOne.photoMenuItems,@"2":self.photoViewTwo.photoMenuItems}];
     }
 }
 -(void)finish_click:(id)sender

@@ -76,7 +76,7 @@
 }
 
 
-//BUSINESS_UPLOADIMAGE,
+
 -(void)uploadCode:(NSString *)code
 {
     NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[self.tradeId,@([code intValue])] forKeys:@[@"tradeid",@"verify"]];
@@ -84,10 +84,11 @@
 
 }
 
--(void)uploadImage:(NSData *)file withType:(NSInteger)type withMemberId:(NSInteger)memId
+
+-(void)uploadImage:(NSDictionary *)pics withMemberId:(NSInteger)memId
 {
-    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,[NSDate date],@(type),file] forKeys:@[@"memberid",@"tradeid",@"created",@"typeid",@"file"]];
-    [self creatBusinessWithId:BUSINESS_UPDATESUBTIME andExecuteWithData:dic];
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,[NSDate date],([pics allValues][0])] forKeys:@[@"memberid",@"tradeid",@"created",([pics allKeys][0])]];
+    [self creatBusinessWithId:BUSINESS_UPLOADIMAGE andExecuteWithData:dic];
 }
 
 -(void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary *)businessData

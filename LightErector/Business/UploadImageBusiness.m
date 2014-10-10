@@ -12,6 +12,7 @@
 -(id)init
 {
     if(self = [super initWithNtspHeader]){
+        [self.baseBusinessHttpConnect.resquestHeads setValue:HEADER_CONTENT_TYPE_Form_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
         self.businessId = BUSINESS_UPLOADIMAGE;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
         self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=upload",ACTION_PATH];

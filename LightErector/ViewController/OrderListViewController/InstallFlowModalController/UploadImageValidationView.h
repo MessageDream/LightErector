@@ -11,7 +11,7 @@
 
 @protocol UploadImageValidationViewDelegate <NSObject>
 
--(void)uploadCode_click:(NSDictionary *)imagesDic;
+-(void)uploadImage_click:(NSDictionary *)imagesDic;
 -(void)finish_click:(id)sender;
 @end
 

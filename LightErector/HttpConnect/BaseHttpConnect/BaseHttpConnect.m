@@ -7,6 +7,8 @@
 //
 
 #import "BaseHttpConnect.h"
+#import "FormMltipart.h"
+
 static NSOperationQueue *operationQueue = nil;
 @interface BaseHttpConnect()
 {
@@ -240,11 +242,3 @@ static NSOperationQueue *operationQueue = nil;
 }
 @end
 
-@implementation FormMltipart
--(void)dealloc{
-    self.formMimeType = nil;
-    self.formName = nil;
-    self.formFileName = nil;
-    self.data = nil;
-}
-@end

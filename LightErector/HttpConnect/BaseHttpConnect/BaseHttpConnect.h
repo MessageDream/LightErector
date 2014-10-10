@@ -14,6 +14,7 @@
 
 #define HEADER_CONTENT_TYPE_NAME           @"Content-Type"
 #define HEADER_CONTENT_TYPE_JSON_VALUE     @"application/json;charset=utf-8"
+#define HEADER_CONTENT_TYPE_Form_VALUE     @"multipart/form-data"
 
 #define HEADER_CONTENT_LENGTH_NAME      @"Content-Length"
 #define HEADER_CONTENT_LENGTH_VALUE     @"0"
@@ -23,16 +24,9 @@
 #define CONNECT_DEFAULT_TIMEOUT     30
 #define NO_TIMEOUT     -1
 
-#define kFormMltipart @"FormMltipart"
+
 #define kNetCachePolicy  NSURLRequestReloadIgnoringLocalAndRemoteCacheData
 #define kNetMaxQueue 0
-
-typedef NS_ENUM(NSUInteger,FormMltipartType){
-    FormMltipartTypeFilePath=0,
-    FormMltipartTypeData=1,
-    FormMltipartTypeNormal=2,
-};
-
 
 typedef NS_ENUM(NSUInteger , HttpContentStauts){
     HttpContentStauts_DidStart = 1,
@@ -44,13 +38,6 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
     HttpContentStauts_DidFinishRespones,
 };
 
-@interface FormMltipart : NSObject
-@property(nonatomic,copy)NSString *formName;
-@property(nonatomic,copy)NSString *formMimeType;
-@property(nonatomic,copy)NSString *formFileName;
-@property(nonatomic) FormMltipartType type;
-@property(nonatomic,strong)id data;
-@end
 
 @interface BaseHttpConnect : NSObject
 {
