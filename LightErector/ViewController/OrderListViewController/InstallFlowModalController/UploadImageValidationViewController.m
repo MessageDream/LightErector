@@ -36,6 +36,7 @@
     UploadImageValidationView *view=[[UploadImageValidationView alloc] initWithFrame:rect];
     view.observer=self;
     view.photoViewOne.delegate=self;
+      view.photoViewTwo.delegate=self;
     self.view=view;
 }
 
@@ -106,8 +107,7 @@
     
     Message *message = [[Message alloc] init];
     message.commandID = MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
-//    message.receiveObjectID = VIEWCONTROLLER_ORDERCATEGORYLIST;
-    message.receiveObjectID = VIEWCONTROLLER_UNSETTLED;
+    message.receiveObjectID = VIEWCONTROLLER_ORDERCATEGORYLIST;
     [self.observer closeStep:message];
 }
 
@@ -125,8 +125,12 @@
             [self.view addSubview:baseCustomMessageBox];
         }
             break;
-        case BUSINESS_UPDATEORDERSTATUS:
-            
+        case BUSINESS_UPDATEORDERSTATUS:{
+            Message *message = [[Message alloc] init];
+            message.commandID = MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+            message.receiveObjectID = VIEWCONTROLLER_UNSETTLED;
+            [self.observer closeStep:message];
+        }
             break;
         default:
             break;

@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
     NSString *_baseUrl;
     NSString *_requestPath;
     NSMutableDictionary *_resquestHeads;
-    NSDictionary *_body;
+    NSMutableDictionary *_body;
     NSString *_resquestType;
     NSOperationQueue *_operationQueue;
     HttpConnectRespones *_respones;

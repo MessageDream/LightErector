@@ -126,6 +126,9 @@ static NSOperationQueue *operationQueue = nil;
                         [BaseHttpConnect processFormMltipart:formData obj:multipartParts];
                     }
                 }
+                
+                [_body removeObjectForKey:kFormMltipart];
+                
             } error:nil];
         }
         }else{

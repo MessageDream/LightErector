@@ -15,7 +15,7 @@
         [self.baseBusinessHttpConnect.resquestHeads setValue:HEADER_CONTENT_TYPE_Form_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
         self.businessId = BUSINESS_UPLOADIMAGE;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
-        self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=upload",ACTION_PATH];
+        self.baseBusinessHttpConnect.requestPath = @"/mobile/service_upload_test.php?action=iosupload";//[NSString stringWithFormat: @"/mobile/%@.php?action=upload",ACTION_PATH];
         self.baseBusinessHttpConnect.resquestType = HTTP_REQUEST_POST;
     }
     return self;
