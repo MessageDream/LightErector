@@ -30,9 +30,8 @@
         self.scrollerView.pagingEnabled = NO;
         self.scrollerView.showsHorizontalScrollIndicator = NO;
         self.scrollerView.scrollEnabled=NO;
-        self.scrollerView.contentSize = CGSizeMake(self.photoViewTwo.frame.size.width*2, self.scrollerView.frame.size.height+10);
+        self.scrollerView.contentSize = CGSizeMake(frame.size.width*2, self.scrollerView.frame.size.height);
         
-        self.scrollerView.alwaysBounceVertical = YES;
         self.scrollerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         self.photoViewOne=[[MessagePhotoView alloc] init];
@@ -40,7 +39,6 @@
         
         self.photoViewTwo=[[MessagePhotoView alloc] init];
         self.photoViewTwo.frame = CGRectMake(self.photoViewOne.frame.size.width,0.0f,CGRectGetWidth(self.scrollerView.frame),200);
-
         
         [self.scrollerView addSubview:self.photoViewOne];
         [self.scrollerView addSubview:self.photoViewTwo];

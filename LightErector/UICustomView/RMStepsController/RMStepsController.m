@@ -65,6 +65,7 @@
     
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.stepsBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBaseline multiplier:1 constant:44];
     [self.view addConstraint:constraint];
+     [self.stepsBar reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

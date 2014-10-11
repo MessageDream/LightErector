@@ -10,6 +10,8 @@
 #import "CustomPullRefreshView.h"
 #import "CustomPullRefreshTableView.h"
 #import "CustomSegmentedControl.h"
+#import "CustomUIDatePicker.h"
+#import "CustomTextView.h"
 
 #define TABLEVIEWCOUNT 5
 
@@ -28,5 +30,8 @@
 @property(nonatomic,strong)CustomPullRefreshTableView *subAgainTable;
 @property(nonatomic,strong)CustomPullRefreshTableView *unFeedBackTable;
 
+@property(nonatomic,strong)CustomTextView *textReson;
+@property(nonatomic,strong)UIView *editTimeView;
+@property(nonatomic,strong)CustomUIDatePicker *dataPicker;
 -(void)stopRefresh;
 @end

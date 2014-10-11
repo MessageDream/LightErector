@@ -139,7 +139,10 @@
     }
 }
 
-
+- (void)swichTabAtIndex:(NSInteger)index
+{
+    [tabBar swtichTab:tabBar.tabItems[index]];
+}
 #pragma mark - Required Protocol Method
 
 @end

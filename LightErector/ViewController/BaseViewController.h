@@ -43,4 +43,6 @@
 -(CGRect)createViewFrame;
 -(void)sendShowTabBarMessage;
 -(void)sendHideTabBarMessage;
+-(void)sendSwichTabBarMessageAtIndex:(NSInteger)index;
+-(void)showTip:(NSString *)text;
 @end

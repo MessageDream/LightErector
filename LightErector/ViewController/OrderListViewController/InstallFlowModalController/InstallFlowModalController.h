@@ -12,6 +12,6 @@
 @interface InstallFlowModalController : RMStepsController
 @property(nonatomic,strong)void(^whenCLosed)(InstallFlowModalController *controller);
 @property(nonatomic,strong)Order *currentOrder;
-
+@property(nonatomic,strong)id extData;
 -initWithOrder:(Order *)order andClosedBlock:(void(^)(InstallFlowModalController *controller)) whenCLosed;
 @end

@@ -69,6 +69,10 @@
     {
         [self.rootViewController hideTabBarWithAnimated:YES];
     }
+    else if(message.commandID == MC_SWICH_ROOT_TABBAR)
+    {
+        [self.rootViewController swichTabAtIndex:[((NSNumber*)message.externData) integerValue]];
+    }
 //    BaseModule *Module = [self checkChildModuleWorkRange:message.receiveObjectID];
 //    
 //    if(Module==nil)

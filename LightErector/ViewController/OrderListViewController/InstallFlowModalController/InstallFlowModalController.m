@@ -75,8 +75,9 @@
     [self showPreviousStep];
 }
 
--(void)closeStep
+-(void)closeStep:(id)ext
 {
+    self.extData=ext;
     [self canceled];
 }
 

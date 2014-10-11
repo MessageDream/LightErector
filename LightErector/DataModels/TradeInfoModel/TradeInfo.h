@@ -28,6 +28,8 @@
 @property(nonatomic,readonly)NSArray *waitForSettleOrders;
 @property(nonatomic,readonly,assign)int pagecount;
 @property(nonatomic,readonly,assign)int recordcount;
+@property(nonatomic,readonly,assign)int totalCount;
+@property(nonatomic,readonly,assign)int totalPrice;
 +(TradeInfo*)shareTrade;
 -(void)getTodayTaskOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;
 -(void)getWaitForReceiveOrdersById:(int)memId withPageIndex:(int)pageindex forPagesize:(int)pagesize;

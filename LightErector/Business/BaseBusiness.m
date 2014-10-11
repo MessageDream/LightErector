@@ -37,11 +37,11 @@
 
 - (void)execute:(NSDictionary *)theParm
 {
-//    if(theParm!=nil)//可能有无参数的情况
-//    {
-//        if (![NSJSONSerialization isValidJSONObject:theParm])
-//            return;
-//    }
+    if(theParm!=nil&&[self.baseBusinessHttpConnect.resquestHeads.allValues count]==0)//可能有无参数的情况
+    {
+        if (![NSJSONSerialization isValidJSONObject:theParm])
+            return;
+    }
     
     if (self.baseBusinessHttpConnect) {
         self.baseBusinessHttpConnect.observer = self;

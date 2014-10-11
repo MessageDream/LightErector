@@ -143,6 +143,8 @@
                     _waitForSettleOrders=[[NSMutableArray alloc] init];
                 }
                 [self wrapData:_waitForSettleOrders WithData:trades];
+                _totalCount=[[businessData objectForKey:@"count"] intValue];
+                _totalPrice=[[businessData objectForKey:@"total"] intValue];
                 break;
             default:
                 break;

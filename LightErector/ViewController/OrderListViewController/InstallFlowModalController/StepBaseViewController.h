@@ -12,7 +12,7 @@
 @protocol StepBaseViewControllerDelegate <NSObject>
 -(void)nextStep;
 -(void)previousStep;
--(void)closeStep;
+-(void)closeStep:(id)ext;
 @end
 
 @interface StepBaseViewController : BaseViewController

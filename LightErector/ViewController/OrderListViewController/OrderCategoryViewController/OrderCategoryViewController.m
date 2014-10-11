@@ -12,12 +12,15 @@
 #import "OrderTitleTableViewCell.h"
 #import "TradeInfo.h"
 #import "Order.h"
+#import <MessageUI/MFMessageComposeViewController.h>
+#import "InstallFlowModalController.h"
 
-@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
+@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate,MFMessageComposeViewControllerDelegate,CustomUIDatePickerDelegate,UIAlertViewDelegate>
 {
     OrderCategoryView *orderCategoryView;
     
     TradeInfo *trade;
+    Order *currentOrder;
     NSInteger setupRequestCount;
     NSInteger currentUnAcceptPageIndex;
     NSInteger currentUnSubPageIndex;
@@ -74,6 +77,7 @@
     orderCategoryView.subAgainTable.pullRefreshDelegate=self;
     orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
     
+    orderCategoryView.dataPicker.observer=self;
     self.view=orderCategoryView;
     
 }
@@ -233,6 +237,37 @@
             [orderCategoryView.unFeedBackTable stopRefresh];
         }
             break;
+        case BUSINESS_ACCEPTORDER:{
+            [self showTip:@"接单成功"];
+            Order *order=(Order *)baseDataModel;
+            for (int i=0; i<self.unAcceptDataArray.count; i++) {
+                UITableViewCellModel *model=self.unAcceptDataArray[i];
+                if ([((Order *)model.contentModel).tradeId isEqualToString:order.tradeId]) {
+                    [self.unAcceptDataArray removeObject:model];
+                }
+            }
+            [orderCategoryView.unAcceptTable reloadData];
+        }
+            break;
+        case BUSINESS_UPDATESUBTIME:
+            orderCategoryView.editTimeView.hidden=YES;
+            [self showTip:@"修改安装时间成功"];
+            break;
+        case BUSINESS_GETORDERSTATUS:{
+            InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
+                if (controller.extData) {
+                    Message *msg=controller.extData;
+                    if (msg.receiveObjectID==self.viewControllerId) {
+                        [orderCategoryView.segmentedControl setSelectedSegmentIndex:4 animated:YES];
+                    }else{
+                        [self sendSwichTabBarMessageAtIndex:3];
+                    }
+                }
+                
+            }];
+            [self presentViewController:install animated:YES completion:nil];
+        }
+            break;
         default:
             break;
     }
@@ -316,27 +351,80 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[MainStyle mainLightTwoColor]] andAction:^(NSInteger buttonIndex) {
-            if (buttonIndex==0) {
-                switch (tableView.tag) {
-                    case UNACCEPTTABLETAG:
-                        
-                        break;
-                    case UNSUBTABLETAG:
-                        
-                        break;
-                    case UNINSTALLTABLETAG:
-                        
-                        break;
-                    case SUBAGAINTABLETAG:
-                        
-                        break;
-                    case UNFEEDBACKTABLETAG:
-                        
-                        break;
-                    default:
-                        break;
+        NSArray *btnTitles=nil;
+        NSArray *colors=nil;
+        switch (tableView.tag) {
+            case UNACCEPTTABLETAG:
+                btnTitles=@[@"立即接单"];
+                colors=@[[MainStyle mainLightTwoColor]];
+                break;
+            case UNSUBTABLETAG:
+                btnTitles=@[@"转发",@"预约"];
+                colors=@[[MainStyle mainDarkColor],[MainStyle mainLightTwoColor]];
+                break;
+            case UNINSTALLTABLETAG:
+                btnTitles=@[@"修改时间"];
+                colors=@[[MainStyle mainLightTwoColor]];
+                break;
+            case SUBAGAINTABLETAG:
+                btnTitles=@[@"再次预约"];
+                colors=@[[MainStyle mainLightTwoColor]];
+                break;
+            case UNFEEDBACKTABLETAG:
+                btnTitles=@[@"立即反馈"];
+                colors=@[[MainStyle mainLightTwoColor]];
+                break;
+            default:
+                break;
+        }
+        [cell createOptionButtonsWithTitles:btnTitles andIcons:nil andBackgroundColors:colors andAction:^(NSInteger buttonIndex) {
+            
+            switch (tableView.tag) {
+                case UNACCEPTTABLETAG:{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"确定立即接单吗？"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"取消"
+                                                          otherButtonTitles:@"确定",nil];
+                    alert.tag=tableView.tag;
+                    currentOrder=order;
+                    [alert show];
                 }
+                    break;
+                case UNSUBTABLETAG:
+                    if (buttonIndex==0) {
+                        [self sendSMS:order.tradeContent recipientList:nil];
+                    }else{
+                        
+                    }
+                    break;
+                case UNINSTALLTABLETAG:{
+                    if (order.tradeAcreated) {
+                        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                        NSDate *date = [dateFormatter dateFromString:order.tradeAcreated];
+                        orderCategoryView.dataPicker.date=date;
+                    }
+                     orderCategoryView.editTimeView.hidden=NO;
+                    currentOrder=order;
+                }
+                    break;
+                case SUBAGAINTABLETAG:
+                    
+                    break;
+                case UNFEEDBACKTABLETAG:{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"确定立即反馈吗？"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"取消"
+                                                          otherButtonTitles:@"确定",nil];
+                    alert.tag=tableView.tag;
+                    currentOrder=order;
+                    [alert show];
+                }
+                    break;
+                default:
+                    break;
             }
         }];
         cell.textLabel.text=order.typeProductname;
@@ -521,6 +609,86 @@
         case UNFEEDBACKTABLETAG:
             [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
             break;
+    }
+}
+
+
+- (void)sendSMS:(NSString *)bodyOfMessage recipientList:(NSArray *)recipients
+{
+    
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    
+    if([MFMessageComposeViewController canSendText])
+        
+    {
+        controller.body = bodyOfMessage;
+        
+        controller.recipients = recipients;
+        
+        controller.messageComposeDelegate = self;
+        
+        [self presentModalViewController:controller animated:YES];
+        
+    }else{
+        
+    }
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+    if (result == MessageComposeResultCancelled){
+        [self showTip:@"已取消短信转发。"];
+    }else if (result == MessageComposeResultSent){
+        [self showTip:@"转发短信已发送。"];
+    }else{
+        [self showTip:@"转发短信发送失败。"];
+    }
+}
+
+#pragma mark - CustomDataPicker
+-(IBAction)cancelButton_onClick:(id)sender
+{
+   orderCategoryView.editTimeView.hidden=YES;
+}
+
+-(IBAction)confirmButton_onClick:(id)sender forDate:(NSDate*)date
+{
+    if ([orderCategoryView.textReson.text length]==0) {
+        [self showTip:@"修改原因不能为空"];
+        return;
+    }
+    currentOrder.observer=self;
+    [currentOrder updateSubTime:date withReason:orderCategoryView.textReson.text withMemberId:user.userid];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    Order *order=currentOrder;
+    order.observer=self;
+    if (buttonIndex==1) {
+        
+        switch (alertView.tag) {
+            case UNACCEPTTABLETAG:
+                [order updateSubStatusWithMemberId:user.userid isSpeek:NO acreated:nil];
+                [self lockView];
+                break;
+            case UNSUBTABLETAG:
+               
+                break;
+            case UNINSTALLTABLETAG:
+                
+                break;
+            case SUBAGAINTABLETAG:
+               
+                break;
+            case UNFEEDBACKTABLETAG:
+                [order getOrderInstallStatus];
+                [self lockView];
+                break;
+        }
     }
 }
 

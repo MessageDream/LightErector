@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "TodayTaskViewController.h"
 #import "OrderCategoryViewController.h"
+#import "UnSettlementViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -34,8 +35,10 @@
         viewcontroller=[[TodayTaskViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_ORDERCATEGORYLIST){
         viewcontroller=[[OrderCategoryViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_UNSETTLED){
+        viewcontroller=[[UnSettlementViewController alloc] init];
     }
-    
+
     if(viewcontroller != nil)
         [self addViewControllToRootViewController:viewcontroller forMessage:message];
     

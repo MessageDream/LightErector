@@ -53,6 +53,7 @@
 
 -(void)uploadImage_click:(NSDictionary *)imagesDic
 {
+    [self lockView];
     self.order.observer=self;
     NSMutableArray *pics=[[NSMutableArray alloc] init];
     
@@ -63,7 +64,7 @@
         FormMltipart *muform=[[FormMltipart alloc] init];
         muform.formName=@"lightpic";
         muform.formMimeType=@"image/jpeg";
-        muform.formFileName=[NSString stringWithFormat:@"file%d",[li indexOfObject:item]];
+        muform.formFileName=[NSString stringWithFormat:@"lightfile%d",[li indexOfObject:item]];
         muform.type=FormMltipartTypeData;
         if ([item isKindOfClass:[UIImage class]]) {
             muform.data=UIImageJPEGRepresentation(item,1.0);
@@ -79,7 +80,7 @@
         FormMltipart *muform=[[FormMltipart alloc] init];
         muform.formName=@"cardpic";
         muform.formMimeType=@"image/jpeg";
-        muform.formFileName=[NSString stringWithFormat:@"file%d",[ca indexOfObject:item]];
+        muform.formFileName=[NSString stringWithFormat:@"carfile%d",[ca indexOfObject:item]];
         muform.type=FormMltipartTypeData;
         if ([item isKindOfClass:[UIImage class]]) {
             muform.data=UIImageJPEGRepresentation(item,1.0);
@@ -96,7 +97,18 @@
 
 -(void)finish_click:(id)sender
 {
+    if (isImageUploaded) {
+        self.order.observer=self;
+        InstallFlowStatus status=UnSettleStatus;
+        [self.order updateOrderStatusWithMemberId:user.userid flowStatus:status];
+        return;
+    }
     
+    Message *message = [[Message alloc] init];
+    message.commandID = MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+//    message.receiveObjectID = VIEWCONTROLLER_ORDERCATEGORYLIST;
+    message.receiveObjectID = VIEWCONTROLLER_UNSETTLED;
+    [self.observer closeStep:message];
 }
 
 
@@ -114,6 +126,7 @@
         }
             break;
         case BUSINESS_UPDATEORDERSTATUS:
+            
             break;
         default:
             break;

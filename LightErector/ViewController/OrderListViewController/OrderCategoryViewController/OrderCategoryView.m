@@ -8,6 +8,7 @@
 
 #import "OrderCategoryView.h"
 
+
 #define SEGMENTEDCONTROLHEIGHT 30
 
 @interface OrderCategoryView ()<UIScrollViewDelegate>
@@ -80,6 +81,20 @@
 
         currentTableView=self.unAcceptTable;
        
+        CGRect rect=frame;
+        rect.origin.y=self.segmentedControl.frame.origin.y;
+        rect.size.height=rect.size.height+DefaultTabBarHeight-self.segmentedControl.frame.origin.y;
+        self.editTimeView=[[UIView alloc] initWithFrame:rect];
+        self.editTimeView.backgroundColor=[MainStyle mainBackColor];
+        //self.editTimeView.layer.opacity=0.9f;
+        self.editTimeView.hidden=YES;
+        [self addSubview:self.editTimeView];
+        self.dataPicker=[[CustomUIDatePicker alloc]initWithFrame:CGRectMake(0,  self.editTimeView.frame.size.height-216, frame.size.width, 216)];
+        [self.editTimeView addSubview:self.dataPicker];
+        self.textReson=[[CustomTextView alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20,self.editTimeView.frame.size.height-self.dataPicker.frame.size.height-20)];
+        self.textReson.backgroundColor=[MainStyle mainLightTwoColor];
+        self.textReson.placeholder=@"请输入修改安装时间原因";
+        [self.editTimeView addSubview:self.textReson];
     }
     return self;
 }

@@ -61,17 +61,23 @@
 {
     NSMutableDictionary *dic=[NSMutableDictionary dictionaryWithObjects:@[@(memId),self.tradeId] forKeys:@[@"memberid",@"tradeid"]];
     
+    _orderType=WaitSubOrder;
     if (!speek) {
          [dic setObject:@(1) forKey:@"nospeak"];
     }if (acreated) {
         [dic setObject:acreated forKey:@"acreated"];
+        _orderType=WaitForInstallOrder;
     }
     [self creatBusinessWithId:BUSINESS_ACCEPTORDER andExecuteWithData:dic];
 }
 
 -(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId
 {
-    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,time,reason] forKeys:@[@"memberid",@"tradeid",@"acreated",@"upcontent"]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+    NSString *destDateString = [dateFormatter stringFromDate:time];
+    
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,destDateString,reason] forKeys:@[@"memberid",@"tradeid",@"acreated",@"upcontent"]];
     [self creatBusinessWithId:BUSINESS_UPDATESUBTIME andExecuteWithData:dic];
 }
 
@@ -95,10 +101,12 @@
 {
      switch (business.businessId) {
         case BUSINESS_GETORDERSTATUS:
-             _installStatus=[[businessData objectForKey:@"result"] intValue];
+             _installStatus=[[businessData objectForKey:@"status"] intValue];
             break;
         case BUSINESS_UPDATEORDERSTATUS:
             break;
+        case BUSINESS_ACCEPTORDER:
+             break;
         default:
             break;
     }

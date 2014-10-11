@@ -78,6 +78,11 @@
 		B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B272CDDF19D90CB60084C594 /* launchpad@2x.png */; };
 		B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */; };
 		B2753B1419E7F714007F10D2 /* FormMltipart.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B1319E7F714007F10D2 /* FormMltipart.m */; };
+		B2753B1819E8D544007F10D2 /* SubscribeClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B1719E8D544007F10D2 /* SubscribeClientViewController.m */; };
+		B2753B1B19E8D5AF007F10D2 /* SubscribeClientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B1A19E8D5AF007F10D2 /* SubscribeClientView.m */; };
+		B2753B2819E91A82007F10D2 /* UnSettlementView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2519E91A82007F10D2 /* UnSettlementView.m */; };
+		B2753B2919E91A82007F10D2 /* UnSettlementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2719E91A82007F10D2 /* UnSettlementViewController.m */; };
+		B2753B2C19E921A6007F10D2 /* UnSettlementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */; };
 		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
 		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
 		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
@@ -457,6 +462,16 @@
 		B272CDE319D90CFC0084C594 /* CustomPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullRefreshTableView.m; path = CustomPullRefreshTableView/CustomPullRefreshTableView.m; sourceTree = "<group>"; };
 		B2753B1219E7F714007F10D2 /* FormMltipart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormMltipart.h; sourceTree = "<group>"; };
 		B2753B1319E7F714007F10D2 /* FormMltipart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormMltipart.m; sourceTree = "<group>"; };
+		B2753B1619E8D544007F10D2 /* SubscribeClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubscribeClientViewController.h; path = SubscribeClientViewController/SubscribeClientViewController.h; sourceTree = "<group>"; };
+		B2753B1719E8D544007F10D2 /* SubscribeClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubscribeClientViewController.m; path = SubscribeClientViewController/SubscribeClientViewController.m; sourceTree = "<group>"; };
+		B2753B1919E8D5AF007F10D2 /* SubscribeClientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubscribeClientView.h; path = SubscribeClientViewController/SubscribeClientView.h; sourceTree = "<group>"; };
+		B2753B1A19E8D5AF007F10D2 /* SubscribeClientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubscribeClientView.m; path = SubscribeClientViewController/SubscribeClientView.m; sourceTree = "<group>"; };
+		B2753B2419E91A82007F10D2 /* UnSettlementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnSettlementView.h; sourceTree = "<group>"; };
+		B2753B2519E91A82007F10D2 /* UnSettlementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnSettlementView.m; sourceTree = "<group>"; };
+		B2753B2619E91A82007F10D2 /* UnSettlementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnSettlementViewController.h; sourceTree = "<group>"; };
+		B2753B2719E91A82007F10D2 /* UnSettlementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnSettlementViewController.m; sourceTree = "<group>"; };
+		B2753B2A19E921A6007F10D2 /* UnSettlementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnSettlementTableViewCell.h; sourceTree = "<group>"; };
+		B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnSettlementTableViewCell.m; sourceTree = "<group>"; };
 		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
 		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
 		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -1052,9 +1067,34 @@
 			name = CustomPullRefreshTableView;
 			sourceTree = "<group>";
 		};
+		B2753B1519E8D51A007F10D2 /* SubscribeClientViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2753B1619E8D544007F10D2 /* SubscribeClientViewController.h */,
+				B2753B1719E8D544007F10D2 /* SubscribeClientViewController.m */,
+				B2753B1919E8D5AF007F10D2 /* SubscribeClientView.h */,
+				B2753B1A19E8D5AF007F10D2 /* SubscribeClientView.m */,
+			);
+			name = SubscribeClientViewController;
+			sourceTree = "<group>";
+		};
+		B2753B2319E91A82007F10D2 /* UnSettlementViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2753B2419E91A82007F10D2 /* UnSettlementView.h */,
+				B2753B2519E91A82007F10D2 /* UnSettlementView.m */,
+				B2753B2619E91A82007F10D2 /* UnSettlementViewController.h */,
+				B2753B2719E91A82007F10D2 /* UnSettlementViewController.m */,
+				B2753B2A19E921A6007F10D2 /* UnSettlementTableViewCell.h */,
+				B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */,
+			);
+			path = UnSettlementViewController;
+			sourceTree = "<group>";
+		};
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B2753B2319E91A82007F10D2 /* UnSettlementViewController */,
 				B2554F7E19DF8E470004FE42 /* InstallFlowModalController */,
 				B2683DDD19DCEA6B000FB9A1 /* OrderCategoryViewController */,
 				B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */,
@@ -1705,6 +1745,7 @@
 		B2FDCB1719D16C5B00215E70 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B2753B1519E8D51A007F10D2 /* SubscribeClientViewController */,
 				B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */,
 				B2FDCC1419D289DD00215E70 /* LoginViewController */,
 				B2FDCBA519D16DE500215E70 /* RootViewController */,
@@ -2102,6 +2143,7 @@
 				B2FDCB8E19D16C5B00215E70 /* BaseUIView.m in Sources */,
 				B22CAE8419E23DEA008EE80B /* UploadCodeBusiness.m in Sources */,
 				B2FDCB7319D16C5B00215E70 /* CustomHeadView.m in Sources */,
+				B2753B2819E91A82007F10D2 /* UnSettlementView.m in Sources */,
 				B2FDCB4B19D16C5B00215E70 /* BusinessFactory.m in Sources */,
 				B2FDCB8819D16C5B00215E70 /* NSTimer+Addition.m in Sources */,
 				B22CAE5E19E0D483008EE80B /* OrderDetailAndFeedBackViewController.m in Sources */,
@@ -2129,6 +2171,7 @@
 				B2FDCB7B19D16C5B00215E70 /* CustomTabBarItem.m in Sources */,
 				B2FDCB9619D16C5B00215E70 /* TitleBarAndTableView.m in Sources */,
 				B2FDCB7619D16C5B00215E70 /* BaseCustomMessageBox.m in Sources */,
+				B2753B2919E91A82007F10D2 /* UnSettlementViewController.m in Sources */,
 				B22CAE6F19E13FF9008EE80B /* StepBaseViewController.m in Sources */,
 				B22CAE5B19E0CA23008EE80B /* OrderDetailAndFeedBackView.m in Sources */,
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
@@ -2191,6 +2234,7 @@
 				B2753B1419E7F714007F10D2 /* FormMltipart.m in Sources */,
 				B2275D6F19D93F3300D5EE51 /* UpdateOrderStateBusiness.m in Sources */,
 				B2FDCB7719D16C5B00215E70 /* ColorContentMessageBox.m in Sources */,
+				B2753B2C19E921A6007F10D2 /* UnSettlementTableViewCell.m in Sources */,
 				B26CB17719D5409700023CEB /* ImageUtils.m in Sources */,
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
 				B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */,
@@ -2214,7 +2258,9 @@
 				B2554F7319DE9E280004FE42 /* UIViewController+CustomFullScreenSupport.m in Sources */,
 				B2FDCB7819D16C5B00215E70 /* CustomMessageBox.m in Sources */,
 				B2FDCC1019D2766B00215E70 /* UserInfo.m in Sources */,
+				B2753B1819E8D544007F10D2 /* SubscribeClientViewController.m in Sources */,
 				B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */,
+				B2753B1B19E8D5AF007F10D2 /* SubscribeClientView.m in Sources */,
 				B2FDCB6D19D16C5B00215E70 /* AttributedLabel.m in Sources */,
 				B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */,
 				B2FDCB8D19D16C5B00215E70 /* UIHyperlinksButton.m in Sources */,

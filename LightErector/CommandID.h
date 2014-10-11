@@ -29,6 +29,7 @@ enum commandID
     
     MC_SHOW_ROOT_TABBAR,
     MC_HIDE_ROOT_TABBAR,
+    MC_SWICH_ROOT_TABBAR,
 };
 
 #endif

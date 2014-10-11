@@ -30,6 +30,37 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
+        UIImage *image = [UIImage imageNamed:NSLocalizedStringFromTable(@"custom_uidatepicker_background",Res_Image,@"")];
+        UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
+        backgroundImageView.userInteractionEnabled = YES;
+        [self addSubview:backgroundImageView];
+        
+        
+        image = [UIImage imageNamed:NSLocalizedStringFromTable(@"custom_uidatepicker_cancel",Res_Image,@"")];
+        btn_cancel = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn_cancel.frame = CGRectMake(10,backgroundImageView.bounds.size.height/2-image.size.height/2,image.size.width,image.size.height);
+        [btn_cancel setBackgroundImage:image forState:UIControlStateNormal];
+        [btn_cancel addTarget:self action:@selector(cancelButton_onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [backgroundImageView addSubview:btn_cancel];
+        
+        
+        image = [UIImage imageNamed:NSLocalizedStringFromTable(@"custom_uidatepicker_confirm",Res_Image,@"")];
+        btn_confirm = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn_confirm.frame = CGRectMake(backgroundImageView.bounds.size.width-image.size.width-10,backgroundImageView.bounds.size.height/2-image.size.height/2,image.size.width,image.size.height);
+        [btn_confirm setBackgroundImage:image forState:UIControlStateNormal];
+        [btn_confirm addTarget:self action:@selector(confirmButton_onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [backgroundImageView addSubview:btn_confirm];
+        
+        
+        datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, backgroundImageView.bounds.size.height, self.bounds.size.width, 216)];
+        //[datePicker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        [datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
+        if(_endDate != nil)
+            [datePicker setMaximumDate:_endDate];
+        [self addSubview:datePicker];
+        
+        return self;
+
     }
     return self;
 }
@@ -40,7 +71,7 @@
     
     CGRect frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height-DatePickerHeight-image.size.height, [UIScreen mainScreen].applicationFrame.size.width, DatePickerHeight+image.size.height);
     
-    self = [self initWithFrame:frame];
+    self = [super initWithFrame:frame];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
     backgroundImageView.userInteractionEnabled = YES;
@@ -65,7 +96,7 @@
     
     datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, backgroundImageView.bounds.size.height, self.bounds.size.width, 216)];
     //[datePicker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    [datePicker setDatePickerMode:UIDatePickerModeDate];
+    [datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     if(_endDate != nil)
         [datePicker setMaximumDate:_endDate];
     [self addSubview:datePicker];
@@ -84,12 +115,12 @@
 {
     [self.observer cancelButton_onClick:sender];
     
-    [self removeFromSuperview];
+   // [self removeFromSuperview];
 }
 -(IBAction)confirmButton_onClick:(id)sender
 {
     [self.observer confirmButton_onClick:sender forDate:datePicker.date];
-    [self removeFromSuperview];
+  //  [self removeFromSuperview];
 }
 -(void)setDate:(NSDate *)date
 {

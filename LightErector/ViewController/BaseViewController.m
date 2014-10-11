@@ -102,12 +102,7 @@
     if(errorMsg==nil)
         return;
     error = [error stringByAppendingString:errorMsg];
-    UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
-    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:error forBackgroundImage:image];
-    baseCustomMessageBox.animation = YES;
-    baseCustomMessageBox.autoCloseTimer = 2;
-    
-    [self.view addSubview:baseCustomMessageBox];
+    [self showTip:error];
 #ifdef DEBUG_LOG
     NSLog(@"%@",error);
 #endif
@@ -211,6 +206,15 @@
     [self sendMessage:message];
 }
 
+-(void)sendSwichTabBarMessageAtIndex:(NSInteger)index
+{
+    Message *message = [[Message alloc] init];
+    message.receiveObjectID=Module_ROOT;
+    message.commandID = MC_SWICH_ROOT_TABBAR;
+    message.externData=@(index);
+    [self sendMessage:message];
+}
+
 -(void)dealloc
 {
     if([self.view isKindOfClass:[TitleBarView class]])
@@ -220,5 +224,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showTip:(NSString *)text
+{
+    UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
+    BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:text forBackgroundImage:image];
+    baseCustomMessageBox.animation = YES;
+    baseCustomMessageBox.autoCloseTimer = 2;
+    [self.view addSubview:baseCustomMessageBox];
 }
 @end

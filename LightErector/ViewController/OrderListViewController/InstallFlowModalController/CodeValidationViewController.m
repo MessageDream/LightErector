@@ -81,13 +81,8 @@
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
-        case BUSINESS_UPDATEORDERSTATUS:{
-            UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
-            BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:@"验证码已经发送请查收" forBackgroundImage:image];
-            baseCustomMessageBox.animation = YES;
-            baseCustomMessageBox.autoCloseTimer = 2;
-            [self.view addSubview:baseCustomMessageBox];
-        }
+        case BUSINESS_UPDATEORDERSTATUS:
+            [self showTip:@"验证码已经发送请查收" ];
             break;
         case BUSINESS_UPLOADCODE:
             if (self.observer&&[self.observer respondsToSelector:@selector(nextStep)]) {
