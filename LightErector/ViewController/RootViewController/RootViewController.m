@@ -88,6 +88,7 @@
             return;
     }
     [self sendMessage:message];
+     tabBar.layer.zPosition=10;
 }
 
 - (void)tabBar:(CustomTabBar *)tabBar tabBecameDisabledAtIndex:(int)index tab:(CustomTabBarItem *)tabItem

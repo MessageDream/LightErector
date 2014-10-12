@@ -11,6 +11,7 @@
 #import "TodayTaskViewController.h"
 #import "OrderCategoryViewController.h"
 #import "UnSettlementViewController.h"
+#import "SubscribeClientViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -37,6 +38,8 @@
         viewcontroller=[[OrderCategoryViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_UNSETTLED){
         viewcontroller=[[UnSettlementViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_SUBCLIENT){
+        viewcontroller=[[SubscribeClientViewController alloc] init];
     }
 
     if(viewcontroller != nil)

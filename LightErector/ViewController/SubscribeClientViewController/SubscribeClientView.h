@@ -7,7 +7,20 @@
 //
 
 #import "TitleBarAndScrollerView.h"
+#import "OrderInfoView.h"
+#import "BMapKit.h"
 
 @interface SubscribeClientView : TitleBarAndScrollerView
+@property(nonatomic,strong)OrderInfoView *infoView;
+@property(nonatomic,strong)UILabel *nameLable;
+@property(nonatomic,strong)UILabel *phoneLable;
+@property(nonatomic,strong)UILabel *subscribeTimeLable;
+@property(nonatomic,strong)UILabel *addressLable;
+@property(nonatomic,strong)UILabel *detailLable;
+@property(nonatomic,strong)UILabel *remarkLable;
 
+@property(nonatomic,strong)UILabel *sDetailLable;
+@property(nonatomic,strong)UILabel *sRemarkLable;
+
+@property(nonatomic,strong)BMKMapView *mapView;
 @end

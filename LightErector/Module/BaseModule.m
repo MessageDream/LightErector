@@ -267,13 +267,13 @@ static enum commandID currentcommandID;
         
         CGRect frame = viewcontroller.view.frame ;
         frame.origin.y=0;
+        if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
+            frame.origin.y = [UIScreen mainScreen].applicationFrame.origin.y;
         viewcontroller.view.frame = frame;
         [UIView commitAnimations];
     }
     else if(ID == MC_CREATE_CLOSEPOPFROMTOP_VIEWCONTROLLER)
     {
-       
-        
         [UIView beginAnimations:@"Animation" context:nil];
         [UIView setAnimationDuration:AnimationDuration];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -282,6 +282,8 @@ static enum commandID currentcommandID;
         
         CGRect oldframe = viewcontroller.view.frame;
         oldframe.origin.y=oldframe.size.height;
+        if([[[UIDevice currentDevice] systemVersion] floatValue]>=7)
+            oldframe.origin.y = [UIScreen mainScreen].applicationFrame.origin.y+oldframe.size.height;
         viewcontroller.view.frame=oldframe;
         [UIView commitAnimations];
     }

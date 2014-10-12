@@ -395,7 +395,14 @@
                     if (buttonIndex==0) {
                         [self sendSMS:order.tradeContent recipientList:nil];
                     }else{
-                        
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                        message:@"确定立即预约吗？"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"取消"
+                                                              otherButtonTitles:@"确定",nil];
+                        alert.tag=tableView.tag;
+                        currentOrder=order;
+                        [alert show];
                     }
                     break;
                 case UNINSTALLTABLETAG:{
@@ -409,8 +416,16 @@
                     currentOrder=order;
                 }
                     break;
-                case SUBAGAINTABLETAG:
-                    
+                case SUBAGAINTABLETAG:{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"确定立即预约吗？"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"取消"
+                                                          otherButtonTitles:@"确定",nil];
+                    alert.tag=tableView.tag;
+                    currentOrder=order;
+                    [alert show];
+                }
                     break;
                 case UNFEEDBACKTABLETAG:{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
@@ -676,13 +691,17 @@
                 [self lockView];
                 break;
             case UNSUBTABLETAG:
-               
+            case SUBAGAINTABLETAG:{
+                Message *message = [[Message alloc] init];
+                message.commandID = MC_CREATE_POPFROMBOTTOM_VIEWCONTROLLER;
+                message.doCache=YES;
+                message.externData=currentOrder;
+                message.receiveObjectID = VIEWCONTROLLER_SUBCLIENT;
+                [self sendMessage:message];
+            }
                 break;
             case UNINSTALLTABLETAG:
                 
-                break;
-            case SUBAGAINTABLETAG:
-               
                 break;
             case UNFEEDBACKTABLETAG:
                 [order getOrderInstallStatus];
