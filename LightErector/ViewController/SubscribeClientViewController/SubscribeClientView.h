@@ -9,7 +9,13 @@
 #import "TitleBarAndScrollerView.h"
 #import "OrderInfoView.h"
 #import "BMapKit.h"
+@protocol SubscribeClientViewDelegate<NSObject>
+-(void)call_btn_click:(id)sender;
 
+-(void)location_btn_click:(id)sender;
+
+-(void)receptOrder_btn_click:(int)status withDate:(NSString *)date;
+@end
 @interface SubscribeClientView : TitleBarAndScrollerView
 @property(nonatomic,strong)OrderInfoView *infoView;
 @property(nonatomic,strong)UILabel *nameLable;
@@ -23,4 +29,5 @@
 @property(nonatomic,strong)UILabel *sRemarkLable;
 
 @property(nonatomic,strong)BMKMapView *mapView;
+@property(nonatomic,assign)id<SubscribeClientViewDelegate> observer;
 @end

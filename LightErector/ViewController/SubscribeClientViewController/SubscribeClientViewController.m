@@ -10,7 +10,7 @@
 #import "SubscribeClientView.h"
 #import "Order.h"
 
-@interface SubscribeClientViewController ()<CustomTitleBar_ButtonDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
+@interface SubscribeClientViewController ()<CustomTitleBar_ButtonDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,SubscribeClientViewDelegate>
 {
     Order *order;
     SubscribeClientView *view;
@@ -41,6 +41,7 @@
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     view=[[SubscribeClientView alloc] initWithFrame:frame];
     view.customTitleBar.buttonEventObserver=self;
+    view.observer=self;
     _mapView=view.mapView;
     self.view=view;
 }
@@ -260,5 +261,32 @@
 #endif
 }
 
+-(void)call_btn_click:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",order.tradeMobile]]];
+}
 
+-(void)location_btn_click:(id)sender
+{
+    
+}
+
+-(void)receptOrder_btn_click:(int)status withDate:(NSString *)date
+{
+     order.observer=self;
+    if (status==1) {
+        [order updateSubStatusWithMemberId:user.userid isSpeek:YES acreated:date];
+    }else if(status==2){
+     [order updateSubStatusWithMemberId:user.userid isSpeek:YES acreated:nil];
+    }else{
+     [order updateSubStatusWithMemberId:user.userid isSpeek:NO acreated:nil];
+    }
+    [self lockView];
+}
+
+-(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
+{
+    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+    [self showTip:@"接单成功"];
+}
 @end

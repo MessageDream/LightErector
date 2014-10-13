@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, InstallFlowStatus) {
 -(void)installErrorFeedback:(NSString *)errinfo;
 
 -(void)acceptOrderWithMemberId:(NSInteger)memId;
--(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL) speek  acreated:(NSDate*)acreated;
+-(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL) speek  acreated:(NSString*)acreated;
 -(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId;
 -(void)uploadCode:(NSString *)code;
 -(void)uploadImage:(NSDictionary *)pics withMemberId:(NSInteger)memId;

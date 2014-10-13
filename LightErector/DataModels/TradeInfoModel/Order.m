@@ -57,7 +57,7 @@
     [self creatBusinessWithId:BUSINESS_ACCEPTORDER andExecuteWithData:dic];
 }
 
--(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL)speek acreated:(NSDate*)acreated
+-(void)updateSubStatusWithMemberId:(NSInteger)memId isSpeek:(BOOL)speek acreated:(NSString*)acreated
 {
     NSMutableDictionary *dic=[NSMutableDictionary dictionaryWithObjects:@[@(memId),self.tradeId] forKeys:@[@"memberid",@"tradeid"]];
     
@@ -74,7 +74,7 @@
 -(void)updateSubTime:(NSDate *)time withReason:(NSString *)reason withMemberId:(NSInteger)memId
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *destDateString = [dateFormatter stringFromDate:time];
     
     NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,destDateString,reason] forKeys:@[@"memberid",@"tradeid",@"acreated",@"upcontent"]];

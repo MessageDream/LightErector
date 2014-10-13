@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B204021819EC1D31001F493F /* radio_button_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B204021619EC1D31001F493F /* radio_button_checked@2x.png */; };
+		B204021919EC1D31001F493F /* radio_button_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B204021719EC1D31001F493F /* radio_button_unchecked@2x.png */; };
 		B2275D6419D9317B00D5EE51 /* TaskRemindBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6319D9317B00D5EE51 /* TaskRemindBusiness.m */; };
 		B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6719D9318400D5EE51 /* TaskRemind.m */; };
 		B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B2275D6B19D93F0800D5EE51 /* GetOrderBusiness.m */; };
@@ -247,6 +249,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B204021619EC1D31001F493F /* radio_button_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_button_checked@2x.png"; sourceTree = "<group>"; };
+		B204021719EC1D31001F493F /* radio_button_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_button_unchecked@2x.png"; sourceTree = "<group>"; };
 		B2275D6219D9317B00D5EE51 /* TaskRemindBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRemindBusiness.h; sourceTree = "<group>"; };
 		B2275D6319D9317B00D5EE51 /* TaskRemindBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRemindBusiness.m; sourceTree = "<group>"; };
 		B2275D6619D9318400D5EE51 /* TaskRemind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRemind.h; sourceTree = "<group>"; };
@@ -1298,6 +1302,8 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B204021619EC1D31001F493F /* radio_button_checked@2x.png */,
+				B204021719EC1D31001F493F /* radio_button_unchecked@2x.png */,
 				B28C170619E536FC00C44305 /* finish@2x.png */,
 				B28C170419E534B900C44305 /* upload@2x.png */,
 				B22CAE8E19E28084008EE80B /* certificate@2x.png */,
@@ -1967,6 +1973,7 @@
 				B2FDCC4E19D292B400215E70 /* custom_uidatepicker_background@2x.png in Resources */,
 				B26CB16419D5184D00023CEB /* phone@2x.png in Resources */,
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
+				B204021819EC1D31001F493F /* radio_button_checked@2x.png in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
 				B28C16FC19E4FD1500C44305 /* OK.png in Resources */,
 				B22CAE6819E0F5CA008EE80B /* detail@2x.png in Resources */,
@@ -1999,6 +2006,7 @@
 				B2FDCC5A19D292B400215E70 /* login_back@2x.png in Resources */,
 				B28C170519E534B900C44305 /* upload@2x.png in Resources */,
 				B26CB16619D5184D00023CEB /* user@2x.png in Resources */,
+				B204021919EC1D31001F493F /* radio_button_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
