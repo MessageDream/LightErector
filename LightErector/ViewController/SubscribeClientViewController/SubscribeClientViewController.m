@@ -9,13 +9,14 @@
 #import "SubscribeClientViewController.h"
 #import "SubscribeClientView.h"
 #import "Order.h"
+#import "BMKGeoCodeSearch.h"
 
-@interface SubscribeClientViewController ()<CustomTitleBar_ButtonDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,SubscribeClientViewDelegate>
+@interface SubscribeClientViewController ()<CustomTitleBar_ButtonDelegate,BMKGeoCodeSearchDelegate,BMKGeoCodeSearchDelegate,SubscribeClientViewDelegate>
 {
     Order *order;
     SubscribeClientView *view;
-    BMKLocationService* _locService;
     BMKMapView *_mapView;
+    BMKGeoCodeSearch *_codeSearch;
 }
 @end
 
@@ -114,9 +115,8 @@
 
     }
     
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    [_locService startUserLocationService];
+    _codeSearch=[[BMKGeoCodeSearch alloc] init];
+    _codeSearch.delegate=self;
     _mapView.delegate=self;
     _mapView.showsUserLocation=YES;
 }
@@ -161,38 +161,9 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
-    _locService.delegate = nil;
+       _codeSearch.delegate=nil;
 }
-//普通态
--(void)startLocation
-{
-    [_locService startUserLocationService];
-    _mapView.showsUserLocation = NO;//先关闭显示的定位图层
-    _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
-    _mapView.showsUserLocation = YES;//显示定位图层
-}
-//罗盘态
--(void)startFollowHeading
-{
-    _mapView.showsUserLocation = NO;
-    _mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
-    _mapView.showsUserLocation = YES;
-    
-}
-//跟随态
--(void)startFollowing
-{
-    _mapView.showsUserLocation = NO;
-    _mapView.userTrackingMode = BMKUserTrackingModeFollow;
-    _mapView.showsUserLocation = YES;
-    
-}
-//停止定位
--(void)stopLocation
-{
-    [_locService stopUserLocationService];
-    _mapView.showsUserLocation = NO;
-}
+
 
 /**
  *在地图View将要启动定位时，会调用此函数
@@ -228,18 +199,6 @@
 {
     
 }
-/**
- *用户位置更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
-{
-    //    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-#ifdef DEBUG_LOG
-    NSLog(@"%f:%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-#endif
-    [_mapView updateLocationData:userLocation];
-}
 
 /**
  *在地图View停止定位后，会调用此函数
@@ -261,6 +220,21 @@
 #endif
 }
 
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+	[_mapView removeAnnotations:array];
+	array = [NSArray arrayWithArray:_mapView.overlays];
+	[_mapView removeOverlays:array];
+	if (error == 0) {
+		BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+		item.coordinate = result.location;
+		item.title = result.address;
+		[_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+	}
+}
+
 -(void)call_btn_click:(id)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",order.tradeMobile]]];
@@ -268,7 +242,9 @@
 
 -(void)location_btn_click:(id)sender
 {
-    
+    BMKGeoCodeSearchOption *opt=[[BMKGeoCodeSearchOption alloc] init];
+    opt.address=order.tradeAddress;
+    [_codeSearch geoCode:opt];
 }
 
 -(void)receptOrder_btn_click:(int)status withDate:(NSString *)date

@@ -154,7 +154,7 @@
         [btn addTarget:self action:@selector(receptOrder_btn_click:) forControlEvents:UIControlEventTouchUpInside];
         [selectView addSubview:btn];
         
-        _mapView=[[BMKMapView alloc] initWithFrame:CGRectMake(0, selectView.frame.size.height+selectView.frame.origin.y, frame.size.width, frame.size.height-selectView.frame.origin.y-selectView.frame.size.height-image.size.height+8)];
+        _mapView=[[BMKMapView alloc] initWithFrame:CGRectMake(0, selectView.frame.size.height+selectView.frame.origin.y, frame.size.width, frame.size.height-selectView.frame.origin.y-selectView.frame.size.height)];
         _mapView.mapType=BMKMapTypeStandard;
         _mapView.zoomLevel = 14;
         [self.scrollerView addSubview:_mapView];
