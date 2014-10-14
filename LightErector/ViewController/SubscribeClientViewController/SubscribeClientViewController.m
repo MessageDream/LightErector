@@ -175,16 +175,6 @@
 }
 
 /**
- *用户方向更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
-{
-    [_mapView updateLocationData:userLocation];
-}
-
-
-/**
  *在将要启动定位时，会调用此函数
  */
 - (void)willStartLocatingUser
