@@ -260,7 +260,7 @@
                     if (msg.receiveObjectID==self.viewControllerId) {
                         [orderCategoryView.segmentedControl setSelectedSegmentIndex:4 animated:YES];
                     }else{
-                        [self sendSwichTabBarMessageAtIndex:3];
+                        [self sendSwichTabBarMessageAtIndex:2];
                     }
                 }
                 

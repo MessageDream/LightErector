@@ -21,8 +21,6 @@
         CustomTabBarItem *orderInfoItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"shopping_basket"]];
         orderInfoItem.titleString = NSLocalizedStringFromTable(@"OrderList",Res_String,@"");
         
-        CustomTabBarItem *aboutItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"info"]];
-        aboutItem.titleString = NSLocalizedStringFromTable(@"about",Res_String,@"");
         
         CustomTabBarItem *clearItem = [CustomTabBarItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"abacus"]];
         clearItem.titleString = NSLocalizedStringFromTable(@"WaitingClearing",Res_String,@"");
@@ -31,7 +29,7 @@
         accountItem.titleString = NSLocalizedStringFromTable(@"AccountManager",Res_String,@"");
         //mastercardTabItem.tabState = TabStateEnabled;
         
-        self.tabBar=[[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.frame.size.height-DefaultTabBarHeight, self.frame.size.width, DefaultTabBarHeight) andTabItems:@[todayTaskItem, orderInfoItem, aboutItem, clearItem, accountItem]];
+        self.tabBar=[[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.frame.size.height-DefaultTabBarHeight, self.frame.size.width, DefaultTabBarHeight) andTabItems:@[todayTaskItem, orderInfoItem, clearItem, accountItem]];
         
         self.tabBar.darkensBackgroundForEnabledTabs = YES;
         self.tabBar.horizontalInsets = HorizontalEdgeInsetsMake(10, 10);

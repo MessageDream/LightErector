@@ -12,6 +12,7 @@
 #import "OrderCategoryViewController.h"
 #import "UnSettlementViewController.h"
 #import "SubscribeClientViewController.h"
+#import "UserCenterViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -40,6 +41,8 @@
         viewcontroller=[[UnSettlementViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_SUBCLIENT){
         viewcontroller=[[SubscribeClientViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_USERCENTER){
+        viewcontroller=[[UserCenterViewController alloc] init];
     }
 
     if(viewcontroller != nil)

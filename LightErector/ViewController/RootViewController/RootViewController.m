@@ -78,10 +78,10 @@
         case 1:
             message.receiveObjectID = VIEWCONTROLLER_ORDERCATEGORYLIST;
             break;
-        case 3:
+        case 2:
             message.receiveObjectID = VIEWCONTROLLER_UNSETTLED;
             break;
-        case 4:
+        case 3:
             message.receiveObjectID = VIEWCONTROLLER_USERCENTER;
             break;
         default:

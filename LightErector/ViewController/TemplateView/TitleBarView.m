@@ -25,8 +25,8 @@
           [self addSubview:_customTitleBar];
         _customTitleBar.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1];
         
-        _customTitleBar.leftButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_return",Res_Image,@"")];
-        _customTitleBar.rightButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_home",Res_Image,@"")];
+       // _customTitleBar.leftButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_return",Res_Image,@"")];
+       // _customTitleBar.rightButtonImage = [UIImage imageNamed:NSLocalizedStringFromTable(@"title_bar_home",Res_Image,@"")];
         _customTitleBar.titleText = NSLocalizedStringFromTable(@"SubProductName9",Res_String,@"");
         
         UIView *backView=[[UIView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, self.frame.size.width, self.frame.size.height-_customTitleBar.frame.size.height)];

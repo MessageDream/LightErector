@@ -50,6 +50,9 @@
 		B2554F7D19DF8DAC0004FE42 /* RMStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F7A19DF8DAC0004FE42 /* RMStepsController.m */; };
 		B2554F8319DF8E470004FE42 /* InstallFlowModalController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F8019DF8E470004FE42 /* InstallFlowModalController.m */; };
 		B2554F8719DF91000004FE42 /* ReachTerminalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F8619DF91000004FE42 /* ReachTerminalViewController.m */; };
+		B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */; };
+		B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */; };
+		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
 		B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */; };
 		B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */; };
 		B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */; };
@@ -386,6 +389,11 @@
 		B2554F8519DF91000004FE42 /* ReachTerminalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachTerminalViewController.h; sourceTree = "<group>"; };
 		B2554F8619DF91000004FE42 /* ReachTerminalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachTerminalViewController.m; sourceTree = "<group>"; };
 		B2554F8819DF91220004FE42 /* ReachTerminalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachTerminalView.h; sourceTree = "<group>"; };
+		B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterViewController.h; path = UserCenterViewController/UserCenterViewController.h; sourceTree = "<group>"; };
+		B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterViewController.m; path = UserCenterViewController/UserCenterViewController.m; sourceTree = "<group>"; };
+		B25B8C4919EE5A9F00576D85 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterView.h; path = UserCenterViewController/UserCenterView.h; sourceTree = "<group>"; };
+		B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterView.m; path = UserCenterViewController/UserCenterView.m; sourceTree = "<group>"; };
+		B25B8C4C19EE757100576D85 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
 		B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSegmentedControl.h; path = CustomSegmentedControl/CustomSegmentedControl.h; sourceTree = "<group>"; };
 		B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSegmentedControl.m; path = CustomSegmentedControl/CustomSegmentedControl.m; sourceTree = "<group>"; };
 		B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryViewController.h; path = OrderCategoryViewController/OrderCategoryViewController.h; sourceTree = "<group>"; };
@@ -943,6 +951,17 @@
 			path = InstallFlowModalController;
 			sourceTree = "<group>";
 		};
+		B25B8C4519EE58AD00576D85 /* UserCenterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B25B8C4919EE5A9F00576D85 /* UserCenterView.h */,
+				B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */,
+				B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */,
+				B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */,
+			);
+			name = UserCenterViewController;
+			sourceTree = "<group>";
+		};
 		B2683DD919DCE989000FB9A1 /* CustomSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1302,6 +1321,7 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B25B8C4C19EE757100576D85 /* login@2x.png */,
 				B204021619EC1D31001F493F /* radio_button_checked@2x.png */,
 				B204021719EC1D31001F493F /* radio_button_unchecked@2x.png */,
 				B28C170619E536FC00C44305 /* finish@2x.png */,
@@ -1661,6 +1681,7 @@
 		B2FDCB1719D16C5B00215E70 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B25B8C4519EE58AD00576D85 /* UserCenterViewController */,
 				B2753B1519E8D51A007F10D2 /* SubscribeClientViewController */,
 				B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */,
 				B2FDCC1419D289DD00215E70 /* LoginViewController */,
@@ -1985,6 +2006,7 @@
 				B28C16F419E4FD1500C44305 /* AssetsPickerChecked@2x.png in Resources */,
 				B2CADA0419D561B800768239 /* setting@2x.png in Resources */,
 				B2FDCC5E19D292B400215E70 /* nav_btn_right_home@2x.png in Resources */,
+				B25B8C4D19EE757100576D85 /* login@2x.png in Resources */,
 				B28C170019E4FD1500C44305 /* ZYQAssetPicker.Bundle in Resources */,
 				B2FDCC4B19D292B400215E70 /* check_box_frame_checked@2x.png in Resources */,
 				B28C16F219E4FD1500C44305 /* 2.png in Resources */,
@@ -2049,6 +2071,7 @@
 				B2FDCB7D19D16C5B00215E70 /* CustomOrderMangerCell.m in Sources */,
 				B2FDCBAB19D16DE500215E70 /* RootViewController.m in Sources */,
 				B22CAE8D19E25F32008EE80B /* UpdateUserInfoBusiness.m in Sources */,
+				B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */,
 				B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */,
 				B22CAE8719E2446F008EE80B /* UpdateSubTimeBusiness.m in Sources */,
 				B2554F7C19DF8DAC0004FE42 /* RMStepsBar.m in Sources */,
@@ -2074,6 +2097,7 @@
 				B26CB13D19D2D2A500023CEB /* AFNetworkReachabilityManager.m in Sources */,
 				B2FDCB9F19D16C5B00215E70 /* test4ViewController.m in Sources */,
 				B2FDCC0F19D2766B00215E70 /* User.m in Sources */,
+				B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */,
 				B22CAE5819E0C8C3008EE80B /* UIImage+Additional.m in Sources */,
 				B22CAE8119E23DD1008EE80B /* AcceptOrderBusiness.m in Sources */,
 				B2FDCB5919D16C5B00215E70 /* Message.m in Sources */,
