@@ -8,10 +8,15 @@
 
 #import "LoginViewController.h"
 #import "JPushNotification.h"
+#import "Version.h"
+#import "FindPasswordFromPhoneView.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UIAlertViewDelegate,FindPasswordFromPhoneViewDelegate>
 {
     CustomMessageBox *customMessageBox;
+    FindPasswordFromPhoneView *findPasswordFromPhoneView;
+    Version *version;
+    BOOL checkVersion;
 }
 @end
 
@@ -48,6 +53,13 @@
         loginView.txt_password.text = user.password;
     }
     
+    if (checkVersion) {
+        version=[[Version alloc]init];
+        version.observer=self;
+        [version getLastVersion];
+        [self lockView];
+        return;
+    }
     
     if(user.autoLoginFlag)
         [self performSelector:@selector(loginButton_onClick:) withObject:nil afterDelay:0.5];
@@ -109,7 +121,32 @@
 
 -(IBAction)findPasswordButton_onClick:(id)sender
 {
-    
+    [self.view endEditing:NO];
+    if(!findPasswordFromPhoneView)
+    {
+        CGRect frame = CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 200);
+        findPasswordFromPhoneView = [[FindPasswordFromPhoneView alloc] initWithFrame:frame];
+        findPasswordFromPhoneView.eventObserver = self;
+        [self.view addSubview:findPasswordFromPhoneView];
+    }
+}
+
+-(IBAction)findPasswordConfirmButton_onClick:(id)sender
+{
+
+}
+
+-(IBAction)findPasswordCancelButton_onClick:(id)sender
+{
+
+}
+
+-(void)receiveMessage:(Message *)message
+{
+    [super receiveMessage:message];
+    if (message.sendObjectID==Module_NONE) {
+        checkVersion=YES;
+    }
 }
 
 #pragma mark - DataModuleDelegate
@@ -126,6 +163,27 @@
         msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
         [self sendMessage:msg];
         [self sendShowTabBarMessage];
+    }
+    
+    if (businessID==BUSINESS_OTHER_CLIENTVERSION) {
+        if (version.upgrade) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新提示"
+                                                            message:version.introduction
+                                                           delegate:self
+                                                  cancelButtonTitle:@"以后再说"
+                                                  otherButtonTitles:@"立即更新",nil];;
+            [alert show];
+        }else{
+            if(user.autoLoginFlag)
+                [self performSelector:@selector(loginButton_onClick:) withObject:nil afterDelay:0];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:version.url]];
     }
 }
 @end

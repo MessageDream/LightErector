@@ -70,7 +70,7 @@
 - (void)tabBar:(CustomTabBar *)tabBar tabBecameEnabledAtIndex:(int)index tab:(CustomTabBarItem *)tabItem
 {
     Message *message = [[Message alloc] init];
-    message.commandID = MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
     switch (index) {
         case 0:
             message.receiveObjectID = VIEWCONTROLLER_TODAYTASK;
@@ -88,7 +88,7 @@
             return;
     }
     [self sendMessage:message];
-     tabBar.layer.zPosition=10;
+     //tabBar.layer.zPosition=10;
 }
 
 - (void)tabBar:(CustomTabBar *)tabBar tabBecameDisabledAtIndex:(int)index tab:(CustomTabBarItem *)tabItem

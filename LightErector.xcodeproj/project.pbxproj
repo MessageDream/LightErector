@@ -53,6 +53,8 @@
 		B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */; };
 		B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */; };
 		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
+		B25B8C5119EE80D600576D85 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5019EE80D600576D85 /* Version.m */; };
+		B25B8C5419EE891400576D85 /* FindPasswordFromPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5319EE891400576D85 /* FindPasswordFromPhoneView.m */; };
 		B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */; };
 		B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */; };
 		B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */; };
@@ -394,6 +396,10 @@
 		B25B8C4919EE5A9F00576D85 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterView.h; path = UserCenterViewController/UserCenterView.h; sourceTree = "<group>"; };
 		B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterView.m; path = UserCenterViewController/UserCenterView.m; sourceTree = "<group>"; };
 		B25B8C4C19EE757100576D85 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
+		B25B8C4F19EE80D600576D85 /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Version.h; path = VersionModel/Version.h; sourceTree = "<group>"; };
+		B25B8C5019EE80D600576D85 /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Version.m; path = VersionModel/Version.m; sourceTree = "<group>"; };
+		B25B8C5219EE891400576D85 /* FindPasswordFromPhoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindPasswordFromPhoneView.h; path = LoginViewController/FindPasswordFromPhoneView.h; sourceTree = "<group>"; };
+		B25B8C5319EE891400576D85 /* FindPasswordFromPhoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindPasswordFromPhoneView.m; path = LoginViewController/FindPasswordFromPhoneView.m; sourceTree = "<group>"; };
 		B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSegmentedControl.h; path = CustomSegmentedControl/CustomSegmentedControl.h; sourceTree = "<group>"; };
 		B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSegmentedControl.m; path = CustomSegmentedControl/CustomSegmentedControl.m; sourceTree = "<group>"; };
 		B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryViewController.h; path = OrderCategoryViewController/OrderCategoryViewController.h; sourceTree = "<group>"; };
@@ -960,6 +966,15 @@
 				B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */,
 			);
 			name = UserCenterViewController;
+			sourceTree = "<group>";
+		};
+		B25B8C4E19EE80AC00576D85 /* VersionModel */ = {
+			isa = PBXGroup;
+			children = (
+				B25B8C4F19EE80D600576D85 /* Version.h */,
+				B25B8C5019EE80D600576D85 /* Version.m */,
+			);
+			name = VersionModel;
 			sourceTree = "<group>";
 		};
 		B2683DD919DCE989000FB9A1 /* CustomSegmentedControl */ = {
@@ -1824,6 +1839,7 @@
 		B2FDCBD119D26C0A00215E70 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				B25B8C4E19EE80AC00576D85 /* VersionModel */,
 				B2275D6519D9318400D5EE51 /* TaskRemindModel */,
 				B272CDCF19D80FDA0084C594 /* TradeInfoModel */,
 				B2FDCC0719D2755F00215E70 /* UserModel */,
@@ -1861,6 +1877,8 @@
 				B2FDCC1919D28A5200215E70 /* LoginView.m */,
 				B2FDCC1519D28A0400215E70 /* LoginViewController.h */,
 				B2FDCC1619D28A0400215E70 /* LoginViewController.m */,
+				B25B8C5219EE891400576D85 /* FindPasswordFromPhoneView.h */,
+				B25B8C5319EE891400576D85 /* FindPasswordFromPhoneView.m */,
 			);
 			name = LoginViewController;
 			sourceTree = "<group>";
@@ -2086,6 +2104,7 @@
 				B22CAE6F19E13FF9008EE80B /* StepBaseViewController.m in Sources */,
 				B22CAE5B19E0CA23008EE80B /* OrderDetailAndFeedBackView.m in Sources */,
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
+				B25B8C5419EE891400576D85 /* FindPasswordFromPhoneView.m in Sources */,
 				B22CAE7E19E23D98008EE80B /* InstallErrorFeedbackBusiness.m in Sources */,
 				B2FDCB8F19D16C5B00215E70 /* BaseViewController.m in Sources */,
 				B2FDCB8619D16C5B00215E70 /* CustomUISwitch.m in Sources */,
@@ -2159,6 +2178,7 @@
 				B2FDCB6E19D16C5B00215E70 /* BeforeIos7StyleOfTableView.m in Sources */,
 				B2FDCB8B19D16C5B00215E70 /* PullRefreshShowView.m in Sources */,
 				B2FDCBA319D16C5B00215E70 /* test6ViewController.m in Sources */,
+				B25B8C5119EE80D600576D85 /* Version.m in Sources */,
 				B2FDCB7E19D16C5B00215E70 /* CustomSingleChooseCell.m in Sources */,
 				B2FDCB7519D16C5B00215E70 /* CustomMarqueeView.m in Sources */,
 				B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */,

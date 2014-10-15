@@ -18,6 +18,7 @@
 #import "UpdateSubTimeBusiness.h"
 #import "UploadImageBusiness.h"
 #import "UpdateUserInfoBusiness.h"
+#import "VersionBusiness.h"
 
 @implementation BusinessFactory
 
@@ -55,6 +56,8 @@
         return [[UploadImageBusiness alloc] init];
     }else if(type==BUSINESS_UPDATEUSERINFO){
         return [[UpdateUserInfoBusiness alloc] init];
+    }else if(type==BUSINESS_OTHER_CLIENTVERSION){
+        return [[VersionBusiness alloc] init];
     }
     
     return nil;
