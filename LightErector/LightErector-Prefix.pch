@@ -36,6 +36,6 @@
 #define  API_VERSION          @"1.0"
 #define  CLIENT_VERSION       @"210"
 #define  SHOW_CLIENT_VERSION  @"2.1.0"
-#define  API_KEY              @"feed24f665d1c2b66624e21064d20d98"
+#define  API_KEY              @"4f5b15fcd5bae035c2553c37d9c111f6"
 #define  ACTION_PATH           @"service"
 #endif

@@ -57,7 +57,7 @@
         version=[[Version alloc]init];
         version.observer=self;
         [version getLastVersion];
-        [self lockView];
+        //[self lockView];
         return;
     }
     
@@ -90,28 +90,18 @@
 -(IBAction)loginButton_onClick:(id)sender
 {
     [self.view endEditing:NO];
-    BaseCustomMessageBox *baseCustomMessageBox = nil;
     
     NSString *userName = ((LoginView*)self.view).txt_userName.text;
     NSString *password = ((LoginView*)self.view).txt_password.text;
     
     if(userName==nil || userName.length == 0)
     {
-        baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:NSLocalizedStringFromTable(@"AccountNumberIsNull",Res_String,@"") forBackgroundImage:[UIImage imageNamed:@"base_messagebox_background"]];
+        [self showTip:NSLocalizedStringFromTable(@"AccountNumberIsNull",Res_String,@"") ];
         
     }
     else if(password==nil || password.length == 0)
     {
-        baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:NSLocalizedStringFromTable(@"PasswordIsNull",Res_String,@"") forBackgroundImage:[UIImage imageNamed:@"base_messagebox_background"]];
-        
-    }
-    
-    if(baseCustomMessageBox!=nil)
-    {
-        baseCustomMessageBox.animation = YES;
-        baseCustomMessageBox.autoCloseTimer = 1;
-        [self.view addSubview:baseCustomMessageBox];
-        return;
+         [self showTip:NSLocalizedStringFromTable(@"PasswordIsNull",Res_String,@"") ];
     }
     
     user.observer = self;
@@ -124,8 +114,7 @@
     [self.view endEditing:NO];
     if(!findPasswordFromPhoneView)
     {
-        CGRect frame = CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 200);
-        findPasswordFromPhoneView = [[FindPasswordFromPhoneView alloc] initWithFrame:frame];
+        findPasswordFromPhoneView = [[FindPasswordFromPhoneView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         findPasswordFromPhoneView.eventObserver = self;
         [self.view addSubview:findPasswordFromPhoneView];
     }
@@ -133,12 +122,35 @@
 
 -(IBAction)findPasswordConfirmButton_onClick:(id)sender
 {
-
+   // [findPasswordFromPhoneView scrollToChangePwdView];
+    user.observer=self;
+    [user uploadUserName:findPasswordFromPhoneView.txt_userName.text andVeryCode:findPasswordFromPhoneView.txt_veryCode.text];
+    [self lockView];
 }
 
 -(IBAction)findPasswordCancelButton_onClick:(id)sender
 {
+    [findPasswordFromPhoneView removeFromSuperview];
+    findPasswordFromPhoneView=nil;
+}
 
+-(IBAction)findPasswordGetVerCode_onClick:(id)sender
+{
+    [findPasswordFromPhoneView.txt_veryCode becomeFirstResponder];
+    user.observer=self;
+    [user getVeryCode:findPasswordFromPhoneView.txt_userName.text];
+    [self lockView];
+}
+
+-(IBAction)findPasswordChangePwd_onClick:(id)sender
+{
+    if (![findPasswordFromPhoneView.txt_password.text isEqualToString:findPasswordFromPhoneView.txt_confirmpassword.text]) {
+        [self showTip:@"两次密码输入不一致"];
+        return;
+    }
+    user.observer=self;
+    [user changePwd:findPasswordFromPhoneView.txt_password.text];
+    [self lockView];
 }
 
 -(void)receiveMessage:(Message *)message
@@ -152,7 +164,7 @@
 #pragma mark - DataModuleDelegate
 -(void)didDataModelNoticeSucess:(BaseDataModel*)baseDataModel forBusinessType:(enum BusinessType)businessID
 {
-    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     if(businessID == BUSINESS_LOGIN)
     {
 //        //设置推送的对象为当前用户
@@ -177,6 +189,14 @@
             if(user.autoLoginFlag)
                 [self performSelector:@selector(loginButton_onClick:) withObject:nil afterDelay:0];
         }
+    }else if (businessID==BUSINESS_GETVERYCODE) {
+        [self showTip:@"验证码已发送至您手机，请查收。"];
+    }else if (businessID==BUSINESS_UPLOADNAMEANDCODE) {
+        [findPasswordFromPhoneView scrollToChangePwdView];
+    }else if (businessID==BUSINESS_CHANGEPWD) {
+        [findPasswordFromPhoneView removeFromSuperview];
+        findPasswordFromPhoneView=nil;
+        [self showTip:@"密码修改成功，请重新登陆。"];
     }
 }
 
@@ -186,4 +206,5 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:version.url]];
     }
 }
+
 @end

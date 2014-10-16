@@ -12,7 +12,7 @@
 -(id)init
 {
     self = [super initWithNtspHeader];
-    self.businessId = BUSINESS_LOGIN;
+    self.businessId = BUSINESS_UPDATEUSERINFO;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
     self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=updateinfo",ACTION_PATH];
     self.baseBusinessHttpConnect.resquestType = HTTP_REQUEST_POST;

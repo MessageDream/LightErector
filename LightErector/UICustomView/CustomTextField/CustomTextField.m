@@ -59,6 +59,9 @@
         _lbl_placeholder.textAlignment = NSTextAlignmentLeft;
         
         _enable = YES;
+        
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification object:_txt_content];
+    
     }
     return self;
 }
@@ -195,6 +198,13 @@
             [self.observer customTextFieldDidBeginEditing:self];
     }
 }
+
+- (void)textFieldChanged:(UITextField *)textField
+{
+    if (self.observer&&[self.observer respondsToSelector:@selector(textFieldChanged:)]) {
+        [self.observer textFieldChanged:self];
+    }
+}
 -(void)setTextAlignment:(NSTextAlignment)textAlignment
 {
     _textAlignment = textAlignment;
@@ -253,4 +263,8 @@
 }
 */
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:_txt_content];
+}
 @end

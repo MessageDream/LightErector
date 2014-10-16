@@ -17,6 +17,7 @@
 - (BOOL)customTextField:(CustomTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 - (void)customTextFieldDidEndEditing:(CustomTextField *)textField;
 - (void)customTextFieldDidBeginEditing:(CustomTextField *)textField;
+- (void)textFieldChanged:(CustomTextField *)textField;
 @end
 
 

@@ -33,9 +33,11 @@
                                                  selector:@selector(keyboardWillShown:)
                                                      name:UIKeyboardWillShowNotification object:nil];
         
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWasHidden:)
                                                      name:UIKeyboardDidHideNotification object:nil];
+        
         keyboardShown = NO;
         activeKeyboardControlOfScrollViewToBottomHeight = 0;
     }
@@ -120,6 +122,7 @@
     saveKeyboardSize = keyboardSize;
     keyboardShown = YES;
 }
+
 - (void)keyboardWasHidden:(NSNotification*)aNotification
 {
     if(self.activeKeyboardControlOfScrollView == nil || self.activeKeyboardControl == nil)
@@ -141,6 +144,7 @@
 {
     [self endEditing:NO];
 }
+
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.

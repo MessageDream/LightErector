@@ -19,6 +19,9 @@
 #import "UploadImageBusiness.h"
 #import "UpdateUserInfoBusiness.h"
 #import "VersionBusiness.h"
+#import "GetVeryCodeBusiness.h"
+#import "ChangePwdBusiness.h"
+#import "UploadUserNameAndCodeBusiness.h"
 
 @implementation BusinessFactory
 
@@ -58,6 +61,12 @@
         return [[UpdateUserInfoBusiness alloc] init];
     }else if(type==BUSINESS_OTHER_CLIENTVERSION){
         return [[VersionBusiness alloc] init];
+    }else if(type==BUSINESS_GETVERYCODE){
+        return [[GetVeryCodeBusiness alloc] init];
+    }else if(type==BUSINESS_CHANGEPWD){
+        return [[ChangePwdBusiness alloc] init];
+    }else if(type==BUSINESS_UPLOADNAMEANDCODE){
+        return [[UploadUserNameAndCodeBusiness alloc] init];
     }
     
     return nil;

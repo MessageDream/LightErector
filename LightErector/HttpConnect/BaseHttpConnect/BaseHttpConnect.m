@@ -8,6 +8,7 @@
 
 #import "BaseHttpConnect.h"
 #import "FormMltipart.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 static NSOperationQueue *operationQueue = nil;
 @interface BaseHttpConnect()
@@ -127,6 +128,22 @@ static NSOperationQueue *operationQueue = nil;
                     }
                 }
                 
+              NSDictionary *dic=[_body objectForKey:@"ntspheader"];
+                if (dic) {
+                    NSError *error = nil;
+                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+                    if (![jsonData length] && error){
+                        return;
+                    }
+                    
+                    FormMltipart *formheader=[[FormMltipart alloc] init];
+                    formheader.formName=@"ntspheader";
+                    formheader.type=FormMltipartTypeNormal;
+                    formheader.data=[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                    [BaseHttpConnect processFormMltipart:formData obj:formheader];
+ 
+                }
+                
                 [_body removeObjectForKey:kFormMltipart];
                 
             } error:nil];
@@ -189,6 +206,13 @@ static NSOperationQueue *operationQueue = nil;
             NSString *filename = obj.formFileName;
             NSString *mimeType = obj.formMimeType;
             id data = obj.data;
+            if ([data isKindOfClass:[UIImage class]]) {
+                UIImage *img=data;
+                data=UIImageJPEGRepresentation(img,0.8);
+            }else if([data isKindOfClass:[ALAsset class]]) {
+                ALAsset *set=data;
+                data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
+            }
             [formData appendPartWithFileData:data name:name fileName:filename mimeType:mimeType];
         }
             break;

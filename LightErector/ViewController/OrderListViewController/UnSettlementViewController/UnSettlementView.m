@@ -30,7 +30,7 @@
         self.tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
         CGRect rect=self.tableView.frame;
         rect.origin.y=lineView.frame.size.height+lineView.frame.origin.y;
-        rect.size.height=rect.size.height-DefaultTabBarHeight- self.infoLable.frame.size.height-lineView.frame.size.height;
+        rect.size.height=rect.size.height-DefaultTabBarHeight- self.infoLable.frame.size.height-lineView.frame.size.height-10;
         self.tableView.frame=rect;
         [self addSubview:self.tableView];
         self.tableView.contentSize=CGSizeMake(rect.size.width, rect.size.height);

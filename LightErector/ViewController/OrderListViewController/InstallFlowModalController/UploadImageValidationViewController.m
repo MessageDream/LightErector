@@ -63,33 +63,22 @@
     for (id item in li) {
 
         FormMltipart *muform=[[FormMltipart alloc] init];
-        muform.formName=@"lightpic";
+        muform.formName=@"lightpic[]";
         muform.formMimeType=@"image/jpeg";
-        muform.formFileName=[NSString stringWithFormat:@"lightfile%d",[li indexOfObject:item]];
+        muform.formFileName=[NSString stringWithFormat:@"lightfile%d.jpg",[li indexOfObject:item]];
         muform.type=FormMltipartTypeData;
-        if ([item isKindOfClass:[UIImage class]]) {
-            muform.data=UIImageJPEGRepresentation(item,1.0);
-        }else{
-            ALAsset *set=item;
-            muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
-        }
+    muform.data=item;
         
         [pics addObject: muform];
     }
     
     for (id item in ca) {
         FormMltipart *muform=[[FormMltipart alloc] init];
-        muform.formName=@"cardpic";
+        muform.formName=@"cardpic[]";
         muform.formMimeType=@"image/jpeg";
-        muform.formFileName=[NSString stringWithFormat:@"carfile%d",[ca indexOfObject:item]];
+        muform.formFileName=[NSString stringWithFormat:@"carfile%d.jpg",[ca indexOfObject:item]];
         muform.type=FormMltipartTypeData;
-        if ([item isKindOfClass:[UIImage class]]) {
-            muform.data=UIImageJPEGRepresentation(item,1.0);
-        }else{
-            ALAsset *set=item;
-            muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
-        }
-
+        muform.data=item;
         [pics addObject: muform];
     }
     

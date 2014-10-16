@@ -55,6 +55,10 @@
 		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
 		B25B8C5119EE80D600576D85 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5019EE80D600576D85 /* Version.m */; };
 		B25B8C5419EE891400576D85 /* FindPasswordFromPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5319EE891400576D85 /* FindPasswordFromPhoneView.m */; };
+		B25B8C5819EF713400576D85 /* GetVeryCodeBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5719EF713400576D85 /* GetVeryCodeBusiness.m */; };
+		B25B8C5B19EF714600576D85 /* ChangePwdBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5A19EF714600576D85 /* ChangePwdBusiness.m */; };
+		B25B8C5E19EF87B600576D85 /* UploadUserNameAndCodeBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C5D19EF87B600576D85 /* UploadUserNameAndCodeBusiness.m */; };
+		B25B8C6019EF9C5A00576D85 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C5F19EF9C5A00576D85 /* logo@2x.png */; };
 		B2683DDC19DCE9BA000FB9A1 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */; };
 		B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DDF19DCEB6E000FB9A1 /* OrderCategoryViewController.m */; };
 		B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2683DE219DCEB95000FB9A1 /* OrderCategoryView.m */; };
@@ -400,6 +404,13 @@
 		B25B8C5019EE80D600576D85 /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Version.m; path = VersionModel/Version.m; sourceTree = "<group>"; };
 		B25B8C5219EE891400576D85 /* FindPasswordFromPhoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindPasswordFromPhoneView.h; path = LoginViewController/FindPasswordFromPhoneView.h; sourceTree = "<group>"; };
 		B25B8C5319EE891400576D85 /* FindPasswordFromPhoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindPasswordFromPhoneView.m; path = LoginViewController/FindPasswordFromPhoneView.m; sourceTree = "<group>"; };
+		B25B8C5619EF713400576D85 /* GetVeryCodeBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVeryCodeBusiness.h; sourceTree = "<group>"; };
+		B25B8C5719EF713400576D85 /* GetVeryCodeBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVeryCodeBusiness.m; sourceTree = "<group>"; };
+		B25B8C5919EF714600576D85 /* ChangePwdBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdBusiness.h; sourceTree = "<group>"; };
+		B25B8C5A19EF714600576D85 /* ChangePwdBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdBusiness.m; sourceTree = "<group>"; };
+		B25B8C5C19EF87B600576D85 /* UploadUserNameAndCodeBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadUserNameAndCodeBusiness.h; sourceTree = "<group>"; };
+		B25B8C5D19EF87B600576D85 /* UploadUserNameAndCodeBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadUserNameAndCodeBusiness.m; sourceTree = "<group>"; };
+		B25B8C5F19EF9C5A00576D85 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B2683DDA19DCE9BA000FB9A1 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSegmentedControl.h; path = CustomSegmentedControl/CustomSegmentedControl.h; sourceTree = "<group>"; };
 		B2683DDB19DCE9BA000FB9A1 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSegmentedControl.m; path = CustomSegmentedControl/CustomSegmentedControl.m; sourceTree = "<group>"; };
 		B2683DDE19DCEB6E000FB9A1 /* OrderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCategoryViewController.h; path = OrderCategoryViewController/OrderCategoryViewController.h; sourceTree = "<group>"; };
@@ -1269,6 +1280,12 @@
 				B2FDCBCE19D266D900215E70 /* UserLoginBusiness.m */,
 				B22CAE8B19E25F32008EE80B /* UpdateUserInfoBusiness.h */,
 				B22CAE8C19E25F32008EE80B /* UpdateUserInfoBusiness.m */,
+				B25B8C5619EF713400576D85 /* GetVeryCodeBusiness.h */,
+				B25B8C5719EF713400576D85 /* GetVeryCodeBusiness.m */,
+				B25B8C5919EF714600576D85 /* ChangePwdBusiness.h */,
+				B25B8C5A19EF714600576D85 /* ChangePwdBusiness.m */,
+				B25B8C5C19EF87B600576D85 /* UploadUserNameAndCodeBusiness.h */,
+				B25B8C5D19EF87B600576D85 /* UploadUserNameAndCodeBusiness.m */,
 			);
 			path = UserBusiness;
 			sourceTree = "<group>";
@@ -1336,6 +1353,7 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B25B8C5F19EF9C5A00576D85 /* logo@2x.png */,
 				B25B8C4C19EE757100576D85 /* login@2x.png */,
 				B204021619EC1D31001F493F /* radio_button_checked@2x.png */,
 				B204021719EC1D31001F493F /* radio_button_unchecked@2x.png */,
@@ -2013,6 +2031,7 @@
 				B26CB16419D5184D00023CEB /* phone@2x.png in Resources */,
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
 				B204021819EC1D31001F493F /* radio_button_checked@2x.png in Resources */,
+				B25B8C6019EF9C5A00576D85 /* logo@2x.png in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
 				B28C16FC19E4FD1500C44305 /* OK.png in Resources */,
 				B22CAE6819E0F5CA008EE80B /* detail@2x.png in Resources */,
@@ -2078,6 +2097,7 @@
 				B2FDCB8219D16C5B00215E70 /* CustomTextView.m in Sources */,
 				B22CAE5519E0C8C3008EE80B /* MZFormSheetBackgroundWindow.m in Sources */,
 				B2554F7D19DF8DAC0004FE42 /* RMStepsController.m in Sources */,
+				B25B8C5819EF713400576D85 /* GetVeryCodeBusiness.m in Sources */,
 				B2275D6819D9318400D5EE51 /* TaskRemind.m in Sources */,
 				B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */,
 				B2FDCB9C19D16C5B00215E70 /* test3View.m in Sources */,
@@ -2099,6 +2119,7 @@
 				B2FDCB9B19D16C5B00215E70 /* test2ViewController.m in Sources */,
 				B2FDCB7B19D16C5B00215E70 /* CustomTabBarItem.m in Sources */,
 				B2FDCB9619D16C5B00215E70 /* TitleBarAndTableView.m in Sources */,
+				B25B8C5B19EF714600576D85 /* ChangePwdBusiness.m in Sources */,
 				B2FDCB7619D16C5B00215E70 /* BaseCustomMessageBox.m in Sources */,
 				B2753B2919E91A82007F10D2 /* UnSettlementViewController.m in Sources */,
 				B22CAE6F19E13FF9008EE80B /* StepBaseViewController.m in Sources */,
@@ -2206,6 +2227,7 @@
 				B2FDCB4A19D16C5B00215E70 /* BaseBusiness.m in Sources */,
 				B22CAE8A19E246B1008EE80B /* UploadImageBusiness.m in Sources */,
 				B2FDCB7F19D16C5B00215E70 /* CustomTextFieldCell.m in Sources */,
+				B25B8C5E19EF87B600576D85 /* UploadUserNameAndCodeBusiness.m in Sources */,
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,

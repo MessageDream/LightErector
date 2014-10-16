@@ -31,4 +31,7 @@ enum UserLoginStatus
 -(void)updateInfo;
 -(void)setAutoLoginFlag:(BOOL)autoLogin;
 -(void)setRememberFlag:(BOOL)remember;
+-(void)getVeryCode:(NSString *)userName;
+-(void)changePwd:(NSString *)pwd;
+-(void)uploadUserName:(NSString *)userName andVeryCode:(NSString *)veryCode;
 @end

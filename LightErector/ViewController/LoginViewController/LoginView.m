@@ -9,6 +9,7 @@
 #import "LoginView.h"
 
 #import "UIHyperlinksButton.h"
+#import "ImageUtils.h"
 
 @interface LoginView()
 {
@@ -33,19 +34,19 @@
         [self.belowRefreshView removeFromSuperview];
         self.aboveRefreshView = nil;
         self.belowRefreshView = nil;
+        //[self setBackgroundColor:[MainStyle mainBackColor]];
+        UIImage *image ;//= [ImageUtils createImageWithColor:[MainStyle mainBackColor] andSize:frame.size];
+//        UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(5,5,image.size.height-10,image.size.width-10)]];
+//        backgroundImageView.contentMode    = UIViewContentModeScaleToFill;
+//        backgroundImageView.userInteractionEnabled = YES;
+//        CGRect backgroundImageViewFrame = backgroundImageView.frame;
+//        backgroundImageViewFrame.size.width = self.bounds.size.width;
+//        backgroundImageViewFrame.size.height = self.bounds.size.height;
+//        backgroundImageView.frame = backgroundImageViewFrame;
+//        [self insertSubview:backgroundImageView atIndex:0];
         
-        UIImage *image = [UIImage imageNamed:@"login_back"];
-        UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(5,5,image.size.height-10,image.size.width-10)]];
-        backgroundImageView.contentMode    = UIViewContentModeScaleToFill;
-        backgroundImageView.userInteractionEnabled = YES;
-        CGRect backgroundImageViewFrame = backgroundImageView.frame;
-        backgroundImageViewFrame.size.width = self.bounds.size.width;
-        backgroundImageViewFrame.size.height = self.bounds.size.height;
-        backgroundImageView.frame = backgroundImageViewFrame;
-        [self insertSubview:backgroundImageView atIndex:0];
         
-        
-        UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_logo"]];
+        UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
         
         CGRect iconImageViewFrame = iconImageView.frame;
         iconImageViewFrame.origin.x = self.bounds.size.width/2-iconImageViewFrame.size.width/2;
@@ -142,7 +143,7 @@
         [btn_autoLoginCheckbox addSubview:autoLoginCheckboxMarkImageView];
         
         
-        image = [UIImage imageNamed:@"btn_login_back"];
+        image = [ImageUtils createImageWithColor:[MainStyle mainGreenColor] andSize:CGSizeMake(260, 40)];
         btn_login = [UIButton buttonWithType:UIButtonTypeCustom];
         btn_login.contentMode = UIViewContentModeScaleToFill;
         btn_login.frame = CGRectMake(passwordView.frame.origin.x, btn_autoLoginCheckbox.frame.origin.y+btn_autoLoginCheckbox.frame.size.height+15, image.size.width, image.size.height);

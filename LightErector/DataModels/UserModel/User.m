@@ -125,6 +125,25 @@
     [self writeLocalFile];
 }
 
+-(void)getVeryCode:(NSString *)userName
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObject:userName forKey:@"username"];
+    [self creatBusinessWithId:BUSINESS_GETVERYCODE andExecuteWithData:dic];
+}
+
+-(void)changePwd:(NSString *)pwd
+{
+ NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[_userName,pwd] forKeys:@[@"username",@"userpwd"]];
+    [self creatBusinessWithId:BUSINESS_CHANGEPWD andExecuteWithData:dic];
+}
+
+-(void)uploadUserName:(NSString *)userName andVeryCode:(NSString *)veryCode
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[userName,veryCode] forKeys:@[@"username",@"verify"]];
+    [self creatBusinessWithId:BUSINESS_UPLOADNAMEANDCODE andExecuteWithData:dic];
+
+}
+
 #pragma mark - BusinessProtocl
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary*)businessData
 {
@@ -146,6 +165,10 @@
     else if (business.businessId == BUSINESS_COMMITFEEDBACK)
     {
         
+    }
+    else if (business.businessId == BUSINESS_UPLOADNAMEANDCODE)
+    {
+        _userName=[businessData objectForKey:@"username"];
     }
     
     [super didBusinessSucess:business withData:businessData];

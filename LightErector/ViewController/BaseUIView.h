@@ -10,6 +10,7 @@
 #import "MainStyle.h"
 #import "../Resources/ResDefine.h"
 #define DefaultTabBarHeight  50
+#define MESSAGEBOXTAG 93257648
 @interface BaseUIView : UIView
 {
     

@@ -14,6 +14,8 @@
 @protocol FindPasswordFromPhoneViewDelegate <NSObject>
 -(IBAction)findPasswordConfirmButton_onClick:(id)sender;
 -(IBAction)findPasswordCancelButton_onClick:(id)sender;
+-(IBAction)findPasswordGetVerCode_onClick:(id)sender;
+-(IBAction)findPasswordChangePwd_onClick:(id)sender;
 @end
 
 @interface FindPasswordFromPhoneView : BaseUIView
@@ -27,4 +29,5 @@
 @property(nonatomic,readonly)CustomTextField *txt_confirmpassword;
 @property(nonatomic,assign)id<FindPasswordFromPhoneViewDelegate,TextFiledReturnEditingDelegate> eventObserver;
 -(id)initWithBottom;
+-(void)scrollToChangePwdView;
 @end

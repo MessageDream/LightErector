@@ -38,7 +38,8 @@
         
         UIButton *requestButton=[UIButton buttonWithType:UIButtonTypeCustom];
         requestButton.frame=CGRectMake(10, 33, centerContainer.frame.size.width-20, image.size.height+6);
-        requestButton.backgroundColor=[MainStyle mainLightColor];
+        UIImage *bimage=[ImageUtils createImageWithColor:[MainStyle mainLightColor] andSize:requestButton.frame.size];
+        [requestButton setBackgroundImage:bimage forState:UIControlStateNormal];
         [requestButton setTitle:@"完成安装 开始验证" forState:UIControlStateNormal];
         requestButton.titleLabel.textColor=[MainStyle mainBackColor];
         [requestButton addTarget:self action:@selector(requestCode_click:) forControlEvents:UIControlEventTouchUpInside];
@@ -59,7 +60,8 @@
        image=[UIImage imageNamed:@"fingerprint"];
         UIButton *uploadButton=[UIButton buttonWithType:UIButtonTypeCustom];
         uploadButton.frame=CGRectMake(10, codeText.frame.origin.y+codeText.frame.size.height+30, centerContainer.frame.size.width-20, image.size.height+6);
-        uploadButton.backgroundColor=[MainStyle mainGreenColor];
+        bimage=[ImageUtils createImageWithColor:[MainStyle mainGreenColor] andSize:uploadButton.frame.size];
+        [uploadButton setBackgroundImage:bimage forState:UIControlStateNormal];
         [uploadButton setTitle:@"完成安装 提交验证" forState:UIControlStateNormal];
         uploadButton.titleLabel.textColor=[MainStyle mainBackColor];
         [uploadButton addTarget:self action:@selector(uploadCode_click:) forControlEvents:UIControlEventTouchUpInside];

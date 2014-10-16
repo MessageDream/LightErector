@@ -228,8 +228,19 @@
 
 -(void)showTip:(NSString *)text
 {
+    [self showTip:text atTop:NO];
+}
+
+-(void)showTip:(NSString *)text atTop:(BOOL) isAtTop
+{
     UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
     BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:text forBackgroundImage:image];
+    if (isAtTop) {
+      CGRect rect= baseCustomMessageBox.frame;
+        rect.origin.y=self.view.frame.origin.y+50;
+        baseCustomMessageBox.frame=rect;
+    }
+    baseCustomMessageBox.tag=MESSAGEBOXTAG;
     baseCustomMessageBox.animation = YES;
     baseCustomMessageBox.autoCloseTimer = 2;
     [self.view addSubview:baseCustomMessageBox];

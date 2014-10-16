@@ -7,6 +7,7 @@
 //
 
 #import "UploadImageValidationView.h"
+#import "ImageUtils.h"
 @interface UploadImageValidationView()
 @end
 @implementation UploadImageValidationView
@@ -49,7 +50,8 @@
         
         UIButton *uploadButton=[UIButton buttonWithType:UIButtonTypeCustom];
         uploadButton.frame=CGRectMake(30,  self.scrollerView.frame.origin.y+ self.scrollerView.frame.size.height+10, self.frame.size.width-60, image.size.height+6);
-        uploadButton.backgroundColor=[MainStyle mainLightColor];
+        UIImage *bimage=[ImageUtils createImageWithColor:[MainStyle mainLightColor] andSize:uploadButton.frame.size];
+        [uploadButton setBackgroundImage:bimage forState:UIControlStateNormal];
         [uploadButton setTitle:@"上传图片" forState:UIControlStateNormal];
         uploadButton.titleLabel.textColor=[MainStyle mainBackColor];
         [uploadButton addTarget:self action:@selector(uploadImage_click:) forControlEvents:UIControlEventTouchUpInside];
@@ -64,6 +66,8 @@
         UIButton *finishButton=[UIButton buttonWithType:UIButtonTypeCustom];
         finishButton.frame=CGRectMake(30,  uploadButton.frame.origin.y+uploadButton.frame.size.height+10,  self.frame.size.width-60, image.size.height+6);
         finishButton.backgroundColor=[MainStyle mainGreenColor];
+        bimage=[ImageUtils createImageWithColor:[MainStyle mainGreenColor] andSize:finishButton.frame.size];
+        [finishButton setBackgroundImage:bimage forState:UIControlStateNormal];
         [finishButton setTitle:@"完成验证" forState:UIControlStateNormal];
         finishButton.titleLabel.textColor=[MainStyle mainBackColor];
         [finishButton addTarget:self action:@selector(finish_click:) forControlEvents:UIControlEventTouchUpInside];
