@@ -48,9 +48,9 @@
         
         self.scrollerView.frame=CGRectMake(0,  self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT+0.5, frame.size.width, frame.size.height-(self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT));
         self.scrollerView.backgroundColor = [UIColor clearColor];
-        //self.scrollerView.pagingEnabled = YES;
+        self.scrollerView.pagingEnabled = YES;
         self.scrollerView.showsHorizontalScrollIndicator = NO;
-        self.scrollerView.scrollEnabled=NO;
+        self.scrollerView.scrollEnabled=YES;
         self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height+10);
         self.scrollerView.delegate = self;
         
@@ -89,7 +89,7 @@
         //self.editTimeView.layer.opacity=0.9f;
         self.editTimeView.hidden=YES;
         [self addSubview:self.editTimeView];
-        self.dataPicker=[[CustomUIDatePicker alloc]initWithFrame:CGRectMake(0,  self.editTimeView.frame.size.height-216, frame.size.width, 216)];
+        self.dataPicker=[[CustomUIDatePicker alloc]initWithFrame:CGRectMake(0,  self.editTimeView.frame.size.height-260, frame.size.width,260)];
         [self.editTimeView addSubview:self.dataPicker];
         self.textReson=[[CustomTextView alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20,self.editTimeView.frame.size.height-self.dataPicker.frame.size.height-20)];
         self.textReson.backgroundColor=[MainStyle mainLightTwoColor];

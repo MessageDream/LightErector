@@ -17,7 +17,6 @@
 {
     BOOL visible;
 }
-- (void)loadTabs;
 @end
 
 @implementation RootViewController
@@ -61,16 +60,12 @@
     //    [self sendMessage:message];
 }
 
-- (void)loadTabs
-{
-    
-}
 
 #pragma mark - CustomTabBarDelegate
 - (void)tabBar:(CustomTabBar *)tabBar tabBecameEnabledAtIndex:(int)index tab:(CustomTabBarItem *)tabItem
 {
     Message *message = [[Message alloc] init];
-    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+    message.commandID =MC_CREATE_NORML_VIEWCONTROLLER;
     switch (index) {
         case 0:
             message.receiveObjectID = VIEWCONTROLLER_TODAYTASK;
@@ -143,6 +138,13 @@
 - (void)swichTabAtIndex:(NSInteger)index
 {
     [tabBar swtichTab:tabBar.tabItems[index]];
+}
+
+-(void)reset
+{
+    tabBar.delegate=nil;
+    [tabBar swtichTab:tabBar.tabItems[0]];
+    tabBar.delegate=self;
 }
 #pragma mark - Required Protocol Method
 

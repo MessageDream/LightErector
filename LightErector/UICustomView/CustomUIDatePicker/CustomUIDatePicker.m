@@ -52,7 +52,7 @@
         [backgroundImageView addSubview:btn_confirm];
         
         
-        datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, backgroundImageView.bounds.size.height, self.bounds.size.width, 216)];
+        datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, backgroundImageView.bounds.size.height, self.bounds.size.width, frame.size.height-backgroundImageView.bounds.size.height)];
         //[datePicker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
         [datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
         if(_endDate != nil)

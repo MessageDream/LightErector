@@ -19,4 +19,5 @@
 - (void)hideTabBarWithAnimated:(BOOL)animated;
 
 - (void)swichTabAtIndex:(NSInteger)index;
+-(void)reset;
 @end

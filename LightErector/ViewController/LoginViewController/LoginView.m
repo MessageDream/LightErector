@@ -34,7 +34,8 @@
         [self.belowRefreshView removeFromSuperview];
         self.aboveRefreshView = nil;
         self.belowRefreshView = nil;
-        //[self setBackgroundColor:[MainStyle mainBackColor]];
+//[self setBackgroundColor:[UIColor colorWithRed:50.0f/255.0f green:53.0f/255.0f  blue:65.0f/255.0f  alpha:1.0f]];
+        
         UIImage *image ;//= [ImageUtils createImageWithColor:[MainStyle mainBackColor] andSize:frame.size];
 //        UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(5,5,image.size.height-10,image.size.width-10)]];
 //        backgroundImageView.contentMode    = UIViewContentModeScaleToFill;

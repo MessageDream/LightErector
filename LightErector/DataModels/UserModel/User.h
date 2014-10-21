@@ -21,7 +21,7 @@ enum UserLoginStatus
 @property (nonatomic,readonly)NSString  *userName;
 @property (nonatomic,readonly)NSString  *password;
 @property (nonatomic,readonly)UserInfo  *userInfo;
-@property(nonatomic,readonly,assign)enum UserLoginStatus userLoginStatus;
+@property(nonatomic,assign)enum UserLoginStatus userLoginStatus;
 @property(nonatomic,assign)BOOL autoLoginFlag;
 @property(nonatomic,assign)BOOL rememberFlag;
 @property(nonatomic,assign)BOOL wifiCheck;

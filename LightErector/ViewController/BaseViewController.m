@@ -215,6 +215,14 @@
     [self sendMessage:message];
 }
 
+-(void)sendResetMessage
+{
+    Message *message = [[Message alloc] init];
+    message.receiveObjectID=Module_ROOT;
+    message.commandID = MC_RESET_ROOT;
+    [self sendMessage:message];
+}
+
 -(void)dealloc
 {
     if([self.view isKindOfClass:[TitleBarView class]])
@@ -233,7 +241,7 @@
 
 -(void)showTip:(NSString *)text atTop:(BOOL) isAtTop
 {
-    UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
+    UIImage *image=[ImageUtils createImageWithColor:[[UIColor blackColor] colorWithAlphaComponent:0.8] andSize:CGSizeMake(200.0f, 50.0f)];
     BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:text forBackgroundImage:image];
     if (isAtTop) {
       CGRect rect= baseCustomMessageBox.frame;

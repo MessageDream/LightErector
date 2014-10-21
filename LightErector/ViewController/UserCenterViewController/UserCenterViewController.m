@@ -130,6 +130,40 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section==0) {
+        
+        switch (indexPath.row) {
+            case 0:
+                
+                break;
+            case 1:
+               
+                break;
+            case 2:
+                
+                break;
+        }
+        
+    }else{
+        switch (indexPath.row) {
+                
+            case 0:
+                
+                break;
+            case 1:
+                
+                break;
+            case 2:{
+                user.userLoginStatus = UserLoginStatus_Logout;
+                [self sendResetMessage];
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_LOGIN;
+                msg.commandID=MC_CREATE_FLIPFROMLEFT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
+            break;
+        }
+    }
 
 }
 

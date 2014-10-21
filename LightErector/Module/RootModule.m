@@ -72,6 +72,9 @@
     else if(message.commandID == MC_SWICH_ROOT_TABBAR)
     {
         [self.rootViewController swichTabAtIndex:[((NSNumber*)message.externData) integerValue]];
+    }else if(message.commandID == MC_RESET_ROOT)
+    {
+        [self.rootViewController reset];
     }
 //    BaseModule *Module = [self checkChildModuleWorkRange:message.receiveObjectID];
 //    

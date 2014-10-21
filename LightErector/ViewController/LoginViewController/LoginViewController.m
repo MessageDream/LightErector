@@ -97,11 +97,13 @@
     if(userName==nil || userName.length == 0)
     {
         [self showTip:NSLocalizedStringFromTable(@"AccountNumberIsNull",Res_String,@"") ];
+        return;
         
     }
     else if(password==nil || password.length == 0)
     {
          [self showTip:NSLocalizedStringFromTable(@"PasswordIsNull",Res_String,@"") ];
+        return;
     }
     
     user.observer = self;
@@ -175,6 +177,7 @@
         msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
         [self sendMessage:msg];
         [self sendShowTabBarMessage];
+//        [self sendSwichTabBarMessageAtIndex:0];
     }
     
     if (businessID==BUSINESS_OTHER_CLIENTVERSION) {

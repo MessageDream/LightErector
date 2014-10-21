@@ -44,6 +44,7 @@
 -(void)sendShowTabBarMessage;
 -(void)sendHideTabBarMessage;
 -(void)sendSwichTabBarMessageAtIndex:(NSInteger)index;
+-(void)sendResetMessage;
 -(void)showTip:(NSString *)text;
 -(void)showTip:(NSString *)text atTop:(BOOL) isAtTop;
 @end
