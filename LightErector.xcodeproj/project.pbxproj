@@ -50,6 +50,8 @@
 		B2554F7D19DF8DAC0004FE42 /* RMStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F7A19DF8DAC0004FE42 /* RMStepsController.m */; };
 		B2554F8319DF8E470004FE42 /* InstallFlowModalController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F8019DF8E470004FE42 /* InstallFlowModalController.m */; };
 		B2554F8719DF91000004FE42 /* ReachTerminalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F8619DF91000004FE42 /* ReachTerminalViewController.m */; };
+		B258DFAB19F637B600EE1488 /* ChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFAA19F637B600EE1488 /* ChangeUserInfoViewController.m */; };
+		B258DFAE19F637DD00EE1488 /* ChangeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFAD19F637DD00EE1488 /* ChangeUserInfoView.m */; };
 		B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */; };
 		B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */; };
 		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
@@ -395,6 +397,10 @@
 		B2554F8519DF91000004FE42 /* ReachTerminalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachTerminalViewController.h; sourceTree = "<group>"; };
 		B2554F8619DF91000004FE42 /* ReachTerminalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachTerminalViewController.m; sourceTree = "<group>"; };
 		B2554F8819DF91220004FE42 /* ReachTerminalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachTerminalView.h; sourceTree = "<group>"; };
+		B258DFA919F637B600EE1488 /* ChangeUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeUserInfoViewController.h; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoViewController.h; sourceTree = "<group>"; };
+		B258DFAA19F637B600EE1488 /* ChangeUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangeUserInfoViewController.m; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoViewController.m; sourceTree = "<group>"; };
+		B258DFAC19F637DD00EE1488 /* ChangeUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeUserInfoView.h; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoView.h; sourceTree = "<group>"; };
+		B258DFAD19F637DD00EE1488 /* ChangeUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangeUserInfoView.m; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoView.m; sourceTree = "<group>"; };
 		B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterViewController.h; path = UserCenterViewController/UserCenterViewController.h; sourceTree = "<group>"; };
 		B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterViewController.m; path = UserCenterViewController/UserCenterViewController.m; sourceTree = "<group>"; };
 		B25B8C4919EE5A9F00576D85 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterView.h; path = UserCenterViewController/UserCenterView.h; sourceTree = "<group>"; };
@@ -968,9 +974,21 @@
 			path = InstallFlowModalController;
 			sourceTree = "<group>";
 		};
+		B258DFA819F6377300EE1488 /* ChangeUserInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B258DFA919F637B600EE1488 /* ChangeUserInfoViewController.h */,
+				B258DFAA19F637B600EE1488 /* ChangeUserInfoViewController.m */,
+				B258DFAC19F637DD00EE1488 /* ChangeUserInfoView.h */,
+				B258DFAD19F637DD00EE1488 /* ChangeUserInfoView.m */,
+			);
+			name = ChangeUserInfoViewController;
+			sourceTree = "<group>";
+		};
 		B25B8C4519EE58AD00576D85 /* UserCenterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B258DFA819F6377300EE1488 /* ChangeUserInfoViewController */,
 				B25B8C4919EE5A9F00576D85 /* UserCenterView.h */,
 				B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */,
 				B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */,
@@ -2125,6 +2143,7 @@
 				B22CAE6F19E13FF9008EE80B /* StepBaseViewController.m in Sources */,
 				B22CAE5B19E0CA23008EE80B /* OrderDetailAndFeedBackView.m in Sources */,
 				B2FDCC1319D278FF00215E70 /* MD5.m in Sources */,
+				B258DFAB19F637B600EE1488 /* ChangeUserInfoViewController.m in Sources */,
 				B25B8C5419EE891400576D85 /* FindPasswordFromPhoneView.m in Sources */,
 				B22CAE7E19E23D98008EE80B /* InstallErrorFeedbackBusiness.m in Sources */,
 				B2FDCB8F19D16C5B00215E70 /* BaseViewController.m in Sources */,
@@ -2139,6 +2158,7 @@
 				B2FDCC0F19D2766B00215E70 /* User.m in Sources */,
 				B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */,
 				B22CAE5819E0C8C3008EE80B /* UIImage+Additional.m in Sources */,
+				B258DFAE19F637DD00EE1488 /* ChangeUserInfoView.m in Sources */,
 				B22CAE8119E23DD1008EE80B /* AcceptOrderBusiness.m in Sources */,
 				B2FDCB5919D16C5B00215E70 /* Message.m in Sources */,
 				B22C2C8519DFA2EE00DD8D38 /* ReachTerminalView.mm in Sources */,

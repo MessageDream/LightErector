@@ -9,11 +9,11 @@
 #import "BaseDataModel.h"
 
 @interface UserInfo : BaseDataModel
-@property (nonatomic,readonly)NSString  *address;
-@property (nonatomic,readonly)NSString  *qq;
-@property (nonatomic,readonly)NSString  *email;
-@property (nonatomic,readonly)NSString  *telephone;
-@property (nonatomic,readonly)NSString  *mobilephone;
+@property (nonatomic,strong)NSString  *address;
+@property (nonatomic,strong)NSString  *qq;
+@property (nonatomic,strong)NSString  *email;
+@property (nonatomic,strong)NSString  *telephone;
+@property (nonatomic,strong)NSString  *mobilephone;
 -(id)initWithDic:(NSDictionary *)dic;
--(NSDictionary *)convertToJson;
+-(NSDictionary *)convertToDic;
 @end

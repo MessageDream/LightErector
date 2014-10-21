@@ -13,6 +13,7 @@
 #import "UnSettlementViewController.h"
 #import "SubscribeClientViewController.h"
 #import "UserCenterViewController.h"
+#import "ChangeUserInfoViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -43,6 +44,8 @@
         viewcontroller=[[SubscribeClientViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_USERCENTER){
         viewcontroller=[[UserCenterViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_CHAGEUSERINFO){
+        viewcontroller=[[ChangeUserInfoViewController alloc] init];
     }
 
     if(viewcontroller != nil)

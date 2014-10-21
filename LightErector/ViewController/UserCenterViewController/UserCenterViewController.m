@@ -133,8 +133,12 @@
     if (indexPath.section==0) {
         
         switch (indexPath.row) {
-            case 0:
-                
+            case 0:{
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_CHAGEUSERINFO;
+                msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
                 break;
             case 1:
                

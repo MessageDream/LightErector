@@ -110,7 +110,7 @@
 }
 -(void)createUIActivityIndicatorView
 {
-    customActivityIndicatorView = [[CustomActivityIndicatorView alloc]initWithFrame:self.view.bounds];
+    customActivityIndicatorView = [[CustomActivityIndicatorView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     customActivityIndicatorView.alpha = 0.5;
     customActivityIndicatorView.color=[UIColor blackColor];
     [self.view addSubview:customActivityIndicatorView];
