@@ -14,6 +14,8 @@
 #import "SubscribeClientViewController.h"
 #import "UserCenterViewController.h"
 #import "ChangeUserInfoViewController.h"
+#import "SystemNoticeViewController.h"
+#import "AboutViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -46,6 +48,10 @@
         viewcontroller=[[UserCenterViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_CHAGEUSERINFO){
         viewcontroller=[[ChangeUserInfoViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_SYSTEMNOTICE){
+        viewcontroller=[[SystemNoticeViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_ABOUT){
+        viewcontroller=[[AboutViewController alloc] init];
     }
 
     if(viewcontroller != nil)

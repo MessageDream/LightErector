@@ -52,6 +52,10 @@
 		B2554F8719DF91000004FE42 /* ReachTerminalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F8619DF91000004FE42 /* ReachTerminalViewController.m */; };
 		B258DFAB19F637B600EE1488 /* ChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFAA19F637B600EE1488 /* ChangeUserInfoViewController.m */; };
 		B258DFAE19F637DD00EE1488 /* ChangeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFAD19F637DD00EE1488 /* ChangeUserInfoView.m */; };
+		B258DFB219F6592F00EE1488 /* SystemNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFB119F6592F00EE1488 /* SystemNoticeViewController.m */; };
+		B258DFB519F6596100EE1488 /* SystemNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFB419F6596100EE1488 /* SystemNoticeView.m */; };
+		B258DFC119F6670200EE1488 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFC019F6670200EE1488 /* AboutViewController.m */; };
+		B258DFC419F6672B00EE1488 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFC319F6672B00EE1488 /* AboutView.m */; };
 		B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */; };
 		B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */; };
 		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
@@ -401,6 +405,14 @@
 		B258DFAA19F637B600EE1488 /* ChangeUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangeUserInfoViewController.m; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoViewController.m; sourceTree = "<group>"; };
 		B258DFAC19F637DD00EE1488 /* ChangeUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeUserInfoView.h; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoView.h; sourceTree = "<group>"; };
 		B258DFAD19F637DD00EE1488 /* ChangeUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangeUserInfoView.m; path = UserCenterViewController/ChangeUserInfoViewController/ChangeUserInfoView.m; sourceTree = "<group>"; };
+		B258DFB019F6592F00EE1488 /* SystemNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemNoticeViewController.h; path = UserCenterViewController/SystemNoticeViewController/SystemNoticeViewController.h; sourceTree = "<group>"; };
+		B258DFB119F6592F00EE1488 /* SystemNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemNoticeViewController.m; path = UserCenterViewController/SystemNoticeViewController/SystemNoticeViewController.m; sourceTree = "<group>"; };
+		B258DFB319F6596100EE1488 /* SystemNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemNoticeView.h; path = UserCenterViewController/SystemNoticeViewController/SystemNoticeView.h; sourceTree = "<group>"; };
+		B258DFB419F6596100EE1488 /* SystemNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemNoticeView.m; path = UserCenterViewController/SystemNoticeViewController/SystemNoticeView.m; sourceTree = "<group>"; };
+		B258DFBF19F6670200EE1488 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = UserCenterViewController/AboutViewController/AboutViewController.h; sourceTree = "<group>"; };
+		B258DFC019F6670200EE1488 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = UserCenterViewController/AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
+		B258DFC219F6672B00EE1488 /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutView.h; path = UserCenterViewController/AboutViewController/AboutView.h; sourceTree = "<group>"; };
+		B258DFC319F6672B00EE1488 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutView.m; path = UserCenterViewController/AboutViewController/AboutView.m; sourceTree = "<group>"; };
 		B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterViewController.h; path = UserCenterViewController/UserCenterViewController.h; sourceTree = "<group>"; };
 		B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterViewController.m; path = UserCenterViewController/UserCenterViewController.m; sourceTree = "<group>"; };
 		B25B8C4919EE5A9F00576D85 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterView.h; path = UserCenterViewController/UserCenterView.h; sourceTree = "<group>"; };
@@ -985,9 +997,33 @@
 			name = ChangeUserInfoViewController;
 			sourceTree = "<group>";
 		};
+		B258DFAF19F6590400EE1488 /* SystemNoticeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B258DFB019F6592F00EE1488 /* SystemNoticeViewController.h */,
+				B258DFB119F6592F00EE1488 /* SystemNoticeViewController.m */,
+				B258DFB319F6596100EE1488 /* SystemNoticeView.h */,
+				B258DFB419F6596100EE1488 /* SystemNoticeView.m */,
+			);
+			name = SystemNoticeViewController;
+			sourceTree = "<group>";
+		};
+		B258DFBE19F666DB00EE1488 /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B258DFBF19F6670200EE1488 /* AboutViewController.h */,
+				B258DFC019F6670200EE1488 /* AboutViewController.m */,
+				B258DFC219F6672B00EE1488 /* AboutView.h */,
+				B258DFC319F6672B00EE1488 /* AboutView.m */,
+			);
+			name = AboutViewController;
+			sourceTree = "<group>";
+		};
 		B25B8C4519EE58AD00576D85 /* UserCenterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B258DFBE19F666DB00EE1488 /* AboutViewController */,
+				B258DFAF19F6590400EE1488 /* SystemNoticeViewController */,
 				B258DFA819F6377300EE1488 /* ChangeUserInfoViewController */,
 				B25B8C4919EE5A9F00576D85 /* UserCenterView.h */,
 				B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */,
@@ -2123,6 +2159,7 @@
 				B2FDCB9819D16C5B00215E70 /* test1View.m in Sources */,
 				B28C170119E4FD1500C44305 /* ZYQAssetPickerController.m in Sources */,
 				B2FDCBA019D16C5B00215E70 /* test5View.m in Sources */,
+				B258DFB219F6592F00EE1488 /* SystemNoticeViewController.m in Sources */,
 				B2FDCBB719D17FB600215E70 /* RootModule.m in Sources */,
 				B2FDCB7D19D16C5B00215E70 /* CustomOrderMangerCell.m in Sources */,
 				B2FDCBAB19D16DE500215E70 /* RootViewController.m in Sources */,
@@ -2171,9 +2208,11 @@
 				B2FDCC1719D28A0400215E70 /* LoginViewController.m in Sources */,
 				B2FDCC9319D29C3700215E70 /* SystemModule.m in Sources */,
 				B27FDB1919DAF59E003C0FE1 /* TodayTaskViewController.m in Sources */,
+				B258DFC119F6670200EE1488 /* AboutViewController.m in Sources */,
 				B28C16FD19E4FD1500C44305 /* MessagePhotoMenuItem.m in Sources */,
 				B2FDCB8419D16C5B00215E70 /* CustomUIDatePicker.m in Sources */,
 				B26CB14219D2D2A500023CEB /* AFURLSessionManager.m in Sources */,
+				B258DFB519F6596100EE1488 /* SystemNoticeView.m in Sources */,
 				B2554F7219DE9E280004FE42 /* CustomScrollFullScreen.m in Sources */,
 				B2FDCBA119D16C5B00215E70 /* test5ViewController.m in Sources */,
 				B22CAE7219E14872008EE80B /* CodeValidationViewController.m in Sources */,
@@ -2196,6 +2235,7 @@
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
 				B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */,
 				B2FDCBD519D26C0A00215E70 /* BaseDataModel.m in Sources */,
+				B258DFC419F6672B00EE1488 /* AboutView.m in Sources */,
 				B26CB13E19D2D2A500023CEB /* AFSecurityPolicy.m in Sources */,
 				B22CAE7519E148A4008EE80B /* CodeValidationView.m in Sources */,
 				B22CAE6C19E12650008EE80B /* GetOrderStatusBusiness.m in Sources */,

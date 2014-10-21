@@ -29,7 +29,8 @@
 #define  CLIENT_VERSION       @"210"
 #define  SHOW_CLIENT_VERSION  @"2.1.0"
 #define  API_KEY              @"4f5b15fcd5bae035c2553c37d9c111f6"
-#define  ACTION_PATH           @"service_test"
+#define  ACTION_PATH          @"service_test"
+#define  SYSTEMNOTICE_URL     @"http://www.zhuangdeng.cn/mobile/gonggao.php"
 #else   //正式
 
 #define  API_ADDRESS          @"http://www.zhuangdeng.cn"
@@ -37,5 +38,6 @@
 #define  CLIENT_VERSION       @"210"
 #define  SHOW_CLIENT_VERSION  @"2.1.0"
 #define  API_KEY              @"4f5b15fcd5bae035c2553c37d9c111f6"
-#define  ACTION_PATH           @"service"
+#define  ACTION_PATH          @"service"
+#define  SYSTEMNOTICE_URL     @"http://www.zhuangdeng.cn/mobile/gonggao.php"
 #endif

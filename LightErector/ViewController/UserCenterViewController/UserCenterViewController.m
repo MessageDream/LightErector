@@ -87,7 +87,7 @@
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.backgroundColor=[UIColor clearColor];
         cell.textLabel.textColor=[MainStyle mainTitleColor];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
     if (indexPath.section==0) {
         
@@ -143,8 +143,12 @@
             case 1:
                
                 break;
-            case 2:
-                
+            case 2:{
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_SYSTEMNOTICE;
+                msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
                 break;
         }
         
@@ -154,8 +158,12 @@
             case 0:
                 
                 break;
-            case 1:
-                
+            case 1:{
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_ABOUT;
+                msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
                 break;
             case 2:{
                 user.userLoginStatus = UserLoginStatus_Logout;

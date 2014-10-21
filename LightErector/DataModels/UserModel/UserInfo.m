@@ -15,7 +15,7 @@
         _mobilephone=[dic objectForKey:@"mobile"];
          _telephone=[dic objectForKey:@"telphone"];
          _email=[dic objectForKey:@"eamil"];
-         _address=[dic objectForKey:@"addredss"];
+         _address=[dic objectForKey:@"address"];
          _qq=[dic objectForKey:@"qq"];
     }
     return self;
