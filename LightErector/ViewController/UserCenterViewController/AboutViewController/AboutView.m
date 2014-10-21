@@ -122,6 +122,7 @@
         webSiteBtn.frame = CGRectMake(sixLable.frame.origin.x+sixLable.frame.size.width, sixLable.frame.origin.y, 180, 20);
         [webSiteBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         webSiteBtn.titleLabel.font = font;
+        [webSiteBtn addTarget:self action:@selector(web_click:) forControlEvents:UIControlEventTouchUpInside];
         NSString *str =@"www.dengbaomu.com";
         [webSiteBtn setTitle:str forState:UIControlStateNormal];
         [webSiteBtn setColor:[UIColor blueColor]];
@@ -131,6 +132,20 @@
     return self;
 }
 
+
+-(void)call_click:(id)sender
+{
+    if (self.observer&&[self.observer respondsToSelector:@selector(call_click:)]) {
+        [self.observer call_click:@""];
+    }
+}
+-(void)web_click:(id)sender
+{
+    if (self.observer&&[self.observer respondsToSelector:@selector(web_click:)]) {
+      UIHyperlinksButton *btn= ( UIHyperlinksButton*)sender;
+        [self.observer web_click:btn.titleLabel.text];
+    }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

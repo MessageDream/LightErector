@@ -9,7 +9,7 @@
 #import "AboutViewController.h"
 #import "AboutView.h"
 
-@interface AboutViewController ()<CustomTitleBar_ButtonDelegate>
+@interface AboutViewController ()<CustomTitleBar_ButtonDelegate,AboutViewDelegate>
 {
     AboutView *view;
 }
@@ -35,6 +35,8 @@
 -(void)loadView
 {
     view=[[AboutView alloc] initWithFrame:[self createViewFrame]];
+    view.observer=self;
+     view.customTitleBar.buttonEventObserver=self;
     self.view=view;
 }
 
@@ -59,6 +61,15 @@
     
 }
 
+-(void)call_click:(NSString *)number
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",number]]];
+}
+
+-(void)web_click:(NSString *)url
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@",url]]];
+}
 /*
 #pragma mark - Navigation
 

@@ -7,7 +7,10 @@
 //
 
 #import "TitleBarAndScrollerView.h"
-
+@protocol AboutViewDelegate<NSObject>
+-(void)call_click:(NSString *)number;
+-(void)web_click:(NSString *)url;
+@end
 @interface AboutView : TitleBarAndScrollerView
-
+@property(nonatomic,weak)id<AboutViewDelegate> observer;
 @end
