@@ -34,4 +34,5 @@ enum UserLoginStatus
 -(void)getVeryCode:(NSString *)userName;
 -(void)changePwd:(NSString *)pwd;
 -(void)uploadUserName:(NSString *)userName andVeryCode:(NSString *)veryCode;
+-(void)feedbackWithTitle:(NSString *)title andContent:(NSString *)content;
 @end

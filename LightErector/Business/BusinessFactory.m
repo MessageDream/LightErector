@@ -22,6 +22,7 @@
 #import "GetVeryCodeBusiness.h"
 #import "ChangePwdBusiness.h"
 #import "UploadUserNameAndCodeBusiness.h"
+#import "FeedbackBusiness.h"
 
 @implementation BusinessFactory
 
@@ -67,6 +68,8 @@
         return [[ChangePwdBusiness alloc] init];
     }else if(type==BUSINESS_UPLOADNAMEANDCODE){
         return [[UploadUserNameAndCodeBusiness alloc] init];
+    }else if(type==BUSINESS_OTHER_FEEDBACK){
+        return [[FeedbackBusiness alloc] init];
     }
     
     return nil;

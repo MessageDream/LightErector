@@ -63,7 +63,7 @@
 
 -(void)call_click:(NSString *)number
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",number]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@",number]]];
 }
 
 -(void)web_click:(NSString *)url

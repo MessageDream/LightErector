@@ -56,6 +56,9 @@
 		B258DFB519F6596100EE1488 /* SystemNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFB419F6596100EE1488 /* SystemNoticeView.m */; };
 		B258DFC119F6670200EE1488 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFC019F6670200EE1488 /* AboutViewController.m */; };
 		B258DFC419F6672B00EE1488 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFC319F6672B00EE1488 /* AboutView.m */; };
+		B258DFC819F7561900EE1488 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFC719F7561900EE1488 /* FeedBackViewController.m */; };
+		B258DFCB19F7565100EE1488 /* FeedBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFCA19F7565100EE1488 /* FeedBackView.m */; };
+		B258DFCF19F75B6700EE1488 /* FeedbackBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B258DFCE19F75B6700EE1488 /* FeedbackBusiness.m */; };
 		B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */; };
 		B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B8C4A19EE5A9F00576D85 /* UserCenterView.m */; };
 		B25B8C4D19EE757100576D85 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25B8C4C19EE757100576D85 /* login@2x.png */; };
@@ -413,6 +416,12 @@
 		B258DFC019F6670200EE1488 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = UserCenterViewController/AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
 		B258DFC219F6672B00EE1488 /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutView.h; path = UserCenterViewController/AboutViewController/AboutView.h; sourceTree = "<group>"; };
 		B258DFC319F6672B00EE1488 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutView.m; path = UserCenterViewController/AboutViewController/AboutView.m; sourceTree = "<group>"; };
+		B258DFC619F7561900EE1488 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedBackViewController.h; path = FeedBackViewController/FeedBackViewController.h; sourceTree = "<group>"; };
+		B258DFC719F7561900EE1488 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedBackViewController.m; path = FeedBackViewController/FeedBackViewController.m; sourceTree = "<group>"; };
+		B258DFC919F7565100EE1488 /* FeedBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedBackView.h; path = FeedBackViewController/FeedBackView.h; sourceTree = "<group>"; };
+		B258DFCA19F7565100EE1488 /* FeedBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedBackView.m; path = FeedBackViewController/FeedBackView.m; sourceTree = "<group>"; };
+		B258DFCD19F75B6700EE1488 /* FeedbackBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackBusiness.h; path = FeedbackBusiness/FeedbackBusiness.h; sourceTree = "<group>"; };
+		B258DFCE19F75B6700EE1488 /* FeedbackBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackBusiness.m; path = FeedbackBusiness/FeedbackBusiness.m; sourceTree = "<group>"; };
 		B25B8C4619EE5A0700576D85 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterViewController.h; path = UserCenterViewController/UserCenterViewController.h; sourceTree = "<group>"; };
 		B25B8C4719EE5A0700576D85 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCenterViewController.m; path = UserCenterViewController/UserCenterViewController.m; sourceTree = "<group>"; };
 		B25B8C4919EE5A9F00576D85 /* UserCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCenterView.h; path = UserCenterViewController/UserCenterView.h; sourceTree = "<group>"; };
@@ -1019,9 +1028,30 @@
 			name = AboutViewController;
 			sourceTree = "<group>";
 		};
+		B258DFC519F755F600EE1488 /* FeedBackViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B258DFC619F7561900EE1488 /* FeedBackViewController.h */,
+				B258DFC719F7561900EE1488 /* FeedBackViewController.m */,
+				B258DFC919F7565100EE1488 /* FeedBackView.h */,
+				B258DFCA19F7565100EE1488 /* FeedBackView.m */,
+			);
+			name = FeedBackViewController;
+			sourceTree = "<group>";
+		};
+		B258DFCC19F75B4800EE1488 /* FeedbackBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				B258DFCD19F75B6700EE1488 /* FeedbackBusiness.h */,
+				B258DFCE19F75B6700EE1488 /* FeedbackBusiness.m */,
+			);
+			name = FeedbackBusiness;
+			sourceTree = "<group>";
+		};
 		B25B8C4519EE58AD00576D85 /* UserCenterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B258DFC519F755F600EE1488 /* FeedBackViewController */,
 				B258DFBE19F666DB00EE1488 /* AboutViewController */,
 				B258DFAF19F6590400EE1488 /* SystemNoticeViewController */,
 				B258DFA819F6377300EE1488 /* ChangeUserInfoViewController */,
@@ -1314,6 +1344,7 @@
 		B2FDCA5F19D16C5B00215E70 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				B258DFCC19F75B4800EE1488 /* FeedbackBusiness */,
 				B2275D6919D93ED400D5EE51 /* OrderBusiness */,
 				B2275D6119D9317B00D5EE51 /* TaskRemindBusiness */,
 				B2FDCBC919D2667800215E70 /* VersionBusiness */,
@@ -2165,6 +2196,7 @@
 				B2FDCBAB19D16DE500215E70 /* RootViewController.m in Sources */,
 				B22CAE8D19E25F32008EE80B /* UpdateUserInfoBusiness.m in Sources */,
 				B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */,
+				B258DFC819F7561900EE1488 /* FeedBackViewController.m in Sources */,
 				B2683DE019DCEB6E000FB9A1 /* OrderCategoryViewController.m in Sources */,
 				B22CAE8719E2446F008EE80B /* UpdateSubTimeBusiness.m in Sources */,
 				B2554F7C19DF8DAC0004FE42 /* RMStepsBar.m in Sources */,
@@ -2251,6 +2283,7 @@
 				B2FDCB9219D16C5B00215E70 /* BaseScrollerView.m in Sources */,
 				B26CB13B19D2D2A500023CEB /* AFHTTPRequestOperationManager.m in Sources */,
 				B2FDCB7419D16C5B00215E70 /* CustomImageZoomView.m in Sources */,
+				B258DFCB19F7565100EE1488 /* FeedBackView.m in Sources */,
 				B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */,
 				B2FDCB8C19D16C5B00215E70 /* PullRefreshTableView.m in Sources */,
 				B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */,
@@ -2294,6 +2327,7 @@
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,
 				B2FDCB8319D16C5B00215E70 /* CustomTitleBar.m in Sources */,
 				B2FDCBA419D16C5B00215E70 /* ViewControllerPathManager.m in Sources */,
+				B258DFCF19F75B6700EE1488 /* FeedbackBusiness.m in Sources */,
 				B2FDCB5519D16C5B00215E70 /* BusinessHttpConnectFactory.m in Sources */,
 				B2FDCB6F19D16C5B00215E70 /* CustomActivityIndicatorView.m in Sources */,
 				B2FDCBAA19D16DE500215E70 /* RootView.m in Sources */,

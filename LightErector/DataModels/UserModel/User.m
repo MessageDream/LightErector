@@ -144,6 +144,12 @@
 
 }
 
+-(void)feedbackWithTitle:(NSString *)title andContent:(NSString *)content
+{
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(self.userid),title,content] forKeys:@[@"memberid",@"title",@"content"]];
+    [self creatBusinessWithId:BUSINESS_OTHER_FEEDBACK andExecuteWithData:dic];
+}
+
 #pragma mark - BusinessProtocl
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary*)businessData
 {

@@ -16,6 +16,7 @@
 #import "ChangeUserInfoViewController.h"
 #import "SystemNoticeViewController.h"
 #import "AboutViewController.h"
+#import "FeedBackViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -52,6 +53,8 @@
         viewcontroller=[[SystemNoticeViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_ABOUT){
         viewcontroller=[[AboutViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_FEEDBACK){
+        viewcontroller=[[FeedBackViewController alloc] init];
     }
 
     if(viewcontroller != nil)
