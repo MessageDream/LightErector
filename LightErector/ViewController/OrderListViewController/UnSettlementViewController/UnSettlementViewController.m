@@ -77,20 +77,14 @@
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
         case BUSINESS_GETWAITFORSETTLEORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.waitForSettleOrders.count;
-            NSInteger nowCount=self.dataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForSettleOrders[i]];
                 [self.dataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [mainTableView beginUpdates];
-                [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [mainTableView endUpdates];
+            if (count>0) {
+                [mainTableView reloadData];
                 currentPageIndex++;
             }
             unsettleView.infoLable.text=[NSString stringWithFormat:@"总共%d个订单，合计%d元",trade.totalCount,trade.totalPrice];

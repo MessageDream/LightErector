@@ -79,12 +79,12 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self unlockView];
+    [self unlockViewSubtractCount];
 }
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-      [self unlockView];
+      [self unlockViewSubtractCount];
 }
 
 @end

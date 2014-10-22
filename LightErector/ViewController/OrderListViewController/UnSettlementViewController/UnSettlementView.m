@@ -46,5 +46,7 @@
     // Drawing code
 }
 */
-
+-(void)dealloc
+{
+}
 @end

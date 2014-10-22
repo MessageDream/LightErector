@@ -391,4 +391,11 @@ static enum commandID currentcommandID;
 {
     return NO;
 }
+-(void)dealloc
+{
+    previousViewController=nil;
+    holdViewController=nil;
+    showViewController=nil;
+    rootView=nil;;
+}
 @end

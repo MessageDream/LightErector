@@ -48,9 +48,9 @@
         
         self.scrollerView.frame=CGRectMake(0,  self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT+0.5, frame.size.width, frame.size.height-(self.segmentedControl.frame.origin.y+SEGMENTEDCONTROLHEIGHT));
         self.scrollerView.backgroundColor = [UIColor clearColor];
-        self.scrollerView.pagingEnabled = YES;
+       // self.scrollerView.pagingEnabled = YES;
         self.scrollerView.showsHorizontalScrollIndicator = NO;
-        self.scrollerView.scrollEnabled=YES;
+        self.scrollerView.scrollEnabled=NO;
         self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height+10);
         self.scrollerView.delegate = self;
         

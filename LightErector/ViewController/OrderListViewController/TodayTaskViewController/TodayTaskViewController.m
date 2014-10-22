@@ -76,20 +76,14 @@
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
         case BUSINESS_GETTODAYTASKORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.todayTaskOrders.count;
-            NSInteger nowCount=self.dataArray.count;
             
             for (int i=0;i<count;i++) {
                  UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
                 [self.dataArray addObject:model];
-              NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [mainTableView beginUpdates];
-                [mainTableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [mainTableView endUpdates];
+            if (count>0) {
+                [mainTableView reloadData];
                 currentPageIndex++;
             }
         }

@@ -37,7 +37,6 @@
 -(void)sendMessage:(Message*)message;
 -(void)receiveMessage:(Message*)message;
 -(void)lockView;
--(void)unlockView;
 -(BOOL)lockViewAddCount;
 -(BOOL)unlockViewSubtractCount;
 -(void)settingViewControllerId;

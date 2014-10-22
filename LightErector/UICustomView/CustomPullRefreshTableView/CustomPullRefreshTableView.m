@@ -171,7 +171,7 @@
 
 -(void)dealloc
 {
-    self.pullRefreshDelegate=nil;
+    _pullRefreshDelegate=nil;
     topView=nil;
     bottomView=nil;
     leftView=nil;

@@ -54,6 +54,7 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     //    Message *message = [[Message alloc] init];
     //    message.receiveObjectID = VIEWCONTROLLER_MAIN;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
     //    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;

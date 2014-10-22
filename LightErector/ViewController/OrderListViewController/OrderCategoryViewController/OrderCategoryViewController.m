@@ -17,10 +17,10 @@
 
 @interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate,MFMessageComposeViewControllerDelegate,CustomUIDatePickerDelegate,UIAlertViewDelegate>
 {
-    OrderCategoryView *orderCategoryView;
+    __weak OrderCategoryView *orderCategoryView;
     
-    TradeInfo *trade;
-    Order *currentOrder;
+    __weak TradeInfo *trade;
+    __weak Order *currentOrder;
     NSInteger setupRequestCount;
     NSInteger currentUnAcceptPageIndex;
     NSInteger currentUnSubPageIndex;
@@ -56,9 +56,9 @@
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     
-    orderCategoryView=[[OrderCategoryView alloc] initWithFrame:frame];
-    
-    
+    OrderCategoryView* view=[[OrderCategoryView alloc] initWithFrame:frame];
+    self.view=view;
+    orderCategoryView=view;
     orderCategoryView.unAcceptTable.delegate=self;
     orderCategoryView.unSubTable.delegate=self;
     orderCategoryView.unInstallTable.delegate=self;
@@ -78,7 +78,7 @@
     orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
     
     orderCategoryView.dataPicker.observer=self;
-    self.view=orderCategoryView;
+    
     
 }
 
@@ -116,125 +116,98 @@
 {
     switch (businessID) {
         case BUSINESS_GETWAITFORRECEIVEORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.waitForReceiveOrders.count;
-            NSInteger nowCount=self.unAcceptDataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForReceiveOrders[i]];
                 [self.unAcceptDataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [orderCategoryView.unAcceptTable beginUpdates];
-                [orderCategoryView.unAcceptTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [orderCategoryView.unAcceptTable endUpdates];
+            if (count>0) {
+                [orderCategoryView.unAcceptTable reloadData];
                 currentUnAcceptPageIndex++;
             }
             if (setupRequestCount==1) {
                 setupRequestCount++;
                 [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
-                return;
-            }
-            [orderCategoryView.unAcceptTable stopRefresh];
+                [self lockViewAddCount];
+            }else
+                [orderCategoryView.unAcceptTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITSUBORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.waitSubOrders.count;
-            NSInteger nowCount=self.unSubDataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitSubOrders[i]];
-                [self.unSubDataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
+                [self.unSubDataArray addObject:model];;
             }
-            if (pathArray.count>0) {
-                [orderCategoryView.unSubTable beginUpdates];
-                [orderCategoryView.unSubTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [orderCategoryView.unSubTable endUpdates];
+            if (count>0) {
+                [orderCategoryView.unSubTable reloadData];
                 currentUnSubPageIndex++;
             }
             if (setupRequestCount==2) {
                 setupRequestCount++;
                 [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
-                return;
-            }
-            [orderCategoryView.unSubTable stopRefresh];
+                [self lockViewAddCount];
+            }else
+                [orderCategoryView.unSubTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORINSTALLORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.waitForInstallOrders.count;
-            NSInteger nowCount=self.unInstallDataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForInstallOrders[i]];
                 [self.unInstallDataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [orderCategoryView.unInstallTable beginUpdates];
-                [orderCategoryView.unInstallTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [orderCategoryView.unInstallTable endUpdates];
+            if (count>0) {
+                [orderCategoryView.unInstallTable reloadData];
                 currentUnInstallPageIndex++;
             }
             
             if (setupRequestCount==3) {
                 setupRequestCount++;
                 [trade getUnTimedOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
-                return;
-            }
-            [orderCategoryView.unInstallTable stopRefresh];
+                [self lockViewAddCount];
+            }else
+                [orderCategoryView.unInstallTable stopRefresh];
         }
             break;
         case BUSINESS_GETUNTIMEDORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.unTimedOrders.count;
-            NSInteger nowCount=self.subAgainDataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.unTimedOrders[i]];
                 [self.subAgainDataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [orderCategoryView.subAgainTable beginUpdates];
-                [orderCategoryView.subAgainTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [orderCategoryView.subAgainTable endUpdates];
+            if (count>0) {
+                [orderCategoryView.subAgainTable reloadData];
                 currentSubAgainPageIndex++;
             }
             
             if (setupRequestCount==4) {
                 setupRequestCount++;
                 [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
-                return;
-            }
-            [orderCategoryView.subAgainTable stopRefresh];
+                [self lockViewAddCount];
+            }else
+                [orderCategoryView.subAgainTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORFEEDBACKORDER:{
-            NSMutableArray *pathArray=[[NSMutableArray alloc] init];
             NSInteger count=trade.waitForFeedBackOrders.count;
-            NSInteger nowCount=self.unFeedBackDataArray.count;
             
             for (int i=0;i<count;i++) {
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForFeedBackOrders[i]];
                 [self.unFeedBackDataArray addObject:model];
-                NSIndexPath *path = [NSIndexPath indexPathForItem:(nowCount+i) inSection:0];
-                [pathArray addObject:path];
             }
-            if (pathArray.count>0) {
-                [orderCategoryView.unFeedBackTable beginUpdates];
-                [orderCategoryView.unFeedBackTable insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationNone];
-                [orderCategoryView.unFeedBackTable endUpdates];
+            if (count>0) {
+                [orderCategoryView.unFeedBackTable reloadData];
                 currentUnFeedBackPageIndex++;
             }
-            [orderCategoryView.unFeedBackTable stopRefresh];
+            if (setupRequestCount==5) {
+                setupRequestCount++;
+            }else
+                [orderCategoryView.unFeedBackTable stopRefresh];
         }
             break;
         case BUSINESS_ACCEPTORDER:{
@@ -412,7 +385,7 @@
                         NSDate *date = [dateFormatter dateFromString:order.tradeAcreated];
                         orderCategoryView.dataPicker.date=date;
                     }
-                     orderCategoryView.editTimeView.hidden=NO;
+                    orderCategoryView.editTimeView.hidden=NO;
                     currentOrder=order;
                 }
                     break;
@@ -533,7 +506,6 @@
         return cell;
         
     }
-    
     return nil;
 }
 
@@ -665,7 +637,7 @@
 #pragma mark - CustomDataPicker
 -(IBAction)cancelButton_onClick:(id)sender
 {
-   orderCategoryView.editTimeView.hidden=YES;
+    orderCategoryView.editTimeView.hidden=YES;
 }
 
 -(IBAction)confirmButton_onClick:(id)sender forDate:(NSDate*)date
@@ -709,6 +681,10 @@
                 break;
         }
     }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
 }
 
 -(void)dealloc
