@@ -155,8 +155,12 @@
     }else{
         switch (indexPath.row) {
                 
-            case 0:
-                
+            case 0:{
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_FEEDBACK;
+                msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
                 break;
             case 1:{
                 Message *msg=[[Message alloc] init];

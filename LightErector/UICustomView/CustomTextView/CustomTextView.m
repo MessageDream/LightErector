@@ -9,7 +9,7 @@
 #import "CustomTextView.h"
 #import "ResDefine.h"
 
-#define Text_Xoffset 10
+#define Text_Xoffset 5
 
 @implementation CustomTextView
 @synthesize text = _text;
@@ -47,7 +47,7 @@
         CGRect placeholderFrame = CGRectMake(Text_Xoffset, Text_Xoffset, _textView.bounds.size.width, 20);
         _lbl_placeholder = [[UILabel alloc] initWithFrame:placeholderFrame];
         _lbl_placeholder.backgroundColor = [UIColor clearColor];
-        _lbl_placeholder.textColor = [UIColor grayColor];
+        _lbl_placeholder.textColor = [UIColor whiteColor];
         _lbl_placeholder.font = _textView.font;
         _lbl_placeholder.textAlignment = NSTextAlignmentLeft;
         [_textView addSubview:_lbl_placeholder];
@@ -71,6 +71,15 @@
         [self.observer textViewDidChange:textView];
     }
 }
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if (self.observer&&[self.observer respondsToSelector:@selector(textViewShouldBeginEditing:)]) {
+        [self.observer textViewShouldBeginEditing:textView];
+    }
+    return YES;
+}
+
 -(void)setText:(NSString *)text
 {
     _textView.text = text;
@@ -86,6 +95,11 @@
     {
         _lbl_placeholder.text = _placeholder;
     }
+}
+
+-(BOOL)resignFirstResponder
+{
+   return [_textView resignFirstResponder];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

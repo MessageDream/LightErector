@@ -9,7 +9,7 @@
 #import "FeedBackViewController.h"
 #import "FeedBackView.h"
 
-@interface FeedBackViewController ()<FeedBackViewDelegate>
+@interface FeedBackViewController ()<FeedBackViewDelegate,CustomTitleBar_ButtonDelegate>
 {
     FeedBackView *feedView;
 }
@@ -34,6 +34,7 @@
 -(void)loadView
 {
     feedView=[[FeedBackView alloc] initWithFrame:[self createViewFrame]];
+    feedView.customTitleBar.buttonEventObserver=self;
     feedView.observer=self;
     self.view=feedView;
 }
@@ -50,6 +51,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)leftButton_onClick:(id)sender
+{
+    Message *msg=[[Message alloc] init];
+    msg.receiveObjectID=VIEWCONTROLLER_RETURN;
+    msg.commandID=MC_CREATE_SCROLLERFROMLEFT_VIEWCONTROLLER;
+    [self sendMessage:msg];
+    
+}
+
+-(void)rightButton_onClick:(id)sender
+{
+    [feedView hideKeyboard];
+}
 /*
 #pragma mark - Navigation
 
@@ -61,8 +75,23 @@
 }
 */
 
+-(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
+{
+    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+    switch (businessID) {
+        case BUSINESS_OTHER_FEEDBACK:
+            [self showTip:@"反馈已提交，谢谢您的支持。"];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 -(void)feedBackWithTitle:(NSString *)title andContent:(NSString *)content
 {
-
+    user.observer=self;
+    [user feedbackWithTitle:title andContent:content];
+    [self lockView];
 }
 @end

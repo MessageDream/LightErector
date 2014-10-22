@@ -10,6 +10,7 @@
 
 @protocol CustomTextViewDelegate<NSObject>
 - (void)textViewDidChange:(UITextView *)textView;
+- (void)textViewShouldBeginEditing:(UITextView *)textView;
 @end
 
 @interface CustomTextView : UIView<UITextViewDelegate>

@@ -156,6 +156,7 @@
     _contentPlaceholder = contentPlaceholder;
     _txt_content.placeholder = _contentPlaceholder;
 }
+
 -(void)setKeyboardType:(UIKeyboardType)keyboardType
 {
     _keyboardType = keyboardType;

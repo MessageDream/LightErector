@@ -18,4 +18,5 @@
 @property(nonatomic,strong)CustomTextField *feedTitle;
 @property(nonatomic,strong)CustomTextView *feedContent;
 @property(nonatomic,weak)id<FeedBackViewDelegate> observer;
+-(void)hideKeyboard;
 @end

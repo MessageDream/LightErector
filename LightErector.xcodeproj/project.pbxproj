@@ -133,6 +133,7 @@
 		B2CADA0219D561B800768239 /* change@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FE19D561B800768239 /* change@2x.png */; };
 		B2CADA0319D561B800768239 /* fix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FF19D561B800768239 /* fix@2x.png */; };
 		B2CADA0419D561B800768239 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CADA0019D561B800768239 /* setting@2x.png */; };
+		B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */; };
 		B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
 		B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88719D156DB00215E70 /* CoreGraphics.framework */; };
 		B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
@@ -539,6 +540,7 @@
 		B2CAD9FE19D561B800768239 /* change@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "change@2x.png"; sourceTree = "<group>"; };
 		B2CAD9FF19D561B800768239 /* fix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fix@2x.png"; sourceTree = "<group>"; };
 		B2CADA0019D561B800768239 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
+		B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_btn@2x.png"; sourceTree = "<group>"; };
 		B2FDC88219D156DB00215E70 /* LightErector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightErector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FDC88519D156DB00215E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2FDC88719D156DB00215E70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1438,6 +1440,7 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */,
 				B25B8C5F19EF9C5A00576D85 /* logo@2x.png */,
 				B25B8C4C19EE757100576D85 /* login@2x.png */,
 				B204021619EC1D31001F493F /* radio_button_checked@2x.png */,
@@ -2119,6 +2122,7 @@
 				B25B8C6019EF9C5A00576D85 /* logo@2x.png in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
 				B28C16FC19E4FD1500C44305 /* OK.png in Resources */,
+				B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */,
 				B22CAE6819E0F5CA008EE80B /* detail@2x.png in Resources */,
 				B26CB15F19D5184D00023CEB /* info@2x.png in Resources */,
 				B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */,
