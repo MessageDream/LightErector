@@ -54,7 +54,7 @@
         self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height+10);
         self.scrollerView.delegate = self;
         
-        self.scrollerView.alwaysBounceVertical = YES;
+        self.scrollerView.alwaysBounceVertical = NO;
         self.scrollerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         [self.scrollerView scrollRectToVisible:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height) animated:NO];
@@ -149,6 +149,11 @@
 -(void)stopRefresh
 {
     
+}
+
+-(void)dealloc
+{
+    currentTableView=nil;
 }
 
 /*

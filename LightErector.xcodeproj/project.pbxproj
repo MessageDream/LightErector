@@ -127,6 +127,7 @@
 		B28C170119E4FD1500C44305 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C16F019E4FD1500C44305 /* ZYQAssetPickerController.m */; };
 		B28C170519E534B900C44305 /* upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170419E534B900C44305 /* upload@2x.png */; };
 		B28C170719E536FC00C44305 /* finish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170619E536FC00C44305 /* finish@2x.png */; };
+		B29D1A0319F798C400770E29 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29D1A0219F798C400770E29 /* libPushSDK.a */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -242,7 +243,6 @@
 		B2FDCC6319D292B400215E70 /* txt_login_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FDCC3719D292B400215E70 /* txt_login_line@2x.png */; };
 		B2FDCC6419D292B400215E70 /* txt_password_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FDCC3819D292B400215E70 /* txt_password_back@2x.png */; };
 		B2FDCC6519D292B400215E70 /* txt_username_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FDCC3919D292B400215E70 /* txt_username_back@2x.png */; };
-		B2FDCC7B19D2974700215E70 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDCC7619D2974700215E70 /* libPushSDK.a */; };
 		B2FDCC7C19D2974700215E70 /* JPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCC7819D2974700215E70 /* JPushNotification.m */; };
 		B2FDCC7D19D2974700215E70 /* PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCC7A19D2974700215E70 /* PushNotification.m */; };
 		B2FDCC7F19D2990E00215E70 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FDCC7E19D2990E00215E70 /* PushConfig.plist */; };
@@ -532,6 +532,8 @@
 		B28C16F019E4FD1500C44305 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		B28C170419E534B900C44305 /* upload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload@2x.png"; sourceTree = "<group>"; };
 		B28C170619E536FC00C44305 /* finish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finish@2x.png"; sourceTree = "<group>"; };
+		B29D1A0119F798C400770E29 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		B29D1A0219F798C400770E29 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -745,8 +747,6 @@
 		B2FDCC3719D292B400215E70 /* txt_login_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "txt_login_line@2x.png"; sourceTree = "<group>"; };
 		B2FDCC3819D292B400215E70 /* txt_password_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "txt_password_back@2x.png"; sourceTree = "<group>"; };
 		B2FDCC3919D292B400215E70 /* txt_username_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "txt_username_back@2x.png"; sourceTree = "<group>"; };
-		B2FDCC7519D2974700215E70 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		B2FDCC7619D2974700215E70 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		B2FDCC7719D2974700215E70 /* JPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotification.h; sourceTree = "<group>"; };
 		B2FDCC7819D2974700215E70 /* JPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPushNotification.m; sourceTree = "<group>"; };
 		B2FDCC7919D2974700215E70 /* PushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNotification.h; sourceTree = "<group>"; };
@@ -781,8 +781,8 @@
 				B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */,
 				B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */,
 				B22C2E6F19DFDDAB00DD8D38 /* libbaidumapapi.a in Frameworks */,
+				B29D1A0319F798C400770E29 /* libPushSDK.a in Frameworks */,
 				B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */,
-				B2FDCC7B19D2974700215E70 /* libPushSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,6 +1236,15 @@
 				B28C16ED19E4FD1500C44305 /* ShowBigViewController.m */,
 			);
 			path = messagePhotoView;
+			sourceTree = "<group>";
+		};
+		B29D1A0019F798C400770E29 /* JpushLib */ = {
+			isa = PBXGroup;
+			children = (
+				B29D1A0119F798C400770E29 /* APService.h */,
+				B29D1A0219F798C400770E29 /* libPushSDK.a */,
+			);
+			path = JpushLib;
 			sourceTree = "<group>";
 		};
 		B2CAD9F619D55A3700768239 /* CustomSwipeTableCell */ = {
@@ -1959,6 +1968,7 @@
 		B2FDCBF519D2731100215E70 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B29D1A0019F798C400770E29 /* JpushLib */,
 				B22C2E2D19DFDDAB00DD8D38 /* BaiduMap_IOSSDK_v2.4.1_Lib */,
 				B26CB12619D2D2A500023CEB /* AFNetworking */,
 			);
@@ -1992,22 +2002,12 @@
 		B2FDCC7319D2974700215E70 /* PushNotification */ = {
 			isa = PBXGroup;
 			children = (
-				B2FDCC7419D2974700215E70 /* JpushLib */,
 				B2FDCC7719D2974700215E70 /* JPushNotification.h */,
 				B2FDCC7819D2974700215E70 /* JPushNotification.m */,
 				B2FDCC7919D2974700215E70 /* PushNotification.h */,
 				B2FDCC7A19D2974700215E70 /* PushNotification.m */,
 			);
 			path = PushNotification;
-			sourceTree = "<group>";
-		};
-		B2FDCC7419D2974700215E70 /* JpushLib */ = {
-			isa = PBXGroup;
-			children = (
-				B2FDCC7519D2974700215E70 /* APService.h */,
-				B2FDCC7619D2974700215E70 /* libPushSDK.a */,
-			);
-			path = JpushLib;
 			sourceTree = "<group>";
 		};
 		B2FDCC9019D29C0900215E70 /* SystemModule */ = {
@@ -2473,6 +2473,7 @@
 					"$(PROJECT_DIR)/LightErector/Libraries/AFNetworking",
 					"$(PROJECT_DIR)/LightErector/Utils/PushNotification/JpushLib",
 					"$(PROJECT_DIR)/LightErector/Libraries/BaiduMap_IOSSDK_v2.4.1_Lib",
+					"$(PROJECT_DIR)/LightErector/Libraries/JpushLib",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2499,6 +2500,7 @@
 					"$(PROJECT_DIR)/LightErector/Libraries/AFNetworking",
 					"$(PROJECT_DIR)/LightErector/Utils/PushNotification/JpushLib",
 					"$(PROJECT_DIR)/LightErector/Libraries/BaiduMap_IOSSDK_v2.4.1_Lib",
+					"$(PROJECT_DIR)/LightErector/Libraries/JpushLib",
 				);
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";

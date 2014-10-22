@@ -210,4 +210,10 @@
     }
 }
 
+-(void)dealloc
+{
+     customMessageBox=nil;
+     findPasswordFromPhoneView=nil;
+     version=nil;
+}
 @end

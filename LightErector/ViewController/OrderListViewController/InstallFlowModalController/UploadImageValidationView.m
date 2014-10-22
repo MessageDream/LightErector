@@ -114,5 +114,8 @@
     // Drawing code
 }
 */
-
+-(void)dealloc
+{
+    self.observer=nil;
+}
 @end

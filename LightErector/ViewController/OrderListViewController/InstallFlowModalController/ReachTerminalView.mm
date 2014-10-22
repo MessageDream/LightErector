@@ -67,5 +67,6 @@
 -(void)dealloc
 {
     _mapView=nil;
+    self.observer=nil;
 }
 @end

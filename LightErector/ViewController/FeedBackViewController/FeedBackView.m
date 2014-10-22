@@ -102,6 +102,7 @@
 -(void)dealloc
 {
     feedBackBtn=nil;
+    self.observer=self;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

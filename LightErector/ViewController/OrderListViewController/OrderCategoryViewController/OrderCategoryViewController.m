@@ -715,5 +715,6 @@
 {
     trade=nil;
     orderCategoryView=nil;
+    currentOrder=nil;
 }
 @end

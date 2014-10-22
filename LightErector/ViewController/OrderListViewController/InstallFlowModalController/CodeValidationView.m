@@ -107,5 +107,9 @@
     // Drawing code
 }
 */
-
+-(void)dealloc
+{
+    codeText=nil;
+    self.observer=nil;
+}
 @end

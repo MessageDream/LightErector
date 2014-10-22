@@ -174,4 +174,9 @@
     [self dismissFormSheetControllerAnimated:YES completionHandler:nil];
     [super didDataModelNoticeFail:baseDataModel forBusinessType:businessID forErrorCode:errorCode forErrorMsg:errorMsg];
 }
+
+-(void)dealloc
+{
+    selfView=nil;
+}
 @end

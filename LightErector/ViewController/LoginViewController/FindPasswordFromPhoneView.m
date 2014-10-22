@@ -244,4 +244,8 @@
         }
     }
 }
+-(void)dealloc
+{
+    self.eventObserver=nil;
+}
 @end
