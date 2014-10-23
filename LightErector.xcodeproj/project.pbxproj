@@ -43,6 +43,8 @@
 		B22CAE8D19E25F32008EE80B /* UpdateUserInfoBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE8C19E25F32008EE80B /* UpdateUserInfoBusiness.m */; };
 		B22CAE9019E28084008EE80B /* certificate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22CAE8E19E28084008EE80B /* certificate@2x.png */; };
 		B22CAE9119E28084008EE80B /* fingerprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22CAE8F19E28084008EE80B /* fingerprint@2x.png */; };
+		B23E655719F8CBDD004C3CC9 /* CustomStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E655519F8CBDD004C3CC9 /* CustomStackView.m */; };
+		B23E655A19F8CD8C004C3CC9 /* CustomStackItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E655919F8CD8C004C3CC9 /* CustomStackItemView.m */; };
 		B2554F7219DE9E280004FE42 /* CustomScrollFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F6F19DE9E280004FE42 /* CustomScrollFullScreen.m */; };
 		B2554F7319DE9E280004FE42 /* UIViewController+CustomFullScreenSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F7119DE9E280004FE42 /* UIViewController+CustomFullScreenSupport.m */; };
 		B2554F7B19DF8DAC0004FE42 /* RMStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F7619DF8DAC0004FE42 /* RMStep.m */; };
@@ -390,6 +392,10 @@
 		B22CAE8C19E25F32008EE80B /* UpdateUserInfoBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserInfoBusiness.m; sourceTree = "<group>"; };
 		B22CAE8E19E28084008EE80B /* certificate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "certificate@2x.png"; sourceTree = "<group>"; };
 		B22CAE8F19E28084008EE80B /* fingerprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fingerprint@2x.png"; sourceTree = "<group>"; };
+		B23E655419F8CBDD004C3CC9 /* CustomStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStackView.h; path = CustomStackView/CustomStackView.h; sourceTree = "<group>"; };
+		B23E655519F8CBDD004C3CC9 /* CustomStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomStackView.m; path = CustomStackView/CustomStackView.m; sourceTree = "<group>"; };
+		B23E655819F8CD8C004C3CC9 /* CustomStackItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStackItemView.h; path = CustomStackView/CustomStackItemView.h; sourceTree = "<group>"; };
+		B23E655919F8CD8C004C3CC9 /* CustomStackItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomStackItemView.m; path = CustomStackView/CustomStackItemView.m; sourceTree = "<group>"; };
 		B2554F6E19DE9E280004FE42 /* CustomScrollFullScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollFullScreen.h; sourceTree = "<group>"; };
 		B2554F6F19DE9E280004FE42 /* CustomScrollFullScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollFullScreen.m; sourceTree = "<group>"; };
 		B2554F7019DE9E280004FE42 /* UIViewController+CustomFullScreenSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomFullScreenSupport.h"; sourceTree = "<group>"; };
@@ -946,6 +952,17 @@
 			path = Additional;
 			sourceTree = "<group>";
 		};
+		B23E655119F8CB75004C3CC9 /* CustomStackView */ = {
+			isa = PBXGroup;
+			children = (
+				B23E655419F8CBDD004C3CC9 /* CustomStackView.h */,
+				B23E655519F8CBDD004C3CC9 /* CustomStackView.m */,
+				B23E655819F8CD8C004C3CC9 /* CustomStackItemView.h */,
+				B23E655919F8CD8C004C3CC9 /* CustomStackItemView.m */,
+			);
+			name = CustomStackView;
+			sourceTree = "<group>";
+		};
 		B2554F6D19DE9E280004FE42 /* CustomScrollFullScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,6 +1514,7 @@
 		B2FDCAB519D16C5B00215E70 /* UICustomView */ = {
 			isa = PBXGroup;
 			children = (
+				B23E655119F8CB75004C3CC9 /* CustomStackView */,
 				B28C16D919E4FD1500C44305 /* ZYQAssetPickerController */,
 				B22CAE4C19E0C8C3008EE80B /* MZFormSheetController */,
 				B2554F7419DF8DAC0004FE42 /* RMStepsController */,
@@ -2328,6 +2346,7 @@
 				B2FDCB4F19D16C5B00215E70 /* FileHttpConnect.m in Sources */,
 				B2FDCB5019D16C5B00215E70 /* BaseHttpConnect.m in Sources */,
 				B2FDCB7119D16C5B00215E70 /* CustomAlertView.m in Sources */,
+				B23E655A19F8CD8C004C3CC9 /* CustomStackItemView.m in Sources */,
 				B2FDCB8A19D16C5B00215E70 /* PullRefreshCustomUITableView.m in Sources */,
 				B2FDCB8319D16C5B00215E70 /* CustomTitleBar.m in Sources */,
 				B2FDCBA419D16C5B00215E70 /* ViewControllerPathManager.m in Sources */,
@@ -2340,6 +2359,7 @@
 				B2FDC89219D156DB00215E70 /* main.m in Sources */,
 				B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */,
 				B2FDCB7A19D16C5B00215E70 /* CustomTabBar.m in Sources */,
+				B23E655719F8CBDD004C3CC9 /* CustomStackView.m in Sources */,
 				B2FDCB9519D16C5B00215E70 /* TitleBarAndScrollerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

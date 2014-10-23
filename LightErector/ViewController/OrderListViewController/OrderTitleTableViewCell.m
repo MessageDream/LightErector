@@ -117,16 +117,18 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
 
 -(void)showButtons
 {
-    if (buttonsView!=nil) {
-        [buttonsView removeFromSuperview];
+//    if (buttonsView!=nil) {
+//        [buttonsView removeFromSuperview];
+//    }
+    if (buttonsView==nil) {
+        buttonsView=[self createButtonContainer];
     }
-    buttonsView=[self createButtonContainer];
+    
     buttonsView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
     buttonsView.frame = CGRectMake(320, 0, buttonsView.bounds.size.width, self.bounds.size.height);
     buttopnViewWidth=buttonsView.frame.size.width;
     buttonStatus=ButtonStatus_Show;
     [self.contentView addSubview:buttonsView];
-    
 }
 
 -(void)willRemoveSubview:(UIView *)subview
@@ -158,7 +160,7 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
 -(void)layoutSubviews
 {
   
-    if (buttonStatus==ButtonStatus_Show&&self.contentView.frame.origin.x==0) {
+    if (self.contentView.frame.origin.x==0) {
         [super layoutSubviews];
         CGRect newFrame = self.contentView.frame;
         newFrame.origin.x =newFrame.origin.x-buttopnViewWidth;
