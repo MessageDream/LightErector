@@ -104,6 +104,11 @@
     return self;
 }
 
+-(void)setDatePickerMode:(UIDatePickerMode)datePickerMode
+{
+    _datePickerMode=datePickerMode;
+    [datePicker setDatePickerMode:_datePickerMode];
+}
 -(void) setEndDate:(NSDate *)endDate
 {
     _endDate = endDate;

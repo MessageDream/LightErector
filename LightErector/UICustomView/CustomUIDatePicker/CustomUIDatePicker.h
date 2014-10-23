@@ -22,5 +22,6 @@
 @property(nonatomic,strong)NSDate *date;
 @property(nonatomic,assign)id<CustomUIDatePickerDelegate> observer;
 @property (nonatomic,strong) NSDate *endDate;
+@property(nonatomic,assign)UIDatePickerMode  datePickerMode;
 -(id)initWithBottom;
 @end
