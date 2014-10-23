@@ -11,7 +11,7 @@
 @implementation JPushNotification
 -(void)applyForPushNotification:(NSDictionary *)launchingOption
 {
-    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound |UIRemoteNotificationTypeAlert)];
+    [APService registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound |UIRemoteNotificationTypeAlert categories:nil];
     [APService setupWithOption:launchingOption];
 }
 

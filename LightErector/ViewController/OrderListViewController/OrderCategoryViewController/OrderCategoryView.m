@@ -13,13 +13,13 @@
 
 @interface OrderCategoryView ()<UIScrollViewDelegate>
 {
-    CustomPullRefreshTableView *currentTableView;
-    NSArray *tableArray;
-    NSInteger currentIndex;
+ 
 }
+@property(nonatomic,assign)NSInteger currentIndex;
+@property(nonatomic,strong)NSArray *tableArray;
+
 @end
 @implementation OrderCategoryView
-@synthesize currentTableView=currentTableView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,14 +36,13 @@
         self.segmentedControl.selectionStyle = CustomSegmentedControlSelectionStyleFullWidthStripe;
         self.segmentedControl.selectionIndicatorLocation = CustomSegmentedControlSelectionIndicatorLocationDown;
         
-        __block OrderCategoryView *blockSelf=self;
+        __weak OrderCategoryView *blockSelf=self;
         [ self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
-            [((UIView *) (blockSelf->tableArray)[blockSelf->currentIndex]) removeFromSuperview];
-            blockSelf->currentIndex=index;
-            [blockSelf.scrollerView addSubview:((UIView *) (blockSelf->tableArray)[index])];
+            [((UIView *) (blockSelf.tableArray)[blockSelf.currentIndex]) removeFromSuperview];
+            blockSelf.currentIndex=index;
+            [blockSelf.scrollerView addSubview:((UIView *) (blockSelf.tableArray)[index])];
             //[blockSelf.scrollerView scrollRectToVisible:CGRectMake(index*frame.size.width, 0, frame.size.width, blockSelf.scrollerView.frame.size.height) animated:NO];
         }];
-        
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, self.segmentedControl.frame.size.height, frame.size.width, 0.5)];
         lineView.backgroundColor=[MainStyle mainDarkColor];
         [self.segmentedControl addSubview:lineView];
@@ -86,25 +85,25 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
     NSInteger page = scrollView.contentOffset.x / pageWidth;
-    switch (page) {
-        case 0:
-            currentTableView=self.unAcceptTable;
-            break;
-        case 1:
-            currentTableView=self.unSubTable;
-            break;
-        case 2:
-            currentTableView=self.unInstallTable;
-            break;
-        case 3:
-            currentTableView=self.subAgainTable;
-            break;
-        case 4:
-            currentTableView=self.unFeedBackTable;
-            break;
-        default:
-            break;
-    }
+//    switch (page) {
+//        case 0:
+//            currentTableView=self.unAcceptTable;
+//            break;
+//        case 1:
+//            currentTableView=self.unSubTable;
+//            break;
+//        case 2:
+//            currentTableView=self.unInstallTable;
+//            break;
+//        case 3:
+//            currentTableView=self.subAgainTable;
+//            break;
+//        case 4:
+//            currentTableView=self.unFeedBackTable;
+//            break;
+//        default:
+//            break;
+//    }
     
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
 }
@@ -165,9 +164,8 @@
     self.unFeedBackTable.tag=UNFEEDBACKTABLETAG;
    // [self.unFeedBackTable setHidden:YES];
     //[self.scrollerView addSubview:self.unFeedBackTable];
-    tableArray=@[self.unAcceptTable,self.unSubTable,self.unInstallTable,self.subAgainTable,self.unFeedBackTable];
-    currentTableView=self.unAcceptTable;
-    currentIndex=0;
+    _tableArray=@[self.unAcceptTable,self.unSubTable,self.unInstallTable,self.subAgainTable,self.unFeedBackTable];
+    _currentIndex=0;
 }
 
 -(UIView *)creatContentView:(CustomPullRefreshTableView *)tableView
@@ -188,7 +186,7 @@
 
 -(void)dealloc
 {
-    currentTableView=nil;
+    _tableArray=nil;
 }
 
 /*

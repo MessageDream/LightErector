@@ -21,7 +21,7 @@
 -(id)init
 {
     if (self=[super init]) {
-         __block BaseHttpConnect *blockSelf = self;
+         __weak BaseHttpConnect *blockSelf = self;
         _downloadProcess=^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead){
             if(blockSelf.observer!=nil)
                 [blockSelf.observer httpConnectResponse:blockSelf getByteCount:bytesRead];

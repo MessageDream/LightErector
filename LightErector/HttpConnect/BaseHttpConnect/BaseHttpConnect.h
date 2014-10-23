@@ -59,8 +59,8 @@ typedef NS_ENUM(NSUInteger , HttpContentStauts){
     void (^_uploadProcess)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite);
 }
 @property int timeOut;
-@property(readonly) NSInteger errorCode;
-@property (nonatomic,readonly) HttpContentStauts stauts;
+@property(nonatomic,assign) NSInteger errorCode;
+@property (nonatomic) HttpContentStauts stauts;
 @property(nonatomic,copy)NSString *baseUrl;
 @property(nonatomic,copy)NSString *requestPath;
 @property(nonatomic,readonly)NSDictionary *resquestHeads;//HttpHead Type

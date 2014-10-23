@@ -52,14 +52,14 @@ static NSOperationQueue *operationQueue = nil;
         
         _operationQueue=[BaseHttpConnect shareQueue];
         
-        __block BaseHttpConnect *blockSelf = self;
+        __weak BaseHttpConnect *blockSelf = self;
         
         _success=^(AFHTTPRequestOperation *operation, id responseObject){
             
-            blockSelf->_stauts = HttpContentStauts_DidRespones;
+            blockSelf.stauts = HttpContentStauts_DidRespones;
             NSHTTPURLResponse * httpResponse;
             httpResponse = operation.response;
-            blockSelf->_errorCode = httpResponse.statusCode;
+            blockSelf.errorCode = httpResponse.statusCode;
 #ifdef DEBUG_LOG
             NSLog(@"the response status code is %ld\n",(long)httpResponse.statusCode);
 #endif
@@ -69,12 +69,12 @@ static NSOperationQueue *operationQueue = nil;
 #ifdef DEBUG_LOG
             NSLog(@"the connection is %lu",(unsigned long)[operation.responseData length]);
 #endif
-            blockSelf->_stauts = HttpContentStauts_DidFinishRespones;
+            blockSelf.stauts = HttpContentStauts_DidFinishRespones;
             if (blockSelf.observer)
             {
                 //需要加上业务错误对象判断的机制
-                if(blockSelf->_errorCode  != HttpErrorCode_None && [blockSelf.resquestType  isEqualToString:HTTP_REQUEST_POST])
-                    [blockSelf.observer didHttpConnectError:blockSelf->_errorCode];
+                if(blockSelf.errorCode  != HttpErrorCode_None && [blockSelf.resquestType  isEqualToString:HTTP_REQUEST_POST])
+                    [blockSelf.observer didHttpConnectError:blockSelf.errorCode];
                 else
                 {
                     blockSelf.respones.responesData =blockSelf.requestOperation.responseData ;
@@ -87,10 +87,10 @@ static NSOperationQueue *operationQueue = nil;
         
         _failure=^(AFHTTPRequestOperation *operation, NSError *error){
             [blockSelf closeConnect];
-            blockSelf->_stauts = HttpContentStauts_DidStop;
-            blockSelf->_errorCode = error.code;
+            blockSelf.stauts = HttpContentStauts_DidStop;
+            blockSelf.errorCode = error.code;
             if (blockSelf.observer) {
-                [blockSelf.observer didHttpConnectError:blockSelf->_errorCode];
+                [blockSelf.observer didHttpConnectError:blockSelf.errorCode];
             }
         };
     }

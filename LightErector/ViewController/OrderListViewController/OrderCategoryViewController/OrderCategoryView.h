@@ -22,7 +22,6 @@
 #define UNFEEDBACKTABLETAG 105
 
 @interface OrderCategoryView : TitleBarAndScrollerView
-@property(nonatomic,strong) CustomPullRefreshTableView *currentTableView;
 @property(nonatomic,strong)CustomSegmentedControl *segmentedControl;
 @property(nonatomic,strong)CustomPullRefreshTableView *unAcceptTable;
 @property(nonatomic,strong)CustomPullRefreshTableView *unSubTable;
