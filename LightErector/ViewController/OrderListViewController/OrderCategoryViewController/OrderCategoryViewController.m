@@ -59,6 +59,13 @@
     OrderCategoryView* view=[[OrderCategoryView alloc] initWithFrame:frame];
     self.view=view;
     orderCategoryView=view;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [orderCategoryView createTables];
+    
     orderCategoryView.unAcceptTable.delegate=self;
     orderCategoryView.unSubTable.delegate=self;
     orderCategoryView.unInstallTable.delegate=self;
@@ -78,13 +85,7 @@
     orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
     
     orderCategoryView.dataPicker.observer=self;
-    
-    
-}
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
     
     currentUnAcceptPageIndex++;
     currentUnSubPageIndex++;

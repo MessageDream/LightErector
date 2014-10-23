@@ -14,6 +14,8 @@
 @interface OrderCategoryView ()<UIScrollViewDelegate>
 {
     CustomPullRefreshTableView *currentTableView;
+    NSArray *tableArray;
+    NSInteger currentIndex;
 }
 @end
 @implementation OrderCategoryView
@@ -36,7 +38,10 @@
         
         __block OrderCategoryView *blockSelf=self;
         [ self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
-            [blockSelf.scrollerView scrollRectToVisible:CGRectMake(index*frame.size.width, 0, frame.size.width, blockSelf.scrollerView.frame.size.height) animated:NO];
+            [((UIView *) (blockSelf->tableArray)[blockSelf->currentIndex]) removeFromSuperview];
+            blockSelf->currentIndex=index;
+            [blockSelf.scrollerView addSubview:((UIView *) (blockSelf->tableArray)[index])];
+            //[blockSelf.scrollerView scrollRectToVisible:CGRectMake(index*frame.size.width, 0, frame.size.width, blockSelf.scrollerView.frame.size.height) animated:NO];
         }];
         
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, self.segmentedControl.frame.size.height, frame.size.width, 0.5)];
@@ -51,36 +56,15 @@
        // self.scrollerView.pagingEnabled = YES;
         self.scrollerView.showsHorizontalScrollIndicator = NO;
         self.scrollerView.scrollEnabled=NO;
-        self.scrollerView.contentSize = CGSizeMake(frame.size.width*TABLEVIEWCOUNT, self.scrollerView.frame.size.height+10);
+        self.scrollerView.contentSize = CGSizeMake(frame.size.width, self.scrollerView.frame.size.height+10);
         self.scrollerView.delegate = self;
         
         self.scrollerView.alwaysBounceVertical = NO;
         self.scrollerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-        [self.scrollerView scrollRectToVisible:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height) animated:NO];
+        //[self.scrollerView scrollRectToVisible:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height) animated:NO];
         
-        self.unAcceptTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
-        self.unAcceptTable.tag=UNACCEPTTABLETAG;
-        [self.scrollerView addSubview:self.unAcceptTable];
         
-        self.unSubTable=[self createTableViewWithFrame:CGRectMake(frame.size.width, 0, frame.size.width, self.scrollerView.frame.size.height)];
-         self.unSubTable.tag=UNSUBTABLETAG;
-        [self.scrollerView addSubview:self.unSubTable];
-        
-        self.unInstallTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*2, 0, frame.size.width, self.scrollerView.frame.size.height)];
-        self.unInstallTable.tag=UNINSTALLTABLETAG;
-        [self.scrollerView addSubview:self.unInstallTable];
-        
-        self.subAgainTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*3, 0, frame.size.width, self.scrollerView.frame.size.height)];
-         self.subAgainTable.tag=SUBAGAINTABLETAG;
-        [self.scrollerView addSubview:self.subAgainTable];
-        
-        self.unFeedBackTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*4, 0, frame.size.width, self.scrollerView.frame.size.height)];
-        self.unFeedBackTable.tag=UNFEEDBACKTABLETAG;
-        [self.scrollerView addSubview:self.unFeedBackTable];
-
-        currentTableView=self.unAcceptTable;
-       
         CGRect rect=frame;
         rect.origin.y=self.segmentedControl.frame.origin.y;
         rect.size.height=rect.size.height+DefaultTabBarHeight-self.segmentedControl.frame.origin.y;
@@ -133,6 +117,57 @@
     tableView.showsVerticalScrollIndicator=NO;
     tableView.pullRefreshViewPositionBottomEnable=YES;
     return tableView;
+}
+-(void)createTables
+{
+    CGRect frame=self.frame;
+//    self.unAcceptTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+//    self.unAcceptTable.tag=UNACCEPTTABLETAG;
+//    [self.scrollerView addSubview:self.unAcceptTable];
+//    
+//    self.unSubTable=[self createTableViewWithFrame:CGRectMake(frame.size.width, 0, frame.size.width, self.scrollerView.frame.size.height)];
+//    self.unSubTable.tag=UNSUBTABLETAG;
+//    [self.scrollerView addSubview:self.unSubTable];
+//    
+//    self.unInstallTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*2, 0, frame.size.width, self.scrollerView.frame.size.height)];
+//    self.unInstallTable.tag=UNINSTALLTABLETAG;
+//    [self.scrollerView addSubview:self.unInstallTable];
+//    
+//    self.subAgainTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*3, 0, frame.size.width, self.scrollerView.frame.size.height)];
+//    self.subAgainTable.tag=SUBAGAINTABLETAG;
+//    [self.scrollerView addSubview:self.subAgainTable];
+//    
+//    self.unFeedBackTable=[self createTableViewWithFrame:CGRectMake(frame.size.width*4, 0, frame.size.width, self.scrollerView.frame.size.height)];
+//    self.unFeedBackTable.tag=UNFEEDBACKTABLETAG;
+//    [self.scrollerView addSubview:self.unFeedBackTable];
+    
+    self.unAcceptTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+    self.unAcceptTable.tag=UNACCEPTTABLETAG;
+    //[self.unAcceptTable setHidden:NO];
+    [self.scrollerView addSubview:self.unAcceptTable];
+    
+    self.unSubTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+    self.unSubTable.tag=UNSUBTABLETAG;
+    //[self.unSubTable setHidden:YES];
+    //[self.scrollerView addSubview:self.unSubTable];
+    
+    self.unInstallTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+    self.unInstallTable.tag=UNINSTALLTABLETAG;
+    //[self.unSubTable setHidden:YES];
+    //[self.scrollerView addSubview:self.unInstallTable];
+    
+    self.subAgainTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+    self.subAgainTable.tag=SUBAGAINTABLETAG;
+    //[self.subAgainTable setHidden:YES];
+   // [self.scrollerView addSubview:self.subAgainTable];
+    
+    self.unFeedBackTable=[self createTableViewWithFrame:CGRectMake(0, 0, frame.size.width, self.scrollerView.frame.size.height)];
+    self.unFeedBackTable.tag=UNFEEDBACKTABLETAG;
+   // [self.unFeedBackTable setHidden:YES];
+    //[self.scrollerView addSubview:self.unFeedBackTable];
+    tableArray=@[self.unAcceptTable,self.unSubTable,self.unInstallTable,self.subAgainTable,self.unFeedBackTable];
+    currentTableView=self.unAcceptTable;
+    currentIndex=0;
 }
 
 -(UIView *)creatContentView:(CustomPullRefreshTableView *)tableView

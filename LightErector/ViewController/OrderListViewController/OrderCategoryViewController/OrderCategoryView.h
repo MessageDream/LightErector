@@ -34,4 +34,5 @@
 @property(nonatomic,strong)UIView *editTimeView;
 @property(nonatomic,strong)CustomUIDatePicker *dataPicker;
 -(void)stopRefresh;
+-(void)createTables;
 @end
