@@ -11,9 +11,9 @@
 #import "ModuleAndControllerID.h"
 #import "JPushNotification.h"
 
-@interface AppDelegate()
+@interface AppDelegate()<BMKGeneralDelegate>
 {
-    PushNotification *jpush;
+   __weak PushNotification *jpush;
 }
 @end
 @implementation AppDelegate

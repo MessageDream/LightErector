@@ -475,4 +475,9 @@
     _shapeLayer.strokeColor = _borderColor.CGColor;
 }
 
+-(void)dealloc
+{
+  
+}
+
 @end

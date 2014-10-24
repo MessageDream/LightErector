@@ -9,10 +9,11 @@
 #import "CustomPullRefreshTableView.h"
 @interface CustomPullRefreshTableView ()
 {
-    CustomPullRefreshView *topView;
-    CustomPullRefreshView *bottomView;
-    CustomPullRefreshView *leftView;
-    CustomPullRefreshView *rightView;
+    __weak  CustomPullRefreshView *currentView;
+  __weak  CustomPullRefreshView *topView;
+  __weak  CustomPullRefreshView *bottomView;
+  __weak  CustomPullRefreshView *leftView;
+  __weak  CustomPullRefreshView *rightView;
 }
 @end
 @implementation CustomPullRefreshTableView
@@ -28,17 +29,8 @@
 
 -(void)stopRefresh
 {
-    if (topView) {
+    if (currentView) {
         [topView stopIndicatorAnimation];
-    }
-    if (bottomView) {
-        [bottomView stopIndicatorAnimation];
-    }
-    if (leftView) {
-        [leftView stopIndicatorAnimation];
-    }
-    if (rightView) {
-        [rightView stopIndicatorAnimation];
     }
 }
 
@@ -57,7 +49,7 @@
          }];
         topView.imageIcon = [UIImage imageNamed:@"launchpad"];
         topView.borderColor = [UIColor whiteColor];
-
+        currentView=topView;
     }else{
         [topView removeFromSuperview];
     }
@@ -77,6 +69,7 @@
                 [blockSelf.pullRefreshDelegate PullRefreshTableViewBottomRefresh:blockSelf];
             }
         }];
+         currentView=bottomView;
         bottomView.imageIcon = [UIImage imageNamed:@"launchpad"];
         bottomView.borderColor = [UIColor whiteColor];
         
@@ -98,6 +91,7 @@
                  [blockSelf.pullRefreshDelegate PullRefreshTableViewLeftRefresh:blockSelf];
             }
         }];
+          currentView=leftView;
         leftView.imageIcon = [UIImage imageNamed:@"launchpad"];
         leftView.borderColor = [UIColor whiteColor];
         
@@ -119,6 +113,7 @@
                  [blockSelf.pullRefreshDelegate PullRefreshTableViewRightRefresh:blockSelf];
             }
         }];
+        currentView=rightView;
         rightView.imageIcon = [UIImage imageNamed:@"launchpad"];
         rightView.borderColor = [UIColor whiteColor];
         
@@ -171,6 +166,9 @@
 
 -(void)dealloc
 {
+    [self removeObserver:currentView forKeyPath:@"contentOffset"];
+    [self removeObserver:currentView forKeyPath:@"contentSize"];
+    [self removeObserver:currentView forKeyPath:@"frame"];
     _pullRefreshDelegate=nil;
     topView=nil;
     bottomView=nil;

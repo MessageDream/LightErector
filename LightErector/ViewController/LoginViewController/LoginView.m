@@ -155,14 +155,18 @@
         [_scrollerView addSubview:btn_login];
         
         
-        UILabel *lbl_forgetPassword = [[UILabel alloc] initWithFrame:CGRectMake(btn_login.frame.size.width/2-60, btn_login.frame.origin.y+btn_login.frame.size.height+10, 120, 20)];
+        UIView *bottomView=[[UIView alloc] initWithFrame:CGRectMake(btn_login.frame.origin.x, btn_login.frame.origin.y+btn_login.frame.size.height+10, btn_login.frame.size.width, 20)];
+        bottomView.backgroundColor=[UIColor clearColor];
+        
+        [_scrollerView addSubview:bottomView];
+        UILabel *lbl_forgetPassword = [[UILabel alloc] initWithFrame:CGRectMake((btn_login.frame.size.width-180)/2, (bottomView.frame.size.height-20)/2, 120, 20)];
         lbl_forgetPassword.backgroundColor = [UIColor clearColor];
         lbl_forgetPassword.textColor = [UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1];
         lbl_forgetPassword.font = [UIFont systemFontOfSize:15];
         lbl_forgetPassword.textAlignment = NSTextAlignmentRight;
         lbl_forgetPassword.text = NSLocalizedStringFromTable(@"ForgetPassword",Res_String,@"");
         lbl_forgetPassword.text = [lbl_forgetPassword.text stringByAppendingString:@"？"];
-        [_scrollerView addSubview:lbl_forgetPassword];
+        [bottomView addSubview:lbl_forgetPassword];
         
         
         btn_findPassword = [UIHyperlinksButton hyperlinksButton];
@@ -172,7 +176,7 @@
         NSString *str = NSLocalizedStringFromTable(@"FindPassword",Res_String,@"");
         [btn_findPassword setTitle:str forState:UIControlStateNormal];
         [btn_findPassword setColor:[UIColor whiteColor]];
-        [_scrollerView addSubview:btn_findPassword];
+        [bottomView addSubview:btn_findPassword];
         
         _scrollerView.contentSize = CGSizeMake(self.bounds.size.width, btn_findPassword.frame.origin.y+btn_findPassword.frame.size.height+10);
     }

@@ -22,7 +22,7 @@
 @property(nonatomic,assign)BOOL pullRefreshViewPositionBottomEnable;
 @property(nonatomic,assign)BOOL pullRefreshViewPositionLeftEnable;
 @property(nonatomic,assign)BOOL pullRefreshViewPositionRightEnable;
-@property(nonatomic,assign)id<CustomPullRefreshTableViewDelegate> pullRefreshDelegate;
+@property(nonatomic,weak)id<CustomPullRefreshTableViewDelegate> pullRefreshDelegate;
 
 -(void)stopRefresh;
 -(void)setTopPullRefreshViewImage:(UIImage *)image andBorderColor:(UIColor *)color;

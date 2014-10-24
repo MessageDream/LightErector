@@ -40,6 +40,7 @@
 		B22CAE8D19E25F32008EE80B /* UpdateUserInfoBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE8C19E25F32008EE80B /* UpdateUserInfoBusiness.m */; };
 		B22CAE9019E28084008EE80B /* certificate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22CAE8E19E28084008EE80B /* certificate@2x.png */; };
 		B22CAE9119E28084008EE80B /* fingerprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22CAE8F19E28084008EE80B /* fingerprint@2x.png */; };
+		B234145B19FA609C00EBEC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B234145A19FA609C00EBEC84 /* Images.xcassets */; };
 		B23E655719F8CBDD004C3CC9 /* CustomStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E655519F8CBDD004C3CC9 /* CustomStackView.m */; };
 		B23E655A19F8CD8C004C3CC9 /* CustomStackItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E655919F8CD8C004C3CC9 /* CustomStackItemView.m */; };
 		B2554F7219DE9E280004FE42 /* CustomScrollFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B2554F6F19DE9E280004FE42 /* CustomScrollFullScreen.m */; };
@@ -143,7 +144,6 @@
 		B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2FDC88E19D156DB00215E70 /* InfoPlist.strings */; };
 		B2FDC89219D156DB00215E70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDC89119D156DB00215E70 /* main.m */; };
 		B2FDC89619D156DB00215E70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FDC89519D156DB00215E70 /* AppDelegate.m */; };
-		B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FDC89719D156DB00215E70 /* Images.xcassets */; };
 		B2FDC89F19D156DB00215E70 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC89E19D156DB00215E70 /* XCTest.framework */; };
 		B2FDC8A019D156DB00215E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88519D156DB00215E70 /* Foundation.framework */; };
 		B2FDC8A119D156DB00215E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FDC88919D156DB00215E70 /* UIKit.framework */; };
@@ -328,6 +328,7 @@
 		B22CAE8C19E25F32008EE80B /* UpdateUserInfoBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserInfoBusiness.m; sourceTree = "<group>"; };
 		B22CAE8E19E28084008EE80B /* certificate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "certificate@2x.png"; sourceTree = "<group>"; };
 		B22CAE8F19E28084008EE80B /* fingerprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fingerprint@2x.png"; sourceTree = "<group>"; };
+		B234145A19FA609C00EBEC84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B23E655419F8CBDD004C3CC9 /* CustomStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStackView.h; path = CustomStackView/CustomStackView.h; sourceTree = "<group>"; };
 		B23E655519F8CBDD004C3CC9 /* CustomStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomStackView.m; path = CustomStackView/CustomStackView.m; sourceTree = "<group>"; };
 		B23E655819F8CD8C004C3CC9 /* CustomStackItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStackItemView.h; path = CustomStackView/CustomStackItemView.h; sourceTree = "<group>"; };
@@ -559,7 +560,6 @@
 		B2FDC89319D156DB00215E70 /* LightErector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightErector-Prefix.pch"; sourceTree = "<group>"; };
 		B2FDC89419D156DB00215E70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B2FDC89519D156DB00215E70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B2FDC89719D156DB00215E70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B2FDC89D19D156DB00215E70 /* LightErectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightErectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FDC89E19D156DB00215E70 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B2FDC8A619D156DB00215E70 /* LightErectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LightErectorTests-Info.plist"; sourceTree = "<group>"; };
@@ -1333,7 +1333,7 @@
 				B2FDCAA219D16C5B00215E70 /* ModuleAndControllerID.h */,
 				B2FDC89419D156DB00215E70 /* AppDelegate.h */,
 				B2FDC89519D156DB00215E70 /* AppDelegate.m */,
-				B2FDC89719D156DB00215E70 /* Images.xcassets */,
+				B234145A19FA609C00EBEC84 /* Images.xcassets */,
 				B2FDC88C19D156DB00215E70 /* Supporting Files */,
 			);
 			path = LightErector;
@@ -2116,6 +2116,7 @@
 				B28C16F319E4FD1500C44305 /* addImage.png in Resources */,
 				B28C170719E536FC00C44305 /* finish@2x.png in Resources */,
 				B2FDCC5019D292B400215E70 /* custom_uidatepicker_confirm@2x.png in Resources */,
+				B234145B19FA609C00EBEC84 /* Images.xcassets in Resources */,
 				B22CAE9119E28084008EE80B /* fingerprint@2x.png in Resources */,
 				B2FDCC5219D292B400215E70 /* hall_nav_right_number@2x.png in Resources */,
 				B22CAE9019E28084008EE80B /* certificate@2x.png in Resources */,
@@ -2143,7 +2144,6 @@
 				B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */,
 				B22CAE6819E0F5CA008EE80B /* detail@2x.png in Resources */,
 				B26CB15F19D5184D00023CEB /* info@2x.png in Resources */,
-				B2FDC89819D156DB00215E70 /* Images.xcassets in Resources */,
 				B2FDCC7F19D2990E00215E70 /* PushConfig.plist in Resources */,
 				B28C16F719E4FD1500C44305 /* AssetsPickerVideo@2x.png in Resources */,
 				B28C16F419E4FD1500C44305 /* AssetsPickerChecked@2x.png in Resources */,
@@ -2497,7 +2497,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2525,7 +2525,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
