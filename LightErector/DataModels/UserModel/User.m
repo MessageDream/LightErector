@@ -39,6 +39,7 @@
 -(id)init
 {
     if (self = [super init]) {
+         _taskReminde=YES;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         saveFilePath = [paths objectAtIndex:0];
         saveFilePath = [saveFilePath stringByAppendingString:@"/"];
@@ -84,12 +85,13 @@
         return;
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:self.userid] forKey:@"userId"];
     [dic setObject:[NSNumber numberWithBool:self.autoLoginFlag] forKey:@"autoLoginFlag"];
     [dic setObject:[NSNumber numberWithBool:self.rememberFlag] forKey:@"rememberFlag"];
     [dic setObject:_userName forKey:@"username"];
     [dic setObject:_password forKey:@"password"];
     [dic setObject:[NSNumber numberWithBool:self.wifiCheck] forKey:@"wifiCheck"];
-    
+       [dic setObject:[NSNumber numberWithBool:self.taskReminde] forKey:@"taskReminde"];
     if(![NSJSONSerialization isValidJSONObject:dic])
         return;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
@@ -106,11 +108,20 @@
     
     if(dic==nil)
         return;
+    _userid=[[dic objectForKey:@"userId"] integerValue];
     _userName = [dic objectForKey:@"username"];
     _password = [dic objectForKey:@"password"];
     _autoLoginFlag = [[dic objectForKey:@"autoLoginFlag"] boolValue];
     _rememberFlag = [[dic objectForKey:@"rememberFlag"] boolValue];
     _wifiCheck = [[dic objectForKey:@"wifiCheck"] boolValue];
+    
+    id task=[dic objectForKey:@"taskReminde"];
+    
+    if (!task) {
+        _taskReminde=YES;
+    }else{
+        _taskReminde = [task boolValue];
+    }
 }
 
 -(void)setAutoLoginFlag:(BOOL)autoLogin
@@ -150,6 +161,14 @@
     [self creatBusinessWithId:BUSINESS_OTHER_FEEDBACK andExecuteWithData:dic];
 }
 
+-(void)saveUserSetting
+{
+    [self writeLocalFile];
+}
+-(void)loadUserSetting
+{
+    [self readLocalFile];
+}
 #pragma mark - BusinessProtocl
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary*)businessData
 {
@@ -159,9 +178,9 @@
          _userid=[[data objectForKey:@"memberid"] integerValue];
         _userName=[data objectForKey:@"username"];
         _userInfo=[[UserInfo alloc] initWithDic:data];
-        if (_rememberFlag) {
+        //if (_rememberFlag) {
             [self writeLocalFile];
-        }
+       // }
         _userLoginStatus=UserLoginStatus_Login;
     }
     else if (business.businessId == BUSINESS_LOGOUT)

@@ -178,11 +178,10 @@
 
 -(void)reach_terminal_click:(id)sender
 {
-//    if (self.order) {
-//        self.order.observer=self;
-//        [self.order updateOrderStatusWithMemberId:user.userid flowStatus:InitialStatus];
-//    }
-    [self.observer nextStep];
+    if (self.order) {
+        self.order.observer=self;
+        [self.order updateOrderStatusWithMemberId:user.userid flowStatus:InitialStatus];
+    }
 }
 
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID

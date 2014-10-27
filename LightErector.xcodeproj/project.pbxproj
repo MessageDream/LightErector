@@ -103,6 +103,10 @@
 		B2753B2819E91A82007F10D2 /* UnSettlementView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2519E91A82007F10D2 /* UnSettlementView.m */; };
 		B2753B2919E91A82007F10D2 /* UnSettlementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2719E91A82007F10D2 /* UnSettlementViewController.m */; };
 		B2753B2C19E921A6007F10D2 /* UnSettlementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */; };
+		B277F5D019FE0A12004ABD74 /* AppSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5CF19FE0A12004ABD74 /* AppSettingViewController.m */; };
+		B277F5D319FE0A36004ABD74 /* AppSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5D219FE0A36004ABD74 /* AppSettingView.m */; };
+		B277F5D619FE1B56004ABD74 /* user_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B277F5D419FE1B56004ABD74 /* user_switch_off@2x.png */; };
+		B277F5D719FE1B56004ABD74 /* user_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */; };
 		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
 		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
 		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
@@ -442,6 +446,12 @@
 		B2753B2719E91A82007F10D2 /* UnSettlementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnSettlementViewController.m; sourceTree = "<group>"; };
 		B2753B2A19E921A6007F10D2 /* UnSettlementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnSettlementTableViewCell.h; sourceTree = "<group>"; };
 		B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnSettlementTableViewCell.m; sourceTree = "<group>"; };
+		B277F5CE19FE0A12004ABD74 /* AppSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettingViewController.h; path = AppSettingViewController/AppSettingViewController.h; sourceTree = "<group>"; };
+		B277F5CF19FE0A12004ABD74 /* AppSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSettingViewController.m; path = AppSettingViewController/AppSettingViewController.m; sourceTree = "<group>"; };
+		B277F5D119FE0A36004ABD74 /* AppSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettingView.h; path = AppSettingViewController/AppSettingView.h; sourceTree = "<group>"; };
+		B277F5D219FE0A36004ABD74 /* AppSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSettingView.m; path = AppSettingViewController/AppSettingView.m; sourceTree = "<group>"; };
+		B277F5D419FE1B56004ABD74 /* user_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_switch_off@2x.png"; sourceTree = "<group>"; };
+		B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_switch_on@2x.png"; sourceTree = "<group>"; };
 		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
 		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
 		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -991,6 +1001,7 @@
 		B25B8C4519EE58AD00576D85 /* UserCenterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B277F5CD19FE09E6004ABD74 /* AppSettingViewController */,
 				B258DFC519F755F600EE1488 /* FeedBackViewController */,
 				B258DFBE19F666DB00EE1488 /* AboutViewController */,
 				B258DFAF19F6590400EE1488 /* SystemNoticeViewController */,
@@ -1102,6 +1113,17 @@
 				B2753B2B19E921A6007F10D2 /* UnSettlementTableViewCell.m */,
 			);
 			path = UnSettlementViewController;
+			sourceTree = "<group>";
+		};
+		B277F5CD19FE09E6004ABD74 /* AppSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B277F5CE19FE0A12004ABD74 /* AppSettingViewController.h */,
+				B277F5CF19FE0A12004ABD74 /* AppSettingViewController.m */,
+				B277F5D119FE0A36004ABD74 /* AppSettingView.h */,
+				B277F5D219FE0A36004ABD74 /* AppSettingView.m */,
+			);
+			name = AppSettingViewController;
 			sourceTree = "<group>";
 		};
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
@@ -1466,6 +1488,8 @@
 		B2FDCAA419D16C5B00215E70 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B277F5D419FE1B56004ABD74 /* user_switch_off@2x.png */,
+				B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */,
 				B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */,
 				B25B8C5F19EF9C5A00576D85 /* logo@2x.png */,
 				B25B8C4C19EE757100576D85 /* login@2x.png */,
@@ -2084,6 +2108,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = jayden;
 				TargetAttributes = {
+					B2FDC88119D156DB00215E70 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					B2FDC89C19D156DB00215E70 = {
 						TestTargetID = B2FDC88119D156DB00215E70;
 					};
@@ -2132,6 +2163,7 @@
 				B2FDCC6519D292B400215E70 /* txt_username_back@2x.png in Resources */,
 				B26CB16119D5184D00023CEB /* location@2x.png in Resources */,
 				B2FDC89019D156DB00215E70 /* InfoPlist.strings in Resources */,
+				B277F5D719FE1B56004ABD74 /* user_switch_on@2x.png in Resources */,
 				B272CDE119D90CB60084C594 /* launchpad@2x.png in Resources */,
 				B2FDCC4E19D292B400215E70 /* custom_uidatepicker_background@2x.png in Resources */,
 				B2FC3D4D19F9194E00BF9886 /* mapapi.bundle in Resources */,
@@ -2157,6 +2189,7 @@
 				B2FC3D4E19F9194E00BF9886 /* readme.txt in Resources */,
 				B2CADA0319D561B800768239 /* fix@2x.png in Resources */,
 				B2FDCB6C19D16C5B00215E70 /* StringDescribe.strings in Resources */,
+				B277F5D619FE1B56004ABD74 /* user_switch_off@2x.png in Resources */,
 				B28C16F819E4FD1500C44305 /* complete.png in Resources */,
 				B2FDCC4C19D292B400215E70 /* check_box_frame@2x.png in Resources */,
 				B26CB15E19D5184D00023CEB /* abacus@2x.png in Resources */,
@@ -2216,6 +2249,7 @@
 				B2FDCBB719D17FB600215E70 /* RootModule.m in Sources */,
 				B2FDCB7D19D16C5B00215E70 /* CustomOrderMangerCell.m in Sources */,
 				B2FDCBAB19D16DE500215E70 /* RootViewController.m in Sources */,
+				B277F5D319FE0A36004ABD74 /* AppSettingView.m in Sources */,
 				B22CAE8D19E25F32008EE80B /* UpdateUserInfoBusiness.m in Sources */,
 				B25B8C4819EE5A0700576D85 /* UserCenterViewController.m in Sources */,
 				B258DFC819F7561900EE1488 /* FeedBackViewController.m in Sources */,
@@ -2246,6 +2280,7 @@
 				B2554F8319DF8E470004FE42 /* InstallFlowModalController.m in Sources */,
 				B26CB13D19D2D2A500023CEB /* AFNetworkReachabilityManager.m in Sources */,
 				B2FDCB9F19D16C5B00215E70 /* test4ViewController.m in Sources */,
+				B277F5D019FE0A12004ABD74 /* AppSettingViewController.m in Sources */,
 				B2FDCC0F19D2766B00215E70 /* User.m in Sources */,
 				B25B8C4B19EE5A9F00576D85 /* UserCenterView.m in Sources */,
 				B22CAE5819E0C8C3008EE80B /* UIImage+Additional.m in Sources */,

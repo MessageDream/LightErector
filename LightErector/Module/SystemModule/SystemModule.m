@@ -17,6 +17,7 @@
 #import "SystemNoticeViewController.h"
 #import "AboutViewController.h"
 #import "FeedBackViewController.h"
+#import "AppSettingViewController.h"
 
 @implementation SystemModule
 -(id)init
@@ -55,6 +56,8 @@
         viewcontroller=[[AboutViewController alloc] init];
     }else if (message.receiveObjectID==VIEWCONTROLLER_FEEDBACK){
         viewcontroller=[[FeedBackViewController alloc] init];
+    }else if (message.receiveObjectID==VIEWCONTROLLER_SETTING){
+        viewcontroller=[[AppSettingViewController alloc] init];
     }
 
     if(viewcontroller != nil)

@@ -25,10 +25,13 @@ enum UserLoginStatus
 @property(nonatomic,assign)BOOL autoLoginFlag;
 @property(nonatomic,assign)BOOL rememberFlag;
 @property(nonatomic,assign)BOOL wifiCheck;
+@property(nonatomic,assign)BOOL taskReminde;
 +(User*)shareUser;
 -(void)login:(NSString  *)userName withPassword:(NSString  *)password;
 -(void)logout;
 -(void)updateInfo;
+-(void)saveUserSetting;
+-(void)loadUserSetting;
 -(void)setAutoLoginFlag:(BOOL)autoLogin;
 -(void)setRememberFlag:(BOOL)remember;
 -(void)getVeryCode:(NSString *)userName;

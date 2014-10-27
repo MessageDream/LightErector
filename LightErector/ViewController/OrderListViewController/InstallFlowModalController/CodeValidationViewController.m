@@ -69,12 +69,11 @@
 
 -(void)uploadCode_click:(NSString*)code
 {
-//    if (self.order) {
-//        self.order.observer=self;
-//        [self.order uploadCode:code];
-//        [self lockView];
-//    }
-    [self.observer nextStep];
+    if (self.order) {
+        self.order.observer=self;
+        [self.order uploadCode:code];
+        [self lockView];
+    }
 }
 
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID

@@ -140,8 +140,12 @@
                 [self sendMessage:msg];
             }
                 break;
-            case 1:
-               
+            case 1:{
+                Message *msg=[[Message alloc] init];
+                msg.receiveObjectID=VIEWCONTROLLER_SETTING;
+                msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;
+                [self sendMessage:msg];
+            }
                 break;
             case 2:{
                 Message *msg=[[Message alloc] init];

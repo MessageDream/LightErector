@@ -29,6 +29,9 @@
 #pragma mark - BusinessProtocl
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary *)businessData
 {
+    if (!self.observer||![self.observer respondsToSelector:@selector(didDataModelNoticeSucess:forBusinessType:)]) {
+        return;
+    }
     [self.observer didDataModelNoticeSucess:self forBusinessType:business.businessId];
     
     if(baseBusiness.baseBusinessHttpConnect.stauts==HttpContentStauts_DidStop || baseBusiness.baseBusinessHttpConnect.stauts == HttpContentStauts_DidFinishRespones)
@@ -36,6 +39,9 @@
 }
 - (void)didBusinessFail 
 {
+    if (!self.observer||![self.observer respondsToSelector:@selector(didBusinessFail)]) {
+        return;
+    }
     [self.observer didDataModelNoticeFail:self forBusinessType:baseBusiness.businessId forErrorCode:-1 forErrorMsg:nil];
     
     if(baseBusiness.baseBusinessHttpConnect.stauts==HttpContentStauts_DidStop || baseBusiness.baseBusinessHttpConnect.stauts == HttpContentStauts_DidFinishRespones)
@@ -43,6 +49,9 @@
 }
 - (void)didBusinessError:(BaseBusiness *)business
 {
+    if (!self.observer||![self.observer respondsToSelector:@selector(didBusinessError:)]) {
+        return;
+    }
     [self.observer didDataModelNoticeFail:self forBusinessType:business.businessId forErrorCode:business.errCode forErrorMsg:business.errmsg];
     
     if(baseBusiness.baseBusinessHttpConnect.stauts==HttpContentStauts_DidStop || baseBusiness.baseBusinessHttpConnect.stauts == HttpContentStauts_DidFinishRespones)

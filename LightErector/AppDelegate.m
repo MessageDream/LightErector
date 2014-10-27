@@ -10,6 +10,8 @@
 #import "RootModule.h"
 #import "ModuleAndControllerID.h"
 #import "JPushNotification.h"
+#import "User.h"
+#import "TaskRemind.h"
 
 @interface AppDelegate()<BMKGeneralDelegate>
 {
@@ -37,6 +39,8 @@
 //    //注册极光推送
 //    jpush=[JPushNotification sharePushNotification];
 //    [jpush applyForPushNotification:launchOptions];
+    
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     //建立根Node，然后建立第一个显示的UIViewController
     self.rootModule = [[RootModule alloc] init];
@@ -158,6 +162,19 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
    // [jpush receivePushNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNoData);
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    User *user=[User shareUser];
+    if (user.taskReminde&&user.userid>0) {
+     TaskRemind *taskRemind= [TaskRemind fetchTodayTask:user.userid];
+//        if ([taskReminde.state isEqualToString: @"S"]) {
+//            completionHandler(UIBackgroundFetchResultNewData);
+//        }else{
+//            completionHandler(UIBackgroundFetchResultFailed);
+//        }
+    }
 }
 #endif
 @end
