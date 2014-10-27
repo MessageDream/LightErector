@@ -38,9 +38,7 @@
 
 -(void)loadView
 {
-    CGRect frame=[self createViewFrame];
-    frame.size.height=frame.size.height-DefaultTabBarHeight;
-    view=[[SubscribeClientView alloc] initWithFrame:frame];
+    view=[[SubscribeClientView alloc] initWithFrame:[self createViewFrame]];
     view.customTitleBar.buttonEventObserver=self;
     view.observer=self;
     _mapView=view.mapView;
@@ -227,7 +225,7 @@
 
 -(void)call_btn_click:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",order.tradeMobile]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@",order.tradeMobile]]];
 }
 
 -(void)location_btn_click:(id)sender

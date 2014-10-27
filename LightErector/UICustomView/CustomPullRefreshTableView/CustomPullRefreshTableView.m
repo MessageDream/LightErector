@@ -30,7 +30,7 @@
 -(void)stopRefresh
 {
     if (currentView) {
-        [topView stopIndicatorAnimation];
+        [currentView stopIndicatorAnimation];
     }
 }
 

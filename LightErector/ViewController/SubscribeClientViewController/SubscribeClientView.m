@@ -228,6 +228,7 @@
 {
     if (self.observer &&[self.observer respondsToSelector:@selector(location_btn_click:)]) {
         [self.observer location_btn_click:sender];
+        [self.scrollerView scrollRectToVisible:CGRectMake(0, _mapView.frame.origin.y, self.scrollerView.frame.size.width, self.scrollerView.frame.size.height) animated:YES];
     }
 }
 
