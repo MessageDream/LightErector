@@ -8,6 +8,7 @@
 
 #import "BaseDataModel.h"
 #import "UserInfo.h"
+#import "UserSetting.h"
 
 enum UserLoginStatus
 {
@@ -25,7 +26,7 @@ enum UserLoginStatus
 @property(nonatomic,assign)BOOL autoLoginFlag;
 @property(nonatomic,assign)BOOL rememberFlag;
 @property(nonatomic,assign)BOOL wifiCheck;
-@property(nonatomic,assign)BOOL taskReminde;
+@property(nonatomic,strong)UserSetting *setting;
 +(User*)shareUser;
 -(void)login:(NSString  *)userName withPassword:(NSString  *)password;
 -(void)logout;

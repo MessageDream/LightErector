@@ -107,6 +107,15 @@
 		B277F5D319FE0A36004ABD74 /* AppSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5D219FE0A36004ABD74 /* AppSettingView.m */; };
 		B277F5D619FE1B56004ABD74 /* user_switch_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B277F5D419FE1B56004ABD74 /* user_switch_off@2x.png */; };
 		B277F5D719FE1B56004ABD74 /* user_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */; };
+		B277F5DC19FF620C004ABD74 /* EKEventUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5DB19FF620C004ABD74 /* EKEventUtils.m */; };
+		B277F5EC19FF8753004ABD74 /* UserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EB19FF8753004ABD74 /* UserSetting.m */; };
+		B277F5EF19FF9C29004ABD74 /* LocalPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */; };
+		B277F5F719FFAD9F004ABD74 /* ring1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F119FFAD9F004ABD74 /* ring1.wav */; };
+		B277F5F819FFAD9F004ABD74 /* ring2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F219FFAD9F004ABD74 /* ring2.wav */; };
+		B277F5F919FFAD9F004ABD74 /* ring3.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F319FFAD9F004ABD74 /* ring3.wav */; };
+		B277F5FA19FFAD9F004ABD74 /* ring4.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F419FFAD9F004ABD74 /* ring4.wav */; };
+		B277F5FB19FFAD9F004ABD74 /* ring5.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F519FFAD9F004ABD74 /* ring5.wav */; };
+		B277F5FC19FFAD9F004ABD74 /* ring6.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F619FFAD9F004ABD74 /* ring6.wav */; };
 		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
 		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
 		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
@@ -452,6 +461,18 @@
 		B277F5D219FE0A36004ABD74 /* AppSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSettingView.m; path = AppSettingViewController/AppSettingView.m; sourceTree = "<group>"; };
 		B277F5D419FE1B56004ABD74 /* user_switch_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_switch_off@2x.png"; sourceTree = "<group>"; };
 		B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_switch_on@2x.png"; sourceTree = "<group>"; };
+		B277F5DA19FF620C004ABD74 /* EKEventUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKEventUtils.h; sourceTree = "<group>"; };
+		B277F5DB19FF620C004ABD74 /* EKEventUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKEventUtils.m; sourceTree = "<group>"; };
+		B277F5EA19FF8753004ABD74 /* UserSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSetting.h; path = UserModel/UserSetting.h; sourceTree = "<group>"; };
+		B277F5EB19FF8753004ABD74 /* UserSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSetting.m; path = UserModel/UserSetting.m; sourceTree = "<group>"; };
+		B277F5ED19FF9C29004ABD74 /* LocalPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPushNotification.h; sourceTree = "<group>"; };
+		B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPushNotification.m; sourceTree = "<group>"; };
+		B277F5F119FFAD9F004ABD74 /* ring1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring1.wav; sourceTree = "<group>"; };
+		B277F5F219FFAD9F004ABD74 /* ring2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring2.wav; sourceTree = "<group>"; };
+		B277F5F319FFAD9F004ABD74 /* ring3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring3.wav; sourceTree = "<group>"; };
+		B277F5F419FFAD9F004ABD74 /* ring4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring4.wav; sourceTree = "<group>"; };
+		B277F5F519FFAD9F004ABD74 /* ring5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring5.wav; sourceTree = "<group>"; };
+		B277F5F619FFAD9F004ABD74 /* ring6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring6.wav; sourceTree = "<group>"; };
 		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
 		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
 		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -1126,6 +1147,19 @@
 			name = AppSettingViewController;
 			sourceTree = "<group>";
 		};
+		B277F5F019FFAD9F004ABD74 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B277F5F119FFAD9F004ABD74 /* ring1.wav */,
+				B277F5F219FFAD9F004ABD74 /* ring2.wav */,
+				B277F5F319FFAD9F004ABD74 /* ring3.wav */,
+				B277F5F419FFAD9F004ABD74 /* ring4.wav */,
+				B277F5F519FFAD9F004ABD74 /* ring5.wav */,
+				B277F5F619FFAD9F004ABD74 /* ring6.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1477,6 +1511,7 @@
 		B2FDCAA319D16C5B00215E70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B277F5F019FFAD9F004ABD74 /* Sounds */,
 				B2FDCAA419D16C5B00215E70 /* Images */,
 				B2FDCAB319D16C5B00215E70 /* ResDefine.h */,
 				B2FDCAB219D16C5B00215E70 /* ImageStringDescribe.strings */,
@@ -1969,6 +2004,8 @@
 				B2FDCBBE19D1822100215E70 /* StringUtils.m */,
 				B26CB17519D5409700023CEB /* ImageUtils.h */,
 				B26CB17619D5409700023CEB /* ImageUtils.m */,
+				B277F5DA19FF620C004ABD74 /* EKEventUtils.h */,
+				B277F5DB19FF620C004ABD74 /* EKEventUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2024,6 +2061,8 @@
 				B2FDCC0C19D2766B00215E70 /* User.m */,
 				B2FDCC0D19D2766B00215E70 /* UserInfo.h */,
 				B2FDCC0E19D2766B00215E70 /* UserInfo.m */,
+				B277F5EA19FF8753004ABD74 /* UserSetting.h */,
+				B277F5EB19FF8753004ABD74 /* UserSetting.m */,
 			);
 			name = UserModel;
 			sourceTree = "<group>";
@@ -2048,6 +2087,8 @@
 				B2FDCC7819D2974700215E70 /* JPushNotification.m */,
 				B2FDCC7919D2974700215E70 /* PushNotification.h */,
 				B2FDCC7A19D2974700215E70 /* PushNotification.m */,
+				B277F5ED19FF9C29004ABD74 /* LocalPushNotification.h */,
+				B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */,
 			);
 			path = PushNotification;
 			sourceTree = "<group>";
@@ -2149,16 +2190,19 @@
 				B2FDCC5019D292B400215E70 /* custom_uidatepicker_confirm@2x.png in Resources */,
 				B234145B19FA609C00EBEC84 /* Images.xcassets in Resources */,
 				B22CAE9119E28084008EE80B /* fingerprint@2x.png in Resources */,
+				B277F5FC19FFAD9F004ABD74 /* ring6.wav in Resources */,
 				B2FDCC5219D292B400215E70 /* hall_nav_right_number@2x.png in Resources */,
 				B22CAE9019E28084008EE80B /* certificate@2x.png in Resources */,
 				B28C16F519E4FD1500C44305 /* AssetsPickerChecked~iOS6@2x.png in Resources */,
 				B2CADA0219D561B800768239 /* change@2x.png in Resources */,
 				B2FDCC5B19D292B400215E70 /* login_logo@2x.png in Resources */,
 				B28C16F119E4FD1500C44305 /* 1.png in Resources */,
+				B277F5F919FFAD9F004ABD74 /* ring3.wav in Resources */,
 				B28C16FA19E4FD1500C44305 /* fanhui.png in Resources */,
 				B2FDCC4F19D292B400215E70 /* custom_uidatepicker_cancel@2x.png in Resources */,
 				B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */,
 				B26CB16319D5184D00023CEB /* money_bag@2x.png in Resources */,
+				B277F5FA19FFAD9F004ABD74 /* ring4.wav in Resources */,
 				B26CB16019D5184D00023CEB /* light@2x.png in Resources */,
 				B2FDCC6519D292B400215E70 /* txt_username_back@2x.png in Resources */,
 				B26CB16119D5184D00023CEB /* location@2x.png in Resources */,
@@ -2171,6 +2215,7 @@
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
 				B204021819EC1D31001F493F /* radio_button_checked@2x.png in Resources */,
 				B25B8C6019EF9C5A00576D85 /* logo@2x.png in Resources */,
+				B277F5FB19FFAD9F004ABD74 /* ring5.wav in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
 				B28C16FC19E4FD1500C44305 /* OK.png in Resources */,
 				B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */,
@@ -2181,6 +2226,7 @@
 				B28C16F419E4FD1500C44305 /* AssetsPickerChecked@2x.png in Resources */,
 				B2CADA0419D561B800768239 /* setting@2x.png in Resources */,
 				B2FDCC5E19D292B400215E70 /* nav_btn_right_home@2x.png in Resources */,
+				B277F5F719FFAD9F004ABD74 /* ring1.wav in Resources */,
 				B25B8C4D19EE757100576D85 /* login@2x.png in Resources */,
 				B28C170019E4FD1500C44305 /* ZYQAssetPicker.Bundle in Resources */,
 				B2FDCC4B19D292B400215E70 /* check_box_frame_checked@2x.png in Resources */,
@@ -2205,6 +2251,7 @@
 				B2FDCC5A19D292B400215E70 /* login_back@2x.png in Resources */,
 				B28C170519E534B900C44305 /* upload@2x.png in Resources */,
 				B26CB16619D5184D00023CEB /* user@2x.png in Resources */,
+				B277F5F819FFAD9F004ABD74 /* ring2.wav in Resources */,
 				B204021919EC1D31001F493F /* radio_button_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2232,6 +2279,7 @@
 				B2FDCB7319D16C5B00215E70 /* CustomHeadView.m in Sources */,
 				B2753B2819E91A82007F10D2 /* UnSettlementView.m in Sources */,
 				B2FDCB4B19D16C5B00215E70 /* BusinessFactory.m in Sources */,
+				B277F5DC19FF620C004ABD74 /* EKEventUtils.m in Sources */,
 				B2FDCB8819D16C5B00215E70 /* NSTimer+Addition.m in Sources */,
 				B22CAE5E19E0D483008EE80B /* OrderDetailAndFeedBackViewController.m in Sources */,
 				B2FDCB8219D16C5B00215E70 /* CustomTextView.m in Sources */,
@@ -2320,6 +2368,7 @@
 				B28C16FF19E4FD1500C44305 /* ShowBigViewController.m in Sources */,
 				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
+				B277F5EF19FF9C29004ABD74 /* LocalPushNotification.m in Sources */,
 				B22CAE6519E0D8FE008EE80B /* NSInvocation+Copy.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
 				B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */,
@@ -2392,6 +2441,7 @@
 				B2FDCBB819D17FB600215E70 /* TestModule.m in Sources */,
 				B2FDCB5419D16C5B00215E70 /* BaseBusinessHttpConnect.m in Sources */,
 				B2FDC89219D156DB00215E70 /* main.m in Sources */,
+				B277F5EC19FF8753004ABD74 /* UserSetting.m in Sources */,
 				B2275D6C19D93F0800D5EE51 /* GetOrderBusiness.m in Sources */,
 				B2FDCB7A19D16C5B00215E70 /* CustomTabBar.m in Sources */,
 				B23E655719F8CBDD004C3CC9 /* CustomStackView.m in Sources */,

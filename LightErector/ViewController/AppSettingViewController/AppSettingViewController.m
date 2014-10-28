@@ -11,7 +11,7 @@
 
 @interface AppSettingViewController ()<UITableViewDataSource,UITableViewDelegate,CustomTitleBar_ButtonDelegate>
 {
-    __weak UITableView *tableView;
+    __weak UITableView *_tableView;
 }
 @end
 
@@ -28,7 +28,7 @@
     view.customTitleBar.buttonEventObserver=self;
     view.tableView.delegate=self;
     view.tableView.dataSource=self;
-    tableView=view.tableView;
+    _tableView=view.tableView;
     self.view=view;
 }
 - (void)viewDidLoad {
@@ -51,7 +51,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (user.taskReminde) {
+    if (user.setting.taskReminde) {
         return 2;
     }
     return 1;
@@ -78,7 +78,7 @@
         UISwitch *taskRemindSwitch=[[UISwitch alloc]init];
         [taskRemindSwitch setOnImage:[UIImage imageNamed:@"user_switch_on"]];
         [taskRemindSwitch setOffImage:[UIImage imageNamed:@"user_switch_off"]];
-        taskRemindSwitch.on=user.taskReminde;
+        taskRemindSwitch.on=user.setting.taskReminde;
         [taskRemindSwitch addTarget:self action:@selector(switchAction:)forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = taskRemindSwitch;
         
@@ -106,11 +106,11 @@
 -(void)switchAction:(UISwitch *)sender
 {
     if (sender.on) {
-        user.taskReminde=YES;
+            user.setting.taskReminde=YES;
     }else{
-        user.taskReminde=NO;
+        user.setting.taskReminde=NO;
     }
-    [tableView reloadData];
+    [_tableView reloadData];
     [user saveUserSetting];
 }
 

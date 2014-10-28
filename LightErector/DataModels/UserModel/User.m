@@ -39,7 +39,7 @@
 -(id)init
 {
     if (self = [super init]) {
-         _taskReminde=YES;
+         _setting=[[UserSetting alloc] init];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         saveFilePath = [paths objectAtIndex:0];
         saveFilePath = [saveFilePath stringByAppendingString:@"/"];
@@ -91,7 +91,7 @@
     [dic setObject:_userName forKey:@"username"];
     [dic setObject:_password forKey:@"password"];
     [dic setObject:[NSNumber numberWithBool:self.wifiCheck] forKey:@"wifiCheck"];
-       [dic setObject:[NSNumber numberWithBool:self.taskReminde] forKey:@"taskReminde"];
+    [dic setObject:[self.setting toDic]forKey:@"setting"];
     if(![NSJSONSerialization isValidJSONObject:dic])
         return;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
@@ -115,12 +115,11 @@
     _rememberFlag = [[dic objectForKey:@"rememberFlag"] boolValue];
     _wifiCheck = [[dic objectForKey:@"wifiCheck"] boolValue];
     
-    id task=[dic objectForKey:@"taskReminde"];
-    
-    if (!task) {
-        _taskReminde=YES;
+    NSDictionary *set=[dic objectForKey:@"setting"];
+    if (!set) {
+        _setting.taskReminde=YES;
     }else{
-        _taskReminde = [task boolValue];
+        _setting=[[UserSetting alloc] initWithDic:set];
     }
 }
 

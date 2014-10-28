@@ -10,12 +10,16 @@
 #import "RootModule.h"
 #import "ModuleAndControllerID.h"
 #import "JPushNotification.h"
+#import "LocalPushNotification.h"
 #import "User.h"
 #import "TaskRemind.h"
+#import "EKEventUtils.h"
+
 
 @interface AppDelegate()<BMKGeneralDelegate>
 {
-   __weak PushNotification *jpush;
+    __weak PushNotification *jpush;
+    __weak PushNotification *localPush;
 }
 @end
 @implementation AppDelegate
@@ -27,21 +31,71 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     RootViewController *rootViewController=  [[RootViewController alloc] init];
-
+    
     self.window.rootViewController =rootViewController;
     [self.window makeKeyAndVisible];
     
     //百度地图
     _mapManager = [[BMKMapManager alloc]init];
-    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
     [_mapManager start:@"pO83Gx1SwHwrVht30ZqyPTAj"  generalDelegate:self];
     
-//    //注册极光推送
-//    jpush=[JPushNotification sharePushNotification];
-//    [jpush applyForPushNotification:launchOptions];
+//        //注册极光推送
+//        jpush=[JPushNotification sharePushNotification];
+//        [jpush applyForPushNotification:launchOptions];
+    //本地推送
+    localPush=[LocalPushNotification sharePushNotification];
+    [localPush applyForPushNotification:launchOptions];
     
+//    if (![EKEventUtils authStatus]) {
+//        [EKEventUtils requestAccessWithCompletion:^(BOOL granted, NSError *error) {
+//        }];
+//    }
+//    EKEventStore *store=[[EKEventStore alloc] init];
+//    NSPredicate *predicate = [store predicateForRemindersInCalendars:nil];
+//    [store fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
+//        EKReminder *item;
+//        for (EKReminder *reminder in reminders) {
+//            if ([reminder.title containsString:@"灯饰安装任务"]) {
+//                item=reminder;
+//                break;
+//            }
+//        }
+//        NSError *reminderError;
+//        if (!item) {
+//            EKReminder *reminder=  [EKReminder reminderWithEventStore:store];
+//            reminder.title=[NSString stringWithFormat:@"您今天有%d个灯饰安装任务，请及时安排时间。",result];
+//            reminder.calendar=[store defaultCalendarForNewReminders];
+//            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//            NSDate *date=[dateFormatter dateFromString:@"2014-10-28 15:02:00"];
+//            EKAlarm *alrm=[EKAlarm alarmWithAbsoluteDate:date];
+//            alrm.relativeOffset=60;
+//            [reminder addAlarm:alrm];
+//            [store saveReminder:reminder commit:YES error:&reminderError];
+//            if (reminderError) {
+//                return;
+//            }
+//            
+//        }else if(item.completed)
+//        {
+//            [store removeReminder:item commit:YES error:&reminderError];
+//            if (reminderError) {
+//                return;
+//            }
+//            
+//            item=  [EKReminder reminderWithEventStore:store];
+//            item.title=[NSString stringWithFormat:@"您今天有%d个灯饰安装任务，请及时安排时间。",result];
+//            item.calendar=[store defaultCalendarForNewReminders];
+//            [item addAlarm:[EKAlarm alarmWithAbsoluteDate:[NSDate date]]];
+//            [store saveReminder:item commit:YES error:&reminderError];
+//            if (reminderError) {
+//                return;
+//            }
+//        }
+//        
+//    }];
+//
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-    
     //建立根Node，然后建立第一个显示的UIViewController
     self.rootModule = [[RootModule alloc] init];
     self.rootModule.window = self.window;
@@ -50,30 +104,30 @@
     [self.rootModule createChildModule];
     
     
-//    //程序升级后首次运行
-//    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-//    
-//    NSString *selfAppVerion = [[NSUserDefaults standardUserDefaults] valueForKey:@"CFBundleVersion"];
-//    
-//    if(![appVersion isEqualToString:selfAppVerion])
-//    {
-//        [[NSUserDefaults standardUserDefaults] setValue:appVersion forKey:@"CFBundleVersion"];
-//        //首次运行
-//        Message *message = [[Message alloc] init];
-//        message.receiveObjectID = VIEWCONTROLLER_WELCOME;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
-//        message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
-//        message.externData=launchOptions;
-//        [self.nodeRoot receiveMessage:message];
-//    }
-//    else
-//    {
-//        //直接进入
-//        Message *message = [[Message alloc] init];
-//        message.receiveObjectID = VIEWCONTROLLER_LOGIN;
-//        message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
-//        message.externData=launchOptions;
-//        [self.nodeRoot receiveMessage:message];
-//    }
+    //    //程序升级后首次运行
+    //    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    //
+    //    NSString *selfAppVerion = [[NSUserDefaults standardUserDefaults] valueForKey:@"CFBundleVersion"];
+    //
+    //    if(![appVersion isEqualToString:selfAppVerion])
+    //    {
+    //        [[NSUserDefaults standardUserDefaults] setValue:appVersion forKey:@"CFBundleVersion"];
+    //        //首次运行
+    //        Message *message = [[Message alloc] init];
+    //        message.receiveObjectID = VIEWCONTROLLER_WELCOME;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
+    //        message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+    //        message.externData=launchOptions;
+    //        [self.nodeRoot receiveMessage:message];
+    //    }
+    //    else
+    //    {
+    //        //直接进入
+    //        Message *message = [[Message alloc] init];
+    //        message.receiveObjectID = VIEWCONTROLLER_LOGIN;
+    //        message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+    //        message.externData=launchOptions;
+    //        [self.nodeRoot receiveMessage:message];
+    //    }
     
     Message *message = [[Message alloc] init];
     message.receiveObjectID = VIEWCONTROLLER_LOGIN;
@@ -99,7 +153,7 @@
 }
 -(void)onGetPermissionState:(int)iError
 {
-    #ifdef DEBUG_LOG
+#ifdef DEBUG_LOG
     if (iError == 0)
     {
         NSLog(@"授权成功");
@@ -108,7 +162,7 @@
     {
         NSLog(@"授权失败:%d",iError);
     }
-    #endif
+#endif
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -150,32 +204,73 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     
-   // [jpush registerDeviceToken:deviceToken];
+    // [jpush registerDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-   // [jpush receivePushNotification:userInfo];
+    // [jpush receivePushNotification:userInfo];
 }
 
 #ifdef __IPHONE_7_0
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-   // [jpush receivePushNotification:userInfo];
+    // [jpush receivePushNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNoData);
 }
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     User *user=[User shareUser];
-    if (user.taskReminde&&user.userid>0) {
-     TaskRemind *taskRemind= [TaskRemind fetchTodayTask:user.userid];
-//        if ([taskReminde.state isEqualToString: @"S"]) {
+    if (user.setting.taskReminde&&user.userid>0) {
+        NSDate *date=[NSDate new];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *dstr=[dateFormatter stringFromDate:date];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        NSString *newDateStr=[NSString stringWithFormat:@"%@ %@",dstr,user.setting.remindTime];
+        NSDate *newdate=[dateFormatter dateFromString:newDateStr];
+        
+//        if ([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime]) {
+//           NSArray *arr= [[UIApplication sharedApplication] scheduledLocalNotifications];
 //            completionHandler(UIBackgroundFetchResultNewData);
-//        }else{
-//            completionHandler(UIBackgroundFetchResultFailed);
+//            return;
 //        }
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NSInteger result= [TaskRemind fetchTodayTask:user.userid];
+        if (result>0) {
+            UILocalNotification *notification=[[UILocalNotification alloc] init];
+            if (notification!=nil)
+            {
+//                notification.fireDate=newdate;
+                notification.fireDate=[date dateByAddingTimeInterval:10];
+                notification.timeZone=[NSTimeZone defaultTimeZone];
+                notification.repeatInterval=NSSecondCalendarUnit;
+                notification.soundName =[self voiceFilePathFromBundle:user.setting.ringName];
+               // notification.soundName =user.setting.ringName;
+                notification.alertBody =[NSString stringWithFormat:@"您今天有%d个灯饰安装任务，请及时安排时间。",result];
+                notification.alertAction=@"查看";
+                notification.applicationIconBadgeNumber = 1;
+                notification.hasAction=YES;
+                NSDictionary* info = [NSDictionary dictionaryWithObject:@"dengshifuios" forKey:@"dengshifu"];
+                notification.userInfo = info;
+                
+                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+                user.setting.currentRemindTime=newDateStr;
+                [user saveUserSetting];
+            }
+          completionHandler(UIBackgroundFetchResultNewData);
+        }else{
+            completionHandler(UIBackgroundFetchResultFailed);
+        }
     }
 }
 #endif
+
+-(NSString *)voiceFilePathFromBundle:(NSString *)fileName
+{
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *filePath = [mainBundle pathForResource:fileName ofType:@"wav"];
+    return filePath;
+}
 @end
 

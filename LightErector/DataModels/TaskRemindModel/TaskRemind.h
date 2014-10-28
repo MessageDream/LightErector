@@ -9,5 +9,5 @@
 #import "BaseDataModel.h"
 
 @interface TaskRemind : BaseDataModel
-+(BOOL)fetchTodayTask:(int)memId;
++(NSInteger)fetchTodayTask:(int)memId;
 @end
