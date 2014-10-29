@@ -12,6 +12,7 @@
 @interface AppSettingViewController ()<UITableViewDataSource,UITableViewDelegate,CustomTitleBar_ButtonDelegate>
 {
     __weak UITableView *_tableView;
+    NSArray *soundsArray;
 }
 @end
 
@@ -34,6 +35,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    soundsArray=@[@{@"name":@"05.m4r",@"des":@"顶峰"},
+                  @{@"name":@"06.m4r",@"des":@"辐射"},
+                  @{@"name":@"24.m4r",@"des":@"星座"},
+                  @{@"name":@"26.m4r",@"des":@"照明"},
+                  @{@"name":@"27.m4r",@"des":@"钟声"},
+                  @{@"name":@"14.m4r",@"des":@"默认-流水"},
+                  @{@"name":@"08.m4r",@"des":@"缓慢上升"},
+                  @{@"name":@"21.m4r",@"des":@"悉心期盼"},
+                  @{@"name":@"22.m4r",@"des":@"新闻快讯"},
+                  @{@"name":@"criminal.m4r",@"des":@"criminal"},
+                  @{@"name":@"What_are_words.m4r",@"des":@"What are words"},
+                  @{@"name":@"I_need_a_doctor.m4r",@"des":@"I need a doctor"}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +71,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 38.0f;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +83,8 @@
         cell.textLabel.textColor = [MainStyle mainTitleColor];
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor=[UIColor clearColor];
+        //cell.backgroundColor=[UIColor clearColor];
+        cell.detailTextLabel.textColor=[MainStyle mainGreenColor];
         cell.backgroundView=nil;
     }
     if (indexPath.section==0) {
@@ -84,11 +98,21 @@
         
     }else{
         switch (indexPath.row) {
-            case 0:
+            case 0:{
                 cell.textLabel.text =@"设置任务提醒时间";
+                cell.detailTextLabel.text=user.setting.remindTime;
+            }
                 break;
-            case 1:
+            case 1:{
                 cell.textLabel.text =@"设置任务提醒铃声";
+                for(NSDictionary *dic in soundsArray){
+                    NSString *name=[dic objectForKey:@"name"];
+                    if ([user.setting.ringName isEqualToString:name]) {
+                        cell.detailTextLabel.text=[dic objectForKey:@"des"];
+                        break;
+                    }
+                }
+            }
                 break;
             default:
                 break;

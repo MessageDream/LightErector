@@ -230,23 +230,20 @@
         NSString *newDateStr=[NSString stringWithFormat:@"%@ %@",dstr,user.setting.remindTime];
         NSDate *newdate=[dateFormatter dateFromString:newDateStr];
         
-//        if ([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime]) {
-//           NSArray *arr= [[UIApplication sharedApplication] scheduledLocalNotifications];
-//            completionHandler(UIBackgroundFetchResultNewData);
-//            return;
-//        }
+        if ([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime]) {
+           NSArray *arr= [[UIApplication sharedApplication] scheduledLocalNotifications];
+            completionHandler(UIBackgroundFetchResultNewData);
+            return;
+        }
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         NSInteger result= [TaskRemind fetchTodayTask:user.userid];
         if (result>0) {
             UILocalNotification *notification=[[UILocalNotification alloc] init];
             if (notification!=nil)
             {
-//                notification.fireDate=newdate;
-                notification.fireDate=[date dateByAddingTimeInterval:10];
+                notification.fireDate=newdate;
                 notification.timeZone=[NSTimeZone defaultTimeZone];
-                notification.repeatInterval=NSSecondCalendarUnit;
-                notification.soundName =[self voiceFilePathFromBundle:user.setting.ringName];
-               // notification.soundName =user.setting.ringName;
+               notification.soundName =user.setting.ringName;
                 notification.alertBody =[NSString stringWithFormat:@"您今天有%d个灯饰安装任务，请及时安排时间。",result];
                 notification.alertAction=@"查看";
                 notification.applicationIconBadgeNumber = 1;

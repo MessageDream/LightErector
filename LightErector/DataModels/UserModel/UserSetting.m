@@ -14,7 +14,7 @@
     if (self=[super init]) {
         _taskReminde=YES;
         _remindTime=DEFAULTTIME;
-        _ringName=@"ring2";
+        _ringName=@"14.m4r";
         _currentRemindTime=@"";
     }
     return self;

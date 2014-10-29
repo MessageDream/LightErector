@@ -110,12 +110,6 @@
 		B277F5DC19FF620C004ABD74 /* EKEventUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5DB19FF620C004ABD74 /* EKEventUtils.m */; };
 		B277F5EC19FF8753004ABD74 /* UserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EB19FF8753004ABD74 /* UserSetting.m */; };
 		B277F5EF19FF9C29004ABD74 /* LocalPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */; };
-		B277F5F719FFAD9F004ABD74 /* ring1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F119FFAD9F004ABD74 /* ring1.wav */; };
-		B277F5F819FFAD9F004ABD74 /* ring2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F219FFAD9F004ABD74 /* ring2.wav */; };
-		B277F5F919FFAD9F004ABD74 /* ring3.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F319FFAD9F004ABD74 /* ring3.wav */; };
-		B277F5FA19FFAD9F004ABD74 /* ring4.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F419FFAD9F004ABD74 /* ring4.wav */; };
-		B277F5FB19FFAD9F004ABD74 /* ring5.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F519FFAD9F004ABD74 /* ring5.wav */; };
-		B277F5FC19FFAD9F004ABD74 /* ring6.wav in Resources */ = {isa = PBXBuildFile; fileRef = B277F5F619FFAD9F004ABD74 /* ring6.wav */; };
 		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
 		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
 		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
@@ -147,6 +141,18 @@
 		B2CADA0219D561B800768239 /* change@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FE19D561B800768239 /* change@2x.png */; };
 		B2CADA0319D561B800768239 /* fix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FF19D561B800768239 /* fix@2x.png */; };
 		B2CADA0419D561B800768239 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CADA0019D561B800768239 /* setting@2x.png */; };
+		B2CF60841A00A8E6001AC7AE /* 05.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60781A00A8E6001AC7AE /* 05.m4r */; };
+		B2CF60851A00A8E6001AC7AE /* 06.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60791A00A8E6001AC7AE /* 06.m4r */; };
+		B2CF60861A00A8E6001AC7AE /* 08.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607A1A00A8E6001AC7AE /* 08.m4r */; };
+		B2CF60871A00A8E6001AC7AE /* 14.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607B1A00A8E6001AC7AE /* 14.m4r */; };
+		B2CF60881A00A8E6001AC7AE /* 21.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607C1A00A8E6001AC7AE /* 21.m4r */; };
+		B2CF60891A00A8E6001AC7AE /* 22.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607D1A00A8E6001AC7AE /* 22.m4r */; };
+		B2CF608A1A00A8E6001AC7AE /* 24.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607E1A00A8E6001AC7AE /* 24.m4r */; };
+		B2CF608B1A00A8E6001AC7AE /* 26.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF607F1A00A8E6001AC7AE /* 26.m4r */; };
+		B2CF608C1A00A8E6001AC7AE /* 27.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60801A00A8E6001AC7AE /* 27.m4r */; };
+		B2CF608D1A00A8E6001AC7AE /* criminal.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60811A00A8E6001AC7AE /* criminal.m4r */; };
+		B2CF608E1A00A8E6001AC7AE /* I_need_a_doctor.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60821A00A8E6001AC7AE /* I_need_a_doctor.m4r */; };
+		B2CF608F1A00A8E6001AC7AE /* What_are_words.m4r in Resources */ = {isa = PBXBuildFile; fileRef = B2CF60831A00A8E6001AC7AE /* What_are_words.m4r */; };
 		B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */; };
 		B2FC3D4C19F9194E00BF9886 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FC3D4919F9194E00BF9886 /* libbaidumapapi.a */; };
 		B2FC3D4D19F9194E00BF9886 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B2FC3D4A19F9194E00BF9886 /* mapapi.bundle */; };
@@ -467,12 +473,6 @@
 		B277F5EB19FF8753004ABD74 /* UserSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSetting.m; path = UserModel/UserSetting.m; sourceTree = "<group>"; };
 		B277F5ED19FF9C29004ABD74 /* LocalPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPushNotification.h; sourceTree = "<group>"; };
 		B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPushNotification.m; sourceTree = "<group>"; };
-		B277F5F119FFAD9F004ABD74 /* ring1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring1.wav; sourceTree = "<group>"; };
-		B277F5F219FFAD9F004ABD74 /* ring2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring2.wav; sourceTree = "<group>"; };
-		B277F5F319FFAD9F004ABD74 /* ring3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring3.wav; sourceTree = "<group>"; };
-		B277F5F419FFAD9F004ABD74 /* ring4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring4.wav; sourceTree = "<group>"; };
-		B277F5F519FFAD9F004ABD74 /* ring5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring5.wav; sourceTree = "<group>"; };
-		B277F5F619FFAD9F004ABD74 /* ring6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring6.wav; sourceTree = "<group>"; };
 		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
 		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
 		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -516,6 +516,18 @@
 		B2CAD9FE19D561B800768239 /* change@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "change@2x.png"; sourceTree = "<group>"; };
 		B2CAD9FF19D561B800768239 /* fix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fix@2x.png"; sourceTree = "<group>"; };
 		B2CADA0019D561B800768239 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
+		B2CF60781A00A8E6001AC7AE /* 05.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 05.m4r; sourceTree = "<group>"; };
+		B2CF60791A00A8E6001AC7AE /* 06.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 06.m4r; sourceTree = "<group>"; };
+		B2CF607A1A00A8E6001AC7AE /* 08.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 08.m4r; sourceTree = "<group>"; };
+		B2CF607B1A00A8E6001AC7AE /* 14.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14.m4r; sourceTree = "<group>"; };
+		B2CF607C1A00A8E6001AC7AE /* 21.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 21.m4r; sourceTree = "<group>"; };
+		B2CF607D1A00A8E6001AC7AE /* 22.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 22.m4r; sourceTree = "<group>"; };
+		B2CF607E1A00A8E6001AC7AE /* 24.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 24.m4r; sourceTree = "<group>"; };
+		B2CF607F1A00A8E6001AC7AE /* 26.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 26.m4r; sourceTree = "<group>"; };
+		B2CF60801A00A8E6001AC7AE /* 27.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = 27.m4r; sourceTree = "<group>"; };
+		B2CF60811A00A8E6001AC7AE /* criminal.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = criminal.m4r; sourceTree = "<group>"; };
+		B2CF60821A00A8E6001AC7AE /* I_need_a_doctor.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = I_need_a_doctor.m4r; sourceTree = "<group>"; };
+		B2CF60831A00A8E6001AC7AE /* What_are_words.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = What_are_words.m4r; sourceTree = "<group>"; };
 		B2ED7DE919F77FBE0085F551 /* keyboard_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_btn@2x.png"; sourceTree = "<group>"; };
 		B2FC3D0C19F9194E00BF9886 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		B2FC3D0D19F9194E00BF9886 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
@@ -1147,19 +1159,6 @@
 			name = AppSettingViewController;
 			sourceTree = "<group>";
 		};
-		B277F5F019FFAD9F004ABD74 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				B277F5F119FFAD9F004ABD74 /* ring1.wav */,
-				B277F5F219FFAD9F004ABD74 /* ring2.wav */,
-				B277F5F319FFAD9F004ABD74 /* ring3.wav */,
-				B277F5F419FFAD9F004ABD74 /* ring4.wav */,
-				B277F5F519FFAD9F004ABD74 /* ring5.wav */,
-				B277F5F619FFAD9F004ABD74 /* ring6.wav */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
 		B27FDB0C19DAF59E003C0FE1 /* OrderListViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,6 +1249,25 @@
 				B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */,
 			);
 			path = CustomSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		B2CF60771A00A8E6001AC7AE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B2CF60781A00A8E6001AC7AE /* 05.m4r */,
+				B2CF60791A00A8E6001AC7AE /* 06.m4r */,
+				B2CF607A1A00A8E6001AC7AE /* 08.m4r */,
+				B2CF607B1A00A8E6001AC7AE /* 14.m4r */,
+				B2CF607C1A00A8E6001AC7AE /* 21.m4r */,
+				B2CF607D1A00A8E6001AC7AE /* 22.m4r */,
+				B2CF607E1A00A8E6001AC7AE /* 24.m4r */,
+				B2CF607F1A00A8E6001AC7AE /* 26.m4r */,
+				B2CF60801A00A8E6001AC7AE /* 27.m4r */,
+				B2CF60811A00A8E6001AC7AE /* criminal.m4r */,
+				B2CF60821A00A8E6001AC7AE /* I_need_a_doctor.m4r */,
+				B2CF60831A00A8E6001AC7AE /* What_are_words.m4r */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B2FC3D0A19F9194E00BF9886 /* BaiduMap_IOSSDK_v2.5.0_Lib */ = {
@@ -1511,7 +1529,7 @@
 		B2FDCAA319D16C5B00215E70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B277F5F019FFAD9F004ABD74 /* Sounds */,
+				B2CF60771A00A8E6001AC7AE /* Sounds */,
 				B2FDCAA419D16C5B00215E70 /* Images */,
 				B2FDCAB319D16C5B00215E70 /* ResDefine.h */,
 				B2FDCAB219D16C5B00215E70 /* ImageStringDescribe.strings */,
@@ -2184,25 +2202,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CF60851A00A8E6001AC7AE /* 06.m4r in Resources */,
 				B2FDCC6219D292B400215E70 /* notification_text_background@2x.png in Resources */,
 				B28C16F319E4FD1500C44305 /* addImage.png in Resources */,
 				B28C170719E536FC00C44305 /* finish@2x.png in Resources */,
 				B2FDCC5019D292B400215E70 /* custom_uidatepicker_confirm@2x.png in Resources */,
+				B2CF60871A00A8E6001AC7AE /* 14.m4r in Resources */,
+				B2CF608D1A00A8E6001AC7AE /* criminal.m4r in Resources */,
 				B234145B19FA609C00EBEC84 /* Images.xcassets in Resources */,
 				B22CAE9119E28084008EE80B /* fingerprint@2x.png in Resources */,
-				B277F5FC19FFAD9F004ABD74 /* ring6.wav in Resources */,
 				B2FDCC5219D292B400215E70 /* hall_nav_right_number@2x.png in Resources */,
+				B2CF608F1A00A8E6001AC7AE /* What_are_words.m4r in Resources */,
 				B22CAE9019E28084008EE80B /* certificate@2x.png in Resources */,
 				B28C16F519E4FD1500C44305 /* AssetsPickerChecked~iOS6@2x.png in Resources */,
 				B2CADA0219D561B800768239 /* change@2x.png in Resources */,
 				B2FDCC5B19D292B400215E70 /* login_logo@2x.png in Resources */,
 				B28C16F119E4FD1500C44305 /* 1.png in Resources */,
-				B277F5F919FFAD9F004ABD74 /* ring3.wav in Resources */,
 				B28C16FA19E4FD1500C44305 /* fanhui.png in Resources */,
+				B2CF608A1A00A8E6001AC7AE /* 24.m4r in Resources */,
+				B2CF608B1A00A8E6001AC7AE /* 26.m4r in Resources */,
 				B2FDCC4F19D292B400215E70 /* custom_uidatepicker_cancel@2x.png in Resources */,
 				B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */,
 				B26CB16319D5184D00023CEB /* money_bag@2x.png in Resources */,
-				B277F5FA19FFAD9F004ABD74 /* ring4.wav in Resources */,
 				B26CB16019D5184D00023CEB /* light@2x.png in Resources */,
 				B2FDCC6519D292B400215E70 /* txt_username_back@2x.png in Resources */,
 				B26CB16119D5184D00023CEB /* location@2x.png in Resources */,
@@ -2215,7 +2236,8 @@
 				B2FDCC4919D292B400215E70 /* btn_login_back@2x.png in Resources */,
 				B204021819EC1D31001F493F /* radio_button_checked@2x.png in Resources */,
 				B25B8C6019EF9C5A00576D85 /* logo@2x.png in Resources */,
-				B277F5FB19FFAD9F004ABD74 /* ring5.wav in Resources */,
+				B2CF608C1A00A8E6001AC7AE /* 27.m4r in Resources */,
+				B2CF60861A00A8E6001AC7AE /* 08.m4r in Resources */,
 				B2FDCB6B19D16C5B00215E70 /* ImageStringDescribe.strings in Resources */,
 				B28C16FC19E4FD1500C44305 /* OK.png in Resources */,
 				B2ED7DEA19F77FBE0085F551 /* keyboard_btn@2x.png in Resources */,
@@ -2226,13 +2248,13 @@
 				B28C16F419E4FD1500C44305 /* AssetsPickerChecked@2x.png in Resources */,
 				B2CADA0419D561B800768239 /* setting@2x.png in Resources */,
 				B2FDCC5E19D292B400215E70 /* nav_btn_right_home@2x.png in Resources */,
-				B277F5F719FFAD9F004ABD74 /* ring1.wav in Resources */,
 				B25B8C4D19EE757100576D85 /* login@2x.png in Resources */,
 				B28C170019E4FD1500C44305 /* ZYQAssetPicker.Bundle in Resources */,
 				B2FDCC4B19D292B400215E70 /* check_box_frame_checked@2x.png in Resources */,
 				B28C16F219E4FD1500C44305 /* 2.png in Resources */,
 				B22CAE6919E0F5CA008EE80B /* feedback@2x.png in Resources */,
 				B2FC3D4E19F9194E00BF9886 /* readme.txt in Resources */,
+				B2CF60841A00A8E6001AC7AE /* 05.m4r in Resources */,
 				B2CADA0319D561B800768239 /* fix@2x.png in Resources */,
 				B2FDCB6C19D16C5B00215E70 /* StringDescribe.strings in Resources */,
 				B277F5D619FE1B56004ABD74 /* user_switch_off@2x.png in Resources */,
@@ -2243,15 +2265,17 @@
 				B272CDE019D90CB60084C594 /* centerIcon@2x.png in Resources */,
 				B28C16FB19E4FD1500C44305 /* No.png in Resources */,
 				B28C16F619E4FD1500C44305 /* AssetsPickerLocked@2x.png in Resources */,
+				B2CF60891A00A8E6001AC7AE /* 22.m4r in Resources */,
+				B2CF60881A00A8E6001AC7AE /* 21.m4r in Resources */,
 				B2FDCC6319D292B400215E70 /* txt_login_line@2x.png in Resources */,
 				B2FDCC5F19D292B400215E70 /* nav_btn_right_return@2x.png in Resources */,
 				B28C16F919E4FD1500C44305 /* delete-circular.png in Resources */,
 				B2CADA0119D561B800768239 /* add@2x.png in Resources */,
+				B2CF608E1A00A8E6001AC7AE /* I_need_a_doctor.m4r in Resources */,
 				B26CB16219D5184D00023CEB /* mail@2x.png in Resources */,
 				B2FDCC5A19D292B400215E70 /* login_back@2x.png in Resources */,
 				B28C170519E534B900C44305 /* upload@2x.png in Resources */,
 				B26CB16619D5184D00023CEB /* user@2x.png in Resources */,
-				B277F5F819FFAD9F004ABD74 /* ring2.wav in Resources */,
 				B204021919EC1D31001F493F /* radio_button_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

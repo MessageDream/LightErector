@@ -30,8 +30,22 @@
         NSInteger result=[[dicResult objectForKey:@"result"] integerValue];
         if (result) {
             NSArray *arr=[dicResult objectForKey:@"alarmtask"];
-            if (arr.count) {
-             return arr.count;
+           
+            if (arr&&arr.count) {
+                NSInteger count=0;
+                for(NSDictionary *item in arr){
+                  NSString *date= [item objectForKey:@"installTime"];
+                    if (date) {
+                        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                        NSString *dstr=[dateFormatter stringFromDate:[NSDate date]];
+                        if ([dstr isEqualToString:date]) {
+                            count= [[item objectForKey:@"taskNum"] integerValue];
+                            break;
+                        }
+                    }
+                }
+             return count;
             }
             return 0;
         }else {
