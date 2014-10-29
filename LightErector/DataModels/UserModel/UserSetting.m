@@ -16,6 +16,9 @@
         _remindTime=DEFAULTTIME;
         _ringName=@"14.m4r";
         _currentRemindTime=@"";
+        if([UIApplication sharedApplication].backgroundRefreshStatus!=UIBackgroundRefreshStatusAvailable){
+         _taskReminde=NO;
+        }
     }
     return self;
 }
@@ -28,6 +31,9 @@
         _ringName=[dic objectForKey:@"ringname"] ;
         NSString *str=[dic objectForKey:@"currentremindtime"];
         _currentRemindTime= str==nil?@"":str;
+        if([UIApplication sharedApplication].backgroundRefreshStatus!=UIBackgroundRefreshStatusAvailable){
+            _taskReminde=NO;
+        }
     }
     return self;
 }

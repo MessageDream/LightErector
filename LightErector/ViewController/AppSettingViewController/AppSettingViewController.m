@@ -130,7 +130,17 @@
 -(void)switchAction:(UISwitch *)sender
 {
     if (sender.on) {
-            user.setting.taskReminde=YES;
+        if([UIApplication sharedApplication].backgroundRefreshStatus!=UIBackgroundRefreshStatusAvailable){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"未开启后台应用程序刷新功能，请到系统的[设置]-[通用]-[后台应用程序刷新]中打开后台应用程序刷新，并允许灯师傅使用后台应用程序刷新功能"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil,nil];
+            [alert show];
+            sender.on=NO;
+            return;
+        }
+        user.setting.taskReminde=YES;
     }else{
         user.setting.taskReminde=NO;
     }
