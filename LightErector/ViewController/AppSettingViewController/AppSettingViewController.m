@@ -9,10 +9,12 @@
 #import "AppSettingViewController.h"
 #import "AppSettingView.h"
 
-@interface AppSettingViewController ()<UITableViewDataSource,UITableViewDelegate,CustomTitleBar_ButtonDelegate>
+@interface AppSettingViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate,CustomUIDatePickerDelegate,CustomTitleBar_ButtonDelegate,AppSettingViewDelegate>
 {
+    AppSettingView *view;
     __weak UITableView *_tableView;
     NSArray *soundsArray;
+    NSDateFormatter *dateFormatter;
 }
 @end
 
@@ -25,10 +27,14 @@
 
 -(void)loadView
 {
-    AppSettingView *view=[[AppSettingView alloc] initWithFrame:[self createViewFrame] tableViewStyle:UITableViewStyleGrouped];
+    view=[[AppSettingView alloc] initWithFrame:[self createViewFrame] tableViewStyle:UITableViewStyleGrouped];
+    view.observer=self;
     view.customTitleBar.buttonEventObserver=self;
     view.tableView.delegate=self;
     view.tableView.dataSource=self;
+    view.ringPicker.delegate=self;
+    view.ringPicker.dataSource=self;
+    view.timePicker.observer=self;
     _tableView=view.tableView;
     self.view=view;
 }
@@ -47,6 +53,8 @@
                   @{@"name":@"criminal.m4r",@"des":@"criminal"},
                   @{@"name":@"What_are_words.m4r",@"des":@"What are words"},
                   @{@"name":@"I_need_a_doctor.m4r",@"des":@"I need a doctor"}];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,7 +132,30 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    switch (indexPath.row) {
+        case 0:{
+            [view.timePicker setDate:[dateFormatter dateFromString:user.setting.remindTime]];
+            [view.ringView setHidden:YES];
+            [view.timePicker setHidden:NO];
+        }
+            break;
+        case 1:{
+            [view.timePicker setHidden:YES];
+            [view.ringView setHidden:NO];
+            NSInteger index=0;
+            for(NSDictionary *dic in soundsArray){
+                NSString *name=[dic objectForKey:@"name"];
+                if ([user.setting.ringName isEqualToString:name]) {
+                    index=[soundsArray indexOfObject:dic];
+                    break;
+                }
+            }
+            [view.ringPicker selectRow:index inComponent:0 animated:NO];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 -(void)switchAction:(UISwitch *)sender
@@ -165,5 +196,32 @@
  // Pass the selected object to the new view controller.
  }
  */
+-(IBAction)cancelButton_onClick:(id)sender
+{
+    [view.timePicker setHidden:YES];
+}
+-(IBAction)confirmButton_onClick:(id)sender forDate:(NSDate*)date
+{
+    [view.timePicker setHidden:YES];
+    user.setting.remindTime=[dateFormatter stringFromDate:date];
+    [user saveUserSetting];
+    [_tableView reloadData];
+}
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+-(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [soundsArray count];
+}
+-(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [((NSDictionary *)[soundsArray objectAtIndex:row]) objectForKey:@"des"];
+}
+
+-(void)ringConfirmButton_onClick:(NSInteger)index
+{
+    user.setting.ringName=[soundsArray[index] objectForKey:@"name"];
+    [user saveUserSetting];
+    [_tableView reloadData];
+}
 @end

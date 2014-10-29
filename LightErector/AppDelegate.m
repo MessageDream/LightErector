@@ -231,7 +231,6 @@
         NSDate *newdate=[dateFormatter dateFromString:newDateStr];
         
         if ([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime]) {
-           NSArray *arr= [[UIApplication sharedApplication] scheduledLocalNotifications];
             completionHandler(UIBackgroundFetchResultNewData);
             return;
         }
