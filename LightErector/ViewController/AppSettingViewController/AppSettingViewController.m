@@ -172,8 +172,10 @@
             return;
         }
         user.setting.taskReminde=YES;
+        user.setting.currentRemindTime=@"";
     }else{
         user.setting.taskReminde=NO;
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
     [_tableView reloadData];
     [user saveUserSetting];

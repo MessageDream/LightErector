@@ -245,7 +245,7 @@
                notification.soundName =user.setting.ringName;
                 notification.alertBody =[NSString stringWithFormat:@"您今天有%d个灯饰安装任务，请及时安排时间。",result];
                 notification.alertAction=@"查看";
-                notification.applicationIconBadgeNumber = 1;
+                notification.applicationIconBadgeNumber = result;
                 notification.hasAction=YES;
                 NSDictionary* info = [NSDictionary dictionaryWithObject:@"dengshifuios" forKey:@"dengshifu"];
                 notification.userInfo = info;
