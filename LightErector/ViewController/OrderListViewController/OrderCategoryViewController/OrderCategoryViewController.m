@@ -85,7 +85,7 @@
     orderCategoryView.unFeedBackTable.pullRefreshDelegate=self;
     
     orderCategoryView.dataPicker.observer=self;
-
+    
     
     currentUnAcceptPageIndex++;
     currentUnSubPageIndex++;
@@ -100,11 +100,17 @@
     self.unFeedBackDataArray=[[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
     
-    trade=[TradeInfo shareTrade];
-    trade.observer=self;
-    setupRequestCount=1;
-    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
-    [self lockView];
+    if (user.userLoginStatus==UserLoginStatus_NoLogin) {
+        user.observer=self;
+        [user login:user.userName withPassword:user.password];
+        [self lockView];
+    }else{
+        trade=[TradeInfo shareTrade];
+        trade.observer=self;
+        setupRequestCount=1;
+        [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+        [self lockView];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,6 +122,14 @@
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
 {
     switch (businessID) {
+        case BUSINESS_LOGIN:{
+            trade=[TradeInfo shareTrade];
+            trade.observer=self;
+            setupRequestCount=1;
+            [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+            [self lockView];
+        }
+            break;
         case BUSINESS_GETWAITFORRECEIVEORDER:{
             NSInteger count=trade.waitForReceiveOrders.count;
             
