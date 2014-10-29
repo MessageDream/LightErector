@@ -7,7 +7,7 @@
 //
 
 #import "UserSetting.h"
-#define DEFAULTTIME @"15:25"
+#define DEFAULTTIME @"08:00"
 @implementation UserSetting
 -(instancetype)init
 {

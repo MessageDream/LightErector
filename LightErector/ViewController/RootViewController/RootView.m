@@ -29,7 +29,7 @@
         accountItem.titleString = NSLocalizedStringFromTable(@"AccountManager",Res_String,@"");
         //mastercardTabItem.tabState = TabStateEnabled;
         
-        self.tabBar=[[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.frame.size.height-DefaultTabBarHeight, self.frame.size.width, DefaultTabBarHeight) andTabItems:@[todayTaskItem, orderInfoItem, clearItem, accountItem]];
+        self.tabBar=[[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-DefaultTabBarHeight+frame.origin.y, self.bounds.size.width, DefaultTabBarHeight) andTabItems:@[todayTaskItem, orderInfoItem, clearItem, accountItem]];
         
         self.tabBar.darkensBackgroundForEnabledTabs = YES;
         self.tabBar.horizontalInsets = HorizontalEdgeInsetsMake(10, 10);

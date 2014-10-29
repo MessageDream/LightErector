@@ -7,7 +7,6 @@
 //
 
 #import "PushNotification.h"
-
+#define LOCALNOTIFICATIONKEY @"localNotification"
 @interface LocalPushNotification : PushNotification
--(void)applyForPushNotification:(NSDictionary *)launchingOption;
 @end

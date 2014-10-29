@@ -17,7 +17,7 @@
 }
 @property(nonatomic) int applicationIconBadgeNumber;
 @property(nonatomic,assign)id<PushNotificationDelegate> observer;
-+(PushNotification*)sharePushNotification;
++(id)sharePushNotification;
 //根据不同的第三方推送包进行该方法的重写,重写后不调用父类的该方法。
 -(void)applyForPushNotification:(NSDictionary *)launchingOption;
 //根据不同的第三方推送包进行该方法的重写,重写后不调用父类的该方法。

@@ -7,7 +7,7 @@
 
 #import "PushNotification.h"
 
-static PushNotification *pushNotification;
+static id pushNotification;
 
 @interface PushNotification()
 {
@@ -25,7 +25,7 @@ static PushNotification *pushNotification;
     return self;
 }
 
-+(PushNotification*)sharePushNotification
++(id)sharePushNotification
 {
     if(pushNotification == nil)
         pushNotification = [[self alloc] init];

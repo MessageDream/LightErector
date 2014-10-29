@@ -69,7 +69,8 @@
 
 -(void)logout
 {
-     [self creatBusinessWithId:BUSINESS_LOGOUT andExecuteWithData:nil];
+     //[self creatBusinessWithId:BUSINESS_LOGOUT andExecuteWithData:nil];
+    [self destroyUser];
 }
 
 

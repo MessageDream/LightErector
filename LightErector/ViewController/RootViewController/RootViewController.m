@@ -16,20 +16,16 @@
 @interface RootViewController () <CustomTabBarDelegate>
 {
     BOOL visible;
+    CustomTabBar *tabBar;
+    RootView *tabBarView;
+    CGFloat tabBarHeight;
+    BOOL tabBarStatus;
+    BOOL isFirstShow;
+    NSDictionary *_launchOptions;
 }
 @end
 
 @implementation RootViewController
-{
-    CustomTabBar *tabBar;
-    
-    RootView *tabBarView;
-    
-    CGFloat tabBarHeight;
-    
-    BOOL tabBarStatus;
-    BOOL isFirstShow;
-}
 
 #pragma mark - Initialization
 -(id)init
@@ -40,6 +36,13 @@
     return self;
 }
 
+-(instancetype)initWithLaunchOptions:(NSDictionary *)launchOptions
+{
+    if (self=[self init]) {
+        _launchOptions=launchOptions;
+    }
+    return self;
+}
 
 - (void)loadView
 {
@@ -55,10 +58,23 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    //    Message *message = [[Message alloc] init];
-    //    message.receiveObjectID = VIEWCONTROLLER_MAIN;//VIEWCONTROLLER_TEST2,VIEWCONTROLLER_LOGIN
-    //    message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
-    //    [self sendMessage:message];
+
+    if(user.userLoginStatus==UserLoginStatus_NoLogin&&user.userName&&user.password&&[user.userName length]&&[user.password length]&&user.autoLoginFlag){
+        
+        if ([_launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+            [self swichTabAtIndex:1];
+        }else {
+            Message *message = [[Message alloc] init];
+            message.receiveObjectID =VIEWCONTROLLER_TODAYTASK;
+            message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+            [self sendMessage:message];
+        }
+    }else{
+        Message *message = [[Message alloc] init];
+        message.receiveObjectID =VIEWCONTROLLER_LOGIN;
+        message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
+        [self sendMessage:message];
+    }
 }
 
 

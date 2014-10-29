@@ -15,6 +15,7 @@
 
 @property (nonatomic, assign) BOOL tabTitleIsHidden;
 
+-(instancetype)initWithLaunchOptions:(NSDictionary *)launchOptions;
 - (void)showTabBarWithAnimated:(BOOL)animated;
 - (void)hideTabBarWithAnimated:(BOOL)animated;
 

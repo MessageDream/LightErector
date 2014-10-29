@@ -56,11 +56,16 @@
 {
     [super viewDidLoad];
     currentPageIndex++;
-    
-    trade=[TradeInfo shareTrade];
-    trade.observer=self;
-    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
-    [self lockView];
+    if (user.userLoginStatus==UserLoginStatus_NoLogin) {
+        user.observer=self;
+        [user login:user.userName withPassword:user.password];
+        [self lockView];
+    }else{
+        trade=[TradeInfo shareTrade];
+        trade.observer=self;
+        [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+        [self lockView];
+    }
     self.dataArray = [[NSMutableArray alloc]init];
 }
 
@@ -75,6 +80,13 @@
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
+        case BUSINESS_LOGIN:{
+            trade=[TradeInfo shareTrade];
+            trade.observer=self;
+            [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+            [self lockView];
+        }
+            break;
         case BUSINESS_GETTODAYTASKORDER:{
             NSInteger count=trade.todayTaskOrders.count;
             

@@ -23,5 +23,11 @@
     //categories 必须为nil
     [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
 #endif
+
+}
+
+-(void)receivePushNotification:(NSDictionary *)userInfo
+{
+    
 }
 @end
