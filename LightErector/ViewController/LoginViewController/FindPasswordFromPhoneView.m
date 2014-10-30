@@ -40,7 +40,7 @@
         scroview.backgroundColor = [UIColor clearColor];
        // scroview.pagingEnabled = YES;
         scroview.showsHorizontalScrollIndicator = NO;
-        //scroview.scrollEnabled=YES;
+        scroview.scrollEnabled=NO;
         scroview.contentSize = CGSizeMake(scroview.frame.size.width*2, scroview.frame.size.height);
         scroview.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:scroview];
