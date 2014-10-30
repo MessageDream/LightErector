@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.backgroundColor=[UIColor clearColor];
+//        self.backgroundColor=[UIColor clearColor];
         self.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         
         self.imageView.image=[UIImage imageNamed:@"light"];

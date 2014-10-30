@@ -45,7 +45,7 @@
     
     CGRect frame=[self createViewFrame];
     frame.size.height=frame.size.height-DefaultTabBarHeight;
-    unsettleView=[[UnSettlementView alloc]initWithFrame:frame];
+    unsettleView=[[UnSettlementView alloc]initWithFrame:frame tableViewStyle:UITableViewStyleGrouped];
     unsettleView.tableView.delegate=self;
     unsettleView.tableView.dataSource=self;
     unsettleView.tableView.pullRefreshDelegate=self;
@@ -87,7 +87,6 @@
                 [mainTableView reloadData];
                 currentPageIndex++;
             }
-            unsettleView.infoLable.text=[NSString stringWithFormat:@"总共%d个订单，合计%d元",trade.totalCount,trade.totalPrice];
         }
             break;
         default:
@@ -123,6 +122,26 @@
     return self.dataArray.count;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+   UILabel *lable=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 39.0f)];
+    lable.font=[UIFont systemFontOfSize:16];
+    lable.textColor=[MainStyle mainTitleColor];
+    lable.backgroundColor=[UIColor clearColor];
+    lable.textAlignment=NSTextAlignmentCenter;
+    lable.text=[NSString stringWithFormat:@"总共%d个订单，合计%d元",trade.totalCount,trade.totalPrice];
+    return lable;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

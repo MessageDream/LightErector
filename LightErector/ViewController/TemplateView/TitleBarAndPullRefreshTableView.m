@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _tableView = [[CustomPullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-_customTitleBar.bounds.size.height-30) style:UITableViewStylePlain];
+        _tableView = [[CustomPullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, self.bounds.size.width, self.bounds.size.height-_customTitleBar.bounds.size.height) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.pullRefreshViewPositionBottomEnable=YES;
         [self addSubview:_tableView];
@@ -28,9 +28,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _tableView = [[CustomPullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-_customTitleBar.bounds.size.height-30) style:style];
+        _tableView = [[CustomPullRefreshTableView alloc] initWithFrame:CGRectMake(0, _customTitleBar.frame.size.height, self.bounds.size.width, self.bounds.size.height-_customTitleBar.bounds.size.height) style:style];
         _tableView.backgroundColor = [UIColor clearColor];
-          _tableView.pullRefreshViewPositionTopEnable=YES;
+          _tableView.pullRefreshViewPositionBottomEnable=YES;
         [self addSubview:_tableView];
     }
     

@@ -9,5 +9,4 @@
 #import "TitleBarAndPullRefreshTableView.h"
 
 @interface UnSettlementView : TitleBarAndPullRefreshTableView
-@property(nonatomic,strong)UILabel *infoLable;
 @end

@@ -14,7 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.backgroundColor=[UIColor clearColor];
+//        self.backgroundColor=[UIColor clearColor];
         self.accessoryType=UITableViewCellAccessoryNone;
         
         self.infoView=[[OrderInfoView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 0)];
