@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define PAGESIZE 5
+#define PAGESIZE 20
 #define CELL @"Cell"
 #define MAINCELL @"MainCell"
 #define ATTACHEDCELL @"AttachedCell"
