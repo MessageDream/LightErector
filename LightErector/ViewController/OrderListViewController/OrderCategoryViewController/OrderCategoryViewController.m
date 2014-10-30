@@ -100,17 +100,18 @@
     self.unFeedBackDataArray=[[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
     
-    if (user.userLoginStatus==UserLoginStatus_NoLogin) {
-        user.observer=self;
-        [user login:user.userName withPassword:user.password];
-        [self lockView];
-    }else{
-        trade=[TradeInfo shareTrade];
-        trade.observer=self;
-        setupRequestCount=1;
-        [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
-        [self lockView];
+    if (user.userLoginStatus==UserLoginStatus_Login) {
+        [self afterLogin];
     }
+}
+
+-(void)afterLogin
+{
+    trade=[TradeInfo shareTrade];
+    trade.observer=self;
+    setupRequestCount=1;
+    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+    [self lockView];
 }
 
 - (void)didReceiveMemoryWarning

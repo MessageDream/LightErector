@@ -17,8 +17,8 @@
 @interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,CustomPullRefreshTableViewDelegate>
 {
     NSInteger currentPageIndex;
-    TradeInfo *trade;
-    CustomPullRefreshTableView *mainTableView;
+  __weak  CustomPullRefreshTableView *mainTableView;
+   __weak TradeInfo *trade;
 }
 @end
 
@@ -56,15 +56,8 @@
 {
     [super viewDidLoad];
     currentPageIndex++;
-    if (user.userLoginStatus==UserLoginStatus_NoLogin) {
-        user.observer=self;
-        [user login:user.userName withPassword:user.password];
-        [self lockView];
-    }else{
-        trade=[TradeInfo shareTrade];
-        trade.observer=self;
-        [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
-        [self lockView];
+    if (user.userLoginStatus==UserLoginStatus_Login) {
+        [self afterLogin];
     }
     self.dataArray = [[NSMutableArray alloc]init];
 }
@@ -75,18 +68,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)afterLogin
+{
+    trade=[TradeInfo shareTrade];
+    trade.observer=self;
+    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+    [self lockView];
+}
 
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
-        case BUSINESS_LOGIN:{
-            trade=[TradeInfo shareTrade];
-            trade.observer=self;
-            [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
-            [self lockView];
-        }
-            break;
         case BUSINESS_GETTODAYTASKORDER:{
             NSInteger count=trade.todayTaskOrders.count;
             

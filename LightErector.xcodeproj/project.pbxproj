@@ -109,7 +109,6 @@
 		B277F5D719FE1B56004ABD74 /* user_switch_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B277F5D519FE1B56004ABD74 /* user_switch_on@2x.png */; };
 		B277F5DC19FF620C004ABD74 /* EKEventUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5DB19FF620C004ABD74 /* EKEventUtils.m */; };
 		B277F5EC19FF8753004ABD74 /* UserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EB19FF8753004ABD74 /* UserSetting.m */; };
-		B277F5EF19FF9C29004ABD74 /* LocalPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */; };
 		B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */; };
 		B27FDB1719DAF59E003C0FE1 /* OrderTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1019DAF59E003C0FE1 /* OrderTitleTableViewCell.m */; };
 		B27FDB1819DAF59E003C0FE1 /* TodayTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27FDB1319DAF59E003C0FE1 /* TodayTaskView.m */; };
@@ -135,6 +134,7 @@
 		B28C170519E534B900C44305 /* upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170419E534B900C44305 /* upload@2x.png */; };
 		B28C170719E536FC00C44305 /* finish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170619E536FC00C44305 /* finish@2x.png */; };
 		B29D1A0319F798C400770E29 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29D1A0219F798C400770E29 /* libPushSDK.a */; };
+		B2B5D7A61A0244ED00440260 /* AutoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B5D7A51A0244ED00440260 /* AutoLoginViewController.m */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -471,8 +471,6 @@
 		B277F5DB19FF620C004ABD74 /* EKEventUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKEventUtils.m; sourceTree = "<group>"; };
 		B277F5EA19FF8753004ABD74 /* UserSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSetting.h; path = UserModel/UserSetting.h; sourceTree = "<group>"; };
 		B277F5EB19FF8753004ABD74 /* UserSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSetting.m; path = UserModel/UserSetting.m; sourceTree = "<group>"; };
-		B277F5ED19FF9C29004ABD74 /* LocalPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPushNotification.h; sourceTree = "<group>"; };
-		B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPushNotification.m; sourceTree = "<group>"; };
 		B27FDB0919DAF2B5003C0FE1 /* MainStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyle.h; sourceTree = "<group>"; };
 		B27FDB0A19DAF2B5003C0FE1 /* MainStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyle.m; sourceTree = "<group>"; };
 		B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -508,6 +506,8 @@
 		B28C170619E536FC00C44305 /* finish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finish@2x.png"; sourceTree = "<group>"; };
 		B29D1A0119F798C400770E29 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		B29D1A0219F798C400770E29 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
+		B2B5D7A41A0244ED00440260 /* AutoLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLoginViewController.h; sourceTree = "<group>"; };
+		B2B5D7A51A0244ED00440260 /* AutoLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLoginViewController.m; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -1166,6 +1166,8 @@
 				B2554F7E19DF8E470004FE42 /* InstallFlowModalController */,
 				B2683DDD19DCEA6B000FB9A1 /* OrderCategoryViewController */,
 				B27FDB1119DAF59E003C0FE1 /* TodayTaskViewController */,
+				B2B5D7A41A0244ED00440260 /* AutoLoginViewController.h */,
+				B2B5D7A51A0244ED00440260 /* AutoLoginViewController.m */,
 				B27FDB0D19DAF59E003C0FE1 /* OrderDetailTableViewCell.h */,
 				B28C16D719E4DE3A00C44305 /* OrderDetailTableViewCell.m */,
 				B27FDB0F19DAF59E003C0FE1 /* OrderTitleTableViewCell.h */,
@@ -2105,8 +2107,6 @@
 				B2FDCC7819D2974700215E70 /* JPushNotification.m */,
 				B2FDCC7919D2974700215E70 /* PushNotification.h */,
 				B2FDCC7A19D2974700215E70 /* PushNotification.m */,
-				B277F5ED19FF9C29004ABD74 /* LocalPushNotification.h */,
-				B277F5EE19FF9C29004ABD74 /* LocalPushNotification.m */,
 			);
 			path = PushNotification;
 			sourceTree = "<group>";
@@ -2378,6 +2378,7 @@
 				B2FDCBA119D16C5B00215E70 /* test5ViewController.m in Sources */,
 				B22CAE7219E14872008EE80B /* CodeValidationViewController.m in Sources */,
 				B27FDB0B19DAF2B5003C0FE1 /* MainStyle.m in Sources */,
+				B2B5D7A61A0244ED00440260 /* AutoLoginViewController.m in Sources */,
 				B2FDCB9E19D16C5B00215E70 /* test4View.m in Sources */,
 				B2FDCB9419D16C5B00215E70 /* TitleBarAndPullRefreshTableView.m in Sources */,
 				B2FDCB9919D16C5B00215E70 /* test1ViewController.m in Sources */,
@@ -2392,7 +2393,6 @@
 				B28C16FF19E4FD1500C44305 /* ShowBigViewController.m in Sources */,
 				B272CDE419D90CFC0084C594 /* CustomPullRefreshTableView.m in Sources */,
 				B2FDCBCC19D266AE00215E70 /* VersionBusiness.m in Sources */,
-				B277F5EF19FF9C29004ABD74 /* LocalPushNotification.m in Sources */,
 				B22CAE6519E0D8FE008EE80B /* NSInvocation+Copy.m in Sources */,
 				B2FDCB5119D16C5B00215E70 /* HttpConnectRespones.m in Sources */,
 				B2683DE319DCEB95000FB9A1 /* OrderCategoryView.m in Sources */,

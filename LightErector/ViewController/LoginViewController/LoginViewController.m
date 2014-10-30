@@ -8,15 +8,12 @@
 
 #import "LoginViewController.h"
 #import "JPushNotification.h"
-#import "Version.h"
 #import "FindPasswordFromPhoneView.h"
 
-@interface LoginViewController ()<UIAlertViewDelegate,FindPasswordFromPhoneViewDelegate>
+@interface LoginViewController ()<FindPasswordFromPhoneViewDelegate>
 {
     CustomMessageBox *customMessageBox;
     FindPasswordFromPhoneView *findPasswordFromPhoneView;
-    Version *version;
-    BOOL checkVersion;
 }
 @end
 
@@ -53,15 +50,7 @@
         loginView.txt_password.text = user.password;
     }
     
-    if (checkVersion) {
-        version=[[Version alloc]init];
-        version.observer=self;
-        [version getLastVersion];
-        //[self lockView];
-        return;
-    }
-    
-    if(user.autoLoginFlag)
+    if(user.autoLoginFlag&&user.userName&&user.password)
         [self performSelector:@selector(loginButton_onClick:) withObject:nil afterDelay:0.0f];
 }
 
@@ -158,9 +147,6 @@
 -(void)receiveMessage:(Message *)message
 {
     [super receiveMessage:message];
-    if (message.sendObjectID==Module_NONE) {
-        checkVersion=YES;
-    }
 }
 
 #pragma mark - DataModuleDelegate
@@ -178,20 +164,6 @@
         [self sendMessage:msg];
         [self sendShowTabBarMessage];
 //        [self sendSwichTabBarMessageAtIndex:0];
-    }
-    
-    if (businessID==BUSINESS_OTHER_CLIENTVERSION) {
-        if (version.upgrade) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新提示"
-                                                            message:version.introduction
-                                                           delegate:self
-                                                  cancelButtonTitle:@"以后再说"
-                                                  otherButtonTitles:@"立即更新",nil];;
-            [alert show];
-        }else{
-            if(user.autoLoginFlag)
-                [self performSelector:@selector(loginButton_onClick:) withObject:nil afterDelay:0];
-        }
     }else if (businessID==BUSINESS_GETVERYCODE) {
         [self showTip:@"验证码已发送至您手机，请查收。"];
     }else if (businessID==BUSINESS_UPLOADNAMEANDCODE) {
@@ -203,17 +175,9 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex==1) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:version.url]];
-    }
-}
-
 -(void)dealloc
 {
      customMessageBox=nil;
      findPasswordFromPhoneView=nil;
-     version=nil;
 }
 @end

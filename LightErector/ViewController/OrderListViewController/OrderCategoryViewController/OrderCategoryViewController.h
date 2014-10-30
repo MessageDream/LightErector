@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 jayden. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "AutoLoginViewController.h"
 
-@interface OrderCategoryViewController : BaseViewController
+@interface OrderCategoryViewController : AutoLoginViewController
 
 @end

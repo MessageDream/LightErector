@@ -39,7 +39,7 @@
 }
 - (void)didBusinessFail 
 {
-    if (!self.observer||![self.observer respondsToSelector:@selector(didBusinessFail)]) {
+    if (!self.observer||![self.observer respondsToSelector:@selector(didDataModelNoticeFail:forBusinessType:forErrorCode:forErrorMsg:)]) {
         return;
     }
     [self.observer didDataModelNoticeFail:self forBusinessType:baseBusiness.businessId forErrorCode:-1 forErrorMsg:nil];
@@ -49,7 +49,7 @@
 }
 - (void)didBusinessError:(BaseBusiness *)business
 {
-    if (!self.observer||![self.observer respondsToSelector:@selector(didBusinessError:)]) {
+    if (!self.observer||![self.observer respondsToSelector:@selector(didDataModelNoticeFail:forBusinessType:forErrorCode:forErrorMsg:)]) {
         return;
     }
     [self.observer didDataModelNoticeFail:self forBusinessType:business.businessId forErrorCode:business.errCode forErrorMsg:business.errmsg];

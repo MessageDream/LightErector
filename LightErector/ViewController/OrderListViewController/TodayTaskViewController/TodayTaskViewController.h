@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 jayden. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "AutoLoginViewController.h"
 
-@interface TodayTaskViewController : BaseViewController
+@interface TodayTaskViewController : AutoLoginViewController
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @end

@@ -108,6 +108,7 @@
 #endif
     
 }
+
 -(void)createUIActivityIndicatorView
 {
     customActivityIndicatorView = [[CustomActivityIndicatorView alloc]initWithFrame:[UIScreen mainScreen].bounds];

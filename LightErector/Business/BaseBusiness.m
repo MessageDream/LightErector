@@ -79,7 +79,7 @@
                 _errCode=NO_ERROR;
             }else{
                 _errCode = [[theResponseBody objectForKey:@"status"] integerValue];
-                if (_errCode==10) {
+                if (_errCode==10||_errCode==1) {
                     _errCode=NO_ERROR;
                 }
                 _errmsg = [theResponseBody objectForKey:@"error"];

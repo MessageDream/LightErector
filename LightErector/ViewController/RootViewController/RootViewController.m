@@ -10,14 +10,16 @@
 #import "RootView.h"
 #import "CustomTabBar.h"
 #import "CustomTabBarItem.h"
+#import "Version.h"
 
 #define PushAnimationDuration  0.35
 
-@interface RootViewController () <CustomTabBarDelegate>
+@interface RootViewController () <UIAlertViewDelegate,CustomTabBarDelegate>
 {
     BOOL visible;
     CustomTabBar *tabBar;
     RootView *tabBarView;
+    Version *version;
     CGFloat tabBarHeight;
     BOOL tabBarStatus;
     BOOL isFirstShow;
@@ -58,6 +60,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    version=[[Version alloc]init];
+    version.observer=self;
+    [version getLastVersion];
 
     if(user.userLoginStatus==UserLoginStatus_NoLogin&&user.userName&&user.password&&[user.userName length]&&[user.password length]&&user.autoLoginFlag){
         
@@ -166,4 +172,25 @@
 }
 #pragma mark - Required Protocol Method
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:version.url]];
+    }
+}
+
+-(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
+{
+    if (businessID==BUSINESS_OTHER_CLIENTVERSION) {
+        if (version.upgrade) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新提示"
+                                                            message:version.introduction
+                                                           delegate:self
+                                                  cancelButtonTitle:@"以后再说"
+                                                  otherButtonTitles:@"立即更新",nil];;
+            [alert show];
+        }
+    }
+    [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+}
 @end

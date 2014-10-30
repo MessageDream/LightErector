@@ -34,7 +34,17 @@ static id pushNotification;
 
 -(void)applyForPushNotification:(NSDictionary *)launchingOption
 {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_1
+        if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+            //可以添加自定义categories
+            [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        } else {
+           [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+              }
+    #else
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    #endif
+    
 }
 -(void)registerDeviceToken:(NSData*)deviceToken
 {

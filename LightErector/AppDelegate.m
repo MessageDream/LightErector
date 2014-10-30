@@ -10,7 +10,6 @@
 #import "RootModule.h"
 #import "ModuleAndControllerID.h"
 #import "JPushNotification.h"
-#import "LocalPushNotification.h"
 #import "User.h"
 #import "TaskRemind.h"
 #import "EKEventUtils.h"
@@ -19,7 +18,6 @@
 @interface AppDelegate()<BMKGeneralDelegate>
 {
     __weak PushNotification *jpush;
-    __weak PushNotification *localPush;
 }
 @end
 @implementation AppDelegate
@@ -50,10 +48,6 @@
 //        //注册极光推送
 //        jpush=[JPushNotification sharePushNotification];
 //        [jpush applyForPushNotification:launchOptions];
-    
-    //本地推送
-    localPush=[LocalPushNotification sharePushNotification];
-    [localPush applyForPushNotification:launchOptions];
     
     
     //    //程序升级后首次运行
@@ -166,7 +160,7 @@
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    [localPush receivePushNotification:notification.userInfo];
+   
 }
 
 #ifdef __IPHONE_7_0
@@ -204,8 +198,6 @@
                 notification.alertAction=@"查看";
                 notification.applicationIconBadgeNumber = result;
                 notification.hasAction=YES;
-                NSDictionary* info = [NSDictionary dictionaryWithObject:@"dengshifuioslocal" forKey:LOCALNOTIFICATIONKEY];
-                notification.userInfo = info;
                 
                 [[UIApplication sharedApplication] scheduleLocalNotification:notification];
                 user.setting.currentRemindTime=newDateStr;
