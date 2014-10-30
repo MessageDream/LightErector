@@ -80,7 +80,6 @@
         _txt_userName.textColor = [UIColor whiteColor];
         _txt_userName.contentPlaceholder = NSLocalizedStringFromTable(@"UserNameLogin",Res_String,@"");
         _txt_userName.keyboardType=UIKeyboardTypeDefault;
-        _txt_userName.text=@"yangjingwei";
         [userNameView addSubview:_txt_userName];
         
         [_scrollerView addSubview:userNameView];
@@ -108,7 +107,6 @@
         _txt_password.font = [UIFont systemFontOfSize:15];
         _txt_password.textColor = [UIColor whiteColor];
         _txt_password.contentPlaceholder = NSLocalizedStringFromTable(@"UserPasswordLogin",Res_String,@"");
-        _txt_password.text=@"198688";
         [passwordView addSubview:_txt_password];
         [_scrollerView addSubview:passwordView];
         
