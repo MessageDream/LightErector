@@ -69,6 +69,7 @@
             message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
             [self sendMessage:message];
         }
+         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }else{
         Message *message = [[Message alloc] init];
         message.receiveObjectID =VIEWCONTROLLER_LOGIN;

@@ -39,6 +39,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        _autoLoginFlag=YES;
+        _rememberFlag=YES;
          _setting=[[UserSetting alloc] init];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         saveFilePath = [paths objectAtIndex:0];
