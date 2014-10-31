@@ -170,12 +170,12 @@ static BOOL instanceOfFormSheetAnimating = 0;
 #pragma mark - MZFormSheetController
 
 @interface MZFormSheetController () <UIGestureRecognizerDelegate>
-@property (nonatomic, weak) UIViewController *presentingViewController;
+@property (nonatomic, assign) UIViewController *presentingViewController;
 @property (nonatomic, strong) UIViewController *presentedFSViewController;
 
 @property (nonatomic, strong) UITapGestureRecognizer *backgroundTapGestureRecognizer;
 
-@property (nonatomic, weak) UIWindow *applicationKeyWindow;
+@property (nonatomic, assign) UIWindow *applicationKeyWindow;
 @property (nonatomic, strong) MZFormSheetWindow *formSheetWindow;
 
 @property (nonatomic, assign, getter = isPresented) BOOL presented;
@@ -251,7 +251,7 @@ static BOOL instanceOfFormSheetAnimating = 0;
 
 + (NSArray *)formSheetControllersStack
 {
-    return [[MZFormSheetController sharedQueue] copy];
+    return [[[MZFormSheetController sharedQueue] copy] autorelease];
 }
 
 + (MZFormSheetBackgroundWindow *)sharedBackgroundWindow

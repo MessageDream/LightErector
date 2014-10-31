@@ -111,9 +111,9 @@ typedef void(^MZFormSheetTransitionCompletionHandler)();
  This is only set up if you use UIViewController (MZFormSheet) category to present form sheet controller.
  presentingViewController --> MZFormSheetController (self) --> presentedFSViewController
  */
-@property (nonatomic, readonly, weak) UIViewController *presentingViewController;
+@property (nonatomic, readonly, assign) UIViewController *presentingViewController;
 
-@property (nonatomic, weak) UIViewController *fromViewController;
+@property (nonatomic, assign) UIViewController *fromViewController;
 /**
  The transition style to use when presenting the receiver.
  By default, this is MZFormSheetTransitionStyleSlideFromTop.

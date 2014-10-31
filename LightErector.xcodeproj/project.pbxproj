@@ -17,7 +17,7 @@
 		B22C2D9D19DFB01900DD8D38 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22C2D9C19DFB01900DD8D38 /* OpenGLES.framework */; };
 		B22C2DE519DFB4BB00DD8D38 /* OrderInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22C2DE419DFB4BB00DD8D38 /* OrderInfoView.m */; };
 		B22CAE5519E0C8C3008EE80B /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE4E19E0C8C3008EE80B /* MZFormSheetBackgroundWindow.m */; };
-		B22CAE5619E0C8C3008EE80B /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE5019E0C8C3008EE80B /* MZFormSheetController.m */; };
+		B22CAE5619E0C8C3008EE80B /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE5019E0C8C3008EE80B /* MZFormSheetController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B22CAE5719E0C8C3008EE80B /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE5219E0C8C3008EE80B /* MZFormSheetSegue.m */; };
 		B22CAE5819E0C8C3008EE80B /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE5419E0C8C3008EE80B /* UIImage+Additional.m */; };
 		B22CAE5B19E0CA23008EE80B /* OrderDetailAndFeedBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22CAE5A19E0CA23008EE80B /* OrderDetailAndFeedBackView.m */; };
@@ -2596,7 +2596,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
 				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightErector/Libraries/AFNetworking",
@@ -2604,10 +2604,11 @@
 					"$(PROJECT_DIR)/LightErector/Libraries/JpushLib",
 					"$(PROJECT_DIR)/LightErector/Libraries/BaiduMap_IOSSDK_v2.5.0_Lib",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2623,7 +2624,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
 				INFOPLIST_FILE = "LightErector/LightErector-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightErector/Libraries/AFNetworking",
@@ -2635,7 +2636,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
