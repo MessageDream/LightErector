@@ -2604,6 +2604,7 @@
 					"$(PROJECT_DIR)/LightErector/Libraries/JpushLib",
 					"$(PROJECT_DIR)/LightErector/Libraries/BaiduMap_IOSSDK_v2.5.0_Lib",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
