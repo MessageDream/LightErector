@@ -79,7 +79,7 @@
         _txt_userName.font = [UIFont systemFontOfSize:15];
         _txt_userName.textColor = [UIColor whiteColor];
         _txt_userName.contentPlaceholder = NSLocalizedStringFromTable(@"UserNameLogin",Res_String,@"");
-        _txt_userName.keyboardType=UIKeyboardTypeDefault;
+        _txt_userName.keyboardType=UIKeyboardTypeASCIICapable;
         [userNameView addSubview:_txt_userName];
         
         [_scrollerView addSubview:userNameView];

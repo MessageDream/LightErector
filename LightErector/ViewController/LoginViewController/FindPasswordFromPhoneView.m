@@ -53,6 +53,7 @@
         _txt_userName.layer.borderWidth=1;
         _txt_userName.contentPlaceholder = @"请输入用户名";
         _txt_userName.observer=self;
+        _txt_userName.keyboardType=UIKeyboardTypeASCIICapable;
         _txt_userName.tag=101;
         _txt_userName.textColor=[MainStyle mainBackColor];
         [viewOne addSubview:_txt_userName];
