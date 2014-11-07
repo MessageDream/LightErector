@@ -226,15 +226,30 @@
                 [orderCategoryView.unFeedBackTable stopRefresh];
         }
             break;
-        case BUSINESS_ACCEPTORDER:{
+        case BUSINESS_UPDATEORDERSTATUS:{
             [self showTip:@"接单成功"];
             Order *order=(Order *)baseDataModel;
             for (int i=0; i<self.unAcceptDataArray.count; i++) {
                 UITableViewCellModel *model=self.unAcceptDataArray[i];
                 if ([((Order *)model.contentModel).tradeId isEqualToString:order.tradeId]) {
-                    [self.unAcceptDataArray removeObject:model];
+                    model.cellType=MAINCELL;
+                    model.isAttached=NO;
+                    if (self.unSubDataArray.count>=PAGESIZE) {
+                      [self.unSubDataArray removeLastObject];//移除最后一项，防止下拉加载重复显示
+                    }
+                    [self.unSubDataArray insertObject:model atIndex:0];
+                   
+
+                    [self.unAcceptDataArray removeObjectAtIndex:i];
+                    [self.unAcceptDataArray removeObjectAtIndex:i];
+                    break;
                 }
             }
+            [orderCategoryView setCurrentIndex: orderCategoryView.segmentedControl.selectedSegmentIndex+1];
+            [orderCategoryView.segmentedControl setSelectedSegmentIndex:orderCategoryView.segmentedControl.selectedSegmentIndex+1 animated:YES];
+            [orderCategoryView.unSubTable reloadData];
+            [orderCategoryView.unSubTable scrollsToTop];
+            
             [orderCategoryView.unAcceptTable reloadData];
         }
             break;
@@ -675,7 +690,7 @@
         
         switch (alertView.tag) {
             case UNACCEPTTABLETAG:
-                [order updateSubStatusWithMemberId:user.userid isSpeek:NO acreated:nil];
+                [order updateOrderStatusWithMemberId:user.userid flowStatus:ReceivedStatus];
                 [self lockView];
                 break;
             case UNSUBTABLETAG:

@@ -107,11 +107,7 @@
     switch (businessID) {
         case BUSINESS_UPLOADIMAGE:{
             isImageUploaded=YES;
-            UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
-            BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:@"图片上传成功" forBackgroundImage:image];
-            baseCustomMessageBox.animation = YES;
-            baseCustomMessageBox.autoCloseTimer = 2;
-            [self.view addSubview:baseCustomMessageBox];
+            [self showTip:@"图片上传成功"];
         }
             break;
         case BUSINESS_UPDATEORDERSTATUS:{

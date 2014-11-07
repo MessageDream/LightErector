@@ -32,6 +32,7 @@
 @property(nonatomic,strong)CustomTextView *textReson;
 @property(nonatomic,strong)UIView *editTimeView;
 @property(nonatomic,strong)CustomUIDatePicker *dataPicker;
+@property(nonatomic,assign)NSInteger currentIndex;
 -(void)stopRefresh;
 -(void)createTables;
 @end

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, OrderType) {
 };
 
 typedef NS_ENUM(NSInteger, InstallFlowStatus) {
+    ReceivedStatus=0, //已接单
     InitialStatus=1,        //1 初始状态
     UnValidateStatus,           // 2待验证
     UnFeedBackStatus,       // 3待反馈传图

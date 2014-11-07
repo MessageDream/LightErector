@@ -15,7 +15,6 @@
 {
  
 }
-@property(nonatomic,assign)NSInteger currentIndex;
 @property(nonatomic,strong)NSArray *tableArray;
 
 @end
@@ -38,9 +37,8 @@
         
         __weak OrderCategoryView *blockSelf=self;
         [ self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
-            [((UIView *) (blockSelf.tableArray)[blockSelf.currentIndex]) removeFromSuperview];
-            blockSelf.currentIndex=index;
-            [blockSelf.scrollerView addSubview:((UIView *) (blockSelf.tableArray)[index])];
+           
+            [blockSelf setCurrentIndex:index];
             //[blockSelf.scrollerView scrollRectToVisible:CGRectMake(index*frame.size.width, 0, frame.size.width, blockSelf.scrollerView.frame.size.height) animated:NO];
         }];
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, self.segmentedControl.frame.size.height, frame.size.width, 0.5)];
@@ -106,6 +104,13 @@
 //    }
     
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
+}
+
+-(void)setCurrentIndex:(NSInteger)currentIndex
+{
+     [((UIView *) (self.tableArray)[_currentIndex]) removeFromSuperview];
+    _currentIndex=currentIndex;
+     [self.scrollerView addSubview:((UIView *) (self.tableArray)[currentIndex])];
 }
 
 -(CustomPullRefreshTableView *)createTableViewWithFrame:(CGRect )frame

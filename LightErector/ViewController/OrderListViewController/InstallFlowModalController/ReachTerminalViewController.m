@@ -124,7 +124,7 @@
  */
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
-    [_mapView updateLocationData:userLocation];
+//    [_mapView updateLocationData:userLocation];
 }
 
 
@@ -153,6 +153,7 @@
 #ifdef DEBUG_LOG
     NSLog(@"%f:%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 #endif
+    _mapView.centerCoordinate=userLocation.location.coordinate;
     [_mapView updateLocationData:userLocation];
 }
 
