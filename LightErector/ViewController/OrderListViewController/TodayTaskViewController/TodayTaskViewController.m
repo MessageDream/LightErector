@@ -55,6 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     currentPageIndex++;
     if (user.userLoginStatus==UserLoginStatus_Login) {
         [self afterLogin];

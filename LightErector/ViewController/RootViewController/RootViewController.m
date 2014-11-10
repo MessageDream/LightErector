@@ -204,7 +204,6 @@
 -(void)didReceivePushNotification:(NSDictionary*)userInfo
 {
     if(user.userLoginStatus==UserLoginStatus_Login){
-        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         [self swichTabAtIndex:1];
     }
 }

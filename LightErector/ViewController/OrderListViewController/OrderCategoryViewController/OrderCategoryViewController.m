@@ -64,6 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [orderCategoryView createTables];
     
     orderCategoryView.unAcceptTable.delegate=self;
