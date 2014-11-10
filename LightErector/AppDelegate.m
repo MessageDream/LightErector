@@ -163,7 +163,7 @@
    
 }
 
-#ifdef __IPHONE_7_0
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_0
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
      [jpush receivePushNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNoData);
