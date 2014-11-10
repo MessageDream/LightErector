@@ -2592,7 +2592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.dengbaomu.lighterector";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yang jingwei (66924LQC8B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhenzhou Dengshifu Lighting Engineering Co., Ltd. (QM35U4GPEZ)";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";
