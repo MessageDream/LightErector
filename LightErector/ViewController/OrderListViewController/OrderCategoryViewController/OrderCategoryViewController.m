@@ -138,7 +138,7 @@
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForReceiveOrders[i]];
                 [self.unAcceptDataArray addObject:model];
             }
-            if (count>0) {
+            if (count>0||self.unAcceptDataArray.count==0) {
                 [orderCategoryView.unAcceptTable reloadData];
                 currentUnAcceptPageIndex++;
             }
@@ -157,7 +157,7 @@
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitSubOrders[i]];
                 [self.unSubDataArray addObject:model];;
             }
-            if (count>0) {
+            if (count>0||self.unSubDataArray.count==0) {
                 [orderCategoryView.unSubTable reloadData];
                 currentUnSubPageIndex++;
             }
@@ -176,7 +176,7 @@
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForInstallOrders[i]];
                 [self.unInstallDataArray addObject:model];
             }
-            if (count>0) {
+            if (count>0||self.unInstallDataArray.count==0) {
                 [orderCategoryView.unInstallTable reloadData];
                 currentUnInstallPageIndex++;
             }
@@ -196,7 +196,7 @@
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.unTimedOrders[i]];
                 [self.subAgainDataArray addObject:model];
             }
-            if (count>0) {
+            if (count>0||self.subAgainDataArray.count==0) {
                 [orderCategoryView.subAgainTable reloadData];
                 currentSubAgainPageIndex++;
             }
@@ -216,7 +216,7 @@
                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForFeedBackOrders[i]];
                 [self.unFeedBackDataArray addObject:model];
             }
-            if (count>0) {
+            if (count>0||self.unFeedBackDataArray.count==0) {
                 [orderCategoryView.unFeedBackTable reloadData];
                 currentUnFeedBackPageIndex++;
             }
@@ -256,12 +256,16 @@
         case BUSINESS_UPDATESUBTIME:
             orderCategoryView.editTimeView.hidden=YES;
             [self showTip:@"修改安装时间成功"];
+            [orderCategoryView.unInstallTable reloadData];
             break;
         case BUSINESS_GETORDERSTATUS:{
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
                 if (controller.extData) {
                     Message *msg=controller.extData;
                     if (msg.receiveObjectID==self.viewControllerId) {
+                        currentUnFeedBackPageIndex=1;
+                        [self.unFeedBackDataArray removeAllObjects];
+                        [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
                         [orderCategoryView.segmentedControl setSelectedSegmentIndex:4 animated:YES];
                     }else{
                         [self sendSwichTabBarMessageAtIndex:2];
@@ -697,7 +701,7 @@
             case SUBAGAINTABLETAG:{
                 Message *message = [[Message alloc] init];
                 message.commandID = MC_CREATE_POPFROMBOTTOM_VIEWCONTROLLER;
-                message.doCache=YES;
+                message.cacheMode=DO_CACHE_WITH_RECEIVEMESSAGE;
                 message.externData=currentOrder;
                 message.receiveObjectID = VIEWCONTROLLER_SUBCLIENT;
                 [self sendMessage:message];
@@ -717,6 +721,22 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     
+}
+-(void)receiveMessage:(Message *)message
+{
+    [super receiveMessage:message];
+    if (message.sendObjectID==VIEWCONTROLLER_SUBCLIENT&&message.externData&&[message.externData boolValue]) {
+        
+        currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
+        [self.unInstallDataArray removeAllObjects];
+        [self.unFeedBackDataArray removeAllObjects];
+        [self.unSubDataArray removeAllObjects];
+        [self.subAgainDataArray removeAllObjects];
+        
+        setupRequestCount=2;
+        [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+        [self lockView];
+    }
 }
 
 -(void)dealloc

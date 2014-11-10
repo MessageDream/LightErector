@@ -252,5 +252,10 @@
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     [self showTip:@"接单成功"];
+    Message *message = [[Message alloc] init];
+    message.commandID = MC_CREATE_CLOSEPOPFROMTOP_VIEWCONTROLLER;
+    message.receiveObjectID = VIEWCONTROLLER_RETURN;
+    message.externData=@(YES);
+    [self sendMessage:message];
 }
 @end

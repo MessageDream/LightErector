@@ -65,8 +65,8 @@
             return;
         }
     }else {
-        if (message.doCache) {
-            _doCache=message.doCache;
+        if (message.cacheMode!=NO_CACHE) {
+            _cacheMode=message.cacheMode;
             [ViewControllerPathManager pushCache:self];
         }
         [ViewControllerPathManager pushId:[NSNumber numberWithInt:message.sendObjectID ]];

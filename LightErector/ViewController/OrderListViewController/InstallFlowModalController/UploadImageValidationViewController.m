@@ -54,12 +54,16 @@
 
 -(void)uploadImage_click:(NSDictionary *)imagesDic
 {
-    [self lockView];
-    self.order.observer=self;
+ 
     NSMutableArray *pics=[[NSMutableArray alloc] init];
-    
     NSArray *li=[imagesDic objectForKey:@"1"];
      NSArray *ca=[imagesDic objectForKey:@"2"];
+    if(li.count==0&&ca.count==0){
+        [self showTip:@"请先选择图片。"];
+        return;
+    }
+    [self lockView];
+    self.order.observer=self;
     for (id item in li) {
 
         FormMltipart *muform=[[FormMltipart alloc] init];

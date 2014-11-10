@@ -24,11 +24,11 @@
     CustomActivityIndicatorView *customActivityIndicatorView;
     int _lockViewCount;
 @private
-    BOOL _doCache;
+   CacheMode _cacheMode;
 
 }
 @property(nonatomic,readonly)enum ModuleAndControllerID viewControllerId;
-@property(nonatomic,readonly)BOOL doCache;
+@property(nonatomic,readonly)CacheMode cacheMode;;
 @property(nonatomic,assign)BaseModule *parentModule;
 @property(nonatomic,readonly)int lockViewCount;
 @property(nonatomic,assign)UIInterfaceOrientation orientation;

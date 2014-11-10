@@ -52,7 +52,7 @@
     
     message.CommandID = MC_CREATE_POPFROMBOTTOM_VIEWCONTROLLER;
     message.receiveObjectID = VIEWCONTROLLER_TEST5;
-    message.doCache=YES;
+    message.cacheMode=DO_CACHE_WITHOUT_RECEIVEMESSAGE;
     [self sendMessage:message];
 }
 

@@ -11,7 +11,7 @@
 @implementation Message
 @synthesize externData = _externData;
 @synthesize commandID = _commandID;
-@synthesize doCache = _doCache;
+@synthesize cacheMode = _cacheMode;
 @synthesize receiveObjectID = _receiveObjectID;
 @synthesize sendObjectID = _sendObjectID;
 
@@ -21,7 +21,7 @@
     self = [super init];
     _receiveObjectID = Module_NONE;
     _sendObjectID = Module_NONE;
-    _doCache=NO;
+    _cacheMode=NO_CACHE;
     return self;
 }
 

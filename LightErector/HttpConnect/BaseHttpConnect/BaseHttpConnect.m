@@ -208,10 +208,10 @@ static NSOperationQueue *operationQueue = nil;
             id data = obj.data;
             if ([data isKindOfClass:[UIImage class]]) {
                 UIImage *img=data;
-                data=UIImageJPEGRepresentation(img,0.8);
+                data=UIImageJPEGRepresentation(img,0.5);
             }else if([data isKindOfClass:[ALAsset class]]) {
                 ALAsset *set=data;
-                data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],1.0);
+                data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],0.5);
             }
             [formData appendPartWithFileData:data name:name fileName:filename mimeType:mimeType];
         }

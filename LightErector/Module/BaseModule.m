@@ -116,7 +116,7 @@ static enum commandID currentcommandID;
     
     currentcommandID = message.commandID;
     viewcontroller.parentModule = self;
-    if (!viewcontroller.doCache) {
+    if (!viewcontroller.cacheMode!=DO_CACHE_WITHOUT_RECEIVEMESSAGE) {
         [viewcontroller receiveMessage:message];
     }
     showViewController = viewcontroller;

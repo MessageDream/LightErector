@@ -77,6 +77,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *destDateString = [dateFormatter stringFromDate:time];
     
+    _tradeAcreated=destDateString;
     NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[@(memId),self.tradeId,destDateString,reason] forKeys:@[@"memberid",@"tradeid",@"acreated",@"upcontent"]];
     [self creatBusinessWithId:BUSINESS_UPDATESUBTIME andExecuteWithData:dic];
 }
@@ -106,6 +107,8 @@
         case BUSINESS_UPDATEORDERSTATUS:
             break;
         case BUSINESS_ACCEPTORDER:
+             break;
+         case BUSINESS_UPDATESUBTIME:
              break;
         default:
             break;

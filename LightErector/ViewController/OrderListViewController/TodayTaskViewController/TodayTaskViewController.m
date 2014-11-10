@@ -90,13 +90,16 @@
             if (count>0) {
                 [mainTableView reloadData];
                 currentPageIndex++;
+            }else{
+                [self showTip:@"今天暂无安装任务。"];
             }
         }
             break;
             case BUSINESS_GETORDERSTATUS:
         {
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
-               
+                currentPageIndex=1;
+                [self afterLogin];
             }];
             [self presentViewController:install animated:YES completion:nil];
         }
