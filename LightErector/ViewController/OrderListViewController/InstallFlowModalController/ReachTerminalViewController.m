@@ -14,6 +14,7 @@
 {
     BMKLocationService* _locService;
     BMKMapView *_mapView;
+    BOOL isFirstShow;
 }
 @end
 
@@ -42,10 +43,10 @@
 {
     [super viewDidLoad];
      _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    [_locService startUserLocationService];
-    _mapView.delegate=self;
-    _mapView.showsUserLocation=YES;
+//    _locService.delegate = self;
+//    [_locService startUserLocationService];
+//    _mapView.delegate=self;
+//    _mapView.showsUserLocation=YES;
     //[self startFollowing];
     // Do any additional setup after loading the view.
 }
@@ -69,8 +70,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
-    //_locService.delegate = self;
-//     [self startLocation];
+    _locService.delegate = self;
+     [_locService startUserLocationService];
+     [self startLocation];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -81,9 +83,9 @@
 //普通态
 -(void)startLocation
 {
-    [_locService startUserLocationService];
     _mapView.showsUserLocation = NO;//先关闭显示的定位图层
     _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
+    _mapView.zoomLevel=15;
     _mapView.showsUserLocation = YES;//显示定位图层
 }
 //罗盘态
@@ -91,6 +93,7 @@
 {
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
+    _mapView.zoomLevel=15;
     _mapView.showsUserLocation = YES;
     
 }
@@ -99,6 +102,7 @@
 {
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    _mapView.zoomLevel=15;
     _mapView.showsUserLocation = YES;
     
 }
@@ -153,7 +157,11 @@
 #ifdef DEBUG_LOG
     NSLog(@"%f:%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 #endif
-    _mapView.centerCoordinate=userLocation.location.coordinate;
+    if (!isFirstShow) {
+         _mapView.centerCoordinate=userLocation.location.coordinate;
+        isFirstShow=YES;
+    }
+   
     [_mapView updateLocationData:userLocation];
 }
 
