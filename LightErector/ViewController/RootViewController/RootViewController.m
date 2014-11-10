@@ -203,6 +203,7 @@
 
 -(void)didReceivePushNotification:(NSDictionary*)userInfo
 {
-    [self swichTabAtIndex:1];
+    if(user.userLoginStatus==UserLoginStatus_Login)
+        [self swichTabAtIndex:1];
 }
 @end
