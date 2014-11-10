@@ -99,6 +99,7 @@
         {
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
                 currentPageIndex=1;
+                [self.dataArray removeAllObjects];
                 [self afterLogin];
             }];
             [self presentViewController:install animated:YES completion:nil];
