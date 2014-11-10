@@ -56,6 +56,7 @@ static id pushNotification;
     {
         [self.observer didReceivePushNotification:userInfo];
     }
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 -(void)setApplicationIconBadgeNumber:(int)applicationIconBadgeNumber
 {
