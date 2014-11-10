@@ -123,14 +123,6 @@
 -(void)didDataModelNoticeSucess:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID
 {
     switch (businessID) {
-        case BUSINESS_LOGIN:{
-            trade=[TradeInfo shareTrade];
-            trade.observer=self;
-            setupRequestCount=1;
-            [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
-            [self lockView];
-        }
-            break;
         case BUSINESS_GETWAITFORRECEIVEORDER:{
             NSInteger count=trade.waitForReceiveOrders.count;
             
@@ -502,8 +494,8 @@
             cell.sDetailLable.frame=frame;
         }
         
-        if (order.tradeContent!=nil) {
-            CGSize expectedLabelSizeDetail = [order.tradeContent sizeWithFont:cell.nameLable.font
+        if (order.tradeMasscontent!=nil) {
+            CGSize expectedLabelSizeDetail = [order.tradeMasscontent sizeWithFont:cell.nameLable.font
                                                             constrainedToSize:maximumLabelSize
                                                                 lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -512,7 +504,7 @@
             frame.size=expectedLabelSizeDetail;
             cell.detailLable.frame=frame;
             cell.detailLable.numberOfLines=0;
-            cell.detailLable.text=order.tradeContent;
+            cell.detailLable.text=order.tradeMasscontent;
             
             frame=cell.sRemarkLable.frame;
             frame.origin.y=cell.detailLable.frame.origin.y+expectedLabelSizeDetail.height+cell.nameLable.font.lineHeight/2;
@@ -521,9 +513,9 @@
             
         }
         
-        if (order.tradeContent2!=nil) {
+        if (order.tradeContent!=nil) {
             
-            CGSize expectedLabelSizeRemark = [order.tradeContent2 sizeWithFont:cell.nameLable.font
+            CGSize expectedLabelSizeRemark = [order.tradeContent sizeWithFont:cell.nameLable.font
                                                              constrainedToSize:maximumLabelSize
                                                                  lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -532,7 +524,7 @@
             frame.size=expectedLabelSizeRemark;
             cell.remarkLable.frame=frame;
             cell.remarkLable.numberOfLines=0;
-            cell.remarkLable.text=order.tradeContent2;
+            cell.remarkLable.text=order.tradeContent;
         }
         
         frame=cell.frame;

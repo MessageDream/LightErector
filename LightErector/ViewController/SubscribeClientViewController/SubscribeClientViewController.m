@@ -74,8 +74,8 @@
             view.sDetailLable.frame=frame;
         }
         
-        if (order.tradeContent!=nil) {
-            CGSize expectedLabelSizeDetail = [order.tradeContent sizeWithFont:view.nameLable.font
+        if (order.tradeMasscontent!=nil) {
+            CGSize expectedLabelSizeDetail = [order.tradeMasscontent sizeWithFont:view.nameLable.font
                                                             constrainedToSize:maximumLabelSize
                                                                 lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -84,7 +84,7 @@
             frame.size=expectedLabelSizeDetail;
             view.detailLable.frame=frame;
             view.detailLable.numberOfLines=0;
-            view.detailLable.text=order.tradeContent;
+            view.detailLable.text=order.tradeMasscontent;
             
             frame=view.sRemarkLable.frame;
             frame.origin.y=view.detailLable.frame.origin.y+expectedLabelSizeDetail.height+view.nameLable.font.lineHeight/2;
@@ -93,9 +93,9 @@
             
         }
         
-        if (order.tradeContent2!=nil) {
+        if (order.tradeContent!=nil) {
             
-            CGSize expectedLabelSizeRemark = [order.tradeContent2 sizeWithFont:view.nameLable.font
+            CGSize expectedLabelSizeRemark = [order.tradeContent sizeWithFont:view.nameLable.font
                                                              constrainedToSize:maximumLabelSize
                                                                  lineBreakMode:NSLineBreakByWordWrapping];
             
@@ -104,7 +104,7 @@
             frame.size=expectedLabelSizeRemark;
             view.remarkLable.frame=frame;
             view.remarkLable.numberOfLines=0;
-            view.remarkLable.text=order.tradeContent2;
+            view.remarkLable.text=order.tradeContent;
         }
         
         frame=view.infoView.frame;

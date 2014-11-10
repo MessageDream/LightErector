@@ -45,9 +45,9 @@
     _mapManager = [[BMKMapManager alloc]init];
     [_mapManager start:@"pO83Gx1SwHwrVht30ZqyPTAj"  generalDelegate:self];
     
-//        //注册极光推送
-//        jpush=[JPushNotification sharePushNotification];
-//        [jpush applyForPushNotification:launchOptions];
+        //注册极光推送
+        jpush=[JPushNotification sharePushNotification];
+        [jpush applyForPushNotification:launchOptions];
     
     
     //    //程序升级后首次运行
@@ -150,12 +150,12 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     
-    // [jpush registerDeviceToken:deviceToken];
+     [jpush registerDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    // [jpush receivePushNotification:userInfo];
+     [jpush receivePushNotification:userInfo];
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
@@ -165,7 +165,7 @@
 
 #ifdef __IPHONE_7_0
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    // [jpush receivePushNotification:userInfo];
+     [jpush receivePushNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNoData);
 }
 

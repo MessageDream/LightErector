@@ -11,19 +11,22 @@
 #import "CustomTabBar.h"
 #import "CustomTabBarItem.h"
 #import "Version.h"
+#import "JPushNotification.h"
 
 #define PushAnimationDuration  0.35
 
-@interface RootViewController () <UIAlertViewDelegate,CustomTabBarDelegate>
+@interface RootViewController () <UIAlertViewDelegate,CustomTabBarDelegate,PushNotificationDelegate>
 {
     BOOL visible;
-    CustomTabBar *tabBar;
+  __weak  CustomTabBar *tabBar;
     RootView *tabBarView;
     Version *version;
     CGFloat tabBarHeight;
     BOOL tabBarStatus;
     BOOL isFirstShow;
-    NSDictionary *_launchOptions;
+  __weak  NSDictionary *_launchOptions;
+    
+    __weak PushNotification *jpush;
 }
 @end
 
@@ -60,6 +63,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //注册极光推送
+    jpush=[JPushNotification sharePushNotification];
+    jpush.observer=self;
     
     version=[[Version alloc]init];
     version.observer=self;
@@ -192,5 +199,10 @@
         }
     }
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
+}
+
+-(void)didReceivePushNotification:(NSDictionary*)userInfo
+{
+    [self swichTabAtIndex:1];
 }
 @end
