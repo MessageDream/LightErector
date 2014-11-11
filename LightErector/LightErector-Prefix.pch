@@ -18,7 +18,7 @@
 //用于打印网络交互信息
 #define DEBUG_LOG   0
 
-
+//测试
 #define ENVTEST    1
 
 //测试
@@ -31,6 +31,7 @@
 #define  API_KEY              @"4f5b15fcd5bae035c2553c37d9c111f6"
 #define  ACTION_PATH          @"service_test"
 #define  SYSTEMNOTICE_URL     @"http://www.zhuangdeng.cn/mobile/gonggao.php"
+
 #else   //正式
 
 #define  API_ADDRESS          @"http://www.zhuangdeng.cn"
