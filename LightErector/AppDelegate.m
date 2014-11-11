@@ -173,7 +173,7 @@
 {
     User *user=[User shareUser];
     if (user.setting.taskReminde&&user.userid>0) {
-        NSDate *date=[NSDate new];
+        NSDate *date=[NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSString *dstr=[dateFormatter stringFromDate:date];
@@ -181,7 +181,7 @@
         NSString *newDateStr=[NSString stringWithFormat:@"%@ %@",dstr,user.setting.remindTime];
         NSDate *newdate=[dateFormatter dateFromString:newDateStr];
         
-        if ([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime]) {
+        if (([date compare:newdate] == NSOrderedDescending)||([user.setting.currentRemindTime length]&&[newDateStr isEqualToString:user.setting.currentRemindTime])) {
             completionHandler(UIBackgroundFetchResultNewData);
             return;
         }
