@@ -91,7 +91,7 @@
             if (count>0) {
                 [mainTableView reloadData];
                 currentPageIndex++;
-            }else{
+            }else if(currentPageIndex==1){
                 [self showTip:@"今天暂无安装任务。"];
             }
         }

@@ -47,7 +47,7 @@
 
 -(void)installErrorFeedback:(NSString *)errinfo
 {
-    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[self.tradeId,errinfo] forKeys:@[@"errorinfo",@"tradeid"]];
+    NSDictionary *dic=[NSDictionary dictionaryWithObjects:@[self.tradeId,errinfo] forKeys:@[@"tradeid",@"errorinfo"]];
     [self creatBusinessWithId:BUSINESS_INSTALLERRORFEEDBACK andExecuteWithData:dic];
 }
 

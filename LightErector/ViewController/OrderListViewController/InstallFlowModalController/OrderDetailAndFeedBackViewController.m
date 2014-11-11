@@ -12,6 +12,7 @@
 #import "MZFormSheetController.h"
 #import "ImageUtils.h"
 #import "BaseCustomMessageBox.h"
+#import "StepBaseViewController.h"
 #define VIEWHEIGHT 260
 #define VIEWWIDTH 260
 #define VIEWSPACE 20
@@ -162,17 +163,17 @@
 {
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
      [self dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-         UIImage *image=[ImageUtils createImageWithColor:[[MainStyle mainLightColor] colorWithAlphaComponent:0.8f] andSize:CGSizeMake(200.0f, 50.0f)];
-         BaseCustomMessageBox *baseCustomMessageBox = [[BaseCustomMessageBox alloc] initWithText:@"反馈提交成功" forBackgroundImage:image];
-         baseCustomMessageBox.animation = YES;
-         baseCustomMessageBox.autoCloseTimer = 2;
-         [formSheetController.fromViewController.view addSubview:baseCustomMessageBox];
+         StepBaseViewController *controller = (StepBaseViewController *)formSheetController.fromViewController;
+         [controller  showTip:@"反馈提交成功"];
+         [controller.observer closeStep:nil];
      }];
 }
 -(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg
 {
-    [self dismissFormSheetControllerAnimated:YES completionHandler:nil];
     [super didDataModelNoticeFail:baseDataModel forBusinessType:businessID forErrorCode:errorCode forErrorMsg:errorMsg];
+    [self dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        [((BaseViewController *)formSheetController.fromViewController)  showTip:@"反馈提交失败"];
+    }];
 }
 
 -(void)dealloc
