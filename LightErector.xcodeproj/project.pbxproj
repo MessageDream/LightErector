@@ -133,8 +133,8 @@
 		B28C170119E4FD1500C44305 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C16F019E4FD1500C44305 /* ZYQAssetPickerController.m */; };
 		B28C170519E534B900C44305 /* upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170419E534B900C44305 /* upload@2x.png */; };
 		B28C170719E536FC00C44305 /* finish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28C170619E536FC00C44305 /* finish@2x.png */; };
-		B29D1A0319F798C400770E29 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29D1A0219F798C400770E29 /* libPushSDK.a */; };
 		B2B5D7A61A0244ED00440260 /* AutoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B5D7A51A0244ED00440260 /* AutoLoginViewController.m */; };
+		B2C5B1E71A11B0610064F2BB /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C5B1E61A11B0610064F2BB /* libPushSDK.a */; };
 		B2CAD9FB19D55A3700768239 /* CustomSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */; };
 		B2CAD9FC19D55A3700768239 /* CustomSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CAD9FA19D55A3700768239 /* CustomSwipeTableCell.m */; };
 		B2CADA0119D561B800768239 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2CAD9FD19D561B800768239 /* add@2x.png */; };
@@ -504,10 +504,10 @@
 		B28C16F019E4FD1500C44305 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		B28C170419E534B900C44305 /* upload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload@2x.png"; sourceTree = "<group>"; };
 		B28C170619E536FC00C44305 /* finish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finish@2x.png"; sourceTree = "<group>"; };
-		B29D1A0119F798C400770E29 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		B29D1A0219F798C400770E29 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		B2B5D7A41A0244ED00440260 /* AutoLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLoginViewController.h; sourceTree = "<group>"; };
 		B2B5D7A51A0244ED00440260 /* AutoLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLoginViewController.m; sourceTree = "<group>"; };
+		B2C5B1E51A11B0610064F2BB /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		B2C5B1E61A11B0610064F2BB /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		B2CAD9F719D55A3700768239 /* CustomSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeButton.h; sourceTree = "<group>"; };
 		B2CAD9F819D55A3700768239 /* CustomSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeButton.m; sourceTree = "<group>"; };
 		B2CAD9F919D55A3700768239 /* CustomSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeTableCell.h; sourceTree = "<group>"; };
@@ -830,7 +830,7 @@
 				B2FDC88819D156DB00215E70 /* CoreGraphics.framework in Frameworks */,
 				B2FDC88A19D156DB00215E70 /* UIKit.framework in Frameworks */,
 				B2FC3D4C19F9194E00BF9886 /* libbaidumapapi.a in Frameworks */,
-				B29D1A0319F798C400770E29 /* libPushSDK.a in Frameworks */,
+				B2C5B1E71A11B0610064F2BB /* libPushSDK.a in Frameworks */,
 				B2FDC88619D156DB00215E70 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1236,8 +1236,8 @@
 		B29D1A0019F798C400770E29 /* JpushLib */ = {
 			isa = PBXGroup;
 			children = (
-				B29D1A0119F798C400770E29 /* APService.h */,
-				B29D1A0219F798C400770E29 /* libPushSDK.a */,
+				B2C5B1E51A11B0610064F2BB /* APService.h */,
+				B2C5B1E61A11B0610064F2BB /* libPushSDK.a */,
 			);
 			path = JpushLib;
 			sourceTree = "<group>";
@@ -2591,8 +2591,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.dengbaomu.lighterector";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhenzhou Dengshifu Lighting Engineering Co., Ltd. (QM35U4GPEZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yang jingwei (66924LQC8B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yang jingwei (66924LQC8B)";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LightErector/LightErector-Prefix.pch";

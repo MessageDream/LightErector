@@ -43,7 +43,7 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     //百度地图
     _mapManager = [[BMKMapManager alloc]init];
-    [_mapManager start:@"pO83Gx1SwHwrVht30ZqyPTAj"  generalDelegate:self];
+    [_mapManager start:@"NisnmVIX7MCCSqGuBPRqb8V6"  generalDelegate:self];
     
         //注册极光推送
         jpush=[JPushNotification sharePushNotification];
@@ -163,6 +163,7 @@
    
 }
 
+#ifdef __IPHONE_7_0
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
      [jpush receivePushNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNoData);
@@ -208,5 +209,6 @@
         }
     }
 }
+#endif
 @end
 

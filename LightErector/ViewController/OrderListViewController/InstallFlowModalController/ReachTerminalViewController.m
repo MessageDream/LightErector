@@ -119,7 +119,7 @@
  */
 - (void)mapViewWillStartLocatingUser:(BMKMapView *)mapView
 {
-    
+
 }
 
 /**
@@ -157,8 +157,8 @@
 #ifdef DEBUG_LOG
     NSLog(@"%f:%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 #endif
-    if (!isFirstShow) {
-         _mapView.centerCoordinate=userLocation.location.coordinate;
+    if (!isFirstShow&&userLocation.location.coordinate.latitude > 0.0){
+         [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
         isFirstShow=YES;
     }
    
