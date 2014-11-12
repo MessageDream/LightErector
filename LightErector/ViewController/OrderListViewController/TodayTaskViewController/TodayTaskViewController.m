@@ -17,8 +17,8 @@
 @interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,CustomPullRefreshTableViewDelegate>
 {
     NSInteger currentPageIndex;
-  __weak  CustomPullRefreshTableView *mainTableView;
-   __weak TradeInfo *trade;
+    __weak  CustomPullRefreshTableView *mainTableView;
+    __weak TradeInfo *trade;
 }
 @end
 
@@ -55,7 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     currentPageIndex++;
     if (user.userLoginStatus==UserLoginStatus_Login) {
         [self afterLogin];
@@ -85,23 +85,28 @@
             NSInteger count=trade.todayTaskOrders.count;
             
             for (int i=0;i<count;i++) {
-                 UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
                 [self.dataArray addObject:model];
             }
-            if (count>0) {
+            
+            if (count>0||self.dataArray.count==0) {
                 [mainTableView reloadData];
-                currentPageIndex++;
+                if (count!=0) {
+                    currentPageIndex++;
+                }
             }else if(currentPageIndex==1){
                 [self showTip:@"今天暂无安装任务。"];
             }
         }
             break;
-            case BUSINESS_GETORDERSTATUS:
+        case BUSINESS_GETORDERSTATUS:
         {
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
-                currentPageIndex=1;
-                [self.dataArray removeAllObjects];
-                [self afterLogin];
+                if ([controller.extData boolValue]){
+                    currentPageIndex=1;
+                    [self.dataArray removeAllObjects];
+                    [self afterLogin];
+                }
             }];
             [self presentViewController:install animated:YES completion:nil];
         }
@@ -204,8 +209,8 @@
         CGRect frame;
         if (order.tradeAddress!=nil) {
             CGSize expectedLabelSizeAddr = [order.tradeAddress sizeWithFont:cell.nameLable.font
-                                           constrainedToSize:maximumLabelSize
-                                               lineBreakMode:NSLineBreakByWordWrapping];
+                                                          constrainedToSize:maximumLabelSize
+                                                              lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.addressLable.frame;
             frame.size=expectedLabelSizeAddr;
@@ -220,8 +225,8 @@
         
         if (order.tradeMasscontent!=nil) {
             CGSize expectedLabelSizeDetail = [order.tradeMasscontent sizeWithFont:cell.nameLable.font
-                                             constrainedToSize:maximumLabelSize
-                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                                                                constrainedToSize:maximumLabelSize
+                                                                    lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.detailLable.frame;
             frame.origin.y=cell.sDetailLable.frame.origin.y;
@@ -240,8 +245,8 @@
         if (order.tradeContent!=nil) {
             
             CGSize expectedLabelSizeRemark = [order.tradeContent sizeWithFont:cell.nameLable.font
-                                             constrainedToSize:maximumLabelSize
-                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                                                            constrainedToSize:maximumLabelSize
+                                                                lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.remarkLable.frame;
             frame.origin.y=cell.sRemarkLable.frame.origin.y;
@@ -309,7 +314,7 @@
 
 -(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
-     [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

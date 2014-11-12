@@ -165,7 +165,7 @@
      [self dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
          StepBaseViewController *controller = (StepBaseViewController *)formSheetController.fromViewController;
          [controller  showTip:@"反馈提交成功"];
-         [controller.observer closeStep:nil];
+         [controller.observer closeStep:@(YES)];
      }];
 }
 -(void)didDataModelNoticeFail:(BaseDataModel *)baseDataModel forBusinessType:(BusinessType)businessID forErrorCode:(NSInteger)errorCode forErrorMsg:(NSString *)errorMsg

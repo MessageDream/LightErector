@@ -133,7 +133,10 @@
             }
             if (count>0||self.unAcceptDataArray.count==0) {
                 [orderCategoryView.unAcceptTable reloadData];
-                currentUnAcceptPageIndex++;
+                if (count!=0) {
+                    currentUnAcceptPageIndex++;
+                }
+               
             }
             if (setupRequestCount==1) {
                 setupRequestCount++;
@@ -152,7 +155,9 @@
             }
             if (count>0||self.unSubDataArray.count==0) {
                 [orderCategoryView.unSubTable reloadData];
-                currentUnSubPageIndex++;
+                 if (count!=0) {
+                     currentUnSubPageIndex++;
+                 }
             }
             if (setupRequestCount==2) {
                 setupRequestCount++;
@@ -171,7 +176,9 @@
             }
             if (count>0||self.unInstallDataArray.count==0) {
                 [orderCategoryView.unInstallTable reloadData];
-                currentUnInstallPageIndex++;
+                 if (count!=0) {
+                     currentUnInstallPageIndex++;
+                 }
             }
             
             if (setupRequestCount==3) {
@@ -191,7 +198,9 @@
             }
             if (count>0||self.subAgainDataArray.count==0) {
                 [orderCategoryView.subAgainTable reloadData];
+                 if (count!=0) {
                 currentSubAgainPageIndex++;
+                 }
             }
             
             if (setupRequestCount==4) {
@@ -211,7 +220,9 @@
             }
             if (count>0||self.unFeedBackDataArray.count==0) {
                 [orderCategoryView.unFeedBackTable reloadData];
+                 if (count!=0) {
                 currentUnFeedBackPageIndex++;
+                 }
             }
             if (setupRequestCount==5) {
                 setupRequestCount++;
@@ -253,7 +264,7 @@
             break;
         case BUSINESS_GETORDERSTATUS:{
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
-                if (controller.extData) {
+                if ([controller.extData isKindOfClass:[Message class]]) {
                     Message *msg=controller.extData;
                     if (msg.receiveObjectID==self.viewControllerId) {
                         currentUnFeedBackPageIndex=1;
@@ -263,6 +274,17 @@
                     }else{
                         [self sendSwichTabBarMessageAtIndex:2];
                     }
+                }else if ([controller.extData boolValue]){
+                  currentUnAcceptPageIndex =currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
+                    [self.unAcceptDataArray removeAllObjects];
+                    [self.unInstallDataArray removeAllObjects];
+                    [self.unFeedBackDataArray removeAllObjects];
+                    [self.unSubDataArray removeAllObjects];
+                    [self.subAgainDataArray removeAllObjects];
+                    
+                    setupRequestCount=1;
+                    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+                    [self lockView];
                 }
                 
             }];
@@ -394,7 +416,7 @@
                     break;
                 case UNSUBTABLETAG:
                     if (buttonIndex==0) {
-                        [self sendSMS:order.tradeContent recipientList:nil];
+                        [self sendSMS:order.tradeMasscontent recipientList:nil];
                     }else{
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                         message:@"确定立即预约吗？"
