@@ -154,10 +154,7 @@
 {
      [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     if(businessID == BUSINESS_LOGIN)
-    {
-//        //设置推送的对象为当前用户
-//        [((JPushNotification*)[PushNotification sharePushNotification]) registerUserTags:nil andAlias:user.userName callbackSelector:nil target:nil];
-//        
+    {       
         Message *msg=[[Message alloc] init];
         msg.receiveObjectID=VIEWCONTROLLER_TODAYTASK;
         msg.commandID=MC_CREATE_SCROLLERFROMRIGHT_VIEWCONTROLLER;

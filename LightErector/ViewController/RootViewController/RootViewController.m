@@ -218,8 +218,9 @@
     if(user.userLoginStatus==UserLoginStatus_Login){
         if (!activityStatus) {
              [self swichTabAtIndex:1];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:PUSHNOTIFICATIONID object:nil];
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:PUSHNOTIFICATIONID object:nil];
     }
 }
 

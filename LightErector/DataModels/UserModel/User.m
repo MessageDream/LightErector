@@ -10,6 +10,7 @@
 #import "UserInfo.h"
 #import "NtspHeader.h"
 #import "MD5.h"
+#import "JPushNotification.h"
 
 #define SAVE_FILE_NAME @"userSeting.json"
 
@@ -184,6 +185,9 @@
             [self writeLocalFile];
        // }
         _userLoginStatus=UserLoginStatus_Login;
+                //设置推送的对象为当前用户
+     [((JPushNotification*)[PushNotification sharePushNotification]) registerUserTags:nil andAlias:[NSString stringWithFormat:@"%d",self.userid] callbackSelector:nil target:nil];
+        
     }
     else if (business.businessId == BUSINESS_LOGOUT)
     {
