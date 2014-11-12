@@ -15,6 +15,8 @@
 #import "DataModelDelegate.h"
 #import "User.h"
 
+#define PUSHNOTIFICATIONID @"PUSHNOTIFICATIONID"
+
 @class BaseModule;
 @interface BaseViewController : UIViewController<DataModelDelegate,TextFiledReturnEditingDelegate>
 {

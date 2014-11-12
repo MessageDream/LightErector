@@ -25,8 +25,8 @@
     BOOL tabBarStatus;
     BOOL isFirstShow;
   __weak  NSDictionary *_launchOptions;
-    
     __weak PushNotification *jpush;
+    BOOL activityStatus;
 }
 @end
 
@@ -64,6 +64,8 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setActivityEnable) name:UIApplicationDidBecomeActiveNotification object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setActivityDisable) name:UIApplicationDidEnterBackgroundNotification object:nil];
     //注册极光推送
     jpush=[JPushNotification sharePushNotification];
     jpush.observer=self;
@@ -89,6 +91,16 @@
         message.commandID = MC_CREATE_NORML_VIEWCONTROLLER;
         [self sendMessage:message];
     }
+}
+
+-(void)setActivityEnable
+{
+    activityStatus=YES;
+}
+
+-(void)setActivityDisable
+{
+    activityStatus=NO;
 }
 
 
@@ -204,7 +216,16 @@
 -(void)didReceivePushNotification:(NSDictionary*)userInfo
 {
     if(user.userLoginStatus==UserLoginStatus_Login){
-        [self swichTabAtIndex:1];
+        if (!activityStatus) {
+             [self swichTabAtIndex:1];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:PUSHNOTIFICATIONID object:nil];
     }
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 @end

@@ -173,17 +173,6 @@
     _currentIndex=0;
 }
 
--(UIView *)creatContentView:(CustomPullRefreshTableView *)tableView
-{
-    UIView *view=[[UIView alloc] initWithFrame:tableView.frame];
-    view.backgroundColor=[UIColor clearColor];
-    CGRect rect= tableView.frame;
-    rect.origin=CGPointMake(0, 0);
-    tableView.frame=rect;
-    [view addSubview:tableView];
-    return view;
-}
-
 -(void)stopRefresh
 {
     
@@ -191,7 +180,7 @@
 
 -(void)dealloc
 {
-    _tableArray=nil;
+    self.tableArray=nil;
 }
 
 /*

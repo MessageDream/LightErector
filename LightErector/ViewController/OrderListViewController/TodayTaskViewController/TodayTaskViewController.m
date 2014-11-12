@@ -16,10 +16,10 @@
 
 @interface TodayTaskViewController () <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,CustomPullRefreshTableViewDelegate>
 {
-    NSInteger currentPageIndex;
-    __weak  CustomPullRefreshTableView *mainTableView;
-    __weak TradeInfo *trade;
+     __weak CustomPullRefreshTableView *mainTableView;
 }
+@property(nonatomic,strong)TradeInfo *trade;
+@property(nonatomic,assign)NSInteger currentPageIndex;
 @end
 
 @implementation TodayTaskViewController
@@ -56,7 +56,7 @@
 {
     [super viewDidLoad];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    currentPageIndex++;
+    _currentPageIndex++;
     if (user.userLoginStatus==UserLoginStatus_Login) {
         [self afterLogin];
     }
@@ -71,9 +71,9 @@
 
 -(void)afterLogin
 {
-    trade=[TradeInfo shareTrade];
-    trade.observer=self;
-    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+    _trade=[TradeInfo shareTrade];
+    _trade.observer=self;
+    [_trade getTodayTaskOrdersById:user.userid withPageIndex:_currentPageIndex forPagesize:PAGESIZE];
     [self lockView];
 }
 
@@ -82,30 +82,31 @@
     [super didDataModelNoticeSucess:baseDataModel forBusinessType:businessID];
     switch (businessID) {
         case BUSINESS_GETTODAYTASKORDER:{
-            NSInteger count=trade.todayTaskOrders.count;
+            NSInteger count=_trade.todayTaskOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.todayTaskOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.todayTaskOrders[i]];
                 [self.dataArray addObject:model];
             }
             
             if (count>0||self.dataArray.count==0) {
                 [mainTableView reloadData];
                 if (count!=0) {
-                    currentPageIndex++;
+                    _currentPageIndex++;
                 }
-            }else if(currentPageIndex==1){
+            }else if(_currentPageIndex==1){
                 [self showTip:@"今天暂无安装任务。"];
             }
         }
             break;
         case BUSINESS_GETORDERSTATUS:
         {
+            __weak TodayTaskViewController *blockSelf=self;
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
                 if ([controller.extData boolValue]){
-                    currentPageIndex=1;
-                    [self.dataArray removeAllObjects];
-                    [self afterLogin];
+                    blockSelf.currentPageIndex=1;
+                    [blockSelf.dataArray removeAllObjects];
+                    [blockSelf afterLogin];
                 }
             }];
             [self presentViewController:install animated:YES completion:nil];
@@ -159,11 +160,12 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        __weak TodayTaskViewController *blockSelf=self;
         [cell createOptionButtonsWithTitles:@[NSLocalizedStringFromTable(@"GoInstall",Res_String,@"")] andIcons:nil andBackgroundColors:@[[MainStyle mainLightTwoColor]] andAction:^(NSInteger buttonIndex) {
             if (buttonIndex==0) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                 message:@"确定去安装吗？"
-                                                               delegate:self
+                                                               delegate:blockSelf
                                                       cancelButtonTitle:@"取消"
                                                       otherButtonTitles:@"确定",nil];
                 alert.tag=indexPath.row;
@@ -314,7 +316,7 @@
 
 -(void)PullRefreshTableViewBottomRefresh:(CustomPullRefreshTableView *)tableView
 {
-    [trade getTodayTaskOrdersById:user.userid withPageIndex:currentPageIndex forPagesize:PAGESIZE];
+    [_trade getTodayTaskOrdersById:user.userid withPageIndex:_currentPageIndex forPagesize:PAGESIZE];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -329,7 +331,7 @@
 }
 -(void)dealloc
 {
-    trade=nil;
+    _trade=nil;
     mainTableView=nil;
 }
 @end

@@ -19,15 +19,15 @@
 {
     __weak OrderCategoryView *orderCategoryView;
     
-    __weak TradeInfo *trade;
-    __weak Order *currentOrder;
-    NSInteger setupRequestCount;
-    NSInteger currentUnAcceptPageIndex;
-    NSInteger currentUnSubPageIndex;
-    NSInteger currentUnInstallPageIndex;
-    NSInteger currentSubAgainPageIndex;
-    NSInteger currentUnFeedBackPageIndex;
 }
+@property(nonatomic,assign)NSInteger setupRequestCount;
+@property(nonatomic,assign)NSInteger currentUnAcceptPageIndex;
+@property(nonatomic,assign)NSInteger currentUnSubPageIndex;
+@property(nonatomic,assign)NSInteger currentUnInstallPageIndex;
+@property(nonatomic,assign)NSInteger currentSubAgainPageIndex;
+@property(nonatomic,assign)NSInteger currentUnFeedBackPageIndex;
+@property(nonatomic,strong)TradeInfo *trade;
+@property(nonatomic,strong)Order *currentOrder;
 @property(nonatomic,strong)NSMutableArray *unAcceptDataArray;
 @property(nonatomic,strong)NSMutableArray *unSubDataArray;
 @property(nonatomic,strong)NSMutableArray *unInstallDataArray;
@@ -64,6 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUnAccept) name:PUSHNOTIFICATIONID object:nil];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [orderCategoryView createTables];
     
@@ -88,11 +89,11 @@
     orderCategoryView.dataPicker.observer=self;
     
     
-    currentUnAcceptPageIndex++;
-    currentUnSubPageIndex++;
-    currentUnInstallPageIndex++;
-    currentSubAgainPageIndex++;
-    currentUnFeedBackPageIndex++;
+    _currentUnAcceptPageIndex++;
+    _currentUnSubPageIndex++;
+    _currentUnInstallPageIndex++;
+    _currentSubAgainPageIndex++;
+    _currentUnFeedBackPageIndex++;
     
     self.unAcceptDataArray = [[NSMutableArray alloc]init];
     self.unSubDataArray=[[NSMutableArray alloc]init];
@@ -108,16 +109,24 @@
 
 -(void)afterLogin
 {
-    trade=[TradeInfo shareTrade];
-    trade.observer=self;
-    setupRequestCount=1;
-    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+    _trade=[TradeInfo shareTrade];
+    _trade.observer=self;
+    _setupRequestCount=1;
+    [_trade getWaitForReceiveOrdersById:user.userid withPageIndex:_currentUnAcceptPageIndex forPagesize:PAGESIZE];
+    [self lockView];
+}
+
+-(void)refreshUnAccept
+{
+    _currentUnAcceptPageIndex=1;
+    [self.unAcceptDataArray removeAllObjects];
+    [_trade getWaitForReceiveOrdersById:user.userid withPageIndex:_currentUnAcceptPageIndex forPagesize:PAGESIZE];
     [self lockView];
 }
 
 -(void)refresh
 {
-    currentUnAcceptPageIndex =currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
+    _currentUnAcceptPageIndex =_currentUnSubPageIndex=_currentUnInstallPageIndex=_currentSubAgainPageIndex=_currentUnFeedBackPageIndex=1;
     [self.unAcceptDataArray removeAllObjects];
     [self.unInstallDataArray removeAllObjects];
     [self.unFeedBackDataArray removeAllObjects];
@@ -136,107 +145,107 @@
 {
     switch (businessID) {
         case BUSINESS_GETWAITFORRECEIVEORDER:{
-            NSInteger count=trade.waitForReceiveOrders.count;
+            NSInteger count=_trade.waitForReceiveOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForReceiveOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.waitForReceiveOrders[i]];
                 [self.unAcceptDataArray addObject:model];
             }
             if (count>0||self.unAcceptDataArray.count==0) {
                 [orderCategoryView.unAcceptTable reloadData];
                 if (count!=0) {
-                    currentUnAcceptPageIndex++;
+                    _currentUnAcceptPageIndex++;
                 }
                 
             }
-            if (setupRequestCount==1) {
-                setupRequestCount++;
-                [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+            if (_setupRequestCount==1) {
+                _setupRequestCount++;
+                [_trade getWaitSubOrdersById:user.userid withPageIndex:_currentUnSubPageIndex forPagesize:PAGESIZE];
                 [self lockViewAddCount];
             }else
                 [orderCategoryView.unAcceptTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITSUBORDER:{
-            NSInteger count=trade.waitSubOrders.count;
+            NSInteger count=_trade.waitSubOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitSubOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.waitSubOrders[i]];
                 [self.unSubDataArray addObject:model];;
             }
             if (count>0||self.unSubDataArray.count==0) {
                 [orderCategoryView.unSubTable reloadData];
                 if (count!=0) {
-                    currentUnSubPageIndex++;
+                    _currentUnSubPageIndex++;
                 }
             }
-            if (setupRequestCount==2) {
-                setupRequestCount++;
-                [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
+            if (_setupRequestCount==2) {
+                _setupRequestCount++;
+                [_trade getWaitForInstallOrdersById:user.userid withPageIndex:_currentUnInstallPageIndex forPagesize:PAGESIZE];
                 [self lockViewAddCount];
             }else
                 [orderCategoryView.unSubTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORINSTALLORDER:{
-            NSInteger count=trade.waitForInstallOrders.count;
+            NSInteger count=_trade.waitForInstallOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForInstallOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.waitForInstallOrders[i]];
                 [self.unInstallDataArray addObject:model];
             }
             if (count>0||self.unInstallDataArray.count==0) {
                 [orderCategoryView.unInstallTable reloadData];
                 if (count!=0) {
-                    currentUnInstallPageIndex++;
+                    _currentUnInstallPageIndex++;
                 }
             }
             
-            if (setupRequestCount==3) {
-                setupRequestCount++;
-                [trade getUnTimedOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
+            if (_setupRequestCount==3) {
+                _setupRequestCount++;
+                [_trade getUnTimedOrdersById:user.userid withPageIndex:_currentSubAgainPageIndex forPagesize:PAGESIZE];
                 [self lockViewAddCount];
             }else
                 [orderCategoryView.unInstallTable stopRefresh];
         }
             break;
         case BUSINESS_GETUNTIMEDORDER:{
-            NSInteger count=trade.unTimedOrders.count;
+            NSInteger count=_trade.unTimedOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.unTimedOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.unTimedOrders[i]];
                 [self.subAgainDataArray addObject:model];
             }
             if (count>0||self.subAgainDataArray.count==0) {
                 [orderCategoryView.subAgainTable reloadData];
                 if (count!=0) {
-                    currentSubAgainPageIndex++;
+                    _currentSubAgainPageIndex++;
                 }
             }
             
-            if (setupRequestCount==4) {
-                setupRequestCount++;
-                [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
+            if (_setupRequestCount==4) {
+                _setupRequestCount++;
+                [_trade getWaitForFeedBackOrdersById:user.userid withPageIndex:_currentUnFeedBackPageIndex forPagesize:PAGESIZE];
                 [self lockViewAddCount];
             }else
                 [orderCategoryView.subAgainTable stopRefresh];
         }
             break;
         case BUSINESS_GETWAITFORFEEDBACKORDER:{
-            NSInteger count=trade.waitForFeedBackOrders.count;
+            NSInteger count=_trade.waitForFeedBackOrders.count;
             
             for (int i=0;i<count;i++) {
-                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:trade.waitForFeedBackOrders[i]];
+                UITableViewCellModel *model=[[UITableViewCellModel alloc] initWithCellType:MAINCELL isAttached:NO andContentModel:_trade.waitForFeedBackOrders[i]];
                 [self.unFeedBackDataArray addObject:model];
             }
             if (count>0||self.unFeedBackDataArray.count==0) {
                 [orderCategoryView.unFeedBackTable reloadData];
                 if (count!=0) {
-                    currentUnFeedBackPageIndex++;
+                    _currentUnFeedBackPageIndex++;
                 }
             }
-            if (setupRequestCount==5) {
-                setupRequestCount++;
+            if (_setupRequestCount==5) {
+                _setupRequestCount++;
             }else
                 [orderCategoryView.unFeedBackTable stopRefresh];
         }
@@ -274,19 +283,20 @@
             [orderCategoryView.unInstallTable reloadData];
             break;
         case BUSINESS_GETORDERSTATUS:{
+            __weak OrderCategoryViewController *blockSelf=self;
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
                 if ([controller.extData isKindOfClass:[Message class]]) {
                     Message *msg=controller.extData;
-                    if (msg.receiveObjectID==self.viewControllerId) {
-                        currentUnFeedBackPageIndex=1;
-                        [self.unFeedBackDataArray removeAllObjects];
-                        [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
-                        [orderCategoryView.segmentedControl setSelectedSegmentIndex:4 animated:YES];
+                    if (msg.receiveObjectID==blockSelf.viewControllerId) {
+                        blockSelf.currentUnFeedBackPageIndex=1;
+                        [blockSelf.unFeedBackDataArray removeAllObjects];
+                        [blockSelf.trade getWaitForFeedBackOrdersById:user.userid withPageIndex:blockSelf.currentUnFeedBackPageIndex forPagesize:PAGESIZE];
+                        [((OrderCategoryView*)blockSelf.view).segmentedControl setSelectedSegmentIndex:4 animated:YES];
                     }else{
-                        [self sendSwichTabBarMessageAtIndex:2];
+                        [blockSelf sendSwichTabBarMessageAtIndex:2];
                     }
                 }else if ([controller.extData boolValue]){
-                    [self refresh];
+                    [blockSelf refresh];
                 }
                 
             }];
@@ -402,64 +412,67 @@
             default:
                 break;
         }
+        __weak OrderCategoryViewController *blockSelf=self;
+        __weak UITableView *blockTableView=tableView;
+        __weak Order *blockOrder=order;
         [cell createOptionButtonsWithTitles:btnTitles andIcons:nil andBackgroundColors:colors andAction:^(NSInteger buttonIndex) {
             
-            switch (tableView.tag) {
+            switch (blockTableView.tag) {
                 case UNACCEPTTABLETAG:{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                     message:@"确定立即接单吗？"
-                                                                   delegate:self
+                                                                   delegate:blockSelf
                                                           cancelButtonTitle:@"取消"
                                                           otherButtonTitles:@"确定",nil];
-                    alert.tag=tableView.tag;
-                    currentOrder=order;
+                    alert.tag=blockTableView.tag;
+                    blockSelf.currentOrder=blockOrder;
                     [alert show];
                 }
                     break;
                 case UNSUBTABLETAG:
                     if (buttonIndex==0) {
-                        [self sendSMS:order.tradeMasscontent recipientList:nil];
+                        [blockSelf sendSMS:order.tradeMasscontent recipientList:nil];
                     }else{
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                         message:@"确定立即预约吗？"
-                                                                       delegate:self
+                                                                       delegate:blockSelf
                                                               cancelButtonTitle:@"取消"
                                                               otherButtonTitles:@"确定",nil];
-                        alert.tag=tableView.tag;
-                        currentOrder=order;
+                        alert.tag=blockTableView.tag;
+                        blockSelf.currentOrder=blockOrder;
                         [alert show];
                     }
                     break;
                 case UNINSTALLTABLETAG:{
-                    if (order.tradeAcreated) {
+                    if (blockOrder.tradeAcreated) {
                         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                        NSDate *date = [dateFormatter dateFromString:order.tradeAcreated];
-                        orderCategoryView.dataPicker.date=date;
+                        NSDate *date = [dateFormatter dateFromString:blockOrder.tradeAcreated];
+                        ((OrderCategoryView *)blockSelf.view).dataPicker.date=date;
                     }
-                    orderCategoryView.editTimeView.hidden=NO;
-                    currentOrder=order;
+                    ((OrderCategoryView *)blockSelf.view).editTimeView.hidden=NO;
+                    blockSelf.currentOrder=blockOrder;
                 }
                     break;
                 case SUBAGAINTABLETAG:{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                     message:@"确定立即预约吗？"
-                                                                   delegate:self
+                                                                   delegate:blockSelf
                                                           cancelButtonTitle:@"取消"
                                                           otherButtonTitles:@"确定",nil];
-                    alert.tag=tableView.tag;
-                    currentOrder=order;
+                    alert.tag=blockTableView.tag;
+                    blockSelf.currentOrder=blockOrder;
                     [alert show];
                 }
                     break;
                 case UNFEEDBACKTABLETAG:{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                     message:@"确定立即反馈吗？"
-                                                                   delegate:self
+                                                                   delegate:blockSelf
                                                           cancelButtonTitle:@"取消"
                                                           otherButtonTitles:@"确定",nil];
-                    alert.tag=tableView.tag;
-                    currentOrder=order;
+                    alert.tag=blockTableView.tag;
+                    blockSelf.currentOrder=blockOrder;
                     [alert show];
                 }
                     break;
@@ -565,7 +578,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSMutableArray *array;
+   __weak NSMutableArray *array;
     switch (tableView.tag) {
         case UNACCEPTTABLETAG:
             array= self.unAcceptDataArray;
@@ -634,19 +647,19 @@
 {
     switch (tableView.tag) {
         case UNACCEPTTABLETAG:
-            [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
+            [_trade getWaitForReceiveOrdersById:user.userid withPageIndex:_currentUnAcceptPageIndex forPagesize:PAGESIZE];
             break;
         case UNSUBTABLETAG:
-            [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
+            [_trade getWaitSubOrdersById:user.userid withPageIndex:_currentUnSubPageIndex forPagesize:PAGESIZE];
             break;
         case UNINSTALLTABLETAG:
-            [trade getWaitForInstallOrdersById:user.userid withPageIndex:currentUnInstallPageIndex forPagesize:PAGESIZE];
+            [_trade getWaitForInstallOrdersById:user.userid withPageIndex:_currentUnInstallPageIndex forPagesize:PAGESIZE];
             break;
         case SUBAGAINTABLETAG:
-            [trade getUnTimedOrdersById:user.userid withPageIndex:currentSubAgainPageIndex forPagesize:PAGESIZE];
+            [_trade getUnTimedOrdersById:user.userid withPageIndex:_currentSubAgainPageIndex forPagesize:PAGESIZE];
             break;
         case UNFEEDBACKTABLETAG:
-            [trade getWaitForFeedBackOrdersById:user.userid withPageIndex:currentUnFeedBackPageIndex forPagesize:PAGESIZE];
+            [_trade getWaitForFeedBackOrdersById:user.userid withPageIndex:_currentUnFeedBackPageIndex forPagesize:PAGESIZE];
             break;
     }
 }
@@ -698,14 +711,14 @@
         [self showTip:@"修改原因不能为空"];
         return;
     }
-    currentOrder.observer=self;
-    [currentOrder updateSubTime:date withReason:orderCategoryView.textReson.text withMemberId:user.userid];
+    self.currentOrder.observer=self;
+    [self.currentOrder updateSubTime:date withReason:orderCategoryView.textReson.text withMemberId:user.userid];
 }
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    Order *order=currentOrder;
+    Order *order=self.currentOrder;
     order.observer=self;
     if (buttonIndex==1) {
         
@@ -719,7 +732,7 @@
                 Message *message = [[Message alloc] init];
                 message.commandID = MC_CREATE_POPFROMBOTTOM_VIEWCONTROLLER;
                 message.cacheMode=DO_CACHE_WITH_RECEIVEMESSAGE;
-                message.externData=currentOrder;
+                message.externData=self.currentOrder;
                 message.receiveObjectID = VIEWCONTROLLER_SUBCLIENT;
                 [self sendMessage:message];
             }
@@ -737,7 +750,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PUSHNOTIFICATIONID object:nil];
 }
 -(void)receiveMessage:(Message *)message
 {
@@ -749,8 +762,8 @@
 
 -(void)dealloc
 {
-    trade=nil;
+    _trade=nil;
     orderCategoryView=nil;
-    currentOrder=nil;
+    self.currentOrder=nil;
 }
 @end

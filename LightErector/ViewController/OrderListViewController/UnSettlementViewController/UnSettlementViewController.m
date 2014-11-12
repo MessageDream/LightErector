@@ -17,8 +17,8 @@
 @interface UnSettlementViewController () <UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate>
 {
     NSInteger currentPageIndex;
-    TradeInfo *trade;
-    CustomPullRefreshTableView *mainTableView;
+   __weak TradeInfo *trade;
+  __weak CustomPullRefreshTableView *mainTableView;
     UnSettlementView *unsettleView;
 }
 @end
