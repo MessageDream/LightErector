@@ -177,6 +177,10 @@
 {
     if(business.businessId == BUSINESS_LOGIN)
     {
+         NSArray *subTags=[businessData objectForKey:@"subscribearr"];
+        //设置推送的对象为当前用户
+        [((JPushNotification*)[PushNotification sharePushNotification]) registerUserTags:[NSSet setWithArray:@[subTags[1],subTags[2],subTags[3]]]andAlias:[NSString stringWithFormat:@"%@",subTags[4]] callbackSelector:@selector(jpushCallBack:tags:alias:) target:self];
+        
         NSDictionary *data=[businessData objectForKey:@"userinfo"];
          _userid=[[data objectForKey:@"memberid"] integerValue];
         _userName=[data objectForKey:@"username"];
@@ -185,9 +189,6 @@
             [self writeLocalFile];
        // }
         _userLoginStatus=UserLoginStatus_Login;
-                //设置推送的对象为当前用户
-     [((JPushNotification*)[PushNotification sharePushNotification]) registerUserTags:nil andAlias:[NSString stringWithFormat:@"%d",self.userid] callbackSelector:nil target:nil];
-        
     }
     else if (business.businessId == BUSINESS_LOGOUT)
     {
@@ -203,5 +204,11 @@
     }
     
     [super didBusinessSucess:business withData:businessData];
+}
+
+- (void)jpushCallBack:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
+#ifdef DEBUG_LOG
+    NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
+#endif
 }
 @end
