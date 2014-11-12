@@ -115,6 +115,17 @@
     [self lockView];
 }
 
+-(void)refresh
+{
+    currentUnAcceptPageIndex =currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
+    [self.unAcceptDataArray removeAllObjects];
+    [self.unInstallDataArray removeAllObjects];
+    [self.unFeedBackDataArray removeAllObjects];
+    [self.unSubDataArray removeAllObjects];
+    [self.subAgainDataArray removeAllObjects];
+    [self afterLogin];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -136,7 +147,7 @@
                 if (count!=0) {
                     currentUnAcceptPageIndex++;
                 }
-               
+                
             }
             if (setupRequestCount==1) {
                 setupRequestCount++;
@@ -155,9 +166,9 @@
             }
             if (count>0||self.unSubDataArray.count==0) {
                 [orderCategoryView.unSubTable reloadData];
-                 if (count!=0) {
-                     currentUnSubPageIndex++;
-                 }
+                if (count!=0) {
+                    currentUnSubPageIndex++;
+                }
             }
             if (setupRequestCount==2) {
                 setupRequestCount++;
@@ -176,9 +187,9 @@
             }
             if (count>0||self.unInstallDataArray.count==0) {
                 [orderCategoryView.unInstallTable reloadData];
-                 if (count!=0) {
-                     currentUnInstallPageIndex++;
-                 }
+                if (count!=0) {
+                    currentUnInstallPageIndex++;
+                }
             }
             
             if (setupRequestCount==3) {
@@ -198,9 +209,9 @@
             }
             if (count>0||self.subAgainDataArray.count==0) {
                 [orderCategoryView.subAgainTable reloadData];
-                 if (count!=0) {
-                currentSubAgainPageIndex++;
-                 }
+                if (count!=0) {
+                    currentSubAgainPageIndex++;
+                }
             }
             
             if (setupRequestCount==4) {
@@ -220,9 +231,9 @@
             }
             if (count>0||self.unFeedBackDataArray.count==0) {
                 [orderCategoryView.unFeedBackTable reloadData];
-                 if (count!=0) {
-                currentUnFeedBackPageIndex++;
-                 }
+                if (count!=0) {
+                    currentUnFeedBackPageIndex++;
+                }
             }
             if (setupRequestCount==5) {
                 setupRequestCount++;
@@ -239,11 +250,11 @@
                     model.cellType=MAINCELL;
                     model.isAttached=NO;
                     if (self.unSubDataArray.count>=PAGESIZE) {
-                      [self.unSubDataArray removeLastObject];//移除最后一项，防止下拉加载重复显示
+                        [self.unSubDataArray removeLastObject];//移除最后一项，防止下拉加载重复显示
                     }
                     [self.unSubDataArray insertObject:model atIndex:0];
-                   
-
+                    
+                    
                     [self.unAcceptDataArray removeObjectAtIndex:i];
                     [self.unAcceptDataArray removeObjectAtIndex:i];
                     break;
@@ -275,16 +286,7 @@
                         [self sendSwichTabBarMessageAtIndex:2];
                     }
                 }else if ([controller.extData boolValue]){
-                  currentUnAcceptPageIndex =currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
-                    [self.unAcceptDataArray removeAllObjects];
-                    [self.unInstallDataArray removeAllObjects];
-                    [self.unFeedBackDataArray removeAllObjects];
-                    [self.unSubDataArray removeAllObjects];
-                    [self.subAgainDataArray removeAllObjects];
-                    
-                    setupRequestCount=1;
-                    [trade getWaitForReceiveOrdersById:user.userid withPageIndex:currentUnAcceptPageIndex forPagesize:PAGESIZE];
-                    [self lockView];
+                    [self refresh];
                 }
                 
             }];
@@ -519,8 +521,8 @@
         
         if (order.tradeMasscontent!=nil) {
             CGSize expectedLabelSizeDetail = [order.tradeMasscontent sizeWithFont:cell.nameLable.font
-                                                            constrainedToSize:maximumLabelSize
-                                                                lineBreakMode:NSLineBreakByWordWrapping];
+                                                                constrainedToSize:maximumLabelSize
+                                                                    lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.detailLable.frame;
             frame.origin.y=cell.sDetailLable.frame.origin.y;
@@ -539,8 +541,8 @@
         if (order.tradeContent!=nil) {
             
             CGSize expectedLabelSizeRemark = [order.tradeContent sizeWithFont:cell.nameLable.font
-                                                             constrainedToSize:maximumLabelSize
-                                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                                                            constrainedToSize:maximumLabelSize
+                                                                lineBreakMode:NSLineBreakByWordWrapping];
             
             frame=cell.remarkLable.frame;
             frame.origin.y=cell.sRemarkLable.frame.origin.y;
@@ -741,16 +743,7 @@
 {
     [super receiveMessage:message];
     if (message.sendObjectID==VIEWCONTROLLER_SUBCLIENT&&message.externData&&[message.externData boolValue]) {
-        
-        currentUnSubPageIndex=currentUnInstallPageIndex=currentSubAgainPageIndex=currentUnFeedBackPageIndex=1;
-        [self.unInstallDataArray removeAllObjects];
-        [self.unFeedBackDataArray removeAllObjects];
-        [self.unSubDataArray removeAllObjects];
-        [self.subAgainDataArray removeAllObjects];
-        
-        setupRequestCount=2;
-        [trade getWaitSubOrdersById:user.userid withPageIndex:currentUnSubPageIndex forPagesize:PAGESIZE];
-        [self lockView];
+        [self refresh];
     }
 }
 
