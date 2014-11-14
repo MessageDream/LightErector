@@ -11,7 +11,7 @@
 @class BaseHttpConnect;
 
 @protocol HttpConnectDelegate <NSObject>
--(void) willHttpConnectResquest:(BaseHttpConnect*)httpContent;
+-(void) willHttpConnectRequest:(BaseHttpConnect*)httpContent;
 -(void) didGetHttpConnectResponseHead:(NSDictionary*)allHead;
 -(void) httpConnectResponse:(BaseHttpConnect*)httpContent getByteCount:(NSInteger)byteCount;
 -(void) httpConnectResponse:(BaseHttpConnect*)httpContent uploadByteCount:(NSInteger)byteCount;

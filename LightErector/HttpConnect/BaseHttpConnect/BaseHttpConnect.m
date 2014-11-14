@@ -165,7 +165,7 @@ static NSOperationQueue *operationQueue = nil;
 
     _stauts = HttpContentStauts_WillStart;
     if (self.observer != nil) {
-        [self.observer willHttpConnectResquest:self];
+        [self.observer willHttpConnectRequest:self];
     }
     
     [request setCachePolicy:kNetCachePolicy];
