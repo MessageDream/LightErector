@@ -131,7 +131,7 @@
     }
 }
 
--(void) willHttpConnectResquest:(BaseHttpConnect*)httpContent
+-(void) willHttpConnectRequest:(BaseHttpConnect*)httpContent
 {
 }
 
