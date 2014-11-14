@@ -9,7 +9,7 @@
 #import "OrderCategoryView.h"
 
 
-#define SEGMENTEDCONTROLHEIGHT 30
+#define SEGMENTEDCONTROLHEIGHT 40
 
 @interface OrderCategoryView ()<UIScrollViewDelegate>
 {
