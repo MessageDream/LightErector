@@ -35,4 +35,6 @@
 @property(nonatomic,assign)NSInteger currentIndex;
 -(void)stopRefresh;
 -(void)createTables;
+-(void)setEditTimeViewStatus:(BOOL)hiden;
+-(void)hideKeyboard;
 @end

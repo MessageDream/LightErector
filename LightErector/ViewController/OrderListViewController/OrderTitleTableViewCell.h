@@ -25,6 +25,7 @@
 @property(nonatomic,strong)UILabel *nameLable;
 @property(nonatomic,strong)UILabel *mobileLable;
 @property(nonatomic,strong)UILabel *priceLable;
+@property(nonatomic,strong)UILabel *dateLable;
 -(void)createOptionButtonsWithTitles:(NSArray *)titles andIcons:(NSArray *)icons andBackgroundColors:(NSArray *)backColors andAction:(void (^)(NSInteger buttonIndex))action;
 -(void)showButtons;
 -(void)hideButtons;

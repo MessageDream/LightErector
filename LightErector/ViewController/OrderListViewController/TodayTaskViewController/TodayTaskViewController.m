@@ -177,6 +177,14 @@
             cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
         }
         cell.nameLable.text=order.tradeLinkman;
+        if (order.tradeAcreated&&[order.tradeAcreated length]) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSDate *date = [dateFormatter dateFromString:order.tradeAcreated];
+            [dateFormatter setDateFormat:@"MM-dd HH:mm"];
+            NSString *dstr=[dateFormatter stringFromDate:date];
+            cell.dateLable.text=dstr;
+        }
         cell.mobileLable.text=order.tradeMobile;
         if (model.isAttached) {
             [cell showButtons];

@@ -15,7 +15,7 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import "InstallFlowModalController.h"
 
-@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate,MFMessageComposeViewControllerDelegate,CustomUIDatePickerDelegate,UIAlertViewDelegate>
+@interface OrderCategoryViewController ()<UITableViewDelegate,UITableViewDataSource,CustomPullRefreshTableViewDelegate,MFMessageComposeViewControllerDelegate,CustomUIDatePickerDelegate,UIAlertViewDelegate,CustomTitleBar_ButtonDelegate>
 {
     __weak OrderCategoryView *orderCategoryView;
     
@@ -133,6 +133,11 @@
     [self.unSubDataArray removeAllObjects];
     [self.subAgainDataArray removeAllObjects];
     [self afterLogin];
+}
+
+-(void)rightButton_onClick:(id)sender
+{
+    [orderCategoryView hideKeyboard];
 }
 
 - (void)didReceiveMemoryWarning
@@ -278,7 +283,7 @@
         }
             break;
         case BUSINESS_UPDATESUBTIME:
-            orderCategoryView.editTimeView.hidden=YES;
+            [orderCategoryView setEditTimeViewStatus:YES];
             [self showTip:@"修改安装时间成功"];
             [orderCategoryView.unInstallTable reloadData];
             break;
@@ -450,7 +455,7 @@
                         NSDate *date = [dateFormatter dateFromString:blockOrder.tradeAcreated];
                         ((OrderCategoryView *)blockSelf.view).dataPicker.date=date;
                     }
-                    ((OrderCategoryView *)blockSelf.view).editTimeView.hidden=NO;
+                    [((OrderCategoryView *)blockSelf.view) setEditTimeViewStatus:NO];;
                     blockSelf.currentOrder=blockOrder;
                 }
                     break;
@@ -485,6 +490,14 @@
             cell.priceLable.text=[order.tradeAprices stringByAppendingString:@" 元"];
         }
         cell.nameLable.text=order.tradeLinkman;
+        if (order.tradeAcreated&&[order.tradeAcreated length]) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSDate *date = [dateFormatter dateFromString:order.tradeAcreated];
+            [dateFormatter setDateFormat:@"MM-dd HH:mm"];
+            NSString *dstr=[dateFormatter stringFromDate:date];
+            cell.dateLable.text=dstr;
+        }
         cell.mobileLable.text=order.tradeMobile;
         if (model.isAttached) {
             [cell showButtons];
@@ -702,7 +715,7 @@
 #pragma mark - CustomDataPicker
 -(IBAction)cancelButton_onClick:(id)sender
 {
-    orderCategoryView.editTimeView.hidden=YES;
+    [orderCategoryView setEditTimeViewStatus:YES];
 }
 
 -(IBAction)confirmButton_onClick:(id)sender forDate:(NSDate*)date

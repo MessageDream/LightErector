@@ -25,6 +25,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.customTitleBar.titleText= NSLocalizedStringFromTable(@"OrderList",Res_String,@"");
+        self.customTitleBar.rightButtonImage=[UIImage imageNamed:@"keyboard_btn"];
+        [self.customTitleBar.rightButton setHidden:YES];
+        
         self.segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:CGRectMake(0, self.customTitleBar.frame.origin.x+ self.customTitleBar.frame.size.height, frame.size.width, SEGMENTEDCONTROLHEIGHT)];
         self.segmentedControl.sectionTitles = @[ NSLocalizedStringFromTable(@"UnAccept",Res_String,@""),  NSLocalizedStringFromTable(@"UnSub",Res_String,@""), NSLocalizedStringFromTable(@"UnInstall",Res_String,@""), NSLocalizedStringFromTable(@"SubAgain",Res_String,@""), NSLocalizedStringFromTable(@"UnFeedBack",Res_String,@"")];
         self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -176,6 +179,18 @@
 -(void)stopRefresh
 {
     
+}
+
+-(void)hideKeyboard
+{
+    [self.textReson resignFirstResponder];
+    [self.customTitleBar.rightButton setHidden:YES];
+}
+
+-(void)setEditTimeViewStatus:(BOOL)hiden
+{
+    self.editTimeView.hidden=hiden;
+    self.customTitleBar.rightButton.hidden=hiden;
 }
 
 -(void)dealloc

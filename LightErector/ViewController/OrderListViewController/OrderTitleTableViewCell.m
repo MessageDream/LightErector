@@ -66,6 +66,13 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
         self.priceLable.font=font;
         [self.contentView addSubview:self.priceLable];
         
+        self.dateLable=[[UILabel alloc] init];
+        self.dateLable.backgroundColor=[UIColor clearColor];
+        self.dateLable.textColor=[MainStyle mainDarkColor];
+        self.dateLable.textAlignment=NSTextAlignmentRight;
+        self.dateLable.font=font;
+        [self.contentView addSubview:self.dateLable];
+        
 //                CGFloat lspace=71.0f;
 //                UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(lspace, self.frame.size.height-0.5, self.frame.size.width-lspace, 0.5)];
 //                lineView.backgroundColor=[UIColor lightGrayColor];
@@ -185,21 +192,22 @@ typedef NS_ENUM(NSInteger, ButtonStatus) {
     }
     CGRect rect=self.textLabel.frame;
     rect.origin.y= self.textLabel.font.lineHeight/6;
-    rect.size.width= rect.size.width*0.7;
+    rect.size.width= rect.size.width*0.5;
     rect.size.height=self.textLabel.font.lineHeight;
     
     self.textLabel.frame=rect;
+    rect.size.width= rect.size.width/0.5*0.7;
     self.nameLable.frame=CGRectMake(rect.origin.x, rect.origin.y+rect.size.height*1.2, rect.size.width/2.8, 14);
     self.mobileLable.frame=CGRectMake(self.nameLable.frame.origin.x+self.nameLable.frame.size.width, self.nameLable.frame.origin.y, rect.size.width/1.5, 14);
-    self.priceLable.frame=CGRectMake(rect.origin.x+rect.size.width,  rect.origin.y+2, rect.size.width/3, 14);
+    self.dateLable.frame=CGRectMake(self.textLabel.frame.origin.x+self.textLabel.frame.size.width,  self.textLabel.frame.origin.y+2, self.textLabel.frame.size.width, 14);
     
+    self.priceLable.frame=CGRectMake(self.dateLable.frame.origin.x+self.dateLable.frame.size.width-rect.size.width/3,  self.mobileLable.frame.origin.y, rect.size.width/3, 14);
     buttonStatus=ButtonStatus_Normal;
 }
 -(void)hideButtons
 {
     buttonStatus=ButtonStatus_Hide;
     [buttonsView removeFromSuperview];
-    
 }
 
 -(UIView *) createButtonContainer

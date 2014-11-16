@@ -36,11 +36,11 @@
     rect.origin.y=(self.frame.size.height- rect.size.height)/2;
     rect.size.width=rect.size.width*2;
     self.textLabel.frame=rect;
-    rect=self.priceLable.frame;
-    rect.origin.y=self.mobileLable.frame.origin.y;
-    rect.origin.x+=10;
-    rect.size.width+=10;
-    self.priceLable.frame=rect;
+//    rect=self.priceLable.frame;
+//    rect.origin.y=self.mobileLable.frame.origin.y;
+//    rect.origin.x+=10;
+//    rect.size.width+=10;
+//    self.priceLable.frame=rect;
     
 }
 @end
