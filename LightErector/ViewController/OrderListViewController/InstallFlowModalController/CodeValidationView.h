@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 jayden. All rights reserved.
 //
 
-#import "BaseUIView.h"
+#import "BaseScrollerView.h"
 @protocol CodeValidationViewDelegate <NSObject>
 -(void)requestCode_click:(id)sender;
 -(void)uploadCode_click:(NSString *)code;
 @end
 
-@interface CodeValidationView : BaseUIView
+@interface CodeValidationView : BaseScrollerView
 @property(nonatomic,weak)id<CodeValidationViewDelegate> observer;
 @end

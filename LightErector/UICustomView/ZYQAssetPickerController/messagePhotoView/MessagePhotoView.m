@@ -174,7 +174,8 @@
 -(void)localPhoto{
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc]init];
     
-    picker.maximumNumberOfSelection = 10;
+    picker.maximumNumberOfSelection = 3;
+    picker.minimumNumberOfSelection = 1;
     picker.assetsFilter = [ALAssetsFilter allPhotos];
     picker.showEmptyGroups = NO;
     picker.delegate = self;

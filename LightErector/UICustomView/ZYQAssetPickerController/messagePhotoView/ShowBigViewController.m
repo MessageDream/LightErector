@@ -49,7 +49,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
     if([[[UIDevice currentDevice]systemVersion] doubleValue]>=7.0){
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-        [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+//        [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
     }else{
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     }

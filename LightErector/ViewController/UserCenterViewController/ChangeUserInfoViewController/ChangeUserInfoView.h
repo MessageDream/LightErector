@@ -24,5 +24,6 @@
 @property (nonatomic,readonly)CustomTextField  *email;
 @property (nonatomic,readonly)CustomTextField  *telephone;
 @property (nonatomic,readonly)CustomTextField  *mobilephone;
+@property (nonatomic,readonly)UIButton  *btn_change;
 @property(nonatomic,weak)id<ChangeUserInfoViewDelegate,TextFiledReturnEditingDelegate> observer;
 @end

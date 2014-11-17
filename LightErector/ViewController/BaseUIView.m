@@ -111,9 +111,16 @@
     
     activeKeyboardControlOfScrollViewToBottomHeight = [UIScreen mainScreen].applicationFrame.size.height-self.activeKeyboardControlOfScrollView.bounds.size.height-self.activeKeyboardControlOfScrollView.frame.origin.y;
     
+    [UIView beginAnimations:@"Animation" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    
     CGRect viewFrame = [self.activeKeyboardControlOfScrollView frame];
     viewFrame.size.height =  viewFrame.size.height-keyboardSize.height+activeKeyboardControlOfScrollViewToBottomHeight;
     self.activeKeyboardControlOfScrollView.frame = viewFrame;
+    [UIView commitAnimations];
+    
     
     // Scroll the active text field into view.
     CGRect activeKeyboardControlRect = [self.activeKeyboardControl frame];
@@ -133,8 +140,13 @@
     CGSize keyboardSize = [aValue CGRectValue].size;
     CGRect viewFrame = [self.activeKeyboardControlOfScrollView frame];
     
+    [UIView beginAnimations:@"Animation" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
     viewFrame.size.height = viewFrame.size.height+keyboardSize.height-activeKeyboardControlOfScrollViewToBottomHeight;
     self.activeKeyboardControlOfScrollView.frame = viewFrame;
+    [UIView commitAnimations];
     
     keyboardShown = NO;
     saveKeyboardSize = CGSizeZero;

@@ -36,7 +36,7 @@
     UploadImageValidationView *view=[[UploadImageValidationView alloc] initWithFrame:rect];
     view.observer=self;
     view.photoViewOne.delegate=self;
-      view.photoViewTwo.delegate=self;
+    view.photoViewTwo.delegate=self;
     self.view=view;
 }
 

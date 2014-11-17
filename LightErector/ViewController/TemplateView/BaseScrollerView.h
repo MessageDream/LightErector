@@ -18,6 +18,7 @@
     UILabel *_lbl_aboveRefreshText;
     UILabel *_lbl_belowRefreshText;
 }
+@property(nonatomic,strong)UIScrollView *scrollerView;
 @property(nonatomic,strong)UIView *aboveRefreshView;
 @property(nonatomic,strong)UIView *belowRefreshView;
 @end

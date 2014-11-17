@@ -10,7 +10,9 @@
 #import "ImageUtils.h"
 
 @interface ChangeUserInfoView ()<CustomTextFieldDelegate>
-
+{
+    
+}
 @end
 
 @implementation ChangeUserInfoView
@@ -47,15 +49,15 @@
         
         UIImage *btn_changeImage = [ImageUtils createImageWithColor:[MainStyle mainGreenColor] andSize:CGSizeMake(frame.size.width-2*space, 40)];
         UIImage *btn_changeDisableImage = [ImageUtils createImageWithColor:[MainStyle mainDarkColor] andSize:CGSizeMake(frame.size.width-20, 40)];
-      UIButton  *btn_change = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn_change.frame = CGRectMake(10, _qq.frame.origin.y+_qq.frame.size.height+2*space,btn_changeImage.size.width, btn_changeImage.size.height);
-        [btn_change setBackgroundImage:btn_changeImage forState:UIControlStateNormal];
-        [btn_change setBackgroundImage:btn_changeDisableImage forState:UIControlStateDisabled];
-        btn_change.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btn_change setTitle:@"确认修改" forState:UIControlStateNormal];
-        [btn_change addTarget:self action:@selector(submitChange_click:) forControlEvents:UIControlEventTouchUpInside];
-        [_scrollerView addSubview:btn_change];
-         _scrollerView.contentSize = CGSizeMake(self.bounds.size.width, btn_change.frame.origin.y+btn_change.frame.size.height+10);
+        _btn_change = [UIButton buttonWithType:UIButtonTypeCustom];
+        _btn_change.frame = CGRectMake(10, _qq.frame.origin.y+_qq.frame.size.height+2*space,btn_changeImage.size.width, btn_changeImage.size.height);
+        [_btn_change setBackgroundImage:btn_changeImage forState:UIControlStateNormal];
+        [_btn_change setBackgroundImage:btn_changeDisableImage forState:UIControlStateDisabled];
+        _btn_change.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_btn_change setTitle:@"确认修改" forState:UIControlStateNormal];
+        [_btn_change addTarget:self action:@selector(submitChange_click:) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollerView addSubview:_btn_change];
+         _scrollerView.contentSize = CGSizeMake(self.bounds.size.width, _btn_change.frame.origin.y+_btn_change.frame.size.height+10);
     }
     return self;
 }
@@ -93,7 +95,11 @@
 
 -(BOOL)customTextFieldShouldBeginEditing:(CustomTextField *)textField
 {
-    self.activeKeyboardControl=textField;
+    if([textField isEqual:_qq]||[textField isEqual:_email]){
+         self.activeKeyboardControl=_btn_change;
+    }else{
+        self.activeKeyboardControl=textField;
+    }
     return YES;
 }
 /*

@@ -57,6 +57,7 @@
     frame.size.height=frame.size.height-DefaultTabBarHeight;
     
     OrderCategoryView* view=[[OrderCategoryView alloc] initWithFrame:frame];
+    view.customTitleBar.buttonEventObserver=self;
     self.view=view;
     orderCategoryView=view;
 }

@@ -481,9 +481,9 @@ static UIColor *titleColor;
                                     target:self
                                     action:@selector(finishPickingAssets:)];
     if([[[UIDevice currentDevice]systemVersion]doubleValue]>=7.0){
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:29.0f/255.0f green:137.0f/255.0f blue:254.0f/255.0f alpha:1];
 //            [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:29.0f/255.0f green:137.0f/255.0f blue:254.0f/255.0f alpha:1];
     }
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
@@ -498,26 +498,26 @@ static UIColor *titleColor;
         self.assets = [[NSMutableArray alloc] init];
     else
         [self.assets removeAllObjects];
-    
+    __weak ZYQAssetViewController *blockSelf=self;
     ALAssetsGroupEnumerationResultsBlock resultsBlock = ^(ALAsset *asset, NSUInteger index, BOOL *stop) {
         
         if (asset)
         {
-            [self.assets addObject:asset];
+            [blockSelf.assets addObject:asset];
             
             NSString *type = [asset valueForProperty:ALAssetPropertyType];
             
             if ([type isEqual:ALAssetTypePhoto])
-                self.numberOfPhotos ++;
+                blockSelf.numberOfPhotos ++;
             if ([type isEqual:ALAssetTypeVideo])
-                self.numberOfVideos ++;
+                blockSelf.numberOfVideos ++;
         }
         
-        else if (self.assets.count > 0)
+        else if (blockSelf.assets.count > 0)
         {
-            [self.tableView reloadData];
+            [blockSelf.tableView reloadData];
 
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:ceil(self.assets.count*1.0/columns)  inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [blockSelf.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:ceil(blockSelf.assets.count*1.0/columns)  inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         }
     };
     
@@ -811,6 +811,7 @@ static UIColor *titleColor;
                                          style:UIBarButtonItemStylePlain
                                         target:self
                                         action:@selector(dismiss:)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:29.0f/255.0f green:137.0f/255.0f blue:254.0f/255.0f alpha:1];
     }
 }
 
@@ -833,24 +834,25 @@ static UIColor *titleColor;
     ZYQAssetPickerController *picker = (ZYQAssetPickerController *)self.navigationController;
     ALAssetsFilter *assetsFilter = picker.assetsFilter;
     
+    __weak ZYQAssetGroupViewController *blockSelf=self;
     ALAssetsLibraryGroupsEnumerationResultsBlock resultsBlock = ^(ALAssetsGroup *group, BOOL *stop) {
         
         if (group)
         {
             [group setAssetsFilter:assetsFilter];
             if (group.numberOfAssets > 0 || picker.showEmptyGroups)
-                [self.groups addObject:group];
+                [blockSelf.groups addObject:group];
         }
         else
         {
-            [self reloadData];
+            [blockSelf reloadData];
         }
     };
     
     
     ALAssetsLibraryAccessFailureBlock failureBlock = ^(NSError *error) {
         
-        [self showNotAllowed];
+        [blockSelf showNotAllowed];
         
     };
     

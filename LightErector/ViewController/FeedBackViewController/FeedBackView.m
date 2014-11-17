@@ -34,7 +34,7 @@
         self.feedTitle.backgroundColor=[MainStyle mainLightTwoColor];
         [self.scrollerView addSubview:self.feedTitle];
         
-        self.feedContent=[[CustomTextView alloc] initWithFrame:CGRectMake(space, self.feedTitle.frame.size.height+self.feedTitle.frame.origin.y+10,  self.feedTitle.frame.size.width, 150)];
+        self.feedContent=[[CustomTextView alloc] initWithFrame:CGRectMake(space, self.feedTitle.frame.size.height+self.feedTitle.frame.origin.y+10,  self.feedTitle.frame.size.width, 100)];
         self.feedContent.backgroundColor=[MainStyle mainLightTwoColor];
         self.feedContent.placeholder=@"请输入反馈内容";
         self.feedContent.observer=self;

@@ -11,7 +11,7 @@
 
 #define SEGMENTEDCONTROLHEIGHT 40
 
-@interface OrderCategoryView ()<UIScrollViewDelegate>
+@interface OrderCategoryView ()<UIScrollViewDelegate,CustomTextViewDelegate>
 {
  
 }
@@ -78,6 +78,7 @@
         self.textReson=[[CustomTextView alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20,self.editTimeView.frame.size.height-self.dataPicker.frame.size.height-20)];
         self.textReson.backgroundColor=[MainStyle mainLightTwoColor];
         self.textReson.placeholder=@"请输入修改安装时间原因";
+        self.textReson.observer=self;
         [self.editTimeView addSubview:self.textReson];
     }
     return self;
@@ -189,8 +190,22 @@
 
 -(void)setEditTimeViewStatus:(BOOL)hiden
 {
-    self.editTimeView.hidden=hiden;
-    self.customTitleBar.rightButton.hidden=hiden;
+    self.editTimeView.hidden=hiden; 
+    if (hiden) {
+        [self.textReson resignFirstResponder];
+    }else{
+//        [self.textReson becomeFirstResponder];
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+
+}
+
+-(void)textViewShouldBeginEditing:(UITextView *)textView
+{
+    [self.customTitleBar.rightButton setHidden:NO];
 }
 
 -(void)dealloc
