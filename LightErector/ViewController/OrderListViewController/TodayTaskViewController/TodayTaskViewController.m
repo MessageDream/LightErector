@@ -103,7 +103,9 @@
         {
             __weak TodayTaskViewController *blockSelf=self;
             InstallFlowModalController *install=[[InstallFlowModalController alloc] initWithOrder:(Order *)baseDataModel andClosedBlock:^(InstallFlowModalController *controller) {
-                if ([controller.extData boolValue]){
+                if ([controller.extData isKindOfClass:[Message class]]) {
+                  [blockSelf sendSwichTabBarMessageAtIndex:2];
+                }else if ([controller.extData boolValue]){
                     blockSelf.currentPageIndex=1;
                     [blockSelf.dataArray removeAllObjects];
                     [blockSelf afterLogin];
