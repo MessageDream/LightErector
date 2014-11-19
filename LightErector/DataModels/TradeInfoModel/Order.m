@@ -19,7 +19,10 @@
         _typeProductname=[dic objectForKey:@"TypeProductname"];
         _tradeMobile=[dic objectForKey:@"TradeMobile"];
         _tradeAddress=[dic objectForKey:@"TradeAddress"];
-        _tradeAprices=[dic objectForKey:@"TradeAprices"];
+        if ([dic objectForKey:@"TradeAprices"]) {
+           _tradeAprices=[NSString stringWithFormat:@"%d",[[dic objectForKey:@"TradeAprices"] intValue]];
+        }
+       
         _tradeContent=[dic objectForKey:@"TradeContent"];
         _tradeContent2=[dic objectForKey:@"TradeContent2"];
         _tradeMasscontent=[dic objectForKey:@"TradeMasscontent"];

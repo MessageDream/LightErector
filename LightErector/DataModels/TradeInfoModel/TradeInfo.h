@@ -19,13 +19,13 @@
      NSMutableArray *_waitForFeedBackOrders;
      NSMutableArray *_waitForSettleOrders;
 }
-@property(nonatomic,readonly)NSArray *todayTaskOrders;
-@property(nonatomic,readonly)NSArray *waitForReceiveOrders;
-@property(nonatomic,readonly)NSArray *waitSubOrders;
-@property(nonatomic,readonly)NSArray *unTimedOrders;
-@property(nonatomic,readonly)NSArray *waitForInstallOrders;
-@property(nonatomic,readonly)NSArray *waitForFeedBackOrders;
-@property(nonatomic,readonly)NSArray *waitForSettleOrders;
+@property(nonatomic,readonly,strong)NSArray *todayTaskOrders;
+@property(nonatomic,readonly,strong)NSArray *waitForReceiveOrders;
+@property(nonatomic,readonly,strong)NSArray *waitSubOrders;
+@property(nonatomic,readonly,strong)NSArray *unTimedOrders;
+@property(nonatomic,readonly,strong)NSArray *waitForInstallOrders;
+@property(nonatomic,readonly,strong)NSArray *waitForFeedBackOrders;
+@property(nonatomic,readonly,strong)NSArray *waitForSettleOrders;
 @property(nonatomic,readonly,assign)int pagecount;
 @property(nonatomic,readonly,assign)int recordcount;
 @property(nonatomic,readonly,assign)int totalCount;

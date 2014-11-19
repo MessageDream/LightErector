@@ -27,19 +27,19 @@ typedef NS_ENUM(NSInteger, InstallFlowStatus) {
 };
 
 @interface Order : BaseDataModel
-@property (nonatomic,readonly)NSString  *tradeId;
-@property (nonatomic,readonly)NSString  *tradeMemberid;
-@property (nonatomic,readonly)NSString  *tmallname;
-@property (nonatomic,readonly)NSString  *tradeLinkman;
-@property (nonatomic,readonly)NSString  *typeProductname;
-@property (nonatomic,readonly)NSString  *tradeMobile;
-@property (nonatomic,readonly)NSString  *tradeAddress;
-@property (nonatomic,readonly)NSString  *tradeAprices;
-@property (nonatomic,readonly)NSString  *tradeContent;
-@property (nonatomic,readonly)NSString  *tradeContent2;
-@property (nonatomic,readonly)NSString  *tradeMasscontent;
-@property (nonatomic,readonly)NSString  *tradeAcreated;
-@property (nonatomic,readonly)NSString  *tradeKcreated;
+@property (nonatomic,readonly,strong)NSString  *tradeId;
+@property (nonatomic,readonly,strong)NSString  *tradeMemberid;
+@property (nonatomic,readonly,strong)NSString  *tmallname;
+@property (nonatomic,readonly,strong)NSString  *tradeLinkman;
+@property (nonatomic,readonly,strong)NSString  *typeProductname;
+@property (nonatomic,readonly,strong)NSString  *tradeMobile;
+@property (nonatomic,readonly,strong)NSString  *tradeAddress;
+@property (nonatomic,readonly,strong)NSString  *tradeAprices;
+@property (nonatomic,readonly,strong)NSString  *tradeContent;
+@property (nonatomic,readonly,strong)NSString  *tradeContent2;
+@property (nonatomic,readonly,strong)NSString  *tradeMasscontent;
+@property (nonatomic,readonly,strong)NSString  *tradeAcreated;
+@property (nonatomic,readonly,strong)NSString  *tradeKcreated;
 @property (nonatomic,readonly)NSInteger tradeCompanyid;
 @property (nonatomic,readonly)OrderType orderType;
 @property (nonatomic,readonly)InstallFlowStatus installStatus;
