@@ -111,6 +111,10 @@ static NSOperationQueue *operationQueue = nil;
         return;
     }
     
+    if (self.observer != nil) {
+        [self.observer willHttpConnectRequest:self];
+    }
+    
     NSMutableURLRequest *request;
     if ([_resquestType isEqualToString:HTTP_REQUEST_POST]) {
         if ([[_resquestHeads objectForKey:HEADER_CONTENT_TYPE_NAME] isEqualToString:HEADER_CONTENT_TYPE_JSON_VALUE]) {
@@ -164,9 +168,6 @@ static NSOperationQueue *operationQueue = nil;
     }
 
     _stauts = HttpContentStauts_WillStart;
-    if (self.observer != nil) {
-        [self.observer willHttpConnectRequest:self];
-    }
     
     [request setCachePolicy:kNetCachePolicy];
     [request setTimeoutInterval:_timeOut];

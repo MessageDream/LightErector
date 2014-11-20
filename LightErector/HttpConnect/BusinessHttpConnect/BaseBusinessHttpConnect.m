@@ -13,7 +13,7 @@
 - (void)createBaseBussinessHeads
 {
     if (![_resquestHeads objectForKey:HEADER_CONTENT_TYPE_NAME]) {
-         [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
+        [_resquestHeads setObject:HEADER_CONTENT_TYPE_JSON_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
     }
     //[_resquestHeads setObject:HEADER_CONTENT_LENGTH_VALUE forKey:HEADER_CONTENT_LENGTH_NAME];
 }
@@ -22,13 +22,13 @@
 - (void)createBaseBussinessHttpBody:(NSDictionary *)theParam
 {
     self.body=theParam;
-//    if (theParam!=nil) {
-//        if ([self.resquestType isEqualToString:HTTP_REQUEST_POST]) {
-//           self.body=theParam;
-//        }else if([self.resquestType isEqualToString:HTTP_REQUEST_GET]){
-//            [self setUrlParam:theParam];
-//        }
-//    }
+    //    if (theParam!=nil) {
+    //        if ([self.resquestType isEqualToString:HTTP_REQUEST_POST]) {
+    //           self.body=theParam;
+    //        }else if([self.resquestType isEqualToString:HTTP_REQUEST_GET]){
+    //            [self setUrlParam:theParam];
+    //        }
+    //    }
 }
 
 -(void)setUrlParam:(NSDictionary *)theParam
@@ -47,9 +47,9 @@
             }
         }
     }else{
-       path= [path stringByAppendingString:@"?"];
+        path= [path stringByAppendingString:@"?"];
         for (int i=0; i<count; ++i) {
-          path=  [path stringByAppendingFormat:@"%@=%@",[theParam.allKeys objectAtIndex:i],[theParam.allValues objectAtIndex:i]];
+            path=  [path stringByAppendingFormat:@"%@=%@",[theParam.allKeys objectAtIndex:i],[theParam.allValues objectAtIndex:i]];
             if (i<count-1) {
                 path=[path stringByAppendingString:@"&"];
             }
