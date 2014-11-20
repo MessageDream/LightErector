@@ -129,8 +129,8 @@
         baseBusinessHttpParamDic = [[NSMutableDictionary alloc] initWithDictionary:httpContent.body];
     else
         baseBusinessHttpParamDic = [[NSMutableDictionary alloc] init];
-
-        [baseBusinessHttpParamDic setObject:[[NtspHeader shareHeader] toDicValue] forKey:@"ntspheader"];
+    
+    [baseBusinessHttpParamDic setObject:[[NtspHeader shareHeader] toDicValue] forKey:@"ntspheader"];
     httpContent.body=baseBusinessHttpParamDic;
 }
 

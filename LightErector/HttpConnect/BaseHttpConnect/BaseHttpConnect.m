@@ -172,6 +172,11 @@ static NSOperationQueue *operationQueue = nil;
     [request setCachePolicy:kNetCachePolicy];
     [request setTimeoutInterval:_timeOut];
     
+#ifdef DEBUG_LOG
+    NSString *body = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+    NSLog(@"send:%@\n httpHeader:%@\n httpBody:%@",self.requestPath,request.allHTTPHeaderFields, body);
+#endif
+    
     _requestOperation=[[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [_requestOperation setCompletionBlockWithSuccess:_success failure:_failure];

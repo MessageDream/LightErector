@@ -62,11 +62,6 @@
 {
     [self createBaseBussinessHeads];
     [self createBaseBussinessHttpBody:theParam];
-    //test
-#ifdef DEBUG_LOG
-    //NSString *str = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
-    NSLog(@"send:%@\n%@",self.requestPath, self.body );
-#endif
     [super send];
 }
 
