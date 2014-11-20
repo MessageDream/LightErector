@@ -71,7 +71,13 @@
         muform.formMimeType=@"image/jpeg";
         muform.formFileName=[NSString stringWithFormat:@"lightfile%d.jpg",[li indexOfObject:item]];
         muform.type=FormMltipartTypeData;
-    muform.data=item;
+        if ([item isKindOfClass:[UIImage class]]) {
+            UIImage *img=item;
+             muform.data=UIImageJPEGRepresentation(img,0.5);
+        }else if([item isKindOfClass:[ALAsset class]]) {
+            ALAsset *set=item;
+             muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],0.5);
+        }
         
         [pics addObject: muform];
     }
@@ -82,7 +88,13 @@
         muform.formMimeType=@"image/jpeg";
         muform.formFileName=[NSString stringWithFormat:@"carfile%d.jpg",[ca indexOfObject:item]];
         muform.type=FormMltipartTypeData;
-        muform.data=item;
+        if ([item isKindOfClass:[UIImage class]]) {
+            UIImage *img=item;
+            muform.data=UIImageJPEGRepresentation(img,0.5);
+        }else if([item isKindOfClass:[ALAsset class]]) {
+            ALAsset *set=item;
+            muform.data=UIImageJPEGRepresentation([UIImage imageWithCGImage:set.defaultRepresentation.fullScreenImage],0.5);
+        }
         [pics addObject: muform];
     }
     
