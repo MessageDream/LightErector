@@ -8,7 +8,6 @@
 
 #import "BaseBusiness.h"
 #import "BaseBusinessHttpConnect.h"
-#import "BusinessHttpConnectWithNtspHeader.h"
 #import "HttpErrorCodeManager.h"
 #import "NtspHeader.h"
 
@@ -23,14 +22,6 @@
 {
     if (self = [super init]) {
         self.baseBusinessHttpConnect = [[BaseBusinessHttpConnect alloc] init];
-    }
-    return self;
-}
-
-- (id)initWithNtspHeader
-{
-    if (self = [super init]) {
-        self.baseBusinessHttpConnect = [[BusinessHttpConnectWithNtspHeader alloc] init];
     }
     return self;
 }
@@ -133,6 +124,14 @@
 
 -(void) willHttpConnectRequest:(BaseHttpConnect*)httpContent
 {
+    NSMutableDictionary * baseBusinessHttpParamDic;
+    if(httpContent.body!=nil)
+        baseBusinessHttpParamDic = [[NSMutableDictionary alloc] initWithDictionary:httpContent.body];
+    else
+        baseBusinessHttpParamDic = [[NSMutableDictionary alloc] init];
+
+        [baseBusinessHttpParamDic setObject:[[NtspHeader shareHeader] toDicValue] forKey:@"ntspheader"];
+    httpContent.body=baseBusinessHttpParamDic;
 }
 
 -(void) httpConnectResponse:(BaseHttpConnect*)httpContent GetByteCount:(NSInteger)byteCount

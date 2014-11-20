@@ -90,7 +90,6 @@
 		B26CB16519D5184D00023CEB /* shopping_basket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15C19D5184D00023CEB /* shopping_basket@2x.png */; };
 		B26CB16619D5184D00023CEB /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B26CB15D19D5184D00023CEB /* user@2x.png */; };
 		B26CB17719D5409700023CEB /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B26CB17619D5409700023CEB /* ImageUtils.m */; };
-		B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */; };
 		B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD119D8105A0084C594 /* TradeInfo.m */; };
 		B272CDD519D810AC0084C594 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDD419D810AC0084C594 /* Order.m */; };
 		B272CDDD19D90AA00084C594 /* CustomPullRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B272CDDC19D90AA00084C594 /* CustomPullRefreshView.m */; };
@@ -437,8 +436,6 @@
 		B26CB15D19D5184D00023CEB /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		B26CB17519D5409700023CEB /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
 		B26CB17619D5409700023CEB /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
-		B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHttpConnectWithNtspHeader.h; sourceTree = "<group>"; };
-		B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHttpConnectWithNtspHeader.m; sourceTree = "<group>"; };
 		B272CDD019D8105A0084C594 /* TradeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeInfo.h; path = TradeInfoModel/TradeInfo.h; sourceTree = "<group>"; };
 		B272CDD119D8105A0084C594 /* TradeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeInfo.m; path = TradeInfoModel/TradeInfo.m; sourceTree = "<group>"; };
 		B272CDD319D810AC0084C594 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = TradeInfoModel/Order.h; sourceTree = "<group>"; };
@@ -1516,8 +1513,6 @@
 		B2FDCA7E19D16C5B00215E70 /* BusinessHttpConnect */ = {
 			isa = PBXGroup;
 			children = (
-				B26D69ED19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.h */,
-				B26D69EE19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m */,
 				B2FDCA7F19D16C5B00215E70 /* BaseBusinessHttpConnect.h */,
 				B2FDCA8019D16C5B00215E70 /* BaseBusinessHttpConnect.m */,
 				B2FDCA8119D16C5B00215E70 /* BusinessHttpConnectFactory.h */,
@@ -2428,7 +2423,6 @@
 				B2FDCB7519D16C5B00215E70 /* CustomMarqueeView.m in Sources */,
 				B272CDD219D8105A0084C594 /* TradeInfo.m in Sources */,
 				B2FDCB7219D16C5B00215E70 /* CustomArticleAlertView.m in Sources */,
-				B26D69EF19D1B5CE00092D15 /* BusinessHttpConnectWithNtspHeader.m in Sources */,
 				B2FDCB8019D16C5B00215E70 /* CustomPlaceHolderTextField.m in Sources */,
 				B22C2DE519DFB4BB00DD8D38 /* OrderInfoView.m in Sources */,
 				B26CB13A19D2D2A500023CEB /* AFHTTPRequestOperation.m in Sources */,

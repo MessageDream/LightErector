@@ -11,7 +11,7 @@
 @implementation UploadCodeBusiness
 -(id)init
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
         self.businessId = BUSINESS_UPLOADCODE;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
         self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=alldone",ACTION_PATH];

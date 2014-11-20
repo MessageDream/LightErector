@@ -11,7 +11,7 @@
 @implementation GetOrderStatusBusiness
 -(id)init
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
         self.businessId = BUSINESS_GETORDERSTATUS;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
         self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=findstatus",ACTION_PATH];

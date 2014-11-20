@@ -11,7 +11,7 @@
 @implementation UpdateOrderStateBusiness
 -(id)init
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
         self.businessId = BUSINESS_UPDATEORDERSTATUS;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
         self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=done",ACTION_PATH];

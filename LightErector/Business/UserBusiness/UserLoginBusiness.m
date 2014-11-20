@@ -12,7 +12,7 @@
 
 -(id)init
 {
-    self = [super initWithNtspHeader];
+    self = [super init];
     self.businessId = BUSINESS_LOGIN;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
      self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=checklogin",ACTION_PATH];

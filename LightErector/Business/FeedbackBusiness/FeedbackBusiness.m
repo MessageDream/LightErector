@@ -11,7 +11,7 @@
 @implementation FeedbackBusiness
 -(id)init
 {
-    self = [super initWithNtspHeader];
+    self = [super init];
     self.businessId = BUSINESS_OTHER_FEEDBACK;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
     self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=opinion",ACTION_PATH];

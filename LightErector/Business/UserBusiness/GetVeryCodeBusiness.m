@@ -11,7 +11,7 @@
 @implementation GetVeryCodeBusiness
 -(id)init
 {
-    self = [super initWithNtspHeader];
+    self = [super init];
     self.businessId = BUSINESS_GETVERYCODE;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
     self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=getcode",ACTION_PATH];

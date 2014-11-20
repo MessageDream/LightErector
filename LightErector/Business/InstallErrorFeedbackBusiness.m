@@ -11,7 +11,7 @@
 @implementation InstallErrorFeedbackBusiness
 -(id)init
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
         self.businessId = BUSINESS_INSTALLERRORFEEDBACK;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
         self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=tradeerror",ACTION_PATH];

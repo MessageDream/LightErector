@@ -11,7 +11,7 @@
 @implementation UploadImageBusiness
 -(id)init
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
         [self.baseBusinessHttpConnect.resquestHeads setValue:HEADER_CONTENT_TYPE_Form_VALUE forKey:HEADER_CONTENT_TYPE_NAME];
         self.businessId = BUSINESS_UPLOADIMAGE;
         self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;

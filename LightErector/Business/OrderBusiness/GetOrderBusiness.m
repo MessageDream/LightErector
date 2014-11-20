@@ -11,7 +11,7 @@
 @implementation GetOrderBusiness
 -(id)initWithBusinessId:(BusinessType)businessid
 {
-    if(self = [super initWithNtspHeader]){
+    if(self = [super init]){
     self.businessId = businessid;
     self.baseBusinessHttpConnect.baseUrl=API_ADDRESS;
     self.baseBusinessHttpConnect.requestPath = [NSString stringWithFormat: @"/mobile/%@.php?action=list",ACTION_PATH];
