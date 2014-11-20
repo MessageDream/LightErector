@@ -16,7 +16,7 @@
     [self creatBusinessWithId:businessId andObserver:self andExecuteWithData:dic];
 }
 
-- (void)creatBusinessWithId:(NSInteger)businessId andObserver:(id<BusinessProtocl>)observer andExecuteWithData:(NSDictionary *)dic
+- (void)creatBusinessWithId:(NSInteger)businessId andObserver:(id<BusinessProtocol>)observer andExecuteWithData:(NSDictionary *)dic
 {
     baseBusiness = [BusinessFactory createBusiness:businessId];
     baseBusiness.businessObserver = observer;
@@ -26,7 +26,7 @@
     
 }
 
-#pragma mark - BusinessProtocl
+#pragma mark - BusinessProtocol
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary *)businessData
 {
     if (!self.observer||![self.observer respondsToSelector:@selector(didDataModelNoticeSucess:forBusinessType:)]) {

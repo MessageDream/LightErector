@@ -41,11 +41,11 @@ typedef NS_ENUM(NSInteger, BusinessErrorType)
 
 @class BaseBusiness;
 
-@protocol DownLoadBusinessProtocl <NSObject>
+@protocol DownLoadBusinessProtocol <NSObject>
 -(void)didDownLoadFileOfByteCount:(BaseBusiness *)business forByteCount:(long long)byteCount forTotalByteCount:(long long)totalByteCount;
 @end
 
-@protocol BusinessProtocl <NSObject>
+@protocol BusinessProtocol <NSObject>
 
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary*)businessData;
 - (void)didBusinessFail;
@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, BusinessErrorType)
 }
 
 @property(nonatomic) int businessId;
-@property(nonatomic,assign) id<BusinessProtocl>businessObserver;
+@property(nonatomic,assign) id<BusinessProtocol>businessObserver;
 @property(nonatomic)BusinessErrorType businessErrorType;
 @property(nonatomic,strong) BaseBusinessHttpConnect * baseBusinessHttpConnect;
 @property(nonatomic,readonly)NSString *errmsg;

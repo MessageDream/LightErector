@@ -10,13 +10,13 @@
 #import "DataModelDelegate.h"
 #import "BusinessType.h"
 #import "BaseBusiness.h"
-@interface BaseDataModel : NSObject<BusinessProtocl>
+@interface BaseDataModel : NSObject<BusinessProtocol>
 {
 @protected
     BaseBusiness *baseBusiness;
 }
 @property(nonatomic,assign)id<DataModelDelegate> observer;
 - (void)creatBusinessWithId:(NSInteger)businessId andExecuteWithData:(NSDictionary *)dic;
-- (void)creatBusinessWithId:(NSInteger)businessId andObserver:(id<BusinessProtocl>)observer andExecuteWithData:(NSDictionary *)dic;
+- (void)creatBusinessWithId:(NSInteger)businessId andObserver:(id<BusinessProtocol>)observer andExecuteWithData:(NSDictionary *)dic;
 ;
 @end

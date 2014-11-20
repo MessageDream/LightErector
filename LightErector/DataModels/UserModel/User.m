@@ -172,7 +172,7 @@
 {
     [self readLocalFile];
 }
-#pragma mark - BusinessProtocl
+#pragma mark - BusinessProtocol
 - (void)didBusinessSucess:(BaseBusiness *)business withData:(NSDictionary*)businessData
 {
     if(business.businessId == BUSINESS_LOGIN)
