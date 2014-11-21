@@ -16,7 +16,7 @@
 #endif
 
 //测试
-#define ENVTEST    1
+//#define ENVTEST    1
 
 //测试
 #ifdef ENVTEST

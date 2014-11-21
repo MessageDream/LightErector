@@ -12,12 +12,12 @@
 @implementation MD5
 +(NSString*)stringConvertMD5Len16:(NSString*)str
 {
-    return [self stringConvertMD5:str withLen:8];
+    return [self stringConvertMD5:str withLen:16];
 }
 
 +(NSString*)stringConvertMD5Len32:(NSString*)str
 {
-return [self stringConvertMD5:str withLen:16];
+return [self stringConvertMD5:str withLen:32];
 }
 
 +(NSString*)stringConvertMD5:(NSString*)str withLen:(int)len
@@ -27,9 +27,9 @@ return [self stringConvertMD5:str withLen:16];
     CC_MD5( cStr, strlen(cStr), result );
     
     NSMutableString *hash = [NSMutableString string];
-    for(int i=0;i<len;i++)
+    for(int i=0;i<len/2;i++)
     {
-        [hash appendFormat:@"%x",result[i]];
+        [hash appendFormat:@"%02x",result[i]];
     }
     return [hash lowercaseString];
 }
