@@ -15,11 +15,9 @@
 #import <Foundation/Foundation.h>
 #endif
 
-//测试
-//#define ENVTEST    1
 
 //测试
-#ifdef ENVTEST
+#ifdef DEBUG
 
 //用于打印网络交互信息
 #define  DEBUG_LOG            0
